@@ -19,6 +19,7 @@ import {
 import TopbarSearchForm from '../TopbarSearchForm/TopbarSearchForm';
 
 import css from './TopbarDesktop.module.css';
+import csss from './TopbarNav.module.css';
 
 const TopbarDesktop = props => {
   const {
@@ -49,7 +50,7 @@ const TopbarDesktop = props => {
 
   const search = (
     <TopbarSearchForm
-      className={css.searchLink}
+      className={css.searchLink }
       desktopInputRoot={css.topbarSearchWithLeftPadding}
       onSubmit={onSearchSubmit}
       initialValues={initialSearchFormValues}
@@ -138,23 +139,59 @@ const TopbarDesktop = props => {
   );
 
   return (
-    <nav className={classes}>
-      <LinkedLogo
-        className={css.logoLink}
-        format="desktop"
-        alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
-      />
-      {search}
-      <NamedLink className={css.createListingLink} name="NewListingPage">
-        <span className={css.createListing}>
-          <FormattedMessage id="TopbarDesktop.createListing" />
-        </span>
-      </NamedLink>
-      {inboxLink}
-      {profileMenu}
-      {signupLink}
-      {loginLink}
-    </nav>
+
+
+    <div className='container-main main-bg'>
+    <section className="hero">
+        <nav className={csss}>
+           
+           
+            <div className={csss.links}>
+            <LinkedLogo
+              className={css.logoLink}
+              format="desktop"
+              alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
+            />
+              <div className={csss.logo}>INFLUENCE CONNECT</div>
+              <a href="">Home</a>
+              <hr className={csss.vr}></hr>
+              <a href="">About</a>
+              <hr className={csss.vr}></hr>
+              <a href="">Gallery</a>
+              <hr className={csss.vr}></hr>
+              <a href="">Services</a>
+              <hr className={csss.vr}></hr>
+              <a href="">Contact</a>
+             
+            </div>
+           
+            <div className={csss.search}>
+              <div className={csss.searchcontrol}>
+                 {search}
+              </div>
+                
+                {loginLink}
+            </div>
+           
+        </nav>
+      
+     
+    </section>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+    
+
+    
   );
 };
 

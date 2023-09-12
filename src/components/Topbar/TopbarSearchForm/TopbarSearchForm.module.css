@@ -46,7 +46,7 @@
 }
 
 .desktopIcon {
-  height: var(--topbarHeightDesktop);
+ 
   border: none;
   padding-top: 2px;
 
@@ -56,23 +56,20 @@
   background-color: var(--colorWhite);
 }
 
+
 .desktopInput {
   composes: p from global;
   flex-grow: 1;
   /* Font */
-  height: var(--topbarHeightDesktop);
+  
   line-height: unset;
   border: none;
-  padding-top: 0;
-  padding-bottom: 0;
   padding-left: 10px;
 
   /* Search text gets ellipsis if it's too wide */
   text-overflow: ellipsis;
   overflow-x: hidden;
-
-  margin-top: 0;
-  margin-bottom: 0;
+  background-color: rgb(225, 225, 225);
 
   &:hover,
   &:focus {
@@ -95,8 +92,7 @@
   }
 
   @media (--viewportMedium) {
-    margin-top: 0;
-    margin-bottom: 0;
+   
   }
 }
 

@@ -132,6 +132,11 @@ const SignupFormComponent = props => (
                 )}
               />
             </div>
+            <div className={css.radioContainer}>
+              <input className={css.radio} type="radio" value="Influencer" name="role" />I am an Influencer
+              <div className={css.radio}></div>
+              <input className={css.radio} type="radio" value="Seller" name="role" /> I am a Seller
+            </div>
             <FieldTextInput
               className={css.password}
               type="password"
@@ -149,6 +154,7 @@ const SignupFormComponent = props => (
           </div>
 
           <div className={css.bottomWrapper}>
+          
             {termsAndConditions}
             <PrimaryButton type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
               <FormattedMessage id="SignupForm.signUp" />

@@ -13,6 +13,7 @@
 
 // React 16 depends on the collection types Map and Set, as well as requestAnimationFrame.
 // https://reactjs.org/docs/javascript-environment-requirements.html
+
 import 'core-js/features/map';
 import 'core-js/features/set';
 import 'raf/polyfill';

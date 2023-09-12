@@ -35,3 +35,19 @@
 .bottomWrapper {
   composes: marketplaceModalBottomWrapper from global;
 }
+
+
+.radioContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: left;
+}
+.radio{
+  width: 20px;
+  margin-right: 5px;
+}
+.radioSpace{
+  margin-left: 10px;
+  width: 5px;
+}
