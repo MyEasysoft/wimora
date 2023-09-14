@@ -10,6 +10,7 @@ import SectionBuilder from './SectionBuilder/SectionBuilder.js';
 import StaticPage from './StaticPage.js';
 
 import css from './PageBuilder.module.css';
+import LandingPageMainComponent from '../../components/LandingPageMain/LandingPageMain.js';
 
 const getMetadata = (meta, schemaType, fieldOptions) => {
   const { pageTitle, pageDescription, socialSharing } = meta;
@@ -25,6 +26,7 @@ const getMetadata = (meta, schemaType, fieldOptions) => {
   const schemaImageMaybe = schemaImage ? { image: [schemaImage] } : {};
   const isArticle = ['Article', 'NewsArticle', 'TechArticle'].includes(schemaType);
   const schemaHeadlineMaybe = isArticle ? { headline: title } : {};
+  
 
   // Schema for search engines (helps them to understand what this page is about)
   // http://schema.org (This template uses JSON-LD format)
@@ -116,7 +118,7 @@ const PageBuilder = props => {
               <Topbar as="header" className={css.topbar}>
                 <TopbarContainer />
               </Topbar>
-              
+              <LandingPageMainComponent />
               <Main as="main" className={css.main}>
                 {sections.length === 0 && inProgress ? (
                   <LoadingSpinner />

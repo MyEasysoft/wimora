@@ -260,8 +260,13 @@
   composes: textSmall from global;
 
   display: inline-block;
-  margin: 28px 0;
+  margin: 18px;
   text-decoration: inherit;
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 /* left animated "border" like hover element */

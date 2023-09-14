@@ -185,6 +185,7 @@ body {
   font-optical-sizing: auto;
 
   background-color: var(--colorGrey50);
+  
 }
 
 ::selection {
@@ -333,7 +334,7 @@ html,
 li,
 p,
 pre {
-  font-family: var(--fontFamily);
+ 
   font-weight: var(--fontWeightMedium);
 
   /* No margins for default font */
