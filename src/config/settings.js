@@ -16,6 +16,7 @@ const appSettings = {
   sdk: {
     clientId: process.env.REACT_APP_SHARETRIBE_SDK_CLIENT_ID,
     baseUrl: process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL,
+    assetCdnBaseUrl: process.env.REACT_APP_SHARETRIBE_SDK_ASSET_CDN_BASE_URL,
     transitVerbose: process.env.REACT_APP_SHARETRIBE_SDK_TRANSIT_VERBOSE === 'true',
   },
 

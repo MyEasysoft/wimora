@@ -7,9 +7,9 @@ import bag4 from '../../assets/bag4.jpg';
 import bag5 from '../../assets/bag4.jpg';
 import bag6 from '../../assets/bag3.jpg';
 import profileImg from '../../assets/bg.png';
-import s1 from '../../assets/s4.jpeg';
-import s2 from '../../assets/s5.jpg';
-import s3 from '../../assets/s4.jpeg';
+import s1 from '../../assets/new/Amazonboxes.PNG';
+import s2 from '../../assets/new/ShoppableVideos.JPG';
+import s3 from '../../assets/new/Pic5.JPG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 

@@ -9,7 +9,7 @@ import bag6 from '../../assets/bag3.jpg';
 import profileImg from '../../assets/bg.png';
 import s1 from '../../assets/s1.jpg';
 import s2 from '../../assets/s2.jpg';
-import w1 from '../../assets/w1.jpg';
+import w1 from '../../assets/cover1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
