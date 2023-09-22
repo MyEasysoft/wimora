@@ -35,6 +35,10 @@ const SearchPageWithGrid = loadable(() => import(/* webpackChunkName: "SearchPag
 const StripePayoutPage = loadable(() => import(/* webpackChunkName: "StripePayoutPage" */ '../containers/StripePayoutPage/StripePayoutPage'));
 const TermsOfServicePage = loadable(() => import(/* webpackChunkName: "TermsOfServicePage" */ '../containers/TermsOfServicePage/TermsOfServicePage'));
 const TransactionPage = loadable(() => import(/* webpackChunkName: "TransactionPage" */ '../containers/TransactionPage/TransactionPage'));
+const SellerPage = loadable(() => import(/* webpackChunkName: "SellerPage" */ '../containers/SellerDashboard/SellerPage'));
+const InfluencerPage = loadable(() => import(/* webpackChunkName: "InfluencerPage" */ '../containers/InfluencerDashboard/InfluencerPage'));
+
+
 
 // Styleguide helps you to review current components and develop new ones
 const StyleguidePage = loadable(() => import(/* webpackChunkName: "StyleguidePage" */ '../containers/StyleguidePage/StyleguidePage'));
@@ -164,6 +168,18 @@ const routeConfiguration = (layoutConfig) => {
       auth: true,
       authPage: 'LoginPage',
       component: ProfileSettingsPage,
+    },
+    {
+      path: '/seller',
+      name: 'SellerPage',
+      auth: false,
+      component: SellerPage,
+    },
+    {
+      path: '/influencer',
+      name: 'InfluencerPage',
+      auth: false,
+      component: InfluencerPage,
     },
 
     // Note: authenticating with IdP (e.g. Facebook) expects that /login path exists
