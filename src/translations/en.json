@@ -714,6 +714,9 @@
   "SignupForm.lastNameLabel": "Last name",
   "SignupForm.lastNamePlaceholder": "Doe",
   "SignupForm.lastNameRequired": "You need to add a last name.",
+  "SignupForm.RoleInfluencer": "Influencer",
+  "SignupForm.RoleSeller": "Seller",
+  
   "SignupForm.passwordLabel": "Password",
   "SignupForm.passwordPlaceholder": "Enter your password…",
   "SignupForm.passwordRequired": "You need to add a password.",
@@ -1069,5 +1072,77 @@
   "UserDisplayName.deleted": "Deleted user",
   "UserNav.accountSettings": "Account settings",
   "UserNav.profileSettings": "Profile settings",
-  "UserNav.yourListings": "Your listings"
+  "UserNav.yourListings": "Your listings",
+
+
+  "SalesAccountPage.details": "This is a breakdown of the Sales data",
+  "SalesAccountPage.heading": "View Sales",
+  "SalesAccountPage.title": "View Sales",
+  "SalesAccountPage.error": "Error getting sales data",
+  "LayoutWrapperAccountSettingsSideNav.SalesTabTitle": "Sales",
+  
+
+  "SEOPage.details": "Search Engine Uptimisation",
+  "SEOPage.heading": "SEO Setting",
+  "SEOPage.title": "SEO Setting",
+  "SEOPage.error": "Error getting SEO data",
+  "LayoutWrapperAccountSettingsSideNav.SEOTabTitle": "SEO",
+  
+  "AdsPage.details": "Search Engine Uptimisation",
+  "AdsPage.heading": "Ads setting",
+  "AdsPage.title": "Ads setting",
+  "AdsPage.error": "Error getting Ads data",
+  "LayoutWrapperAccountSettingsSideNav.AdsTabTitle": "My ads",
+  
+  "RefundsPage.details": "List of refunded transactions",
+  "RefundsPage.heading": "Refunds",
+  "RefundsPage.title": "Refunds",
+  "RefundsPage.error": "Error getting refunds data",
+  "LayoutWrapperAccountSettingsSideNav.RefundsTabTitle": "Refunds",
+  
+
+  "ShippingPage.details": "List of shipments and their details",
+  "ShippingPage.heading": "Shipping",
+  "ShippingPage.title": "Shipping",
+  "ShippingPage.error": "Error getting shipping data",
+  "LayoutWrapperAccountSettingsSideNav.ShippingTabTitle": "Shipping",
+  
+
+  "ProductPage.details": "List of products and their details",
+  "ProductPage.heading": "Products",
+  "ProductPage.title": "Products",
+  "ProductPage.error": "Error getting products data",
+  "LayoutWrapperAccountSettingsSideNav.ProductTabTitle": "Products",
+
+  "CartsPage.details": "List of carts and their details",
+  "CartsPage.heading": "Carts",
+  "CartsPage.title": "Carts",
+  "CartsPage.error": "Error getting carts data",
+  "LayoutWrapperAccountSettingsSideNav.CartsTabTitle": "Carts",
+
+  "PurchasesPage.details": "List of purchases and their details",
+  "PurchasesPage.heading": "Purchases",
+  "PurchasesPage.title": "Purchases",
+  "PurchasesPage.error": "Error getting purchases data",
+  "LayoutWrapperAccountSettingsSideNav.PurchasesTabTitle": "Purchases",
+
+  "WishlistPage.details": "List of wishlist and their details",
+  "WishlistPage.heading": "Wishlist",
+  "WishlistPage.title": "Wishlist",
+  "WishlistPage.error": "Error getting wishlist data",
+  "LayoutWrapperAccountSettingsSideNav.WishlistTabTitle": "My Wishlist",
+
+  "CanceledPage.details": "List of canceled transactions and their details",
+  "CanceledPage.heading": "Canceled Transactions",
+  "CanceledPage.title": "Canceled Transactions",
+  "CanceledPage.error": "Error getting canceled transactions data",
+  "LayoutWrapperAccountSettingsSideNav.CanceledTabTitle": "Canceled Transactions",
+
+  "DeleteAccountPage.details": "This action is permanent and cannot be undone! After deleting your account, you will be logged out immediately and will not be able to access your listings or transactions anymore.",
+  "DeleteAccountPage.heading": "Delete your account",
+  "DeleteAccountPage.title": "Delete your account",
+  "DeleteAccountPage.error": "Cannot delete user profile. You have {errorCause} Please contact Biketribe support or complete the unfinished issues and try again.",
+  "LayoutWrapperAccountSettingsSideNav.deleteAccountTabTitle": "Delete account"
+  
+
 }

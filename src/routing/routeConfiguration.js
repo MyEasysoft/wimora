@@ -37,6 +37,18 @@ const TermsOfServicePage = loadable(() => import(/* webpackChunkName: "TermsOfSe
 const TransactionPage = loadable(() => import(/* webpackChunkName: "TransactionPage" */ '../containers/TransactionPage/TransactionPage'));
 const SellerPage = loadable(() => import(/* webpackChunkName: "SellerPage" */ '../containers/SellerDashboard/SellerPage'));
 const InfluencerPage = loadable(() => import(/* webpackChunkName: "InfluencerPage" */ '../containers/InfluencerDashboard/InfluencerPage'));
+const SalesAccountPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/SalesAccountPage/SalesAcountPage'));
+
+const DeleteAccountPage = loadable(() =>import(/* webpackChunkName: "DeleteAccountPage" */ '../containers/DeleteAccountPage/DeleteAccountPage'));
+const SEOPage = loadable(() => import(/* webpackChunkName: "SEOPage" */ '../containers/SEOPage/SEOPage'));
+const AdsPage = loadable(() => import(/* webpackChunkName: "AdsPage" */ '../containers/AdsPage/AdsPage'));
+const RefundsPage = loadable(() => import(/* webpackChunkName: "RefundsPage" */ '../containers/RefundsPage/RefundsPage'));
+
+const ProductPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/ProductPage/ProductPage'));
+const CartsPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/CartsPage/CartsPage'));
+const PurchasesPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/PurchasesPage/PurchasesPage'));
+const WishlistPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/WishlistPage/WishlistPage'));
+const CanceledPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/CanceledPage/CanceledPage'));
 
 
 
@@ -48,6 +60,18 @@ export const ACCOUNT_SETTINGS_PAGES = [
   'PasswordChangePage',
   'StripePayoutPage',
   'PaymentMethodsPage',
+  'DeleteAccountPage',
+  'SalesAccountPage',
+  'SEOPage',
+  'AdsPage',
+  'RefundsPage',
+  
+  'ProductPage',
+  'ProductPage',
+  'CartsPage',
+  'PurchasesPage',
+  'WishlistPage',
+  'CanceledPage',
 ];
 
 // https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID
@@ -168,6 +192,94 @@ const routeConfiguration = (layoutConfig) => {
       auth: true,
       authPage: 'LoginPage',
       component: ProfileSettingsPage,
+    },
+
+    {
+      path: '/account/delete-profile',
+      name: 'DeleteAccountPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: DeleteAccountPage,
+    },
+
+    {
+      path: '/account/sales',
+      name: 'SalesAccountPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: SalesAccountPage,
+    },
+    {
+      path: '/account/delete-profile',
+      name: 'DeleteAccountPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: DeleteAccountPage,
+    },
+
+    {
+      path: '/account/seo',
+      name: 'SEOPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: SEOPage,
+    },
+
+    {
+      path: '/account/ads',
+      name: 'AdsPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: AdsPage,
+    },
+
+    {
+      path: '/account/refunds',
+      name: 'RefundsPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: RefundsPage,
+    },
+
+  
+    {
+      path: '/account/products',
+      name: 'ProductPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: ProductPage,
+    },
+
+    {
+      path: '/account/carts',
+      name: 'CartsPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: CartsPage,
+    },
+
+    {
+      path: '/account/purchases',
+      name: 'PurchasesPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: PurchasesPage,
+    },
+
+    {
+      path: '/account/wishlist',
+      name: 'WishlistPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: WishlistPage,
+    },
+
+    {
+      path: '/account/canceled',
+      name: 'CanceledPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: CanceledPage,
     },
     {
       path: '/seller',

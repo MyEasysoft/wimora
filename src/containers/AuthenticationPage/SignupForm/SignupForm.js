@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { FormattedMessage, injectIntl, intlShape } from '../../../util/reactIntl';
 import * as validators from '../../../util/validators';
-import { Form, PrimaryButton, FieldTextInput } from '../../../components';
+import { Form, PrimaryButton, FieldTextInput, FieldRadioButton } from '../../../components';
 
 import css from './SignupForm.module.css';
 
@@ -77,6 +77,7 @@ const SignupFormComponent = props => (
       const classes = classNames(rootClassName || css.root, className);
       const submitInProgress = inProgress;
       const submitDisabled = invalid || submitInProgress;
+      const showAsRequired = invalid || submitInProgress;
 
       return (
         <Form className={classes} onSubmit={handleSubmit}>
@@ -132,10 +133,23 @@ const SignupFormComponent = props => (
                 )}
               />
             </div>
+
             <div className={css.radioContainer}>
-              <input className={css.radio} type="radio" value="Influencer" name="role" />I am an Influencer
+                <FieldRadioButton
+                id='SignupForm.RoleInfluencer'
+                name="role"
+                label="I am an Influencer"
+                value="Influencer"
+                showAsRequired={showAsRequired}
+              />
               <div className={css.radio}></div>
-              <input className={css.radio} type="radio" value="Seller" name="role" /> I am a Seller
+              <FieldRadioButton
+                id='SignupForm.RoleSeller'
+                name="role"
+                label="I am a Seller"
+                value="Seller"
+                showAsRequired={showAsRequired}
+              />
             </div>
             <FieldTextInput
               className={css.password}

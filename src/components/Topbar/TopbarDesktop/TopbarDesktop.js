@@ -20,6 +20,7 @@ import TopbarSearchForm from '../TopbarSearchForm/TopbarSearchForm';
 
 import css from './TopbarDesktop.module.css';
 import csss from './TopbarNav.module.css';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const TopbarDesktop = props => {
   const {
@@ -45,6 +46,7 @@ const TopbarDesktop = props => {
   const marketplaceName = appConfig.marketplaceName;
   const authenticatedOnClientSide = mounted && isAuthenticated;
   const isAuthenticatedOrJustHydrated = isAuthenticated || !mounted;
+  const isLandingPage =(currentPage===null||currentPage.includes("LandingPage"))?true:false;
 
   const classes = classNames(rootClassName || css.root, className);
 
@@ -138,6 +140,25 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
+  
+  const profileMenuContainer = isLandingPage && isAuthenticatedOrJustHydrated ? "" :  (
+    <div className={csss.iconRow}>
+      {inboxLink}
+      {profileMenu}
+    </div>
+  );
+
+  const location = useLocation();
+  const path = location.pathname;
+
+  const newListLink = (path==="/" || path==="/login" || path==="/account/seller-instruction" || path==="/signup" || path==="/s")?"":
+    <NamedLink className={css.createListingLink} name="NewListingPage">
+      <span className={css.createListing}>
+        <FormattedMessage id="TopbarDesktop.createListing" />
+      </span>
+    </NamedLink>
+  ;
+
   return (
 
 
@@ -169,9 +190,14 @@ const TopbarDesktop = props => {
               <div className={csss.searchcontrol}>
                  {search}
               </div>
-                
-                {loginLink}
+              {loginLink}
+              {newListLink}
+              {inboxLink}
+              {profileMenu}
+     
             </div>
+
+            
            
         </nav>
       

@@ -120,6 +120,96 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
         name: 'PaymentMethodsPage',
       },
     },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.deleteAccountTabTitle" />,
+      selected: currentPage === 'DeleteAccountPage',
+      id: 'DeleteAccountPageTab',
+      linkProps: {
+        name: 'DeleteAccountPage',
+      },
+    },
+
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.SalesTabTitle" />,
+      selected: currentPage === 'SalesAccountPage',
+      id: 'SalesAccountPageTab',
+      linkProps: {
+        name: 'SalesAccountPage',
+      },
+    },
+
+
+
+
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.SEOTabTitle" />,
+      selected: currentPage === 'SEOPage',
+      id: 'SEOPageTab',
+      linkProps: {
+        name: 'SEOPage',
+      },
+    },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.AdsTabTitle" />,
+      selected: currentPage === 'AdsPage',
+      id: 'AdsPageTab',
+      linkProps: {
+        name: 'AdsPage',
+      },
+    },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.RefundsTabTitle" />,
+      selected: currentPage === 'RefundsPage',
+      id: 'RefundsPageTab',
+      linkProps: {
+        name: 'RefundsPage',
+      },
+    },
+   
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.ProductTabTitle" />,
+      selected: currentPage === 'ProductPage',
+      id: 'ProductPageTab',
+      linkProps: {
+        name: 'ProductPage',
+      },
+    },
+
+
+
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.CartsTabTitle" />,
+      selected: currentPage === 'CartsPage',
+      id: 'CartsPageTab',
+      linkProps: {
+        name: 'CartsPage',
+      },
+    },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.PurchasesTabTitle" />,
+      selected: currentPage === 'PurchasesPage',
+      id: 'PurchasesPageTab',
+      linkProps: {
+        name: 'PurchasesPage',
+      },
+    },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.WishlistTabTitle" />,
+      selected: currentPage === 'WishlistPage',
+      id: 'WishlistPageTab',
+      linkProps: {
+        name: 'WishlistPage',
+      },
+    },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.CanceledTabTitle" />,
+      selected: currentPage === 'CanceledPage',
+      id: 'CanceledPageTab',
+      linkProps: {
+        name: 'CanceledPage',
+      },
+    },
+
   ];
 
   return <TabNav rootClassName={css.tabs} tabRootClassName={css.tab} tabs={tabs} />;

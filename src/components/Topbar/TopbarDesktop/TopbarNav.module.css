@@ -27,14 +27,14 @@
     height: 100%;
     display: inline-flex;
     flex-direction: row;
-    color: black;
+    color: rgb(40, 40, 40);
     padding-right: 20px;
     justify-content: space-between;
     
   }
   nav a{
     text-decoration: none;
-    color: rgb(4, 4, 4);
+    color: rgb(40, 40, 40);
     padding: 25px 10px 25px 10px;
     transition: width 2s;
     font-size: 16px;
@@ -45,7 +45,7 @@
 
   nav a:hover{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     transition: .2s;
   }
 
@@ -208,4 +208,9 @@
 
   .desktopInputContainer{
     background-color: rgb(225, 225, 225);
+  }
+
+  .inboxLink{
+    display: flex;
+    flex-direction: row;
   }

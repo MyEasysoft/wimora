@@ -18,6 +18,17 @@ import ProfileSettingsPage from './ProfileSettingsPage/ProfileSettingsPage.duck'
 import SearchPage from './SearchPage/SearchPage.duck';
 import StripePayoutPage from './StripePayoutPage/StripePayoutPage.duck';
 import TransactionPage from './TransactionPage/TransactionPage.duck';
+import DeleteAccountPage from './DeleteAccountPage/DeleteAccountPage.duck';
+import SalesAccountPage from './SalesAccountPage/SalesAccountPage.duck';
+import SEOPage from './SEOPage/SEOPage.duck';
+import AdsPage from './AdsPage/AdsPage.duck';
+import RefundsPage from './RefundsPage/RefundsPage.duck';
+
+import ProductPage from './ProductPage/ProductPage.duck';
+import CartsPage from './CartsPage/CartsPage.duck';
+import PurchasesPage from './PurchasesPage/PurchasesPage.duck';
+import WishlistPage from './WishlistPage/WishlistPage.duck';
+import CanceledPage from './CanceledPage/CanceledPage.duck';
 
 export {
   CheckoutPage,
@@ -35,4 +46,15 @@ export {
   SearchPage,
   StripePayoutPage,
   TransactionPage,
+  DeleteAccountPage,
+  SalesAccountPage,
+  SEOPage,
+  AdsPage,
+  RefundsPage,
+  ProductPage,
+  CartsPage,
+  PurchasesPage,
+  WishlistPage,
+  CanceledPage,
+
 };
