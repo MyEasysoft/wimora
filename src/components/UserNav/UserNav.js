@@ -28,7 +28,7 @@ const UserNav = props => {
       },
     },
     {
-      text: <FormattedMessage id="UserNav.accountSettings" />,
+      text: <FormattedMessage id="UserNav.dashboard" />,
       selected: ACCOUNT_SETTINGS_PAGES.includes(currentPage),
       disabled: false,
       linkProps: {

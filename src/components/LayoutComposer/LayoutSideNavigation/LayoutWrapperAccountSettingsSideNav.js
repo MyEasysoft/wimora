@@ -89,6 +89,50 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
 
   const tabs = [
     {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.ProjectsTabTitle" />,
+      selected: currentPage === 'ProjectsPage',
+      id: 'ProjectsPageTab',
+      linkProps: {
+        name: 'ProjectsPage',
+      },
+    },
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.EarningsTabTitle" />,
+      selected: currentPage === 'EarningsPage',
+      id: 'EarningsPageTab',
+      linkProps: {
+        name: 'EarningsPage',
+      },
+    },
+    
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.GigsTabTitle" />,
+      selected: currentPage === 'GigsPage',
+      id: 'GigsPageTab',
+      linkProps: {
+        name: 'GigsPage',
+      },
+    },
+
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.PendingProposalsPageTabTitle" />,
+      selected: currentPage === 'PendingProposalsPage',
+      id: 'PendingProposalsPageTab',
+      linkProps: {
+        name: 'PendingProposalsPage',
+      },
+    },
+
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.TransactionHistoryPageTabTitle" />,
+      selected: currentPage === 'TransactionHistoryPage',
+      id: 'TransactionHistoryPageTab',
+      linkProps: {
+        name: 'TransactionHistoryPage',
+      },
+    },
+
+    {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.contactDetailsTabTitle" />,
       selected: currentPage === 'ContactDetailsPage',
       id: 'ContactDetailsPageTab',
@@ -138,25 +182,10 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
       },
     },
 
+    
+   
 
-
-
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.SEOTabTitle" />,
-      selected: currentPage === 'SEOPage',
-      id: 'SEOPageTab',
-      linkProps: {
-        name: 'SEOPage',
-      },
-    },
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.AdsTabTitle" />,
-      selected: currentPage === 'AdsPage',
-      id: 'AdsPageTab',
-      linkProps: {
-        name: 'AdsPage',
-      },
-    },
+  
     {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.RefundsTabTitle" />,
       selected: currentPage === 'RefundsPage',
@@ -175,24 +204,6 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
       },
     },
 
-
-
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.CartsTabTitle" />,
-      selected: currentPage === 'CartsPage',
-      id: 'CartsPageTab',
-      linkProps: {
-        name: 'CartsPage',
-      },
-    },
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.PurchasesTabTitle" />,
-      selected: currentPage === 'PurchasesPage',
-      id: 'PurchasesPageTab',
-      linkProps: {
-        name: 'PurchasesPage',
-      },
-    },
     {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.WishlistTabTitle" />,
       selected: currentPage === 'WishlistPage',

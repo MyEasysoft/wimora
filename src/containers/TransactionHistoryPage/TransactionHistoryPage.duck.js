@@ -1,32 +1,32 @@
 import { storableError } from '../../util/errors';
-// import { salesUserAccount } from '../../util/api';
+// import { transactionHistory } from '../../util/api';
 
 // ================ Action types ================ //
 
-export const SEO_ACCOUNT_REQUEST =
-  'app/SEOPage/SEO_ACCOUNT_REQUEST';
-export const SEO_ACCOUNT_SUCCESS =
-  'app/SEOPage/SEO_ACCOUNT_SUCCESS';
-export const SEO_ACCOUNT_ERROR =
-  'app/SEOPage/SEO_ACCOUNT_ERROR';
-export const SEO_ACCOUNT_CLEANUP =
-  'app/SEOPage/SEO_ACCOUNT_CLEANUP';
+export const TRANSACTION_HISTORY_REQUEST =
+  'app/TRANSACTION_HISTORYPage/TRANSACTION_HISTORY_REQUEST';
+export const TRANSACTION_HISTORY_SUCCESS =
+  'app/TRANSACTION_HISTORYPage/TRANSACTION_HISTORY_SUCCESS';
+export const TRANSACTION_HISTORY_ERROR =
+  'app/TRANSACTION_HISTORYPage/TRANSACTION_HISTORY_ERROR';
+export const TRANSACTION_HISTORY_CLEANUP =
+  'app/TRANSACTION_HISTORYPage/TRANSACTION_HISTORY_CLEANUP';
 
-export const SEO_ACCOUNT_CLEAR =
-  'app/SEOPage/SEO_ACCOUNT_CLEAR';
+export const TRANSACTION_HISTORY_CLEAR =
+  'app/TRANSACTION_HISTORYPage/TRANSACTION_HISTORY_CLEAR';
 
 export const RESET_PASSWORD_REQUEST =
-  'app/SEOPage/RESET_PASSWORD_REQUEST';
+  'app/TRANSACTION_HISTORYPage/RESET_PASSWORD_REQUEST';
 export const RESET_PASSWORD_SUCCESS =
-  'app/SEOPage/RESET_PASSWORD_SUCCESS';
+  'app/TRANSACTION_HISTORYPage/RESET_PASSWORD_SUCCESS';
 export const RESET_PASSWORD_ERROR =
-  'app/SEOPage/RESET_PASSWORD_ERROR';
+  'app/TRANSACTION_HISTORYPage/RESET_PASSWORD_ERROR';
 
 // ================ Reducer ================ //
 
 const initialState = {
-  seoError: null,
-  seoInProgress: false,
+  transactionHistoryError: null,
+  transactionHistoryInProgress: false,
   accountDeleted: false,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -35,23 +35,23 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
-    case SEO_ACCOUNT_REQUEST:
+    case TRANSACTION_HISTORY_REQUEST:
       return {
         ...state,
-        seoInProgress: true,
-        seoError: null,
+        transactionHistoryInProgress: true,
+        transactionHistoryError: null,
         accountDeleted: false,
       };
-    case SEO_ACCOUNT_SUCCESS:
-      return { ...state, seoInProgress: false, accountDeleted: true };
-    case SEO_ACCOUNT_ERROR:
+    case TRANSACTION_HISTORY_SUCCESS:
+      return { ...state, transactionHistoryInProgress: false, accountDeleted: true };
+    case TRANSACTION_HISTORY_ERROR:
       return {
         ...state,
-        seoInProgress: false,
-        seoError: payload,
+        transactionHistoryInProgress: false,
+        transactionHistoryError: payload,
       };
 
-    case SEO_ACCOUNT_CLEAR:
+    case TRANSACTION_HISTORY_CLEAR:
       return { ...initialState };
 
     case RESET_PASSWORD_REQUEST:
@@ -77,15 +77,15 @@ export default function reducer(state = initialState, action = {}) {
 
 // ================ Action creators ================ //
 
-export const seoRequest = () => ({ type: SEO_ACCOUNT_REQUEST });
-export const seoSuccess = () => ({ type: SEO_ACCOUNT_SUCCESS });
-export const seoError = error => ({
-  type: SEO_ACCOUNT_ERROR,
+export const transactionHistoryRequest = () => ({ type: TRANSACTION_HISTORY_REQUEST });
+export const transactionHistorySuccess = () => ({ type: TRANSACTION_HISTORY_SUCCESS });
+export const transactionHistoryError = error => ({
+  type: TRANSACTION_HISTORY_ERROR,
   payload: error,
   error: true,
 });
 
-export const seoClear = () => ({ type: SEO_ACCOUNT_CLEAR });
+export const transactionHistoryClear = () => ({ type: TRANSACTION_HISTORY_CLEAR });
 
 export const resetPasswordRequest = () => ({ type: RESET_PASSWORD_REQUEST });
 
@@ -99,19 +99,19 @@ export const resetPasswordError = e => ({
 
 // ================ Thunks ================ //
 
-export const seo = params => (dispatch, getState, sdk) => {
-  dispatch(seoRequest());
+export const transactionHistory = params => (dispatch, getState, sdk) => {
+  dispatch(transactionHistoryRequest());
   const { currentPassword } = params;
 
-  return salesUserAccount({ currentPassword })
+  return transactionHistory({ currentPassword })
     .then(() => {
-      dispatch(seoSuccess());
+      dispatch(transactionHistorySuccess());
       return;
     })
     .catch(e => {
-      dispatch(seoError(storableError(storableError(e))));
+      dispatch(transactionHistoryError(storableError(storableError(e))));
       // This is thrown so that form can be cleared
-      // after a timeout on seo submit handler
+      // after a timeout on transactionHistory submit handler
       throw e;
     });
 };

@@ -20,15 +20,17 @@ import StripePayoutPage from './StripePayoutPage/StripePayoutPage.duck';
 import TransactionPage from './TransactionPage/TransactionPage.duck';
 import DeleteAccountPage from './DeleteAccountPage/DeleteAccountPage.duck';
 import SalesAccountPage from './SalesAccountPage/SalesAccountPage.duck';
-import SEOPage from './SEOPage/SEOPage.duck';
-import AdsPage from './AdsPage/AdsPage.duck';
+import EarningsPage from './EarningsPage/EarningsPage.duck';
+import ProjectsPage from './ProjectsPage/ProjectsPage.duck';
 import RefundsPage from './RefundsPage/RefundsPage.duck';
-
+import GigsPage from './GigsPage/GigsPage.duck';
 import ProductPage from './ProductPage/ProductPage.duck';
 import CartsPage from './CartsPage/CartsPage.duck';
 import PurchasesPage from './PurchasesPage/PurchasesPage.duck';
 import WishlistPage from './WishlistPage/WishlistPage.duck';
 import CanceledPage from './CanceledPage/CanceledPage.duck';
+import PendingProposalsPage from './PendingProposalsPage/PendingProposalsPage.duck';
+import TransactionHistoryPage from './TransactionHistoryPage/TransactionHistoryPage.duck';
 
 export {
   CheckoutPage,
@@ -48,13 +50,16 @@ export {
   TransactionPage,
   DeleteAccountPage,
   SalesAccountPage,
-  SEOPage,
-  AdsPage,
+  EarningsPage,
+  ProjectsPage,
   RefundsPage,
   ProductPage,
   CartsPage,
   PurchasesPage,
   WishlistPage,
   CanceledPage,
+  GigsPage,
+  PendingProposalsPage,
+  TransactionHistoryPage,
 
 };

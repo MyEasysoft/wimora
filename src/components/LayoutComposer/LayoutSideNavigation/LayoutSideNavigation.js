@@ -51,7 +51,11 @@ const LayoutSideNavigation = props => {
                 ) : null}
                 {sideNavContent}
               </aside>
-              <main className={classNames(css.main, mainColumnClassName)}>{children}</main>
+              <div className={classNames(css.main, mainColumnClassName)}>
+                <h4 className={css.dashboard}>Dashboard</h4>
+                <main className={css.magL2} >{children}</main>
+              </div>
+              
             </Main>
             <Footer>{footerContent}</Footer>
           </>

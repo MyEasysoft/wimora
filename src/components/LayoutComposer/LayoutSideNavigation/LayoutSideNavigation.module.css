@@ -54,7 +54,7 @@
   }
 
   @media (--viewportLargeWithPaddings) {
-    padding: 48px calc((100% - 1056px) / 2) 82px 59px;
+    padding: 0px 0px 82px 20px;
   }
 }
 
@@ -128,4 +128,15 @@
     background-color: gray;
     color:white;
   }
+}
+
+.dashboard{
+  border-bottom: solid;
+  border-left: solid;
+  border-width: thin;
+  padding-left: 10px;
+}
+
+.magL2{
+  margin-left: 10px;
 }

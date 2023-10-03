@@ -40,8 +40,8 @@ const InfluencerPage = loadable(() => import(/* webpackChunkName: "InfluencerPag
 const SalesAccountPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/SalesAccountPage/SalesAcountPage'));
 
 const DeleteAccountPage = loadable(() =>import(/* webpackChunkName: "DeleteAccountPage" */ '../containers/DeleteAccountPage/DeleteAccountPage'));
-const SEOPage = loadable(() => import(/* webpackChunkName: "SEOPage" */ '../containers/SEOPage/SEOPage'));
-const AdsPage = loadable(() => import(/* webpackChunkName: "AdsPage" */ '../containers/AdsPage/AdsPage'));
+const EarningsPage = loadable(() => import(/* webpackChunkName: "EarningsPage" */ '../containers/EarningsPage/EarningsPage'));
+const ProjectsPage = loadable(() => import(/* webpackChunkName: "ProjectsPage" */ '../containers/ProjectsPage/ProjectsPage'));
 const RefundsPage = loadable(() => import(/* webpackChunkName: "RefundsPage" */ '../containers/RefundsPage/RefundsPage'));
 
 const ProductPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/ProductPage/ProductPage'));
@@ -49,6 +49,9 @@ const CartsPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" 
 const PurchasesPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/PurchasesPage/PurchasesPage'));
 const WishlistPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/WishlistPage/WishlistPage'));
 const CanceledPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/CanceledPage/CanceledPage'));
+const GigsPage = loadable(() => import(/* webpackChunkName: "GigsPage" */ '../containers/GigsPage/GigsPage'));
+const PendingProposalsPage = loadable(() => import(/* webpackChunkName: "PendingProposalsPage" */ '../containers/PendingProposalsPage/PendingProposalsPage'));
+const TransactionHistoryPage = loadable(() => import(/* webpackChunkName: "TransactionHistoryPage" */ '../containers/TransactionHistoryPage/TransactionHistoryPage'));
 
 
 
@@ -62,16 +65,16 @@ export const ACCOUNT_SETTINGS_PAGES = [
   'PaymentMethodsPage',
   'DeleteAccountPage',
   'SalesAccountPage',
-  'SEOPage',
-  'AdsPage',
+  'EarningsPage',
+  'ProjectsPage',
   'RefundsPage',
-  
-  'ProductPage',
   'ProductPage',
   'CartsPage',
   'PurchasesPage',
   'WishlistPage',
   'CanceledPage',
+  'GigsPage',
+  'PendingProposalsPage',
 ];
 
 // https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID
@@ -219,18 +222,18 @@ const routeConfiguration = (layoutConfig) => {
 
     {
       path: '/account/seo',
-      name: 'SEOPage',
+      name: 'EarningsPage',
       auth: true,
       authPage: 'LoginPage',
-      component: SEOPage,
+      component: EarningsPage,
     },
 
     {
-      path: '/account/ads',
-      name: 'AdsPage',
+      path: '/account/projects',
+      name: 'ProjectsPage',
       auth: true,
       authPage: 'LoginPage',
-      component: AdsPage,
+      component: ProjectsPage,
     },
 
     {
@@ -280,6 +283,27 @@ const routeConfiguration = (layoutConfig) => {
       auth: true,
       authPage: 'LoginPage',
       component: CanceledPage,
+    },
+    {
+      path: '/account/gigs',
+      name: 'GigsPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: GigsPage,
+    },
+    {
+      path: '/account/pending-proposals',
+      name: 'PendingProposalsPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: PendingProposalsPage,
+    },
+    {
+      path: '/account/transaction-history',
+      name: 'TransactionHistoryPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: TransactionHistoryPage,
     },
     {
       path: '/seller',

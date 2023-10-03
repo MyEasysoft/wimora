@@ -10,31 +10,31 @@ import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
 
 import {
-  refunds,
-  refundsClear,
+  transactionHistory,
+  transactionHistoryClear,
   resetPassword,
-} from './RefundsPage.duck';
+} from '../TransactionHistoryPage/TransactionHistoryPage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './RefundsPage.module.css';
+import css from './TransactionHistoryPage.module.css';
 
-export const RefundsPageComponent = props => {
+export const TransactionHistoryPageComponent = props => {
   const {
-    refundsError,
-    refundsInProgress,
+    transactionHistoryError,
+    transactionHistoryInProgress,
     currentUser,
     onChange,
     onLogout,
-    onSubmitRefunds,
+    onSubmitTransactionHistory,
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
-    accountProjects,
+    transactionHistory,
     scrollingDisabled,
     intl,
   } = props;
 
-  const handleRefunds = values => {
-    return onSubmitRefunds(values).then(() => {
+  const handleTransactionHistory = values => {
+    return onSubmitTransactionHistory(values).then(() => {
       onLogout();
     });
   };
@@ -47,16 +47,16 @@ export const RefundsPageComponent = props => {
     <div className={css.details}>
       <FormattedMessage
         id={
-          refundsError?.status == 409
-            ? 'RefundsPage.error'
-            : 'RefundsPage.details'
+          transactionHistoryError?.status == 409
+            ? 'TransactionHistoryPage.error'
+            : 'TransactionHistoryPage.details'
         }
-        values={{ errorCause: refundsError?.message }}
+        values={{ errorCause: transactionHistoryError?.message }}
       />
     </div>
   );
 
-  const title = intl.formatMessage({ id: 'RefundsPage.title' });
+  const title = intl.formatMessage({ id: 'TransactionHistoryPage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -64,21 +64,21 @@ export const RefundsPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="RefundsPage"
+              currentPage="TransactionHistoryPage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="RefundsPage" />
+            <UserNav currentPage="TransactionHistoryPage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="RefundsPage"
+        currentPage="TransactionHistoryPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="RefundsPage.heading" />
+            <FormattedMessage id="TransactionHistoryPage.heading" />
           </H3>
           {pageDetails}
         </div>
@@ -87,8 +87,8 @@ export const RefundsPageComponent = props => {
   );
 };
 
-RefundsPageComponent.defaultProps = {
-  refundsError: null,
+TransactionHistoryPageComponent.defaultProps = {
+  transactionHistoryError: null,
   currentUser: null,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -96,13 +96,13 @@ RefundsPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-RefundsPageComponent.propTypes = {
-  refundsError: propTypes.error,
-  refundsInProgress: bool.isRequired,
+TransactionHistoryPageComponent.propTypes = {
+  transactionHistoryError: propTypes.error,
+  transactionHistoryInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
-  onSubmitRefunds: func.isRequired,
-  accountProjectsd: bool.isRequired,
+  onSubmitTransactionHistory: func.isRequired,
+  transactionHistory: bool,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -114,18 +114,18 @@ RefundsPageComponent.propTypes = {
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
-    refundsError,
-    refundsInProgress,
-    accountProjectsd,
+    transactionHistoryError,
+    transactionHistoryInProgress,
+    transactionHistory,
     resetPasswordInProgress,
     resetPasswordError,
-  } = state.RefundsPage;
+  } = state.TransactionHistoryPage;
   const { currentUser } = state.user;
   return {
-    refundsError,
-    refundsInProgress,
+    transactionHistoryError,
+    transactionHistoryInProgress,
     currentUser,
-    accountProjectsd,
+    transactionHistory,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
@@ -133,15 +133,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: () => dispatch(refundsClear()),
+  onChange: () => dispatch(transactionHistoryClear()),
   onLogout: () => dispatch(logout()),
-  onSubmitRefunds: values => dispatch(refunds(values)),
+  onSubmitTransactionHistory: values => dispatch(transactionHistory(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const RefundsPage = compose(
+const TransactionHistoryPage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(RefundsPageComponent);
+)(TransactionHistoryPageComponent);
 
-export default RefundsPage;
+export default TransactionHistoryPage;

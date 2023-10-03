@@ -365,8 +365,8 @@
   "InboxPage.ordersTabTitle": "As a customer",
   "InboxPage.ordersTitle": "Inbox: As a customer",
   "InboxPage.quantity": "Number of items: {quantity}",
-  "InboxPage.salesTabTitle": "As a listing author",
-  "InboxPage.salesTitle": "Inbox: As a listing author",
+  "InboxPage.salesTabTitle": "As an Influencer",
+  "InboxPage.salesTitle": "Inbox: As an Influencer",
   "InboxPage.title": "Inbox",
   "InquiryForm.heading": "Inquire about {listingTitle}",
   "InquiryForm.messageLabel": "Message to {authorDisplayName}",
@@ -716,6 +716,7 @@
   "SignupForm.lastNameRequired": "You need to add a last name.",
   "SignupForm.RoleInfluencer": "Influencer",
   "SignupForm.RoleSeller": "Seller",
+  "SignupForm.RoleBuyer": "Buyer",
   
   "SignupForm.passwordLabel": "Password",
   "SignupForm.passwordPlaceholder": "Enter your password…",
@@ -920,7 +921,8 @@
   "Topbar.menuIcon": "Open menu",
   "Topbar.mobileSearchHelp": "Find what you are looking for.",
   "Topbar.searchIcon": "Open search",
-  "TopbarDesktop.accountSettingsLink": "Account settings",
+  "TopbarDesktop.accountSettingsLink": "Dashboard",
+  "TopbarDesktop.dashboard": "Dashboard",
   "TopbarDesktop.createListing": "Post a new listing",
   "TopbarDesktop.inbox": "Inbox",
   "TopbarDesktop.login": "Log in",
@@ -1073,6 +1075,7 @@
   "UserNav.accountSettings": "Account settings",
   "UserNav.profileSettings": "Profile settings",
   "UserNav.yourListings": "Your listings",
+  "UserNav.dashboard": "Dashboard",
 
 
   "SalesAccountPage.details": "This is a breakdown of the Sales data",
@@ -1082,17 +1085,17 @@
   "LayoutWrapperAccountSettingsSideNav.SalesTabTitle": "Sales",
   
 
-  "SEOPage.details": "Search Engine Uptimisation",
-  "SEOPage.heading": "SEO Setting",
-  "SEOPage.title": "SEO Setting",
-  "SEOPage.error": "Error getting SEO data",
-  "LayoutWrapperAccountSettingsSideNav.SEOTabTitle": "SEO",
+  "EarningsPage.details": "Search Engine Uptimisation",
+  "EarningsPage.heading": "Earnings Setting",
+  "EarningsPage.title": "Earnings Setting",
+  "EarningsPage.error": "Error getting Earnings data",
+  "LayoutWrapperAccountSettingsSideNav.EarningsTabTitle": "Earnings",
   
-  "AdsPage.details": "Search Engine Uptimisation",
-  "AdsPage.heading": "Ads setting",
-  "AdsPage.title": "Ads setting",
-  "AdsPage.error": "Error getting Ads data",
-  "LayoutWrapperAccountSettingsSideNav.AdsTabTitle": "My ads",
+  "ProjectsPage.details": "My Projects and Progress",
+  "ProjectsPage.heading": "Projects setting",
+  "ProjectsPage.title": "Projects setting",
+  "ProjectsPage.error": "Error getting Projects data",
+  "LayoutWrapperAccountSettingsSideNav.ProjectsTabTitle": "My Projects",
   
   "RefundsPage.details": "List of refunded transactions",
   "RefundsPage.heading": "Refunds",
@@ -1142,7 +1145,24 @@
   "DeleteAccountPage.heading": "Delete your account",
   "DeleteAccountPage.title": "Delete your account",
   "DeleteAccountPage.error": "Cannot delete user profile. You have {errorCause} Please contact Biketribe support or complete the unfinished issues and try again.",
-  "LayoutWrapperAccountSettingsSideNav.deleteAccountTabTitle": "Delete account"
+  "LayoutWrapperAccountSettingsSideNav.deleteAccountTabTitle": "Delete account",
   
+  "GigsPage.details": "Create your Gig proposals here",
+  "GigsPage.heading": "Create gig proposal",
+  "GigsPage.title": "Create gig proposal",
+  "GigsPage.error": "Gig proposal cannot be created at the moment",
+  "LayoutWrapperAccountSettingsSideNav.GigsTabTitle": "Gig Proposal",
+  
+  "PendingProposalsPage.details": "Info about pending proposals",
+  "PendingProposalsPage.heading": "Pending proposal",
+  "PendingProposalsPage.title": "Pending proposal",
+  "PendingProposalsPage.error": "Pending proposal cannot be view at the moment.",
+  "LayoutWrapperAccountSettingsSideNav.PendingProposalsPageTabTitle": "Pending Proposals",
 
+  "TransactionHistoryPage.details": "Transaction History",
+  "TransactionHistoryPage.heading": "Transaction history",
+  "TransactionHistoryPage.title": "Transaction history",
+  "TransactionHistoryPage.error": "Transaction History cannot be view at the moment.",
+  "LayoutWrapperAccountSettingsSideNav.TransactionHistoryPageTabTitle": "Transaction history"
+  
 }

@@ -1,32 +1,32 @@
 import { storableError } from '../../util/errors';
-// import { projectsUserAccount } from '../../util/api';
+// import { salesUserAccount } from '../../util/api';
 
 // ================ Action types ================ //
 
-export const REFUNDS_REQUEST =
-  'app/RefundsPage/REFUNDS_REQUEST';
-export const REFUNDS_SUCCESS =
-  'app/RefundsPage/REFUNDS_SUCCESS';
-export const REFUNDS_ERROR =
-  'app/RefundsPage/REFUNDS_ERROR';
-export const REFUNDS_CLEANUP =
-  'app/RefundsPage/REFUNDS_CLEANUP';
+export const GIGS_REQUEST =
+  'app/GIGSPage/GIGS_REQUEST';
+export const GIGS_SUCCESS =
+  'app/GIGSPage/GIGS_SUCCESS';
+export const GIGS_ERROR =
+  'app/GIGSPage/GIGS_ERROR';
+export const GIGS_CLEANUP =
+  'app/GIGSPage/GIGS_CLEANUP';
 
-export const REFUNDS_CLEAR =
-  'app/RefundsPage/REFUNDS_CLEAR';
+export const GIGS_CLEAR =
+  'app/GIGSPage/GIGS_CLEAR';
 
 export const RESET_PASSWORD_REQUEST =
-  'app/RefundsPage/RESET_PASSWORD_REQUEST';
+  'app/GIGSPage/RESET_PASSWORD_REQUEST';
 export const RESET_PASSWORD_SUCCESS =
-  'app/RefundsPage/RESET_PASSWORD_SUCCESS';
+  'app/GIGSPage/RESET_PASSWORD_SUCCESS';
 export const RESET_PASSWORD_ERROR =
-  'app/RefundsPage/RESET_PASSWORD_ERROR';
+  'app/GIGSPage/RESET_PASSWORD_ERROR';
 
 // ================ Reducer ================ //
 
 const initialState = {
-  refundsError: null,
-  refundsInProgress: false,
+  gigsError: null,
+  gigsInProgress: false,
   accountDeleted: false,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -35,23 +35,23 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
-    case REFUNDS_REQUEST:
+    case GIGS_REQUEST:
       return {
         ...state,
-        refundsInProgress: true,
-        refundsError: null,
+        gigsInProgress: true,
+        gigsError: null,
         accountDeleted: false,
       };
-    case REFUNDS_SUCCESS:
-      return { ...state, refundsInProgress: false, accountDeleted: true };
-    case REFUNDS_ERROR:
+    case GIGS_SUCCESS:
+      return { ...state, gigsInProgress: false, accountDeleted: true };
+    case GIGS_ERROR:
       return {
         ...state,
-        refundsInProgress: false,
-        refundsError: payload,
+        gigsInProgress: false,
+        gigsError: payload,
       };
 
-    case REFUNDS_CLEAR:
+    case GIGS_CLEAR:
       return { ...initialState };
 
     case RESET_PASSWORD_REQUEST:
@@ -77,15 +77,15 @@ export default function reducer(state = initialState, action = {}) {
 
 // ================ Action creators ================ //
 
-export const refundsRequest = () => ({ type: REFUNDS_REQUEST });
-export const refundsSuccess = () => ({ type: REFUNDS_SUCCESS });
-export const refundsError = error => ({
-  type: REFUNDS_ERROR,
+export const gigsRequest = () => ({ type: GIGS_REQUEST });
+export const gigsSuccess = () => ({ type: GIGS_SUCCESS });
+export const gigsError = error => ({
+  type: GIGS_ERROR,
   payload: error,
   error: true,
 });
 
-export const refundsClear = () => ({ type: REFUNDS_CLEAR });
+export const gigsClear = () => ({ type: GIGS_CLEAR });
 
 export const resetPasswordRequest = () => ({ type: RESET_PASSWORD_REQUEST });
 
@@ -99,19 +99,19 @@ export const resetPasswordError = e => ({
 
 // ================ Thunks ================ //
 
-export const refunds = params => (dispatch, getState, sdk) => {
-  dispatch(refundsRequest());
+export const gigs = params => (dispatch, getState, sdk) => {
+  dispatch(gigsRequest());
   const { currentPassword } = params;
 
-  return projectsUserAccount({ currentPassword })
+  return salesUserAccount({ currentPassword })
     .then(() => {
-      dispatch(refundsSuccess());
+      dispatch(gigsSuccess());
       return;
     })
     .catch(e => {
-      dispatch(refundsError(storableError(storableError(e))));
+      dispatch(gigsError(storableError(storableError(e))));
       // This is thrown so that form can be cleared
-      // after a timeout on refunds submit handler
+      // after a timeout on gigs submit handler
       throw e;
     });
 };

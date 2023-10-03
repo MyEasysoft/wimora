@@ -1,32 +1,32 @@
 import { storableError } from '../../util/errors';
-// import { projectsUserAccount } from '../../util/api';
+// import { salesUserAccount } from '../../util/api';
 
 // ================ Action types ================ //
 
-export const REFUNDS_REQUEST =
-  'app/RefundsPage/REFUNDS_REQUEST';
-export const REFUNDS_SUCCESS =
-  'app/RefundsPage/REFUNDS_SUCCESS';
-export const REFUNDS_ERROR =
-  'app/RefundsPage/REFUNDS_ERROR';
-export const REFUNDS_CLEANUP =
-  'app/RefundsPage/REFUNDS_CLEANUP';
+export const PENDINGPROPOSALS_REQUEST =
+  'app/PENDINGPROPOSALSPage/PENDINGPROPOSALS_REQUEST';
+export const PENDINGPROPOSALS_SUCCESS =
+  'app/PENDINGPROPOSALSPage/PENDINGPROPOSALS_SUCCESS';
+export const PENDINGPROPOSALS_ERROR =
+  'app/PENDINGPROPOSALSPage/PENDINGPROPOSALS_ERROR';
+export const PENDINGPROPOSALS_CLEANUP =
+  'app/PENDINGPROPOSALSPage/PENDINGPROPOSALS_CLEANUP';
 
-export const REFUNDS_CLEAR =
-  'app/RefundsPage/REFUNDS_CLEAR';
+export const PENDINGPROPOSALS_CLEAR =
+  'app/PENDINGPROPOSALSPage/PENDINGPROPOSALS_CLEAR';
 
 export const RESET_PASSWORD_REQUEST =
-  'app/RefundsPage/RESET_PASSWORD_REQUEST';
+  'app/PENDINGPROPOSALSPage/RESET_PASSWORD_REQUEST';
 export const RESET_PASSWORD_SUCCESS =
-  'app/RefundsPage/RESET_PASSWORD_SUCCESS';
+  'app/PENDINGPROPOSALSPage/RESET_PASSWORD_SUCCESS';
 export const RESET_PASSWORD_ERROR =
-  'app/RefundsPage/RESET_PASSWORD_ERROR';
+  'app/PENDINGPROPOSALSPage/RESET_PASSWORD_ERROR';
 
 // ================ Reducer ================ //
 
 const initialState = {
-  refundsError: null,
-  refundsInProgress: false,
+  pendingProposalsError: null,
+  pendingProposalsInProgress: false,
   accountDeleted: false,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -35,23 +35,23 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
-    case REFUNDS_REQUEST:
+    case PENDINGPROPOSALS_REQUEST:
       return {
         ...state,
-        refundsInProgress: true,
-        refundsError: null,
+        pendingProposalsInProgress: true,
+        pendingProposalsError: null,
         accountDeleted: false,
       };
-    case REFUNDS_SUCCESS:
-      return { ...state, refundsInProgress: false, accountDeleted: true };
-    case REFUNDS_ERROR:
+    case PENDINGPROPOSALS_SUCCESS:
+      return { ...state, pendingProposalsInProgress: false, accountDeleted: true };
+    case PENDINGPROPOSALS_ERROR:
       return {
         ...state,
-        refundsInProgress: false,
-        refundsError: payload,
+        pendingProposalsInProgress: false,
+        pendingProposalsError: payload,
       };
 
-    case REFUNDS_CLEAR:
+    case PENDINGPROPOSALS_CLEAR:
       return { ...initialState };
 
     case RESET_PASSWORD_REQUEST:
@@ -77,15 +77,15 @@ export default function reducer(state = initialState, action = {}) {
 
 // ================ Action creators ================ //
 
-export const refundsRequest = () => ({ type: REFUNDS_REQUEST });
-export const refundsSuccess = () => ({ type: REFUNDS_SUCCESS });
-export const refundsError = error => ({
-  type: REFUNDS_ERROR,
+export const pendingProposalsRequest = () => ({ type: PENDINGPROPOSALS_REQUEST });
+export const pendingProposalsSuccess = () => ({ type: PENDINGPROPOSALS_SUCCESS });
+export const pendingProposalsError = error => ({
+  type: PENDINGPROPOSALS_ERROR,
   payload: error,
   error: true,
 });
 
-export const refundsClear = () => ({ type: REFUNDS_CLEAR });
+export const pendingProposalsClear = () => ({ type: PENDINGPROPOSALS_CLEAR });
 
 export const resetPasswordRequest = () => ({ type: RESET_PASSWORD_REQUEST });
 
@@ -99,19 +99,19 @@ export const resetPasswordError = e => ({
 
 // ================ Thunks ================ //
 
-export const refunds = params => (dispatch, getState, sdk) => {
-  dispatch(refundsRequest());
+export const pendingProposals = params => (dispatch, getState, sdk) => {
+  dispatch(pendingProposalsRequest());
   const { currentPassword } = params;
 
-  return projectsUserAccount({ currentPassword })
+  return salesUserAccount({ currentPassword })
     .then(() => {
-      dispatch(refundsSuccess());
+      dispatch(pendingProposalsSuccess());
       return;
     })
     .catch(e => {
-      dispatch(refundsError(storableError(storableError(e))));
+      dispatch(pendingProposalsError(storableError(storableError(e))));
       // This is thrown so that form can be cleared
-      // after a timeout on refunds submit handler
+      // after a timeout on pendingProposals submit handler
       throw e;
     });
 };

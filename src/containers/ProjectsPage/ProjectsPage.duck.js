@@ -3,30 +3,30 @@ import { storableError } from '../../util/errors';
 
 // ================ Action types ================ //
 
-export const DELETE_ACCOUNT_REQUEST =
-  'app/AdsPage/DELETE_ACCOUNT_REQUEST';
-export const DELETE_ACCOUNT_SUCCESS =
-  'app/AdsPage/DELETE_ACCOUNT_SUCCESS';
-export const DELETE_ACCOUNT_ERROR =
-  'app/AdsPage/DELETE_ACCOUNT_ERROR';
-export const DELETE_ACCOUNT_CLEANUP =
-  'app/AdsPage/DELETE_ACCOUNT_CLEANUP';
+export const PROJECTS_REQUEST =
+  'app/ProjectsPage/PROJECTS_REQUEST';
+export const PROJECTS_SUCCESS =
+  'app/ProjectsPage/PROJECTS_SUCCESS';
+export const PROJECTS_ERROR =
+  'app/ProjectsPage/PROJECTS_ERROR';
+export const PROJECTS_CLEANUP =
+  'app/ProjectsPage/PROJECTS_CLEANUP';
 
-export const DELETE_ACCOUNT_CLEAR =
-  'app/AdsPage/DELETE_ACCOUNT_CLEAR';
+export const PROJECTS_CLEAR =
+  'app/ProjectsPage/PROJECTS_CLEAR';
 
 export const RESET_PASSWORD_REQUEST =
-  'app/AdsPage/RESET_PASSWORD_REQUEST';
+  'app/ProjectsPage/RESET_PASSWORD_REQUEST';
 export const RESET_PASSWORD_SUCCESS =
-  'app/AdsPage/RESET_PASSWORD_SUCCESS';
+  'app/ProjectsPage/RESET_PASSWORD_SUCCESS';
 export const RESET_PASSWORD_ERROR =
-  'app/AdsPage/RESET_PASSWORD_ERROR';
+  'app/ProjectsPage/RESET_PASSWORD_ERROR';
 
 // ================ Reducer ================ //
 
 const initialState = {
-  adsError: null,
-  adsInProgress: false,
+  projectsError: null,
+  projectsInProgress: false,
   accountDeleted: false,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -35,23 +35,23 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
-    case DELETE_ACCOUNT_REQUEST:
+    case PROJECTS_REQUEST:
       return {
         ...state,
-        adsInProgress: true,
-        adsError: null,
+        projectsInProgress: true,
+        projectsError: null,
         accountDeleted: false,
       };
-    case DELETE_ACCOUNT_SUCCESS:
-      return { ...state, adsInProgress: false, accountDeleted: true };
-    case DELETE_ACCOUNT_ERROR:
+    case PROJECTS_SUCCESS:
+      return { ...state, projectsInProgress: false, accountDeleted: true };
+    case PROJECTS_ERROR:
       return {
         ...state,
-        adsInProgress: false,
-        adsError: payload,
+        projectsInProgress: false,
+        projectsError: payload,
       };
 
-    case DELETE_ACCOUNT_CLEAR:
+    case PROJECTS_CLEAR:
       return { ...initialState };
 
     case RESET_PASSWORD_REQUEST:
@@ -77,15 +77,15 @@ export default function reducer(state = initialState, action = {}) {
 
 // ================ Action creators ================ //
 
-export const adsRequest = () => ({ type: DELETE_ACCOUNT_REQUEST });
-export const adsSuccess = () => ({ type: DELETE_ACCOUNT_SUCCESS });
-export const adsError = error => ({
-  type: DELETE_ACCOUNT_ERROR,
+export const projectsRequest = () => ({ type: PROJECTS_REQUEST });
+export const projectsSuccess = () => ({ type: PROJECTS_SUCCESS });
+export const projectsError = error => ({
+  type: PROJECTS_ERROR,
   payload: error,
   error: true,
 });
 
-export const adsClear = () => ({ type: DELETE_ACCOUNT_CLEAR });
+export const projectsClear = () => ({ type: PROJECTS_CLEAR });
 
 export const resetPasswordRequest = () => ({ type: RESET_PASSWORD_REQUEST });
 
@@ -99,19 +99,19 @@ export const resetPasswordError = e => ({
 
 // ================ Thunks ================ //
 
-export const ads = params => (dispatch, getState, sdk) => {
-  dispatch(adsRequest());
+export const projects = params => (dispatch, getState, sdk) => {
+  dispatch(projectsRequest());
   const { currentPassword } = params;
 
   return deleteUserAccount({ currentPassword })
     .then(() => {
-      dispatch(adsSuccess());
+      dispatch(projectsSuccess());
       return;
     })
     .catch(e => {
-      dispatch(adsError(storableError(storableError(e))));
+      dispatch(projectsError(storableError(storableError(e))));
       // This is thrown so that form can be cleared
-      // after a timeout on ads submit handler
+      // after a timeout on projects submit handler
       throw e;
     });
 };

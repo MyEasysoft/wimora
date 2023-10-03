@@ -10,31 +10,31 @@ import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
 
 import {
-  ads,
-  adsClear,
+  gigs,
+  gigsClear,
   resetPassword,
-} from './AdsPage.duck';
+} from './GigsPage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './AdsPage.module.css';
+import css from './GigsPage.module.css';
 
-export const AdsPageComponent = props => {
+export const GigsPageComponent = props => {
   const {
-    adsError,
-    adsInProgress,
+    gigsError,
+    gigsInProgress,
     currentUser,
     onChange,
     onLogout,
-    onSubmitAds,
+    onSubmitGigs,
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
-    accountDeleted,
+    accountSales,
     scrollingDisabled,
     intl,
   } = props;
 
-  const handleAds = values => {
-    return onSubmitAds(values).then(() => {
+  const handleGigs = values => {
+    return onSubmitGigs(values).then(() => {
       onLogout();
     });
   };
@@ -47,16 +47,16 @@ export const AdsPageComponent = props => {
     <div className={css.details}>
       <FormattedMessage
         id={
-          adsError?.status == 409
-            ? 'AdsPage.error'
-            : 'AdsPage.details'
+          gigsError?.status == 409
+            ? 'GigsPage.error'
+            : 'GigsPage.details'
         }
-        values={{ errorCause: adsError?.message }}
+        values={{ errorCause: gigsError?.message }}
       />
     </div>
   );
 
-  const title = intl.formatMessage({ id: 'AdsPage.title' });
+  const title = intl.formatMessage({ id: 'GigsPage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -64,21 +64,21 @@ export const AdsPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="AdsPage"
+              currentPage="GigsPage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="AdsPage" />
+            <UserNav currentPage="GigsPage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="AdsPage"
+        currentPage="GigsPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="AdsPage.heading" />
+            <FormattedMessage id="GigsPage.heading" />
           </H3>
           {pageDetails}
         </div>
@@ -87,8 +87,8 @@ export const AdsPageComponent = props => {
   );
 };
 
-AdsPageComponent.defaultProps = {
-  adsError: null,
+GigsPageComponent.defaultProps = {
+  gigsError: null,
   currentUser: null,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -96,13 +96,13 @@ AdsPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-AdsPageComponent.propTypes = {
-  adsError: propTypes.error,
-  adsInProgress: bool.isRequired,
+GigsPageComponent.propTypes = {
+  gigsError: propTypes.error,
+  gigsInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
-  onSubmitAds: func.isRequired,
-  accountDeleted: bool.isRequired,
+  onSubmitGigs: func.isRequired,
+  accountSalesd: bool.isRequired,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -114,18 +114,18 @@ AdsPageComponent.propTypes = {
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
-    adsError,
-    adsInProgress,
-    accountDeleted,
+    gigsError,
+    gigsInProgress,
+    accountSalesd,
     resetPasswordInProgress,
     resetPasswordError,
-  } = state.AdsPage;
+  } = state.GigsPage;
   const { currentUser } = state.user;
   return {
-    adsError,
-    adsInProgress,
+    gigsError,
+    gigsInProgress,
     currentUser,
-    accountDeleted,
+    accountSalesd,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
@@ -133,15 +133,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: () => dispatch(adsClear()),
+  onChange: () => dispatch(gigsClear()),
   onLogout: () => dispatch(logout()),
-  onSubmitAds: values => dispatch(ads(values)),
+  onSubmitGigs: values => dispatch(gigs(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const AdsPage = compose(
+const GigsPage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(AdsPageComponent);
+)(GigsPageComponent);
 
-export default AdsPage;
+export default GigsPage;

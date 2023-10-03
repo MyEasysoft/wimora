@@ -15,7 +15,15 @@ function CustomSectionComponent3(){
         <div className={css.containerMain}>
             <div className={css.col12 +" "+ css.magB4}>
                 <h4 className={css.magB4 +" "+css.sectionTitle}>About Influencer Connect</h4>
-                <p className={css.magB4}>Influencer Connect is a modern marketplace where buyers meet Sellers and Creators in a creative way. Influencer Connect is a modern marketplace where buyers meet Sellers and Creators in a creative way.</p>
+                <p className={css.magB4}>Welcome to Influence Connect, the premier destination where collaboration and creativity 
+converge to redefine the world of influencer marketing. We are the ultimate platform where 
+sellers come to obtain captivating shoppable videos for their products, and creators arrive 
+to craft shoppable content and reap the rewards.</p>
+                
+            </div>
+            <div className={css.col12 +" "+ css.magB4}>
+                <h4 className={css.magB4 +" "+css.sectionTitle}>SLOGAN</h4>
+                <p className={css.magB4}>"You’re all-in-one destination, where influencers and sellers unite to craft captivating shoppable videos."</p>
                 <a className={css.linkBtn +" "+ css.magB4} href=''>Learn more about us</a>
             </div>
             <div className={css.col12 +" "+ css.magB2 +" "+ css.magT8}>

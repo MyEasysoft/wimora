@@ -10,31 +10,31 @@ import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
 
 import {
-  seo,
-  seoClear,
+  projects,
+  projectsClear,
   resetPassword,
-} from '../SEOPage/SEOPage.duck';
+} from './ProjectsPage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './SEOPage.module.css';
+import css from './ProjectsPage.module.css';
 
-export const SEOPageComponent = props => {
+export const ProjectsPageComponent = props => {
   const {
-    seoError,
-    seoInProgress,
+    projectsError,
+    projectsInProgress,
     currentUser,
     onChange,
     onLogout,
-    onSubmitSEO,
+    onSubmitProjects,
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
-    accountSales,
+    accountDeleted,
     scrollingDisabled,
     intl,
   } = props;
 
-  const handleSEO = values => {
-    return onSubmitSEO(values).then(() => {
+  const handleProjects = values => {
+    return onSubmitProjects(values).then(() => {
       onLogout();
     });
   };
@@ -47,16 +47,16 @@ export const SEOPageComponent = props => {
     <div className={css.details}>
       <FormattedMessage
         id={
-          seoError?.status == 409
-            ? 'SEOPage.error'
-            : 'SEOPage.details'
+          projectsError?.status == 409
+            ? 'ProjectsPage.error'
+            : 'ProjectsPage.details'
         }
-        values={{ errorCause: seoError?.message }}
+        values={{ errorCause: projectsError?.message }}
       />
     </div>
   );
 
-  const title = intl.formatMessage({ id: 'SEOPage.title' });
+  const title = intl.formatMessage({ id: 'ProjectsPage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -64,21 +64,21 @@ export const SEOPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="SEOPage"
+              currentPage="ProjectsPage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="SEOPage" />
+            <UserNav currentPage="ProjectsPage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="SEOPage"
+        currentPage="ProjectsPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="SEOPage.heading" />
+            <FormattedMessage id="ProjectsPage.heading" />
           </H3>
           {pageDetails}
         </div>
@@ -87,8 +87,8 @@ export const SEOPageComponent = props => {
   );
 };
 
-SEOPageComponent.defaultProps = {
-  seoError: null,
+ProjectsPageComponent.defaultProps = {
+  projectsError: null,
   currentUser: null,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -96,13 +96,13 @@ SEOPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-SEOPageComponent.propTypes = {
-  seoError: propTypes.error,
-  seoInProgress: bool.isRequired,
+ProjectsPageComponent.propTypes = {
+  projectsError: propTypes.error,
+  projectsInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
-  onSubmitSEO: func.isRequired,
-  accountSalesd: bool.isRequired,
+  onSubmitProjects: func.isRequired,
+  accountDeleted: bool.isRequired,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -114,18 +114,18 @@ SEOPageComponent.propTypes = {
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
-    seoError,
-    seoInProgress,
-    accountSalesd,
+    projectsError,
+    projectsInProgress,
+    accountDeleted,
     resetPasswordInProgress,
     resetPasswordError,
-  } = state.SEOPage;
+  } = state.ProjectsPage;
   const { currentUser } = state.user;
   return {
-    seoError,
-    seoInProgress,
+    projectsError,
+    projectsInProgress,
     currentUser,
-    accountSalesd,
+    accountDeleted,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
@@ -133,15 +133,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: () => dispatch(seoClear()),
+  onChange: () => dispatch(projectsClear()),
   onLogout: () => dispatch(logout()),
-  onSubmitSEO: values => dispatch(seo(values)),
+  onSubmitProjects: values => dispatch(projects(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const SEOPage = compose(
+const ProjectsPage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(SEOPageComponent);
+)(ProjectsPageComponent);
 
-export default SEOPage;
+export default ProjectsPage;

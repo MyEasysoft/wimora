@@ -10,31 +10,31 @@ import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
 
 import {
-  refunds,
-  refundsClear,
+  pendingProposals,
+  pendingProposalsClear,
   resetPassword,
-} from './RefundsPage.duck';
+} from './PendingProposalsPage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './RefundsPage.module.css';
+import css from './PendingProposalsPage.module.css';
 
-export const RefundsPageComponent = props => {
+export const PendingProposalsPageComponent = props => {
   const {
-    refundsError,
-    refundsInProgress,
+    pendingProposalsError,
+    pendingProposalsInProgress,
     currentUser,
     onChange,
     onLogout,
-    onSubmitRefunds,
+    onSubmitPendingProposals,
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
-    accountProjects,
+    accountSales,
     scrollingDisabled,
     intl,
   } = props;
 
-  const handleRefunds = values => {
-    return onSubmitRefunds(values).then(() => {
+  const handlePendingProposals = values => {
+    return onSubmitPendingProposals(values).then(() => {
       onLogout();
     });
   };
@@ -47,16 +47,16 @@ export const RefundsPageComponent = props => {
     <div className={css.details}>
       <FormattedMessage
         id={
-          refundsError?.status == 409
-            ? 'RefundsPage.error'
-            : 'RefundsPage.details'
+          pendingProposalsError?.status == 409
+            ? 'PendingProposalsPage.error'
+            : 'PendingProposalsPage.details'
         }
-        values={{ errorCause: refundsError?.message }}
+        values={{ errorCause: pendingProposalsError?.message }}
       />
     </div>
   );
 
-  const title = intl.formatMessage({ id: 'RefundsPage.title' });
+  const title = intl.formatMessage({ id: 'PendingProposalsPage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -64,21 +64,21 @@ export const RefundsPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="RefundsPage"
+              currentPage="PendingProposalsPage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="RefundsPage" />
+            <UserNav currentPage="PendingProposalsPage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="RefundsPage"
+        currentPage="PendingProposalsPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="RefundsPage.heading" />
+            <FormattedMessage id="PendingProposalsPage.heading" />
           </H3>
           {pageDetails}
         </div>
@@ -87,8 +87,8 @@ export const RefundsPageComponent = props => {
   );
 };
 
-RefundsPageComponent.defaultProps = {
-  refundsError: null,
+PendingProposalsPageComponent.defaultProps = {
+  pendingProposalsError: null,
   currentUser: null,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -96,13 +96,13 @@ RefundsPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-RefundsPageComponent.propTypes = {
-  refundsError: propTypes.error,
-  refundsInProgress: bool.isRequired,
+PendingProposalsPageComponent.propTypes = {
+  pendingProposalsError: propTypes.error,
+  pendingProposalsInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
-  onSubmitRefunds: func.isRequired,
-  accountProjectsd: bool.isRequired,
+  onSubmitPendingProposals: func.isRequired,
+  pendingProposals: bool.isRequired,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -114,18 +114,18 @@ RefundsPageComponent.propTypes = {
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
-    refundsError,
-    refundsInProgress,
-    accountProjectsd,
+    pendingProposalsError,
+    pendingProposalsInProgress,
+    pendingProposals,
     resetPasswordInProgress,
     resetPasswordError,
-  } = state.RefundsPage;
+  } = state.PendingProposalsPage;
   const { currentUser } = state.user;
   return {
-    refundsError,
-    refundsInProgress,
+    pendingProposalsError,
+    pendingProposalsInProgress,
     currentUser,
-    accountProjectsd,
+    pendingProposals,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
@@ -133,15 +133,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: () => dispatch(refundsClear()),
+  onChange: () => dispatch(pendingProposalsClear()),
   onLogout: () => dispatch(logout()),
-  onSubmitRefunds: values => dispatch(refunds(values)),
+  onSubmitPendingProposals: values => dispatch(pendingProposals(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const RefundsPage = compose(
+const PendingProposalsPage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(RefundsPageComponent);
+)(PendingProposalsPageComponent);
 
-export default RefundsPage;
+export default PendingProposalsPage;

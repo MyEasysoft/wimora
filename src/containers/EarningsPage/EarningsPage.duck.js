@@ -1,32 +1,32 @@
 import { storableError } from '../../util/errors';
-// import { projectsUserAccount } from '../../util/api';
+// import { salesUserAccount } from '../../util/api';
 
 // ================ Action types ================ //
 
-export const REFUNDS_REQUEST =
-  'app/RefundsPage/REFUNDS_REQUEST';
-export const REFUNDS_SUCCESS =
-  'app/RefundsPage/REFUNDS_SUCCESS';
-export const REFUNDS_ERROR =
-  'app/RefundsPage/REFUNDS_ERROR';
-export const REFUNDS_CLEANUP =
-  'app/RefundsPage/REFUNDS_CLEANUP';
+export const EARNINGS_REQUEST =
+  'app/EARNINGSPage/EARNINGS_REQUEST';
+export const EARNINGS_SUCCESS =
+  'app/EARNINGSPage/EARNINGS_SUCCESS';
+export const EARNINGS_ERROR =
+  'app/EARNINGSPage/EARNINGS_ERROR';
+export const EARNINGS_CLEANUP =
+  'app/EARNINGSPage/EARNINGS_CLEANUP';
 
-export const REFUNDS_CLEAR =
-  'app/RefundsPage/REFUNDS_CLEAR';
+export const EARNINGS_CLEAR =
+  'app/EARNINGSPage/EARNINGS_CLEAR';
 
 export const RESET_PASSWORD_REQUEST =
-  'app/RefundsPage/RESET_PASSWORD_REQUEST';
+  'app/EARNINGSPage/RESET_PASSWORD_REQUEST';
 export const RESET_PASSWORD_SUCCESS =
-  'app/RefundsPage/RESET_PASSWORD_SUCCESS';
+  'app/EARNINGSPage/RESET_PASSWORD_SUCCESS';
 export const RESET_PASSWORD_ERROR =
-  'app/RefundsPage/RESET_PASSWORD_ERROR';
+  'app/EARNINGSPage/RESET_PASSWORD_ERROR';
 
 // ================ Reducer ================ //
 
 const initialState = {
-  refundsError: null,
-  refundsInProgress: false,
+  earningsError: null,
+  earningsInProgress: false,
   accountDeleted: false,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -35,23 +35,23 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
-    case REFUNDS_REQUEST:
+    case EARNINGS_REQUEST:
       return {
         ...state,
-        refundsInProgress: true,
-        refundsError: null,
+        earningsInProgress: true,
+        earningsError: null,
         accountDeleted: false,
       };
-    case REFUNDS_SUCCESS:
-      return { ...state, refundsInProgress: false, accountDeleted: true };
-    case REFUNDS_ERROR:
+    case EARNINGS_SUCCESS:
+      return { ...state, earningsInProgress: false, accountDeleted: true };
+    case EARNINGS_ERROR:
       return {
         ...state,
-        refundsInProgress: false,
-        refundsError: payload,
+        earningsInProgress: false,
+        earningsError: payload,
       };
 
-    case REFUNDS_CLEAR:
+    case EARNINGS_CLEAR:
       return { ...initialState };
 
     case RESET_PASSWORD_REQUEST:
@@ -77,15 +77,15 @@ export default function reducer(state = initialState, action = {}) {
 
 // ================ Action creators ================ //
 
-export const refundsRequest = () => ({ type: REFUNDS_REQUEST });
-export const refundsSuccess = () => ({ type: REFUNDS_SUCCESS });
-export const refundsError = error => ({
-  type: REFUNDS_ERROR,
+export const earningsRequest = () => ({ type: EARNINGS_REQUEST });
+export const earningsSuccess = () => ({ type: EARNINGS_SUCCESS });
+export const earningsError = error => ({
+  type: EARNINGS_ERROR,
   payload: error,
   error: true,
 });
 
-export const refundsClear = () => ({ type: REFUNDS_CLEAR });
+export const earningsClear = () => ({ type: EARNINGS_CLEAR });
 
 export const resetPasswordRequest = () => ({ type: RESET_PASSWORD_REQUEST });
 
@@ -99,19 +99,19 @@ export const resetPasswordError = e => ({
 
 // ================ Thunks ================ //
 
-export const refunds = params => (dispatch, getState, sdk) => {
-  dispatch(refundsRequest());
+export const earnings = params => (dispatch, getState, sdk) => {
+  dispatch(earningsRequest());
   const { currentPassword } = params;
 
-  return projectsUserAccount({ currentPassword })
+  return salesUserAccount({ currentPassword })
     .then(() => {
-      dispatch(refundsSuccess());
+      dispatch(earningsSuccess());
       return;
     })
     .catch(e => {
-      dispatch(refundsError(storableError(storableError(e))));
+      dispatch(earningsError(storableError(storableError(e))));
       // This is thrown so that form can be cleared
-      // after a timeout on refunds submit handler
+      // after a timeout on earnings submit handler
       throw e;
     });
 };
