@@ -1163,6 +1163,24 @@
   "TransactionHistoryPage.heading": "Transaction history",
   "TransactionHistoryPage.title": "Transaction history",
   "TransactionHistoryPage.error": "Transaction History cannot be view at the moment.",
-  "LayoutWrapperAccountSettingsSideNav.TransactionHistoryPageTabTitle": "Transaction history"
+  "LayoutWrapperAccountSettingsSideNav.TransactionHistoryPageTabTitle": "Transaction history",
+
+
+  "SubscriptionPage.details": "My Subscription",
+  "SubscriptionPage.heading": "My Subscription",
+  "SubscriptionPage.title": "My Subscription",
+  "SubscriptionPage.error": "Subscription History cannot be view at the moment.",
+  "LayoutWrapperAccountSettingsSideNav.SubscriptionPageTabTitle": "My Subscription"
+
+
+
+
+
+
+
+
+
+
+  
   
 }

@@ -133,6 +133,15 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
     },
 
     {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.SubscriptionPageTabTitle" />,
+      selected: currentPage === 'SubscriptionPage',
+      id: 'SubscriptionPageTab',
+      linkProps: {
+        name: 'SubscriptionPage',
+      },
+    },
+
+    {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.contactDetailsTabTitle" />,
       selected: currentPage === 'ContactDetailsPage',
       id: 'ContactDetailsPageTab',

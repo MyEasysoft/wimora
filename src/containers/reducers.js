@@ -31,6 +31,7 @@ import WishlistPage from './WishlistPage/WishlistPage.duck';
 import CanceledPage from './CanceledPage/CanceledPage.duck';
 import PendingProposalsPage from './PendingProposalsPage/PendingProposalsPage.duck';
 import TransactionHistoryPage from './TransactionHistoryPage/TransactionHistoryPage.duck';
+import SubscriptionPage from './SubscriptionPage/SubscriptionPage.duck';
 
 export {
   CheckoutPage,
@@ -61,5 +62,6 @@ export {
   GigsPage,
   PendingProposalsPage,
   TransactionHistoryPage,
+  SubscriptionPage,
 
 };

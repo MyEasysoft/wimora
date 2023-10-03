@@ -52,6 +52,7 @@ const CanceledPage = loadable(() => import(/* webpackChunkName: "SalesAccountPag
 const GigsPage = loadable(() => import(/* webpackChunkName: "GigsPage" */ '../containers/GigsPage/GigsPage'));
 const PendingProposalsPage = loadable(() => import(/* webpackChunkName: "PendingProposalsPage" */ '../containers/PendingProposalsPage/PendingProposalsPage'));
 const TransactionHistoryPage = loadable(() => import(/* webpackChunkName: "TransactionHistoryPage" */ '../containers/TransactionHistoryPage/TransactionHistoryPage'));
+const SubscriptionPage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/SubscriptionPage/SubscriptionPage'));
 
 
 
@@ -75,6 +76,8 @@ export const ACCOUNT_SETTINGS_PAGES = [
   'CanceledPage',
   'GigsPage',
   'PendingProposalsPage',
+  'TransactionHistoryPage',
+  'SubscriptionPage',
 ];
 
 // https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID
@@ -305,6 +308,15 @@ const routeConfiguration = (layoutConfig) => {
       authPage: 'LoginPage',
       component: TransactionHistoryPage,
     },
+
+    {
+      path: '/account/subscription',
+      name: 'SubscriptionPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: SubscriptionPage,
+    },
+
     {
       path: '/seller',
       name: 'SellerPage',
