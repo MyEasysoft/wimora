@@ -716,7 +716,7 @@
   "SignupForm.lastNameRequired": "You need to add a last name.",
   "SignupForm.RoleInfluencer": "Influencer",
   "SignupForm.RoleSeller": "Seller",
-  "SignupForm.RoleBuyer": "Buyer",
+  "SignupForm.RoleCreator": "Creator",
   
   "SignupForm.passwordLabel": "Password",
   "SignupForm.passwordPlaceholder": "Enter your password…",
