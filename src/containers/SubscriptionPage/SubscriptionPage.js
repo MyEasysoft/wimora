@@ -8,6 +8,7 @@ import { isScrollingDisabled } from '../../ducks/ui.duck';
 import { LayoutSideNavigation, Page, UserNav, H3 } from '../../components';
 import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
+import SubscriptionSelectorForm from '../../components/SubscriptionSellector/SubscriptionSelectorForm';
 
 import {
   subscription,
@@ -45,14 +46,7 @@ export const SubscriptionPageComponent = props => {
 
   const pageDetails = (
     <div className={css.details}>
-      <FormattedMessage
-        id={
-          subscriptionError?.status == 409
-            ? 'SubscriptionPage.error'
-            : 'SubscriptionPage.details'
-        }
-        values={{ errorCause: subscriptionError?.message }}
-      />
+      <SubscriptionSelectorForm />
     </div>
   );
 

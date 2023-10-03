@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: rgb(181, 223, 255);
 
   /* When side nav is shown as a column, Topbar's box-shadow should be visible */
   z-index: calc(var(--zIndexTopbar) - 1);
@@ -65,6 +66,7 @@
   justify-content: flex-end;
   width: 100vw;
   padding: 0 24px;
+  margin: 50px 2% 50px 2%;
 
   border-top-width: 1px;
   border-top-color: var(--colorGrey100);
@@ -76,10 +78,10 @@
     padding: 48px 0 82px 36px;
     flex-direction: column;
     justify-content: flex-start;
-    width: 13%;
+    width: 15%;
     border: none;
     box-shadow: none;
-    background-color: transparent;
+    background-color: white;
   }
 
   @media (--viewportLargeWithPaddings) {

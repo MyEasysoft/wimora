@@ -43,8 +43,8 @@
 
   align-self: center;
   align-items: center;
-  background-color: rgb(230, 230, 230);
-  margin-bottom: 2px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 0px;
   &:hover {
     text-decoration: none;
     color: white;

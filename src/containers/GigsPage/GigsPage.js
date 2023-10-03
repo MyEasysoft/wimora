@@ -8,6 +8,7 @@ import { isScrollingDisabled } from '../../ducks/ui.duck';
 import { LayoutSideNavigation, Page, UserNav, H3 } from '../../components';
 import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
+import SubmitForm from '../../containers/AuthenticationPage/SignupForm/SignupForm'
 
 import {
   gigs,
@@ -102,7 +103,7 @@ GigsPageComponent.propTypes = {
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
   onSubmitGigs: func.isRequired,
-  accountSalesd: bool.isRequired,
+  gigs: bool,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -116,7 +117,7 @@ const mapStateToProps = state => {
   const {
     gigsError,
     gigsInProgress,
-    accountSalesd,
+    gigs,
     resetPasswordInProgress,
     resetPasswordError,
   } = state.GigsPage;
@@ -125,7 +126,7 @@ const mapStateToProps = state => {
     gigsError,
     gigsInProgress,
     currentUser,
-    accountSalesd,
+    gigs,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,

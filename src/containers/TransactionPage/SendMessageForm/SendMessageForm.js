@@ -128,7 +128,7 @@ SendMessageFormComponent.propTypes = {
   inProgress: bool,
 
   messagePlaceholder: string,
-  onSubmit: func.isRequired,
+ 
   onFocus: func,
   onBlur: func,
   sendMessageError: propTypes.error,

@@ -28,7 +28,7 @@ export const PendingProposalsPageComponent = props => {
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
-    accountSales,
+    pendingProposals,
     scrollingDisabled,
     intl,
   } = props;
@@ -102,7 +102,7 @@ PendingProposalsPageComponent.propTypes = {
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
   onSubmitPendingProposals: func.isRequired,
-  pendingProposals: bool.isRequired,
+  pendingProposals: bool,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,

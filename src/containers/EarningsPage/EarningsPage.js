@@ -16,6 +16,7 @@ import {
 } from '../EarningsPage/EarningsPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './EarningsPage.module.css';
+import EarningsPageViewComponent from '../../components/EarningsPageView/EarningsPageView';
 
 export const EarningsPageComponent = props => {
   const {
@@ -43,16 +44,40 @@ export const EarningsPageComponent = props => {
     return onChange();
   }, []);
 
+
+  const totalTransactionLabel = 'TOTAL GIG';
+  const totalTransactionValue = '20';
+  const showTotalTransaction = true;
+
+  const totalCompletedLabel = 'TOTAL COMPLETED';
+  const totaLCompletedValue = '17';
+  const showTotalCompleted = true;
+
+  const totalDeclinedLabel = 'TOTAL PROFITS';
+  const totalDeclinedValue = '$25000';
+  const showTotalDeclined = true;
+
+  const totalProfitLabel = 'TOTAL LOSS';
+  const totalProfitValue = '$5000';
+  const showTotalProfit = true;
+
   const pageDetails = (
     <div className={css.details}>
-      <FormattedMessage
-        id={
-          earningsError?.status == 409
-            ? 'EarningsPage.error'
-            : 'EarningsPage.details'
-        }
-        values={{ errorCause: earningsError?.message }}
-      />
+        <EarningsPageViewComponent
+        
+          totalTransactionLabel={totalTransactionLabel}
+          totalTransactionValue={totalTransactionValue}
+          showTotalTransaction={showTotalTransaction}
+          totalCompletedLabel={totalCompletedLabel}
+          totaLCompletedValue={totaLCompletedValue}
+          showTotalCompleted={showTotalCompleted}
+          totalDeclinedLabel={totalDeclinedLabel}
+          totalDeclinedValue={totalDeclinedValue}
+          showTotalDeclined={showTotalDeclined}
+          totalProfitLabel={totalProfitLabel}
+          totalProfitValue={totalProfitValue}
+          showTotalProfit={showTotalProfit}
+        />
     </div>
   );
 
@@ -102,7 +127,7 @@ EarningsPageComponent.propTypes = {
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
   onSubmitEarnings: func.isRequired,
-  accountSalesd: bool.isRequired,
+  earnings: bool,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -116,7 +141,7 @@ const mapStateToProps = state => {
   const {
     earningsError,
     earningsInProgress,
-    accountSalesd,
+    earnings,
     resetPasswordInProgress,
     resetPasswordError,
   } = state.EarningsPage;
@@ -125,7 +150,7 @@ const mapStateToProps = state => {
     earningsError,
     earningsInProgress,
     currentUser,
-    accountSalesd,
+    earnings,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,

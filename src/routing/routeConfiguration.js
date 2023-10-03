@@ -329,6 +329,7 @@ const routeConfiguration = (layoutConfig) => {
       auth: false,
       component: InfluencerPage,
     },
+    
 
     // Note: authenticating with IdP (e.g. Facebook) expects that /login path exists
     // so that in the error case users can be redirected back to the LoginPage

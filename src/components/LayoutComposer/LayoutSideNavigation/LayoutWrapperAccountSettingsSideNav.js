@@ -141,6 +141,9 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
       },
     },
 
+    
+
+
     {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.contactDetailsTabTitle" />,
       selected: currentPage === 'ContactDetailsPage',
