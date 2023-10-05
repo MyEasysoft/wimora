@@ -105,11 +105,15 @@
 }
 
 .blockContainer {
-  padding: 64px 0px 0 0px;
+  padding: 64px 40px 0 70px;
 
   &:first-child {
     padding: 0 32px;
   }
+}
+
+.blockContainer .text {
+ background-color: transparent;
 }
 
 .align {
@@ -150,6 +154,29 @@
     background-color: var(--marketplaceColorDark);
   }
 }
+
+
+.ctaButton2 {
+  composes: align;
+  display: inline-block;
+  padding: 8px 40px;
+  font-size: 15px;
+  border-radius: 4px;
+  color: rgb(32, 32, 32);
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  font-weight: 500;
+  margin-top: 24px;
+  border-style:solid;
+  border-width: thin;
+  border-radius: 5px;
+
+  &:hover {
+    text-decoration: none;
+    background-color: var(--marketplaceColorDark);
+  }
+}
+
 
 /**
  * Theme: dark 
@@ -214,4 +241,7 @@
 /* dark code block */
 .darkTheme pre {
   background-color: var(--colorGrey700);
+}
+#our-influencers-2{
+  background-color: black;
 }

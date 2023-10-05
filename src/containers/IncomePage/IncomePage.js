@@ -8,24 +8,25 @@ import { isScrollingDisabled } from '../../ducks/ui.duck';
 import { LayoutSideNavigation, Page, UserNav, H3 } from '../../components';
 import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
+import SubmitForm from '../AuthenticationPage/SignupForm/SignupForm'
 
 import {
-  earnings,
-  earningsClear,
+  income,
+  incomeClear,
   resetPassword,
-} from '../EarningsPage/EarningsPage.duck';
+} from './IncomePage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './EarningsPage.module.css';
+import css from './IncomePage.module.css';
 import EarningsPageViewComponent from '../../components/EarningsPageView/EarningsPageView';
 
-export const EarningsPageComponent = props => {
+export const IncomePageComponent = props => {
   const {
-    earningsError,
-    earningsInProgress,
+    incomeError,
+    incomeInProgress,
     currentUser,
     onChange,
     onLogout,
-    onSubmitEarnings,
+    onSubmitIncome,
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
@@ -34,8 +35,8 @@ export const EarningsPageComponent = props => {
     intl,
   } = props;
 
-  const handleEarnings = values => {
-    return onSubmitEarnings(values).then(() => {
+  const handleIncome = values => {
+    return onSubmitIncome(values).then(() => {
       onLogout();
     });
   };
@@ -44,21 +45,21 @@ export const EarningsPageComponent = props => {
     return onChange();
   }, []);
 
-
-  const totalTransactionLabel = 'TOTAL EXPECTED';
-  const totalTransactionValue = '$43,000';
+ 
+  const totalTransactionLabel = 'TOTAL INCOME';
+  const totalTransactionValue = '$72,000';
   const showTotalTransaction = true;
 
-  const totalCompletedLabel = 'TOTAL COMPLETED';
-  const totaLCompletedValue = '23';
+  const totalCompletedLabel = 'TOTAL GIGS';
+  const totaLCompletedValue = '25';
   const showTotalCompleted = true;
 
-  const totalDeclinedLabel = 'TOTAL EARNINGS';
-  const totalDeclinedValue = '$34,000';
+  const totalDeclinedLabel = 'TOTAL REJECT';
+  const totalDeclinedValue = '4';
   const showTotalDeclined = true;
 
-  const totalProfitLabel = 'TOTAL LOSS';
-  const totalProfitValue = '$9,000';
+  const totalProfitLabel = 'TOTAL ACCEPTED';
+  const totalProfitValue = '21';
   const showTotalProfit = true;
 
   const pageDetails = (
@@ -81,7 +82,7 @@ export const EarningsPageComponent = props => {
     </div>
   );
 
-  const title = intl.formatMessage({ id: 'EarningsPage.title' });
+  const title = intl.formatMessage({ id: 'IncomePage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -89,21 +90,21 @@ export const EarningsPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="EarningsPage"
+              currentPage="IncomePage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="EarningsPage" />
+            <UserNav currentPage="IncomePage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="EarningsPage"
+        currentPage="IncomePage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="EarningsPage.heading" />
+            <FormattedMessage id="IncomePage.heading" />
           </H3>
           {pageDetails}
         </div>
@@ -112,8 +113,8 @@ export const EarningsPageComponent = props => {
   );
 };
 
-EarningsPageComponent.defaultProps = {
-  earningsError: null,
+IncomePageComponent.defaultProps = {
+  incomeError: null,
   currentUser: null,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -121,13 +122,13 @@ EarningsPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-EarningsPageComponent.propTypes = {
-  earningsError: propTypes.error,
-  earningsInProgress: bool.isRequired,
+IncomePageComponent.propTypes = {
+  incomeError: propTypes.error,
+  incomeInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
-  onSubmitEarnings: func.isRequired,
-  earnings: bool,
+  onSubmitIncome: func.isRequired,
+  income: bool,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -139,18 +140,18 @@ EarningsPageComponent.propTypes = {
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
-    earningsError,
-    earningsInProgress,
-    earnings,
+    incomeError,
+    incomeInProgress,
+    income,
     resetPasswordInProgress,
     resetPasswordError,
-  } = state.EarningsPage;
+  } = state.IncomePage;
   const { currentUser } = state.user;
   return {
-    earningsError,
-    earningsInProgress,
+    incomeError,
+    incomeInProgress,
     currentUser,
-    earnings,
+    income,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
@@ -158,15 +159,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: () => dispatch(earningsClear()),
+  onChange: () => dispatch(incomeClear()),
   onLogout: () => dispatch(logout()),
-  onSubmitEarnings: values => dispatch(earnings(values)),
+  onSubmitIncome: values => dispatch(income(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const EarningsPage = compose(
+const IncomePage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(EarningsPageComponent);
+)(IncomePageComponent);
 
-export default EarningsPage;
+export default IncomePage;

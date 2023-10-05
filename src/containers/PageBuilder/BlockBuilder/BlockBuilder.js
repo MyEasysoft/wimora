@@ -5,6 +5,7 @@ import { arrayOf, func, node, oneOf, shape, string } from 'prop-types';
 import BlockDefault from './BlockDefault';
 import BlockFooter from './BlockFooter';
 import BlockSocialMediaLink from './BlockSocialMediaLink';
+import css from './ProjectSection.module.css';
 
 ///////////////////////////////////////////
 // Mapping of block types and components //
@@ -44,7 +45,14 @@ const BlockBuilder = props => {
         const config = components[block.blockType];
         const Block = config?.component;
         if (Block) {
-          return <Block key={block.blockId} {...block} {...blockOptionsMaybe} {...otherProps} />;
+          if(block.blockId === "project-photo"){
+            return <Block key={block.blockId} {...block} className={css.projectStyle} {...blockOptionsMaybe} {...otherProps} />;
+          }else if(block.blockId === "project-desc"){
+            return <Block key={block.blockId} {...block} className={css.projectDesc} {...blockOptionsMaybe} {...otherProps} />;
+          }else{
+            return <Block key={block.blockId} {...block} className={css.projectDesc} {...blockOptionsMaybe} {...otherProps} />;
+          }
+          return <Block key={block.blockId} {...block} className={css.projectDesc} {...blockOptionsMaybe} {...otherProps} />;
         } else {
           // If the block type is unknown, the app can't know what to render
           console.warn(`Unknown block type (${block.blockType}) detected.`);

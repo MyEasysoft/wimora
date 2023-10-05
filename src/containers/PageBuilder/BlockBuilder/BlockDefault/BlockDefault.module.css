@@ -1,4 +1,7 @@
-.root {
+.root .text {
+  background-color: transparent;
+  padding: 0px;
+  border-radius: 0px;
 }
 
 .media {
@@ -7,18 +10,42 @@
   margin-bottom: 0;
 }
 
+
 .text {
   width: 100%;
   margin-top: 20px;
   text-align: left;
+  background-color: #0e8fced6;
+  padding: 30px;
+  border-radius: 20px;
 
   &:first-child {
     margin-top: 0;
   }
 }
 
+
+
+
 .text p {
   text-align: left;
   margin: 0px;
   padding: 0px;
+}
+
+.noStyle{
+  background-color: red;
+  padding: 0px;
+  border-radius: 0px;
+  color:gray;
+  transition: .5s;
+
+  &:hover{
+    margin: 5px 5px 5px 0px;
+    padding: 5px;
+    text-decoration: none;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+  }
 }

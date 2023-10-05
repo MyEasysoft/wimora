@@ -8,24 +8,25 @@ import { isScrollingDisabled } from '../../ducks/ui.duck';
 import { LayoutSideNavigation, Page, UserNav, H3 } from '../../components';
 import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
+import SubmitForm from '../AuthenticationPage/SignupForm/SignupForm'
 
 import {
-  earnings,
-  earningsClear,
+  gigsTracking,
+  gigsTrackingClear,
   resetPassword,
-} from '../EarningsPage/EarningsPage.duck';
+} from './GigsTrackingPage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './EarningsPage.module.css';
+import css from './GigsTrackingPage.module.css';
 import EarningsPageViewComponent from '../../components/EarningsPageView/EarningsPageView';
 
-export const EarningsPageComponent = props => {
+export const GigsTrackingPageComponent = props => {
   const {
-    earningsError,
-    earningsInProgress,
+    gigsTrackingError,
+    gigsTrackingInProgress,
     currentUser,
     onChange,
     onLogout,
-    onSubmitEarnings,
+    onSubmitGigsTracking,
     onResetPassword,
     resetPasswordInProgress,
     resetPasswordError,
@@ -34,8 +35,8 @@ export const EarningsPageComponent = props => {
     intl,
   } = props;
 
-  const handleEarnings = values => {
-    return onSubmitEarnings(values).then(() => {
+  const handleGigsTracking = values => {
+    return onSubmitGigsTracking(values).then(() => {
       onLogout();
     });
   };
@@ -44,21 +45,21 @@ export const EarningsPageComponent = props => {
     return onChange();
   }, []);
 
-
-  const totalTransactionLabel = 'TOTAL EXPECTED';
-  const totalTransactionValue = '$43,000';
+ 
+  const totalTransactionLabel = 'TOTAL GIG';
+  const totalTransactionValue = '20';
   const showTotalTransaction = true;
 
   const totalCompletedLabel = 'TOTAL COMPLETED';
-  const totaLCompletedValue = '23';
+  const totaLCompletedValue = '17';
   const showTotalCompleted = true;
 
-  const totalDeclinedLabel = 'TOTAL EARNINGS';
-  const totalDeclinedValue = '$34,000';
+  const totalDeclinedLabel = 'TOTAL PROFITS';
+  const totalDeclinedValue = '$25000';
   const showTotalDeclined = true;
 
   const totalProfitLabel = 'TOTAL LOSS';
-  const totalProfitValue = '$9,000';
+  const totalProfitValue = '$5000';
   const showTotalProfit = true;
 
   const pageDetails = (
@@ -81,7 +82,7 @@ export const EarningsPageComponent = props => {
     </div>
   );
 
-  const title = intl.formatMessage({ id: 'EarningsPage.title' });
+  const title = intl.formatMessage({ id: 'GigsTrackingPage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -89,21 +90,21 @@ export const EarningsPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="EarningsPage"
+              currentPage="GigsTrackingPage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="EarningsPage" />
+            <UserNav currentPage="GigsTrackingPage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="EarningsPage"
+        currentPage="GigsTrackingPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="EarningsPage.heading" />
+            <FormattedMessage id="GigsTrackingPage.heading" />
           </H3>
           {pageDetails}
         </div>
@@ -112,8 +113,8 @@ export const EarningsPageComponent = props => {
   );
 };
 
-EarningsPageComponent.defaultProps = {
-  earningsError: null,
+GigsTrackingPageComponent.defaultProps = {
+  gigsTrackingError: null,
   currentUser: null,
   resetPasswordInProgress: false,
   resetPasswordError: null,
@@ -121,13 +122,13 @@ EarningsPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-EarningsPageComponent.propTypes = {
-  earningsError: propTypes.error,
-  earningsInProgress: bool.isRequired,
+GigsTrackingPageComponent.propTypes = {
+  gigsTrackingError: propTypes.error,
+  gigsTrackingInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
   onChange: func.isRequired,
-  onSubmitEarnings: func.isRequired,
-  earnings: bool,
+  onSubmitGigsTracking: func.isRequired,
+  gigsTracking: bool,
   scrollingDisabled: bool.isRequired,
   resetPasswordInProgress: bool,
   resetPasswordError: propTypes.error,
@@ -139,18 +140,18 @@ EarningsPageComponent.propTypes = {
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
-    earningsError,
-    earningsInProgress,
-    earnings,
+    gigsTrackingError,
+    gigsTrackingInProgress,
+    gigsTracking,
     resetPasswordInProgress,
     resetPasswordError,
-  } = state.EarningsPage;
+  } = state.GigsTrackingPage;
   const { currentUser } = state.user;
   return {
-    earningsError,
-    earningsInProgress,
+    gigsTrackingError,
+    gigsTrackingInProgress,
     currentUser,
-    earnings,
+    gigsTracking,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
@@ -158,15 +159,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: () => dispatch(earningsClear()),
+  onChange: () => dispatch(gigsTrackingClear()),
   onLogout: () => dispatch(logout()),
-  onSubmitEarnings: values => dispatch(earnings(values)),
+  onSubmitGigsTracking: values => dispatch(gigsTracking(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const EarningsPage = compose(
+const GigsTrackingPage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(EarningsPageComponent);
+)(GigsTrackingPageComponent);
 
-export default EarningsPage;
+export default GigsTrackingPage;

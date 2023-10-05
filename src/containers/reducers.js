@@ -32,6 +32,8 @@ import CanceledPage from './CanceledPage/CanceledPage.duck';
 import PendingProposalsPage from './PendingProposalsPage/PendingProposalsPage.duck';
 import TransactionHistoryPage from './TransactionHistoryPage/TransactionHistoryPage.duck';
 import SubscriptionPage from './SubscriptionPage/SubscriptionPage.duck';
+import GigsTrackingPage from './GigsTrackingPage/GigsTrackingPage.duck';
+import IncomePage from './IncomePage/IncomePage.duck';
 
 export {
   CheckoutPage,
@@ -63,5 +65,7 @@ export {
   PendingProposalsPage,
   TransactionHistoryPage,
   SubscriptionPage,
+  GigsTrackingPage,
+  IncomePage,
 
 };

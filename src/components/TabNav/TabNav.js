@@ -5,15 +5,20 @@ import { NamedLink } from '../../components';
 
 import css from './TabNav.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEarth } from '@fortawesome/free-solid-svg-icons';
+import { faBarsProgress, faBook, faCab, faCancel, faCartPlus, faCartShopping, faContactBook, faCubes, faDeleteLeft, faDollar, faDollarSign, faEarth, faHandshake, faHistory, faKey, faList, faMagnet, faMoneyBill, faProcedures, faRemove } from '@fortawesome/free-solid-svg-icons';
 import { propTypes } from '../../util/types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { FormattedMessage, injectIntl, intlShape } from '../../util/reactIntl';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Tab = props => {
-  const { className, id, disabled, text, selected, linkProps } = props;
+  const { className, id, disabled, text, selected, linkProps,iconsToUse } = props;
+
+  
+
+
   const linkClasses = classNames(css.link, {
     [css.selectedLink]: selected,
     [css.disabled]: disabled,
@@ -22,7 +27,7 @@ const Tab = props => {
   return (
     <div id={id} className={className}>
       <NamedLink className={linkClasses} {...linkProps}>
-      <FontAwesomeIcon className={css.ms2} icon={faEarth}/>
+      <FontAwesomeIcon className={css.ms2} icon={iconsToUse}/>
         {text}
       </NamedLink>
     </div>
@@ -47,18 +52,92 @@ const TabNavCom = props => {
   const classes = classNames(rootClassName || css.root, className);
   const tabClasses = tabRootClassName || css.tab;
   let roleData = {};
-  let role = {};
+  let role = "";
   if(currentUser !== null){
      roleData = JSON.stringify(currentUser.attributes.profile.protectedData);
      role = JSON.parse(roleData)["role"];
+     //console.log(role+"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
   }
+
+  const sellerFunc = [
+    "GigsTrackingPageTab",
+    "IncomePageTab",
+    "EarningsPageTab",
+    "ContactDetailsPageTab",
+    "PasswordChangePageTab",
+    "StripePayoutPageTab",
+    "PaymentMethodsPageTab",
+
+  ];
+  const location = useLocation();
+  const path = location.pathname;
+
+  const routesToWatch = [
+    '/profile-settings',
+    '/account/delete-profile',
+    '/account/sales',
+    '/account/seo',
+    '/account/projects',
+    '/account/refunds',
+    '/account/products',
+    '/account/carts',
+    '/account/purchases',
+    '/account/wishlist',
+    '/account/canceled',
+    '/account/gigs',
+    '/account/pending-proposals',
+    '/account/transaction-history',
+    '/account/subscription',
+    '/account/gigs-tracking',
+    '/account/income',
+    '/seller',
+    '/influencer',
+    '/account/contact-details',
+    '/account/change-password',
+    '/account/payments',
+    '/account/payment-methods'
+  ];
+
+  const iconsUse = {
+    'GigsTrackingPageTab':faCab,
+    'IncomePageTab':faMoneyBill,
+    'EarningsPageTab':faDollar,
+    'ContactDetailsPageTab':faContactBook,
+    'PasswordChangePageTab':faKey,
+    'StripePayoutPageTab':faDollarSign,
+    'PaymentMethodsPageTab':faMagnet,
+    'DeleteAccountPageTab':faRemove,
+    'SalesAccountPageTab':faBook,
+    'RefundsPageTab':faBarsProgress,
+    'ProductPageTab':faCubes,
+    'WishlistPageTab':faCartShopping,
+    'CanceledPageTab':faCancel,
+    'ProjectsPageTab':faCancel,
+    'GigsPageTab':faHandshake,
+    'PendingProposalsPageTab':faList,
+    'TransactionHistoryPageTab':faHistory,
+    'SubscriptionPageTab':faCancel,
+    
+  };
+
   
   return (
     <nav className={classes}>
       <h3 className={css.header}>{role}</h3>
       {tabs.map((tab, index) => {
+        if(role==="Seller"){
+          console.log(tab.id);
+          const included = routesToWatch.includes(path);
+          const includedPage = sellerFunc.includes(tab.id);
+          if(included){
+            if(!includedPage){
+              return;
+            }
+            
+          }
+        }
         const id = typeof tab.id === 'string' ? tab.id : `${index}`;
-        return <Tab key={id} id={id} className={tabClasses} {...tab} />;
+        return <Tab key={id} id={id} className={tabClasses} iconsToUse={iconsUse[tab.id]} {...tab} />;
       })}
     </nav>
   );

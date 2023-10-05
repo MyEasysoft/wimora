@@ -89,6 +89,24 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
 
   const tabs = [
     {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.GigsTrackingPageTabTitle" />,
+      selected: currentPage === 'GigsTrackingPage',
+      id: 'GigsTrackingPageTab',
+      linkProps: {
+        name: 'GigsTrackingPage',
+      },
+    },
+
+    {
+      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.IncomePageTabTitle" />,
+      selected: currentPage === 'IncomePage',
+      id: 'IncomePageTab',
+      linkProps: {
+        name: 'IncomePage',
+      },
+    },
+
+    {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.ProjectsTabTitle" />,
       selected: currentPage === 'ProjectsPage',
       id: 'ProjectsPageTab',

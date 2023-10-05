@@ -174,15 +174,7 @@ const TopbarDesktop = props => {
               alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
             />
               
-              <a href="">Home</a>
-              <hr className={csss.vr}></hr>
-              <a href="">About</a>
-              <hr className={csss.vr}></hr>
-              <a href="">Gallery</a>
-              <hr className={csss.vr}></hr>
-              <a href="">Services</a>
-              <hr className={csss.vr}></hr>
-              <a href="">Contact</a>
+              
              
             </div>
            
@@ -206,16 +198,6 @@ const TopbarDesktop = props => {
 
   </div>
 
-
-
-
-
-
-
-
-
-
-    
 
     
   );

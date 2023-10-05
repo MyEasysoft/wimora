@@ -10,10 +10,7 @@ function LandingPageMainComponent(){
 
   return (
     <>
-		<CustomSectionComponent3 />
-		<CustomSectionComponent1 />
-		<CustomSectionComponent2 />
-		<CustomSectionComponent4 />
+		
     </>
   );
 };

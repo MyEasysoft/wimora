@@ -30,9 +30,20 @@
       flex-direction: row;
     }
   }
+
+
+   .text{
+    background-color:transparent;
+    padding: 0px;
+    border-radius: 0px;
+  }
+  
+
+
 }
 
 .noSidePaddings {
   padding-left: 0;
   padding-right: 0;
 }
+

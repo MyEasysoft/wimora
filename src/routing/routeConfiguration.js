@@ -53,6 +53,8 @@ const GigsPage = loadable(() => import(/* webpackChunkName: "GigsPage" */ '../co
 const PendingProposalsPage = loadable(() => import(/* webpackChunkName: "PendingProposalsPage" */ '../containers/PendingProposalsPage/PendingProposalsPage'));
 const TransactionHistoryPage = loadable(() => import(/* webpackChunkName: "TransactionHistoryPage" */ '../containers/TransactionHistoryPage/TransactionHistoryPage'));
 const SubscriptionPage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/SubscriptionPage/SubscriptionPage'));
+const GigsTrackingPage = loadable(() => import(/* webpackChunkName: "GigsTrackingPage" */ '../containers/GigsTrackingPage/GigsTrackingPage'));
+const IncomePage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/IncomePage/IncomePage'));
 
 
 
@@ -78,6 +80,8 @@ export const ACCOUNT_SETTINGS_PAGES = [
   'PendingProposalsPage',
   'TransactionHistoryPage',
   'SubscriptionPage',
+  'GigsTrackingPage',
+  'IncomePage',
 ];
 
 // https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID
@@ -316,6 +320,23 @@ const routeConfiguration = (layoutConfig) => {
       authPage: 'LoginPage',
       component: SubscriptionPage,
     },
+
+    {
+      path: '/account/gigs-tracking',
+      name: 'GigsTrackingPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: GigsTrackingPage,
+    },
+
+    {
+      path: '/account/income',
+      name: 'IncomePage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: IncomePage,
+    },
+
 
     {
       path: '/seller',

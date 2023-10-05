@@ -1170,7 +1170,21 @@
   "SubscriptionPage.heading": "My Subscription",
   "SubscriptionPage.title": "My Subscription",
   "SubscriptionPage.error": "Subscription History cannot be view at the moment.",
-  "LayoutWrapperAccountSettingsSideNav.SubscriptionPageTabTitle": "My Subscription"
+  "LayoutWrapperAccountSettingsSideNav.SubscriptionPageTabTitle": "My Subscription",
+
+
+  "GigsTrackingPage.details": "Track Gigs",
+  "GigsTrackingPage.heading": "Track Gigs",
+  "GigsTrackingPage.title": "Track Gigs",
+  "GigsTrackingPage.error": "Track Gigs cannot be view at the moment.",
+  "LayoutWrapperAccountSettingsSideNav.GigsTrackingPageTabTitle": "Track Gigs",
+
+
+  "IncomePage.details": "My Income",
+  "IncomePage.heading": "My Income",
+  "IncomePage.title": "My Income",
+  "IncomePage.error": "Income History cannot be view at the moment.",
+  "LayoutWrapperAccountSettingsSideNav.IncomePageTabTitle": "My Income"
 
 
 

@@ -18,7 +18,7 @@ const FieldMedia = props => {
 };
 
 const BlockDefault = props => {
-  const {
+  let {
     blockId,
     className,
     rootClassName,
@@ -34,8 +34,12 @@ const BlockDefault = props => {
   } = props;
   const classes = classNames(rootClassName || css.root, className);
   const hasTextComponentFields = hasDataInFields([title, text, callToAction], options);
-
+  if(blockId==="our-influencers" || blockId==="our-influencers-2" || blockId==="our-influencer-3" || blockId==="press-1" || blockId==="press-2" || blockId==="press-3" || blockId==="project-desc"){
+    ctaButtonClass = css.noStyle;
+  }
+  
   return (
+   
     <BlockContainer id={blockId} className={classes}>
       <FieldMedia
         media={media}
