@@ -52,7 +52,7 @@ const CanceledPage = loadable(() => import(/* webpackChunkName: "SalesAccountPag
 const GigsPage = loadable(() => import(/* webpackChunkName: "GigsPage" */ '../containers/GigsPage/GigsPage'));
 const PendingProposalsPage = loadable(() => import(/* webpackChunkName: "PendingProposalsPage" */ '../containers/PendingProposalsPage/PendingProposalsPage'));
 const TransactionHistoryPage = loadable(() => import(/* webpackChunkName: "TransactionHistoryPage" */ '../containers/TransactionHistoryPage/TransactionHistoryPage'));
-const SubscriptionPage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/SubscriptionPage/SubscriptionPage'));
+//const SubscriptionPage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/SubscriptionPage/SubscriptionPage'));
 const GigsTrackingPage = loadable(() => import(/* webpackChunkName: "GigsTrackingPage" */ '../containers/GigsTrackingPage/GigsTrackingPage'));
 const IncomePage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/IncomePage/IncomePage'));
 
@@ -79,7 +79,6 @@ export const ACCOUNT_SETTINGS_PAGES = [
   'GigsPage',
   'PendingProposalsPage',
   'TransactionHistoryPage',
-  'SubscriptionPage',
   'GigsTrackingPage',
   'IncomePage',
 ];
@@ -311,14 +310,6 @@ const routeConfiguration = (layoutConfig) => {
       auth: true,
       authPage: 'LoginPage',
       component: TransactionHistoryPage,
-    },
-
-    {
-      path: '/account/subscription',
-      name: 'SubscriptionPage',
-      auth: true,
-      authPage: 'LoginPage',
-      component: SubscriptionPage,
     },
 
     {

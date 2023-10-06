@@ -5,7 +5,7 @@ import { NamedLink } from '../../components';
 
 import css from './TabNav.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBarsProgress, faBook, faCab, faCancel, faCartPlus, faCartShopping, faContactBook, faCubes, faDeleteLeft, faDollar, faDollarSign, faEarth, faHandshake, faHistory, faKey, faList, faMagnet, faMoneyBill, faProcedures, faRemove } from '@fortawesome/free-solid-svg-icons';
+import { faBarsProgress, faBook, faCab, faCancel, faCartPlus, faCartShopping, faCashRegister, faContactBook, faCubes, faDeleteLeft, faDollar, faDollarSign, faEarth, faHandshake, faHistory, faKey, faList, faMagnet, faMoneyBill, faNewspaper, faProcedures, faRemove } from '@fortawesome/free-solid-svg-icons';
 import { propTypes } from '../../util/types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -101,7 +101,7 @@ const TabNavCom = props => {
   const iconsUse = {
     'GigsTrackingPageTab':faCab,
     'IncomePageTab':faMoneyBill,
-    'EarningsPageTab':faDollar,
+    'EarningsPageTab':faCashRegister,
     'ContactDetailsPageTab':faContactBook,
     'PasswordChangePageTab':faKey,
     'StripePayoutPageTab':faDollarSign,
@@ -113,7 +113,7 @@ const TabNavCom = props => {
     'WishlistPageTab':faCartShopping,
     'CanceledPageTab':faCancel,
     'ProjectsPageTab':faCancel,
-    'GigsPageTab':faHandshake,
+    'GigsPageTab':faNewspaper,
     'PendingProposalsPageTab':faList,
     'TransactionHistoryPageTab':faHistory,
     'SubscriptionPageTab':faCancel,

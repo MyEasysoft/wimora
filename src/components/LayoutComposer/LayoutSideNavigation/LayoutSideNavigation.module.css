@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: rgb(181, 223, 255);
+  background-color: rgb(235, 246, 255);
 
   /* When side nav is shown as a column, Topbar's box-shadow should be visible */
   z-index: calc(var(--zIndexTopbar) - 1);
@@ -55,7 +55,8 @@
   }
 
   @media (--viewportLargeWithPaddings) {
-    padding: 0px 0px 82px 20px;
+    padding: 13px 0px 82px 20px;
+    margin: 50px 40px auto auto;
   }
 }
 
