@@ -144,10 +144,10 @@ const SignupFormComponent = props => (
               />
               <div className={css.radio}></div>
               <FieldRadioButton
-                id='SignupForm.RoleCreator'
+                id='SignupForm.Influencer'
                 name="role"
-                label="I am a Creator"
-                value="Creator"
+                label="I am an Influencer"
+                value="Influencer"
                 showAsRequired={showAsRequired}
               />
             </div>

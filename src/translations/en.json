@@ -717,6 +717,7 @@
   "SignupForm.RoleInfluencer": "Influencer",
   "SignupForm.RoleSeller": "Seller",
   "SignupForm.RoleCreator": "Creator",
+  "SignupForm.Influencer": "Influencer",
   
   "SignupForm.passwordLabel": "Password",
   "SignupForm.passwordPlaceholder": "Enter your password…",
