@@ -2,6 +2,7 @@
 
 .topbar {
   z-index: 1;
+  border-bottom: solid;
 }
 
 .mobileTopbar {

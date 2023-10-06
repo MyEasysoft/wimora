@@ -63,7 +63,7 @@
     background-color: transparent;
   }
   @media (--viewportLargeWithPaddings) {
-    padding: 40px 0 82px;
+    padding: 0px 0 82px;
   }
 }
 
@@ -85,6 +85,7 @@
   @media (--viewportLarge) {
     padding: 5px 0 3px 0;
     align-self: unset;
+    background-color: #cae4ff;
   }
 }
 

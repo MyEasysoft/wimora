@@ -23,6 +23,7 @@ export const transitions = {
   // then transition that with a request.
   INQUIRE: 'transition/inquire',
   REQUEST_PAYMENT_AFTER_INQUIRY: 'transition/request-payment-after-inquiry',
+  TRANSITION_REQUEST_PAYMENT:'transition/inquire-without-payment',////Just added
 
   // Stripe SDK might need to ask 3D security from customer, in a separate front-end step.
   // Therefore we need to make another transition to Marketplace API,
@@ -112,23 +113,27 @@ export const graph = {
     [states.INITIAL]: {
       on: {
         [transitions.INQUIRE]: states.INQUIRY,
-        [transitions.REQUEST_PAYMENT]: states.PENDING_PAYMENT,
+        ////[transitions.REQUEST_PAYMENT]: states.PENDING_PAYMENT,
+        //+[TRANSITION_REQUEST_PAYMENT]: STATE_PREAUTHORIZED,
       },
     },
     [states.INQUIRY]: {
       on: {
-        [transitions.REQUEST_PAYMENT_AFTER_INQUIRY]: states.PENDING_PAYMENT,
+        ////[transitions.REQUEST_PAYMENT_AFTER_INQUIRY]: states.PENDING_PAYMENT,
+        //+[TRANSITION_REQUEST_PAYMENT_AFTER_INQUIRY]: STATE_PREAUTHORIZED,
       },
     },
 
-    [states.PENDING_PAYMENT]: {
-      on: {
-        [transitions.EXPIRE_PAYMENT]: states.PAYMENT_EXPIRED,
-        [transitions.CONFIRM_PAYMENT]: states.PREAUTHORIZED,
-      },
-    },
+   
 
-    [states.PAYMENT_EXPIRED]: {},
+    ////[states.PENDING_PAYMENT]: {
+      ////on: {
+        ////[transitions.EXPIRE_PAYMENT]: states.PAYMENT_EXPIRED,
+        ////[transitions.CONFIRM_PAYMENT]: states.PREAUTHORIZED,
+      ////},
+    ////},
+
+    ////[states.PAYMENT_EXPIRED]: {},
     [states.PREAUTHORIZED]: {
       on: {
         [transitions.DECLINE]: states.DECLINED,

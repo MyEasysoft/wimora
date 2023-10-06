@@ -5,7 +5,7 @@ import { NamedLink } from '../../components';
 
 import css from './TabNav.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBarsProgress, faBook, faCab, faCancel, faCartPlus, faCartShopping, faCashRegister, faContactBook, faCubes, faDeleteLeft, faDollar, faDollarSign, faEarth, faHandshake, faHistory, faKey, faList, faMagnet, faMoneyBill, faNewspaper, faProcedures, faRemove } from '@fortawesome/free-solid-svg-icons';
+import { faBarsProgress, faBook, faCab, faCancel, faCartPlus, faCartShopping, faCashRegister, faContactBook, faCubes, faDeleteLeft, faDollar, faDollarSign, faEarth, faHandshake, faHistory, faKey, faList, faMagnet, faMessage, faMoneyBill, faNewspaper, faProcedures, faRemove } from '@fortawesome/free-solid-svg-icons';
 import { propTypes } from '../../util/types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -72,6 +72,10 @@ const TabNavCom = props => {
   const location = useLocation();
   const path = location.pathname;
 
+
+
+  //List of route to check, to determine what side nav menu will be shown
+  //for either Influencer or Seller
   const routesToWatch = [
     '/profile-settings',
     '/account/delete-profile',
@@ -98,6 +102,8 @@ const TabNavCom = props => {
     '/account/payment-methods'
   ];
 
+
+  //List of icon for each menu
   const iconsUse = {
     'GigsTrackingPageTab':faCab,
     'IncomePageTab':faMoneyBill,
@@ -117,6 +123,7 @@ const TabNavCom = props => {
     'PendingProposalsPageTab':faList,
     'TransactionHistoryPageTab':faHistory,
     'SubscriptionPageTab':faCancel,
+    'undefined':faMessage,
     
   };
 
@@ -137,6 +144,7 @@ const TabNavCom = props => {
           }
         }
         const id = typeof tab.id === 'string' ? tab.id : `${index}`;
+        console.log(tab.id+"-----------------------------------------------------");
         return <Tab key={id} id={id} className={tabClasses} iconsToUse={iconsUse[tab.id]} {...tab} />;
       })}
     </nav>
