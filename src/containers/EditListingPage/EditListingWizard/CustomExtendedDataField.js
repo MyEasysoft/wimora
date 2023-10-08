@@ -1,4 +1,6 @@
 import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
 // Import config and utils
 import {
@@ -8,7 +10,7 @@ import {
   SCHEMA_TYPE_LONG,
   SCHEMA_TYPE_BOOLEAN,
 } from '../../../util/types';
-import { useIntl } from '../../../util/reactIntl';
+import { useIntl,injectIntl } from '../../../util/reactIntl';
 import { required, nonEmptyArray } from '../../../util/validators';
 // Import shared components
 import { FieldCheckboxGroup, FieldSelect, FieldTextInput, FieldBoolean } from '../../../components';
@@ -146,12 +148,25 @@ const CustomFieldBoolean = props => {
  * @param {Object} props should contain fieldConfig that defines schemaType, enumOptions?, and
  * saveConfig for the field.
  */
-const CustomExtendedDataField = props => {
+const CustomExtendedDataFieldComponent = props => {
   const intl = useIntl();
-  const { enumOptions = [], schemaType } = props?.fieldConfig || {};
+  const role = props.currentUser.attributes.profile.protectedData["role"];
+  const { enumOptions = [], schemaType} = props?.fieldConfig || {};
+  const key=props.fieldConfig["filterConfig"].label;
   const renderFieldComponent = (FieldComponent, props) => <FieldComponent {...props} intl={intl} />;
-
-  return schemaType === SCHEMA_TYPE_ENUM && enumOptions
+  const influencerFields = [
+    "Listing title",
+    "Listing description",
+    "Listing type",
+    "Listing type",
+    "Copyrights",
+    "Gig Title",
+    "Completion Duration",
+    "Cost"
+  ];
+  return role === "Influencer" && !influencerFields.includes(key)? "":
+  role === "Seller" && key==="Cost"? "":
+  schemaType === SCHEMA_TYPE_ENUM && enumOptions
     ? renderFieldComponent(CustomFieldEnum, props)
     : schemaType === SCHEMA_TYPE_MULTI_ENUM && enumOptions
     ? renderFieldComponent(CustomFieldMultiEnum, props)
@@ -164,4 +179,24 @@ const CustomExtendedDataField = props => {
     : null;
 };
 
+
+const mapStateToProps = state => {
+  //user info.
+  const { currentUser } = state.user;
+  return {
+    currentUser
+  };
+};
+
+
+
+const CustomExtendedDataField = compose(
+  connect(mapStateToProps),
+  injectIntl
+)(CustomExtendedDataFieldComponent);
+
 export default CustomExtendedDataField;
+
+
+
+

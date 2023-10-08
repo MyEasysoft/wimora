@@ -117,10 +117,17 @@ const AddListingFields = props => {
   const fields = listingFieldsConfig.reduce((pickedFields, fieldConfig) => {
     const { key, includeForListingTypes, schemaType, scope } = fieldConfig || {};
 
+    console.log(key+"oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+
     const isKnownSchemaType = EXTENDED_DATA_SCHEMA_TYPES.includes(schemaType);
     const isTargetProcessAlias =
       includeForListingTypes == null || includeForListingTypes.includes(listingType);
     const isProviderScope = ['public', 'private'].includes(scope);
+
+    let hideField = "";
+    if(key==="Copyrights"){
+      hideField = css.hideField;
+    }
 
     return isKnownSchemaType && isTargetProcessAlias && isProviderScope
       ? [
@@ -128,6 +135,7 @@ const AddListingFields = props => {
           <CustomExtendedDataField
             key={key}
             name={key}
+            className={css.hideField}
             fieldConfig={fieldConfig}
             defaultRequiredMessage={intl.formatMessage({
               id: 'EditListingDetailsForm.defaultRequiredMessage',

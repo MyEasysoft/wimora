@@ -319,7 +319,7 @@ class EditListingWizard extends Component {
       selectedListingType: null,
     };
     this.handleCreateFlowTabScrolling = this.handleCreateFlowTabScrolling.bind(this);
-    // this.handlePublishListing = this.handlePublishListing.bind(this);
+    this.handlePublishListing = this.handlePublishListing.bind(this);
     this.handlePayoutModalClose = this.handlePayoutModalClose.bind(this);
   }
 
@@ -335,27 +335,27 @@ class EditListingWizard extends Component {
     this.hasScrolledToTab = shouldScroll;
   }
 
-  // handlePublishListing(id) {
-  //   const { onPublishListingDraft, currentUser, stripeAccount, listing, config } = this.props;
-  //   const processName = listing?.attributes?.publicData?.transactionProcessAlias.split('/')[0];
-  //   const isInquiryProcess = processName === INQUIRY_PROCESS_NAME;
+  handlePublishListing(id) {
+    const { onPublishListingDraft, currentUser, stripeAccount, listing, config } = this.props;
+    const processName = listing?.attributes?.publicData?.transactionProcessAlias.split('/')[0];
+    const isInquiryProcess = processName === INQUIRY_PROCESS_NAME;
 
-  //   const stripeConnected = !!currentUser?.stripeAccount?.id;
-  //   const stripeAccountData = stripeConnected ? getStripeAccountData(stripeAccount) : null;
-  //   const stripeRequirementsMissing =
-  //     stripeAccount &&
-  //     (hasRequirements(stripeAccountData, 'past_due') ||
-  //       hasRequirements(stripeAccountData, 'currently_due'));
+    const stripeConnected = !!currentUser?.stripeAccount?.id;
+    const stripeAccountData = stripeConnected ? getStripeAccountData(stripeAccount) : null;
+    const stripeRequirementsMissing =
+      stripeAccount &&
+      (hasRequirements(stripeAccountData, 'past_due') ||
+        hasRequirements(stripeAccountData, 'currently_due'));
 
-  //   if (isInquiryProcess || (stripeConnected && !stripeRequirementsMissing)) {
-  //     onPublishListingDraft(id);
-  //   } else {
-  //     this.setState({
-  //       draftId: id,
-  //       showPayoutDetails: true,
-  //     });
-  //   }
-  // }
+    if (isInquiryProcess || (stripeConnected && !stripeRequirementsMissing)) {
+      onPublishListingDraft(id);
+    } else {
+      this.setState({
+        draftId: id,
+        showPayoutDetails: true,
+      });
+    }
+  }
 
   handlePayoutModalClose() {
     this.setState({ showPayoutDetails: false });
