@@ -7,7 +7,8 @@ const unsafeEval = "'unsafe-eval'";
 const data = 'data:';
 const blob = 'blob:';
 const devImagesMaybe = dev ? ['*.localhost:8000'] : [];
-const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://flex-api.sharetribe.com';
+//const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://flex-api.sharetribe.com';
+const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://influenceconnect-4d781c62d868.herokuapp.com';
 // Asset Delivery API is using a different domain than other Flex APIs
 // cdn.st-api.com
 // If assetCdnBaseUrl is used to initialize SDK (for proxy purposes), then that URL needs to be in CSP
