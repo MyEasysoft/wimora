@@ -7,8 +7,7 @@ const unsafeEval = "'unsafe-eval'";
 const data = 'data:';
 const blob = 'blob:';
 const devImagesMaybe = dev ? ['*.localhost:8000'] : [];
-//const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://flex-api.sharetribe.com';
-const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://influenceconnect-4d781c62d868.herokuapp.com';
+const baseUrl = process.env.REACT_APP_SHARETRIBE_SDK_BASE_URL || 'https://flex-api.sharetribe.com';
 // Asset Delivery API is using a different domain than other Flex APIs
 // cdn.st-api.com
 // If assetCdnBaseUrl is used to initialize SDK (for proxy purposes), then that URL needs to be in CSP
@@ -31,6 +30,7 @@ const defaultDirectives = {
     '*.tiles.mapbox.com',
     'api.mapbox.com',
     'events.mapbox.com',
+    'https://influenceconnect-4d781c62d868.herokuapp.com',
 
     // Google Analytics
     'www.googletagmanager.com',
@@ -63,6 +63,8 @@ const defaultDirectives = {
     '*.gstatic.com',
     '*.googleapis.com',
     '*.ggpht.com',
+    'https://influenceconnect-4d781c62d868.herokuapp.com',
+
 
     // Google Analytics
     'www.googletagmanager.com',
@@ -83,10 +85,11 @@ const defaultDirectives = {
     'maps.googleapis.com',
     'api.mapbox.com',
     'www.googletagmanager.com',
+    'https://influenceconnect-4d781c62d868.herokuapp.com',
     '*.google-analytics.com',
     'js.stripe.com',
   ],
-  styleSrc: [self, unsafeInline, 'fonts.googleapis.com', 'api.mapbox.com'],
+  styleSrc: [self, unsafeInline, 'fonts.googleapis.com', 'api.mapbox.com','https://influenceconnect-4d781c62d868.herokuapp.com'],
 };
 
 /**
