@@ -16,6 +16,9 @@ import {
 } from './ProjectsPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './ProjectsPage.module.css';
+import EarningsPageViewComponent from '../../components/EarningsPageView/EarningsPageView';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalculator } from '@fortawesome/free-solid-svg-icons';
 
 export const ProjectsPageComponent = props => {
   const {
@@ -43,18 +46,44 @@ export const ProjectsPageComponent = props => {
     return onChange();
   }, []);
 
+  
+
+  const totalTransactionLabel = 'TOTAL EXPECTED';
+  const totalTransactionValue = '$43,000';
+  const showTotalTransaction = true;
+
+  const totalCompletedLabel = 'TOTAL COMPLETED';
+  const totaLCompletedValue = '23';
+  const showTotalCompleted = true;
+
+  const totalDeclinedLabel = 'TOTAL EARNINGS';
+  const totalDeclinedValue = '$34,000';
+  const showTotalDeclined = true;
+
+  const totalProfitLabel = 'TOTAL LOSS';
+  const totalProfitValue = '$9,000';
+  const showTotalProfit = true;
+
   const pageDetails = (
     <div className={css.details}>
-      <FormattedMessage
-        id={
-          projectsError?.status == 409
-            ? 'ProjectsPage.error'
-            : 'ProjectsPage.details'
-        }
-        values={{ errorCause: projectsError?.message }}
-      />
+        <EarningsPageViewComponent
+        
+          totalTransactionLabel={totalTransactionLabel}
+          totalTransactionValue={totalTransactionValue}
+          showTotalTransaction={showTotalTransaction}
+          totalCompletedLabel={totalCompletedLabel}
+          totaLCompletedValue={totaLCompletedValue}
+          showTotalCompleted={showTotalCompleted}
+          totalDeclinedLabel={totalDeclinedLabel}
+          totalDeclinedValue={totalDeclinedValue}
+          showTotalDeclined={showTotalDeclined}
+          totalProfitLabel={totalProfitLabel}
+          totalProfitValue={totalProfitValue}
+          showTotalProfit={showTotalProfit}
+        />
     </div>
   );
+
 
   const title = intl.formatMessage({ id: 'ProjectsPage.title' });
 
@@ -69,6 +98,7 @@ export const ProjectsPageComponent = props => {
               mobileClassName={css.mobileTopbar}
             />
             <UserNav currentPage="ProjectsPage" />
+           
           </>
         }
         sideNav={null}

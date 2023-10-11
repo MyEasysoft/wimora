@@ -5,7 +5,7 @@ import s1 from '../../assets/new/Influencer1.PNG';
 import s2 from '../../assets/new/Influencer2.PNG';
 import s3 from '../../assets/new/Influencer3.PNG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMessage, faHeart, faSignIn, faEnvelope, faBook, faGear} from '@fortawesome/free-solid-svg-icons';
+import { faMessage, faHeart, faSignIn, faEnvelope, faBook, faGear, faKey} from '@fortawesome/free-solid-svg-icons';
 import {
     Avatar,
     InlineTextButton,
@@ -21,10 +21,12 @@ import {
   import BarChart from '../ChartViews/area charts/BarChart';
   import BarChart2 from '../ChartViews/area charts/BarChart2';
 import LineChart from '../ChartViews/area charts/LineChart';
+import EarningsPage from '../../containers/EarningsPage/EarningsPage';
 
 function EarningsPageViewComponent(props){
 
     const {
+
       totalTransactionLabel,
       totalTransactionValue,
       showTotalTransaction,
@@ -37,16 +39,13 @@ function EarningsPageViewComponent(props){
       totalProfitLabel,
       totalProfitValue,
       showTotalProfit
+
     } = props;
 
-
     const[plan,setPlan] = useState("Basic");
-
-
     const  handleBasicClicked = (event)=>{
         event.preventDefault();
        setPlan("Basic");
-
     }
 
    const handleProClicked = (event)=>{
@@ -54,10 +53,31 @@ function EarningsPageViewComponent(props){
         setPlan("Pro");
     }
 
+    const EarningsPage = {
+      name: 'EarningsPage',
+      match: { url: '/' },
+    };
+
   return (
    
     <div className={css.container +' '+ css.textCenter+' '+ css.sectionBgWhite}>
+          {/* <div className={css.cardRow2}>
+            <button className={css.innerMenu}>
+              <FontAwesomeIcon icon={faKey}/>
+              <NamedLink {...EarningsPage} className={css.link} >Gigs</NamedLink>
+            </button>
+            <button className={css.innerMenu}>
+              <FontAwesomeIcon icon={faKey}/>
+              <NamedLink {...EarningsPage} className={css.link} >My Earnings</NamedLink>
+            </button>
+            <button className={css.innerMenu}>
+              <FontAwesomeIcon icon={faKey}/>
+              <NamedLink {...EarningsPage} className={css.link} >My Earnings</NamedLink>
+            </button>
 
+           
+              
+          </div> */}
           <div className={css.cardRow}>
               <div className={css.card1}>
                   <div className={css.row3}>

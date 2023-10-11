@@ -30,7 +30,6 @@ const defaultDirectives = {
     '*.tiles.mapbox.com',
     'api.mapbox.com',
     'events.mapbox.com',
-    'https://influenceconnect-4d781c62d868.herokuapp.com',
 
     // Google Analytics
     'www.googletagmanager.com',
@@ -63,9 +62,7 @@ const defaultDirectives = {
     '*.gstatic.com',
     '*.googleapis.com',
     '*.ggpht.com',
-    'https://influenceconnect-4d781c62d868.herokuapp.com',
-
-
+    
     // Google Analytics
     'www.googletagmanager.com',
     'www.google.com',

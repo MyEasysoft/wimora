@@ -1104,14 +1104,14 @@
   
 
   "EarningsPage.details": "Search Engine Uptimisation",
-  "EarningsPage.heading": "Earnings Setting",
-  "EarningsPage.title": "Earnings Setting",
+  "EarningsPage.heading": "Earnings",
+  "EarningsPage.title": "Earnings",
   "EarningsPage.error": "Error getting Earnings data",
   "LayoutWrapperAccountSettingsSideNav.EarningsTabTitle": "Earnings",
   
   "ProjectsPage.details": "My Projects and Progress",
-  "ProjectsPage.heading": "Projects setting",
-  "ProjectsPage.title": "Projects setting",
+  "ProjectsPage.heading": "Projects",
+  "ProjectsPage.title": "Projects",
   "ProjectsPage.error": "Error getting Projects data",
   "LayoutWrapperAccountSettingsSideNav.ProjectsTabTitle": "My Projects",
   

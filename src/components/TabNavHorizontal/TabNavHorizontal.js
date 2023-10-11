@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { InlineTextButton, NamedLink } from '../../components';
 
 import css from './TabNavHorizontal.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleDown, faCaretSquareDown, faContactBook, faKey, faRemove } from '@fortawesome/free-solid-svg-icons';
 
 export const LIGHT_SKIN = 'light';
 export const DARK_SKIN = 'dark';
@@ -69,15 +71,70 @@ Tab.propTypes = {
 
 const TabNavHorizontal = props => {
   const { className, rootClassName, tabRootClassName, tabs, skin } = props;
-  const isDark = skin === DARK_SKIN;
+  const isDark = skin === LIGHT_SKIN;
   const classes = classNames(rootClassName || css.root, { [css.darkSkin]: isDark }, className);
   const tabClasses = tabRootClassName || css.tab;
+  const ContactDetailsPage = {
+    name: 'ContactDetailsPage',
+    match: { url: '/' },
+  };
+
+  const PasswordChangePage = {
+    name: 'PasswordChangePage',
+    match: { url: '/' },
+  };
+
+  const DeleteAccountPage = {
+    name: 'DeleteAccountPage',
+    match: { url: '/' },
+  };
+
+  const[show,setShow] = useState(false);
+  
+
+  const showMenu = ()=>{
+    setShow((show) => true);
+  }
+
+  const hideMenu = ()=>{
+    setShow((show) => !show);
+  }
   return (
     <nav className={classes}>
+      
+     
       {tabs.map((tab, index) => {
         const key = typeof tab.text === 'string' ? tab.text : index;
         return <Tab key={key} className={tabClasses} {...tab} isDark={isDark} />;
       })}
+
+    <button onClick={hideMenu}  className={css.dropDown}>
+          <span className={css.margR}>Account Settings</span>
+          <FontAwesomeIcon icon={faCaretSquareDown}/>
+          {show &&
+            <div className={css.navMenu} onClick={hideMenu} >
+                <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                  <FontAwesomeIcon icon={faContactBook}/>
+                  <NamedLink {...ContactDetailsPage} className={css.accountSetting} >Contact Details</NamedLink>
+                </button>
+
+                <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                  <FontAwesomeIcon icon={faKey}/>
+                  <NamedLink {...PasswordChangePage} className={css.accountSetting} >Password</NamedLink>
+                </button>
+
+                <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                  <FontAwesomeIcon icon={faRemove}/>
+                  <NamedLink {...DeleteAccountPage} className={css.accountSetting} >Delete Account</NamedLink>
+                </button>
+                
+                
+            </div>
+          }
+        
+      </button>
+
+     
     </nav>
   );
 };

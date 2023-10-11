@@ -88,14 +88,7 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
   const { currentPage } = props;
 
   const tabs = [
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.GigsTrackingPageTabTitle" />,
-      selected: currentPage === 'GigsTrackingPage',
-      id: 'GigsTrackingPageTab',
-      linkProps: {
-        name: 'GigsTrackingPage',
-      },
-    },
+   
 
     {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.IncomePageTabTitle" />,
@@ -150,8 +143,6 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
       },
     },
 
-    
-
     {
       text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.contactDetailsTabTitle" />,
       selected: currentPage === 'ContactDetailsPage',
@@ -193,53 +184,7 @@ const LayoutWrapperAccountSettingsSideNavComponent = props => {
       },
     },
 
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.SalesTabTitle" />,
-      selected: currentPage === 'SalesAccountPage',
-      id: 'SalesAccountPageTab',
-      linkProps: {
-        name: 'SalesAccountPage',
-      },
-    },
-
     
-   
-
-  
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.RefundsTabTitle" />,
-      selected: currentPage === 'RefundsPage',
-      id: 'RefundsPageTab',
-      linkProps: {
-        name: 'RefundsPage',
-      },
-    },
-   
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.ProductTabTitle" />,
-      selected: currentPage === 'ProductPage',
-      id: 'ProductPageTab',
-      linkProps: {
-        name: 'ProductPage',
-      },
-    },
-
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.WishlistTabTitle" />,
-      selected: currentPage === 'WishlistPage',
-      id: 'WishlistPageTab',
-      linkProps: {
-        name: 'WishlistPage',
-      },
-    },
-    {
-      text: <FormattedMessage id="LayoutWrapperAccountSettingsSideNav.CanceledTabTitle" />,
-      selected: currentPage === 'CanceledPage',
-      id: 'CanceledPageTab',
-      linkProps: {
-        name: 'CanceledPage',
-      },
-    },
 
   ];
 

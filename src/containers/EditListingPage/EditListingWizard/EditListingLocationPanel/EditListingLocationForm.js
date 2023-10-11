@@ -63,7 +63,7 @@ export const EditListingLocationFormComponent = props => (
       const classes = classNames(css.root, className);
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
-      const submitDisabled = invalid || disabled || submitInProgress;
+      const submitDisabled =invalid || disabled || submitInProgress;
 
       return (
         <Form className={classes} onSubmit={handleSubmit}>
@@ -95,8 +95,7 @@ export const EditListingLocationFormComponent = props => (
             format={identity}
             valueFromForm={values.location}
             validate={composeValidators(
-              autocompleteSearchRequired(addressRequiredMessage),
-              autocompletePlaceSelected(addressNotRecognizedMessage)
+              autocompleteSearchRequired(addressRequiredMessage)
             )}
           />
 

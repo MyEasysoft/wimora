@@ -45,20 +45,20 @@ export const EarningsPageComponent = props => {
   }, []);
 
 
-  const totalTransactionLabel = 'TOTAL EXPECTED';
+  const totalTransactionLabel = 'TOTAL EARNINGS';
   const totalTransactionValue = '$43,000';
   const showTotalTransaction = true;
 
-  const totalCompletedLabel = 'TOTAL COMPLETED';
+  const totalCompletedLabel = 'TOTAL GIG';
   const totaLCompletedValue = '23';
   const showTotalCompleted = true;
 
-  const totalDeclinedLabel = 'TOTAL EARNINGS';
-  const totalDeclinedValue = '$34,000';
+  const totalDeclinedLabel = 'TOTAL COMPLETED';
+  const totalDeclinedValue = '20';
   const showTotalDeclined = true;
 
-  const totalProfitLabel = 'TOTAL LOSS';
-  const totalProfitValue = '$9,000';
+  const totalProfitLabel = 'TOTAL PENDING';
+  const totalProfitValue = '3';
   const showTotalProfit = true;
 
   const pageDetails = (
@@ -77,6 +77,7 @@ export const EarningsPageComponent = props => {
           totalProfitLabel={totalProfitLabel}
           totalProfitValue={totalProfitValue}
           showTotalProfit={showTotalProfit}
+
         />
     </div>
   );

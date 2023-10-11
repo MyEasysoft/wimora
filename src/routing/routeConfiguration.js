@@ -218,13 +218,7 @@ const routeConfiguration = (layoutConfig) => {
       authPage: 'LoginPage',
       component: SalesAccountPage,
     },
-    {
-      path: '/account/delete-profile',
-      name: 'DeleteAccountPage',
-      auth: true,
-      authPage: 'LoginPage',
-      component: DeleteAccountPage,
-    },
+    
 
     {
       path: '/account/seo',

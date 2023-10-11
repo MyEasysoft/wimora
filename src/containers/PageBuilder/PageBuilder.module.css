@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   z-index: var(--zIndexTopbar);
-  border-bottom: solid;
+  
 }
 
 .main {

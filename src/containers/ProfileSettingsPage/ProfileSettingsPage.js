@@ -9,7 +9,7 @@ import { propTypes } from '../../util/types';
 import { ensureCurrentUser } from '../../util/data';
 import { isScrollingDisabled } from '../../ducks/ui.duck';
 
-import { H3, Page, UserNav, NamedLink, LayoutSingleColumn } from '../../components';
+import { H3, Page, UserNav, NamedLink, LayoutSingleColumn, LayoutSideNavigation } from '../../components';
 
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
 import FooterContainer from '../../containers/FooterContainer/FooterContainer';
@@ -88,13 +88,22 @@ export const ProfileSettingsPageComponent = props => {
 
   return (
     <Page className={css.root} title={title} scrollingDisabled={scrollingDisabled}>
-      <LayoutSingleColumn
+      <LayoutSideNavigation
+        
+
         topbar={
           <>
-            <TopbarContainer currentPage="ProfileSettingsPage" />
+            <TopbarContainer
+              currentPage="ProfileSettingsPage"
+              desktopClassName={css.desktopTopbar}
+              mobileClassName={css.mobileTopbar}
+            />
             <UserNav currentPage="ProfileSettingsPage" />
           </>
         }
+        sideNav={null}
+        useAccountSettingsNav
+        currentPage="ProfileSettingsPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
@@ -114,8 +123,22 @@ export const ProfileSettingsPageComponent = props => {
           </div>
           {profileSettingsForm}
         </div>
-      </LayoutSingleColumn>
+      </LayoutSideNavigation>
     </Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   );
 };
 

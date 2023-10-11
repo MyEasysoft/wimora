@@ -6,12 +6,28 @@ import { ACCOUNT_SETTINGS_PAGES } from '../../routing/routeConfiguration';
 import { LinkTabNavHorizontal } from '../../components';
 
 import css from './UserNav.module.css';
+import ReactDropdown from 'react-dropdown';
 
 const UserNav = props => {
   const { className, rootClassName, currentPage } = props;
   const classes = classNames(rootClassName || css.root, className);
 
+const onSelect = (e)=>{
+  e.preventDefault();
+  
+}
+
   const tabs = [
+
+    {
+      text: <FormattedMessage id="UserNav.dashboard" />,
+      selected: currentPage === 'EarningsPage',
+      disabled: false,
+      linkProps: {
+        name: 'EarningsPage',
+      },
+    },
+   
     {
       text: <FormattedMessage id="UserNav.yourListings" />,
       selected: currentPage === 'ManageListingsPage',
@@ -27,18 +43,16 @@ const UserNav = props => {
         name: 'ProfileSettingsPage',
       },
     },
-    {
-      text: <FormattedMessage id="UserNav.dashboard" />,
-      selected: ACCOUNT_SETTINGS_PAGES.includes(currentPage),
-      disabled: false,
-      linkProps: {
-        name: 'ContactDetailsPage',
-      },
-    },
+   
   ];
 
   return (
-    <LinkTabNavHorizontal className={classes} tabRootClassName={css.tab} tabs={tabs} skin="dark" />
+    <>
+    
+       <LinkTabNavHorizontal className={classes} tabRootClassName={css.tab} tabs={tabs} skin="dark" />
+   
+    </>
+   
   );
 };
 
