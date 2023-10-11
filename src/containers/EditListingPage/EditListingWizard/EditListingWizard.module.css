@@ -6,7 +6,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #ebf7fd;
+  background-color: #efefef;
   /* Content of EditListingWizard should have smaller z-index than Topbar */
   z-index: 0;
 }
@@ -38,7 +38,7 @@
   overflow-x: scroll;
 
   @media (--viewportLarge) {
-    width: 15%;
+    width: 12%;
     flex-direction: column;
     overflow-x: auto;
     background-color: var(--colorGrey50);
@@ -46,6 +46,7 @@
     border-top: none;
     margin: 50px;
     background-color: white;
+    overflow: hidden;
   }
 
   @media (--viewportLargeWithPaddings) {

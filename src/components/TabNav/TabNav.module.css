@@ -99,8 +99,10 @@
 .header{
   align-self: center;
   justify-self: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+ 
+  background-color: #69b0fc;
+  color: white;
+  padding: 20px;
 }
 .hide{
   display: none;
