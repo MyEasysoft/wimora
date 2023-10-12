@@ -6,6 +6,7 @@ import { InlineTextButton, NamedLink } from '../../components';
 import css from './TabNavHorizontal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleDown, faCaretSquareDown, faContactBook, faKey, faRemove } from '@fortawesome/free-solid-svg-icons';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 export const LIGHT_SKIN = 'light';
 export const DARK_SKIN = 'dark';
@@ -71,14 +72,8 @@ Tab.propTypes = {
 
 const TabNavHorizontal = props => {
   const { className, rootClassName, tabRootClassName, tabs, skin } = props;
-  const isDark = skin === LIGHT_SKIN;
-  const classes = classNames(rootClassName || css.root, { [css.darkSkin]: isDark }, className);
-  const tabClasses = tabRootClassName || css.tab;
-  const ContactDetailsPage = {
-    name: 'ContactDetailsPage',
-    match: { url: '/' },
-  };
 
+  
   const PasswordChangePage = {
     name: 'PasswordChangePage',
     match: { url: '/' },
@@ -86,6 +81,11 @@ const TabNavHorizontal = props => {
 
   const DeleteAccountPage = {
     name: 'DeleteAccountPage',
+    match: { url: '/' },
+  };
+
+  const ContactDetailsPage = {
+    name: 'ContactDetailsPage',
     match: { url: '/' },
   };
 
@@ -99,6 +99,44 @@ const TabNavHorizontal = props => {
   const hideMenu = ()=>{
     setShow((show) => !show);
   }
+  const location = useLocation();
+  const path = location.pathname;
+
+  const contactDetailsMenu = (path==="/" || path==="/login" || path==="/signup")?"":
+          <button onClick={hideMenu}  className={css.dropDown}>
+              <span className={css.margR}>Account Settings</span>
+              <FontAwesomeIcon icon={faCaretSquareDown}/>
+              {show &&
+                <div className={css.navMenu} onClick={hideMenu} >
+                    <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                      <FontAwesomeIcon icon={faContactBook}/>
+                      <NamedLink {...ContactDetailsPage} className={css.accountSetting} >Contact Details</NamedLink>
+                    </button>
+
+                    <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                      <FontAwesomeIcon icon={faKey}/>
+                      <NamedLink {...PasswordChangePage} className={css.accountSetting} >Password</NamedLink>
+                    </button>
+
+                    <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                      <FontAwesomeIcon icon={faRemove}/>
+                      <NamedLink {...DeleteAccountPage} className={css.accountSetting} >Delete Account</NamedLink>
+                    </button>
+                    
+                    
+                </div>
+              }
+
+        </button>
+  ;
+
+  
+  const skinColor = (path==="/" || path==="/login" || path==="/signup")?DARK_SKIN:LIGHT_SKIN;
+  const isDark = skin === skinColor;
+  const classes = classNames(rootClassName || css.root, { [css.darkSkin]: isDark }, className);
+  const tabClasses = tabRootClassName || css.tab;
+  
+
   return (
     <nav className={classes}>
       
@@ -108,32 +146,7 @@ const TabNavHorizontal = props => {
         return <Tab key={key} className={tabClasses} {...tab} isDark={isDark} />;
       })}
 
-    <button onClick={hideMenu}  className={css.dropDown}>
-          <span className={css.margR}>Account Settings</span>
-          <FontAwesomeIcon icon={faCaretSquareDown}/>
-          {show &&
-            <div className={css.navMenu} onClick={hideMenu} >
-                <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                  <FontAwesomeIcon icon={faContactBook}/>
-                  <NamedLink {...ContactDetailsPage} className={css.accountSetting} >Contact Details</NamedLink>
-                </button>
-
-                <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                  <FontAwesomeIcon icon={faKey}/>
-                  <NamedLink {...PasswordChangePage} className={css.accountSetting} >Password</NamedLink>
-                </button>
-
-                <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                  <FontAwesomeIcon icon={faRemove}/>
-                  <NamedLink {...DeleteAccountPage} className={css.accountSetting} >Delete Account</NamedLink>
-                </button>
-                
-                
-            </div>
-          }
-        
-      </button>
-
+      {contactDetailsMenu}
      
     </nav>
   );

@@ -167,7 +167,7 @@ const EditListingWizardTab = props => {
       updateInProgress,
       // newListingPublished and fetchInProgress are flags for the last wizard tab
       ready: newListingPublished,
-      disabled: fetchInProgress,
+      disabled: undefined,
       submitButtonText: tabSubmitButtonText,
       listingTypes: config.listing.listingTypes,
       onManageDisableScrolling,

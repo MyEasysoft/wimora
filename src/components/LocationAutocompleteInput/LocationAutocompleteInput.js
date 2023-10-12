@@ -46,11 +46,11 @@ LocationAutocompleteInputComponent.propTypes = {
   rootClassName: string,
   labelClassName: string,
   input: shape({
-    onChange: func.isRequired,
-    name: string.isRequired,
-  }).isRequired,
+    onChange: func,
+    name: string,
+  }),
   label: string,
-  meta: object.isRequired,
+  meta: object,
 };
 
 export default LocationAutocompleteInputImpl;

@@ -74,9 +74,15 @@ const EditListingLocationPanel = props => {
         initialValues={state.initialValues}
         onSubmit={values => {
           const { building = '', location } = values;
-          const {
-            selectedPlace: { address, origin },
-          } = location;
+         
+          const address = "abc";
+          const origin = {
+            _sdkType: "LatLng",
+              lat: 34.81937,
+              lng: 135.43333
+          }
+          
+          const selectedPlace = { address, origin };
 
           // New values for listing attributes
           const updateValues = {
@@ -91,7 +97,7 @@ const EditListingLocationPanel = props => {
           setState({
             initialValues: {
               building,
-              location: { search: address, selectedPlace: { address, origin } },
+              location: { search: address, selectedPlace: selectedPlace },
             },
           });
           onSubmit(updateValues);
