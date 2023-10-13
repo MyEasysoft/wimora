@@ -174,7 +174,18 @@ const TopbarDesktop = props => {
               alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
             />
               
-              
+              <div>
+                <NamedLink className={css.createListingLink} name="SearchPage">
+                  <span className={css.createListing}>
+                    <FormattedMessage id="TopbarDesktop.findInfluencers" />
+                  </span>
+                </NamedLink>
+                <NamedLink className={css.createListingLink} name="SearchPage">
+                  <span className={css.createListing}>
+                    <FormattedMessage id="TopbarDesktop.findSellers" />
+                  </span>
+                </NamedLink>
+              </div>
              
             </div>
            

@@ -7,7 +7,7 @@ import { FormattedMessage, injectIntl, intlShape } from '../../util/reactIntl';
 import { propTypes } from '../../util/types';
 import { isScrollingDisabled } from '../../ducks/ui.duck';
 
-import { H3, Page, PaginationLinks, UserNav, LayoutSingleColumn } from '../../components';
+import { H3, Page, PaginationLinks, UserNav, LayoutSingleColumn, LayoutSideNavigation, H4 } from '../../components';
 
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
 import FooterContainer from '../../containers/FooterContainer/FooterContainer';
@@ -74,13 +74,19 @@ export class ManageListingsPageComponent extends Component {
 
     const heading =
       listingsAreLoaded && pagination.totalItems > 0 ? (
-        <H3 as="h1" className={css.heading}>
-          <FormattedMessage
-            id="ManageListingsPage.youHaveListings"
-            values={{ count: pagination.totalItems }}
-          />
-        </H3>
-      ) : (
+        <>
+            <H3 as="h1">
+                <FormattedMessage id="ManageListingsPage.heading" />
+              </H3>
+              <H4 as="h1" className={css.heading}>
+                <FormattedMessage
+                  id="ManageListingsPage.youHaveListings"
+                  values={{ count: pagination.totalItems }}
+                />
+            </H4>
+
+        </>
+              ) : (
         noResults
       );
 
@@ -111,18 +117,27 @@ export class ManageListingsPageComponent extends Component {
 
     return (
       <Page title={title} scrollingDisabled={scrollingDisabled}>
-        <LayoutSingleColumn
+        <LayoutSideNavigation
+          
           topbar={
             <>
-              <TopbarContainer currentPage="ManageListingsPage" />
+              <TopbarContainer
+                currentPage="ManageListingsPage"
+                desktopClassName={css.desktopTopbar}
+                mobileClassName={css.mobileTopbar}
+              />
               <UserNav currentPage="ManageListingsPage" />
             </>
           }
+            sideNav={null}
+            useAccountSettingsNav
+            currentPage="ManageListingsPage"
           footer={<FooterContainer />}
         >
           {queryInProgress ? loadingResults : null}
           {queryListingsError ? queryError : null}
           <div className={css.listingPanel}>
+         
             {heading}
             <div className={css.listingCards}>
               {listings.map(l => (
@@ -141,9 +156,16 @@ export class ManageListingsPageComponent extends Component {
                 />
               ))}
             </div>
+            
             {paginationLinks}
           </div>
-        </LayoutSingleColumn>
+        </LayoutSideNavigation>
+
+
+
+        
+
+
       </Page>
     );
   }

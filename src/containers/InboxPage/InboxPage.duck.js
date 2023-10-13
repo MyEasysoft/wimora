@@ -40,6 +40,7 @@ export default function inboxPageReducer(state = initialState, action = {}) {
       return { ...state, fetchInProgress: true, fetchOrdersOrSalesError: null };
     case FETCH_ORDERS_OR_SALES_SUCCESS: {
       const transactions = sortedTransactions(payload.data.data);
+      console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvccccccccccccccccccccccccccccc");
       return {
         ...state,
         fetchInProgress: false,
