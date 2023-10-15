@@ -108,6 +108,8 @@ const mergeEntityArrays = (a, b) => {
 
 export default function transactionPageReducer(state = initialState, action = {}) {
   const { type, payload } = action;
+
+  console.log(payload+"oooooooooooooooooooooocccccccccccccccccccccooooooooooooooooooooooooooooooooooo");
   console.log(type+"oooooooooooooooooooooooo1111111ooooooooooooooooooooooooooooooooooo");
   switch (type) {
     case SET_INITIAL_VALUES:

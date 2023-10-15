@@ -116,6 +116,7 @@ BookingTimeInfoMaybe.propTypes = {
 export const InboxItem = props => {
   const { transactionRole, tx, intl, stateData, isBooking, stockType = 'multipleItems' } = props;
   const { customer, provider, listing } = tx;
+  if(stateData === undefined || stateData===null)return;
   const { processName, processState, actionNeeded, isSaleNotification, isFinal } = stateData;
   const isCustomer = transactionRole === TX_TRANSITION_ACTOR_CUSTOMER;
 
@@ -163,7 +164,7 @@ export const InboxItem = props => {
         <div className={css.itemState}>
           <div className={stateClasses}>
             <FormattedMessage
-              id={`InboxPage.${processName}.${processState}.status`}
+              id="Enquiry"
               values={{ transactionRole }}
             />
           </div>
@@ -193,6 +194,10 @@ export const InboxPageComponent = props => {
     scrollingDisabled,
     transactions,
   } = props;
+
+  if(transactions != null  && transactions != undefined && transactions[0] != undefined)
+  console.log(transactions[0].listing.attributes.title +"dddddddddddddddddddfffffffffffffffooooooooooooooooooo");
+
   const { tab } = params;
   const validTab = tab === 'orders' || tab === 'sales';
   if (!validTab) {
@@ -214,12 +219,19 @@ export const InboxPageComponent = props => {
   };
   const toTxItem = tx => {
     const transactionRole = isOrders ? TX_TRANSITION_ACTOR_CUSTOMER : TX_TRANSITION_ACTOR_PROVIDER;
-    let stateData = null;
+    let stateData = {"actionNeeded": true,
+                      "processName": "default-inquiry",
+                      "​​processState": "free-inquiry"
+                    };
+
+
     try {
       stateData = getStateData({ transaction: tx, transactionRole, intl });
     } catch (error) {
       // If stateData is missing, omit the transaction from InboxItem list.
     }
+
+
 
     const publicData = tx?.listing?.attributes?.publicData || {};
     const foundListingTypeConfig = findListingTypeConfig(publicData);

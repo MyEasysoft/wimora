@@ -69,9 +69,19 @@ const LayoutSideNavigationCom = props => {
   };
 
   const InboxBasePage = {
-    name: 'InboxBasePage',
+    
     match: { url: '/' },
+    name: 'InboxPage',
+    params: { tab: 'sales' },
   };
+
+  const InboxAsCustomer = {
+    
+    match: { url: '/' },
+    name: 'InboxPage',
+    params: { tab: 'orders' },
+  };
+  
   
   const[show,setShow] = useState(false);
   
@@ -121,6 +131,11 @@ const LayoutSideNavigationCom = props => {
                         <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
                           <FontAwesomeIcon icon={faEnvelope}/>
                           <NamedLink {...InboxBasePage} className={css.accountSetting} >Messages</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faEnvelope}/>
+                          <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Messages as customer</NamedLink>
                         </button>
                         
                         
