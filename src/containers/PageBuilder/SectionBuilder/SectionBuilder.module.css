@@ -185,16 +185,26 @@
 .darkTheme h1,
 .darkTheme h2,
 .darkTheme h3,
-.darkTheme h4,
+
 .darkTheme h5,
 .darkTheme h6 {
-  color: var(--colorWhite);
+  color: var(--colorRedish);
 
   &::selection {
     background-color: cyan;
     color: unset;
   }
 }
+
+.darkTheme h4{
+  color: var(--colorWhite);
+}
+
+.darkTheme span{
+  color: var(--colorRedish);
+}
+
+
 
 .darkTheme p,
 .darkTheme li,
@@ -244,4 +254,13 @@
 }
 #our-influencers-2{
   background-color: black;
+}
+
+.listing{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  
+  justify-content: center;
 }

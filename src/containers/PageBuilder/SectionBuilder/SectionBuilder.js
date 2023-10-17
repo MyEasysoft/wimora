@@ -15,6 +15,7 @@ import SectionFeatures from './SectionFeatures';
 // TODO: alternatively, we could consider more in-place way of theming components
 import css from './SectionBuilder.module.css';
 import SectionFooter from './SectionFooter';
+import { H2 } from '../../../components';
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -59,8 +60,10 @@ const SectionBuilder = props => {
     return config?.component;
   };
 
+  let first = true;
   return (
     <>
+    
       {sections.map((section, index) => {
         const Section = getComponent(section.sectionType);
         // If the default "dark" theme should be applied (when text color is white).
@@ -68,16 +71,25 @@ const SectionBuilder = props => {
         const isDarkTheme = section?.appearance?.textColor === 'white';
         const classes = classNames({ [css.darkTheme]: isDarkTheme });
 
+        const listing = first?<H2 className={css.listing}>Listings will be loaded soon</H2>:"";
+        first = false;
+        
+
         if (Section) {
           return (
-            <Section
-              key={`${section.sectionId}_${index}`}
-              className={classes}
-              defaultClasses={DEFAULT_CLASSES}
-              isInsideContainer={isInsideContainer}
-              options={otherOption}
-              {...section}
-            />
+            <>
+              <Section
+                key={`${section.sectionId}_${index}`}
+                className={classes}
+                defaultClasses={DEFAULT_CLASSES}
+                isInsideContainer={isInsideContainer}
+                options={otherOption}
+                {...section}
+              />
+              {listing}
+            </>
+           
+            
           );
         } else {
           // If the section type is unknown, the app can't know what to render

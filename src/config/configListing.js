@@ -274,7 +274,7 @@ export const listingTypes = [
       unitType: 'inquiry',
     },
     defaultListingFields: {
-      price: false,
+      price: true,
     },
   },
 ];

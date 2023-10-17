@@ -15,9 +15,10 @@
   width: 100%;
   margin-top: 20px;
   text-align: left;
-  background-color: #0e8fced6;
+  background-color: #001e2dd6;;
   padding: 30px;
   border-radius: 20px;
+  
 
   &:first-child {
     margin-top: 0;
@@ -31,10 +32,11 @@
   text-align: left;
   margin: 0px;
   padding: 0px;
+  color: black;
 }
 
 .noStyle{
-  background-color: red;
+  background-color: rgb(240, 84, 6);
   padding: 0px;
   border-radius: 0px;
   color:gray;
@@ -48,4 +50,12 @@
     border-width: thin;
     border-radius: 5px;
   }
+}
+
+.header{
+  color: white;
+}
+
+.heroHeader{
+  color: rgb(0, 0, 0);
 }

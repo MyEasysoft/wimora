@@ -6,6 +6,7 @@ import Field, { hasDataInFields } from '../../Field';
 import BlockContainer from '../BlockContainer';
 
 import css from './BlockDefault.module.css';
+import { H4 } from '../../Primitives/Heading';
 
 const FieldMedia = props => {
   const { className, media, sizes, options } = props;
@@ -37,6 +38,8 @@ const BlockDefault = props => {
   if(blockId==="influencer-1" || blockId==="influencer-2" || blockId==="influencer-3" || blockId==="press-1" || blockId==="press-2" || blockId==="press-3" || blockId==="project-desc"){
     ctaButtonClass = css.noStyle;
   }
+
+  const subHeading = blockId==="hero-block"?<h4 className={css.header}>Your Go To Destination for</h4>:"";
   
   return (
    
@@ -49,7 +52,8 @@ const BlockDefault = props => {
       />
       {hasTextComponentFields ? (
         <div className={classNames(textClassName, css.text)}>
-          <Field data={title} options={options} />
+          {subHeading}
+          <Field className={css.heroHeader} data={title} options={options} />
           <Field data={text} options={options} />
           <Field data={callToAction} className={ctaButtonClass} options={options} />
         </div>

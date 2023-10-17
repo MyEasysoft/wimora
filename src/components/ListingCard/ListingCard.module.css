@@ -45,6 +45,7 @@
   justify-content: flex-start;
   flex-shrink: 0;
   margin-bottom: 4px;
+  color: rgb(255, 106, 0);
 }
 
 .priceValue {
@@ -71,6 +72,7 @@
   display: inline-flex;
   align-items: center;
   margin-left: 2px;
+  
 
   /* Remove default margins from font */
   margin-top: 0;

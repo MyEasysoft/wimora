@@ -121,7 +121,7 @@ export const ListingCardComponent = props => {
         />
       </AspectRatioWrapper>
       <div className={css.info}>
-        <PriceMaybe price={price} publicData={publicData} config={config} intl={intl} />
+       
         <div className={css.mainInfo}>
           <div className={css.title}>
             {richText(title, {
@@ -131,10 +131,12 @@ export const ListingCardComponent = props => {
           </div>
           {showAuthorInfo ? (
             <div className={css.authorInfo}>
+              <PriceMaybe price={price} publicData={publicData} config={config} intl={intl} />
               <FormattedMessage id="ListingCard.author" values={{ authorName }} />
             </div>
           ) : null}
         </div>
+        
       </div>
     </NamedLink>
   );

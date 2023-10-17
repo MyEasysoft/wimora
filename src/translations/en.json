@@ -952,6 +952,8 @@
   "TopbarDesktop.yourListingsLink": "Your listings",
   "TopbarDesktop.findInfluencers": "Find Influencers",
   "TopbarDesktop.findSellers": "Find Sellers",
+  "TopbarDesktop.findProducts": "Find Products",
+  
   "TopbarMobileMenu.accountSettingsLink": "Account settings",
   "TopbarMobileMenu.greeting": "Hello {displayName}",
   "TopbarMobileMenu.inboxLink": "Inbox",

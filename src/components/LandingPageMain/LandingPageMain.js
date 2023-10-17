@@ -13,7 +13,7 @@ function LandingPageMainComponent(){
   return (
 
     <>
-      <CustomSectionComponent3/>
+     
     </>
     // <BlockContainer id={blockId} className={classes}>
     //   <FieldMedia
