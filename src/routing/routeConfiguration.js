@@ -55,6 +55,7 @@ const TransactionHistoryPage = loadable(() => import(/* webpackChunkName: "Trans
 //const SubscriptionPage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/SubscriptionPage/SubscriptionPage'));
 const GigsTrackingPage = loadable(() => import(/* webpackChunkName: "GigsTrackingPage" */ '../containers/GigsTrackingPage/GigsTrackingPage'));
 const IncomePage = loadable(() => import(/* webpackChunkName: "SubscriptionPage" */ '../containers/IncomePage/IncomePage'));
+const PaypalAppPage = loadable(() => import(/* webpackChunkName: "PaypalAppPage" */ '../containers/PaypalAppPage/PaypalAppPage'));
 
 
 
@@ -81,6 +82,7 @@ export const ACCOUNT_SETTINGS_PAGES = [
   'TransactionHistoryPage',
   'GigsTrackingPage',
   'IncomePage',
+  'PaypalApp',
 ];
 
 // https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID
@@ -112,6 +114,7 @@ const routeConfiguration = (layoutConfig) => {
       component: LandingPage,
       loadData: pageDataLoadingAPI.LandingPage.loadData,
     },
+    
     {
       path: '/p/:pageId',
       name: 'CMSPage',
@@ -334,6 +337,13 @@ const routeConfiguration = (layoutConfig) => {
       name: 'InfluencerPage',
       auth: false,
       component: InfluencerPage,
+    },
+
+    {
+      path: '/payment',
+      name: 'PaypalAppPage',
+      auth: false,
+      component: PaypalAppPage,
     },
     
 

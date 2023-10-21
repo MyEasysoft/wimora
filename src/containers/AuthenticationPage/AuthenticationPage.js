@@ -171,8 +171,8 @@ export const AuthenticationForms = props => {
   ];
 
   const handleSubmitSignup = values => {
-    const { fname, lname, ...rest } = values;
-    const params = { firstName: fname.trim(), lastName: lname.trim(), ...rest };
+    const { fname, lname,storefront, ...rest } = values;
+    const params = { firstName: fname.trim(), lastName: lname.trim(), storeFront: storefront, ...rest };
     submitSignup(params);
   };
 

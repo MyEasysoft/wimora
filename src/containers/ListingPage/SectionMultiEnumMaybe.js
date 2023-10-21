@@ -8,7 +8,7 @@ const SectionMultiEnumMaybe = props => {
   if (!heading || !options || !selectedOptions) {
     return null;
   }
-
+  
   return (
     <div className={css.sectionMultiEnum}>
       <Heading as="h2" rootClassName={css.sectionHeading}>

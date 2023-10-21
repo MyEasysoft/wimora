@@ -94,7 +94,7 @@
     margin: 4px 0 51px 0;
   }
   @media (--viewportLarge) {
-    margin: 0 0 56px 0;
+    margin: 0 0 56px 50px;
     max-width: 600px;
   }
 }
@@ -106,6 +106,7 @@
 
   @media (--viewportMedium) {
     padding-bottom: 22px;
+    margin: 0px 50px;
   }
 }
 
@@ -126,9 +127,12 @@
 .withBioMissingAbove {
   /* Avoid extra borders in mobile when bio is missing */
   border-top: none;
+  
 
   @media (--viewportLarge) {
     border-top: 1px solid var(--colorGrey100);
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
 
@@ -187,6 +191,8 @@
 
   @media (--viewportLarge) {
     margin-bottom: 0;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
 
@@ -202,4 +208,18 @@
 
 .desktopReviewsTabNav {
   margin-bottom: 32px;
+}
+
+
+.link{
+  color: gray;
+  transition: .1s;
+  margin-left: 50px;
+}
+.link:hover{
+  background-color: gray;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
 }

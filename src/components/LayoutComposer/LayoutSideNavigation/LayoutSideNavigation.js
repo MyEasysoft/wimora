@@ -9,10 +9,11 @@ import LayoutWrapperAccountSettingsSideNav from './LayoutWrapperAccountSettingsS
 
 import css from './LayoutSideNavigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleDown, faContactBook, faEnvelope, faHistory, faKey, faRemove, faTimeline } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleDown, faContactBook, faDollarSign, faEnvelope, faHistory, faKey, faRemove, faTimeline } from '@fortawesome/free-solid-svg-icons';
 import NamedLink from '../../NamedLink/NamedLink';
 import { injectIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import Profile from '../../Profile/Profile';
 
 
 // Commonly used layout
@@ -81,6 +82,12 @@ const LayoutSideNavigationCom = props => {
     name: 'InboxPage',
     params: { tab: 'orders' },
   };
+
+  const PaypalAppPage = {
+    name: 'PaypalAppPage',
+    match: { url: '/' },
+  };
+  
   
   
   const[show,setShow] = useState(false);
@@ -94,6 +101,10 @@ const LayoutSideNavigationCom = props => {
     setShow((show) => !show);
   }
 
+  const profile = currentUser.profileImage!==undefined && currentUser.profileImage!==null?<Profile user={currentUser} />:"";
+  
+  
+
   return (
     <LayoutComposer areas={layoutAreas} className={classes} {...rest}>
       {layoutProps => {
@@ -105,11 +116,6 @@ const LayoutSideNavigationCom = props => {
             </Topbar>
             <Main as="div" className={containerClasses}>
               <aside className={classNames(css.sideNav, sideNavClassName)}>
-                
-
-
-                      
-                     
                     <div className={css.navMenu} onClick={hideMenu} >
                     <h3 className={classNames(css.role,css.dropDownmain)}>{role}</h3>
 
@@ -137,6 +143,11 @@ const LayoutSideNavigationCom = props => {
                           <FontAwesomeIcon icon={faEnvelope}/>
                           <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Messages as customer</NamedLink>
                         </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faDollarSign}/>
+                          <NamedLink {...PaypalAppPage} className={css.accountSetting} >Payments</NamedLink>
+                        </button>
                         
                         
                     </div>
@@ -149,6 +160,8 @@ const LayoutSideNavigationCom = props => {
                 
                 <main className={css.magL2} >{children}</main>
               </div>
+              
+              {profile}
               
             </Main>
             <Footer>{footerContent}</Footer>

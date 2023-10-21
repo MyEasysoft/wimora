@@ -57,7 +57,7 @@ const PropertyGroup = props => {
   const listClasses = twoColumns ? classNames(classes, css.twoColumns) : classes;
 
   const checked = checkSelected(options, selectedOptions);
-
+  
   return (
     <ul className={listClasses}>
       {checked.map(option => (

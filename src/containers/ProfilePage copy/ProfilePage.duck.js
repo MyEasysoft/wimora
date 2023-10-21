@@ -137,7 +137,7 @@ export const queryUserListings = (userId, config) => (dispatch, getState, sdk) =
   return sdk.listings
     .query({
       author_id: userId,
-      include: ['author', 'images'],
+      include: ['author', 'images','store-front'],
       'fields.image': [`variants.${variantPrefix}`, `variants.${variantPrefix}-2x`],
       ...createImageVariantConfig(`${variantPrefix}`, 400, aspectRatio),
       ...createImageVariantConfig(`${variantPrefix}-2x`, 800, aspectRatio),

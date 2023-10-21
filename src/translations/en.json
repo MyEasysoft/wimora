@@ -736,6 +736,10 @@
   "SignupForm.RoleSeller": "Seller",
   "SignupForm.RoleCreator": "Creator",
   "SignupForm.Influencer": "Influencer",
+  "SignupForm.StoreFront": "Store Front",
+  "SignupForm.StoreFrontRequired": "You need to add a store front.",
+  "SignupForm.storefrontLabel": "Store Front",
+  "SignupForm.StoreFrontPlaceholder": "Your store front url",
   
   "SignupForm.passwordLabel": "Password",
   "SignupForm.passwordPlaceholder": "Enter your password…",
@@ -1207,7 +1211,15 @@
   "IncomePage.heading": "My Income",
   "IncomePage.title": "My Income",
   "IncomePage.error": "Income History cannot be view at the moment.",
-  "LayoutWrapperAccountSettingsSideNav.IncomePageTabTitle": "My Income"
+  "LayoutWrapperAccountSettingsSideNav.IncomePageTabTitle": "My Income",
+
+
+  "PaypalAppPage.details": "Payment",
+  "PaypalAppPage.heading": "Payment",
+  "PaypalAppPage.title": "Payment",
+  "PaypalAppPage.error": "Payment History cannot be view at the moment.",
+  "LayoutWrapperAccountSettingsSideNav.PaypalAppPageTabTitle": "Payment"
+
 
 
 

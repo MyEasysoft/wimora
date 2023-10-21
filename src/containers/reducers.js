@@ -34,6 +34,7 @@ import TransactionHistoryPage from './TransactionHistoryPage/TransactionHistoryP
 import SubscriptionPage from './SubscriptionPage/SubscriptionPage.duck';
 import GigsTrackingPage from './GigsTrackingPage/GigsTrackingPage.duck';
 import IncomePage from './IncomePage/IncomePage.duck';
+import PaypalAppPage from './PaypalAppPage/PaypalAppPage.duck';
 
 export {
   CheckoutPage,
@@ -67,5 +68,6 @@ export {
   SubscriptionPage,
   GigsTrackingPage,
   IncomePage,
+  PaypalAppPage,
 
 };

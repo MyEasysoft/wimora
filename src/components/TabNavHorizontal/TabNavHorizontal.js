@@ -102,7 +102,7 @@ const TabNavHorizontal = props => {
   const location = useLocation();
   const path = location.pathname;
 
-  const contactDetailsMenu = (path==="/" || path==="/login" || path==="/signup")?"":
+  const contactDetailsMenu = (path==="/" || path==="/login" || path==="/signup" || path.indexOf("u")===1)?"":
           <button onClick={hideMenu}  className={css.dropDown}>
               <span className={css.margR}>Account Settings</span>
               <FontAwesomeIcon icon={faCaretSquareDown}/>
@@ -131,7 +131,7 @@ const TabNavHorizontal = props => {
   ;
 
   
-  const skinColor = (path==="/" || path==="/login" || path==="/signup")?DARK_SKIN:LIGHT_SKIN;
+  const skinColor = (path==="/" || path==="/login" || path==="/signup" || path.indexOf("u")===1)?DARK_SKIN:LIGHT_SKIN;
   const isDark = skin === skinColor;
   const classes = classNames(rootClassName || css.root, { [css.darkSkin]: isDark }, className);
   const tabClasses = tabRootClassName || css.tab;

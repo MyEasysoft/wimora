@@ -33,6 +33,10 @@
   }
 }
 
+.container h1,h2,h3,h4{
+  margin-left: 20px;
+}
+
 .main {
   /* Expand to the full remaining width of the viewport */
   flex-grow: 1;
@@ -51,11 +55,12 @@
     border-left-width: 1px;
     border-left-style: solid;
     border-left-color: var(--colorGrey100);
+    height: max-content;
   }
 
   @media (--viewportLargeWithPaddings) {
-    padding: 20px 0px 82px 40px;
-    margin: 50px 40px auto auto;
+    padding: 20px 0px 50px 0px;
+    margin: 50px 40px 50px auto;
   }
 }
 
@@ -80,7 +85,7 @@
     
     flex-direction: column;
     justify-content: flex-start;
-    width: auto;
+    width: 15%;
     border: none;
     box-shadow: none;
     background-color: rgb(255, 255, 255);
@@ -146,7 +151,7 @@
 
 .magL2{
   margin-left: 10px;
-  margin-right: 40px;
+  
 }
 
 .dropDown{

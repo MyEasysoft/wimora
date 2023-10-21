@@ -22,6 +22,7 @@ import {
   Reviews,
   ButtonTabNavHorizontal,
   LayoutSideNavigation,
+  ExternalLink,
 } from '../../components';
 
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
@@ -29,6 +30,8 @@ import FooterContainer from '../../containers/FooterContainer/FooterContainer';
 import NotFoundPage from '../../containers/NotFoundPage/NotFoundPage';
 
 import css from './ProfilePage.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStore } from '@fortawesome/free-solid-svg-icons';
 
 const MAX_MOBILE_SCREEN_WIDTH = 768;
 
@@ -147,6 +150,7 @@ export const MainContent = props => {
     userShowError,
     bio,
     displayName,
+    storeFront,
     listings,
     queryListingsError,
     reviews,
@@ -157,6 +161,7 @@ export const MainContent = props => {
   const hasListings = listings.length > 0;
   const isMobileLayout = viewport.width < MAX_MOBILE_SCREEN_WIDTH;
   const hasBio = !!bio;
+  const hasStoreFront = !!storeFront;
 
   const listingsContainerClasses = classNames(css.listingsContainer, {
     [css.withBioMissingAbove]: !hasBio,
@@ -175,6 +180,7 @@ export const MainContent = props => {
         <FormattedMessage id="ProfilePage.desktopHeading" values={{ name: displayName }} />
       </H2>
       {hasBio ? <p className={css.bio}>{bio}</p> : null}
+      {hasStoreFront ? <ExternalLink href={storeFront} className={css.link}><FontAwesomeIcon icon={faStore}/> View my Store front</ExternalLink> : null}
       {hasListings ? (
         <div className={listingsContainerClasses}>
           <H4 as="h2" className={css.listingsTitle}>
@@ -205,7 +211,8 @@ const ProfilePageComponent = props => {
   const profileUser = ensureUser(user);
   const isCurrentUser =
     ensuredCurrentUser.id && profileUser.id && ensuredCurrentUser.id.uuid === profileUser.id.uuid;
-  const { bio, displayName } = profileUser?.attributes?.profile || {};
+  const { bio, displayName, publicData } = profileUser?.attributes?.profile || {};
+  const storeFront = profileUser?.attributes?.profile?.publicData?.storeFront ;
 
   const schemaTitleVars = { name: displayName, marketplaceName: config.marketplaceName };
   const schemaTitle = intl.formatMessage({ id: 'ProfilePage.schemaTitle' }, schemaTitleVars);
@@ -231,7 +238,7 @@ const ProfilePageComponent = props => {
         }
         footer={<FooterContainer />}
       >
-        <MainContent bio={bio} displayName={displayName} userShowError={userShowError} {...rest} />
+        <MainContent bio={bio} displayName={displayName} storeFront={storeFront} userShowError={userShowError} {...rest} />
       </LayoutSideNavigation>
     </Page>
   );

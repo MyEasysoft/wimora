@@ -15,6 +15,7 @@ const chalk = require('chalk');
  *
  */
 
+
 const run = () => {
   const hasEnvFile = fs.existsSync(`./.env`);
 

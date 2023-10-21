@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from '../../components';
+import { ExternalLink, Heading } from '../../components';
 import { richText } from '../../util/richText';
 
 import css from './ListingPage.module.css';
@@ -15,6 +15,10 @@ const SectionTextMaybe = props => {
     breakChars: '/',
   });
 
+  
+  const productLinkOrText = heading === 'Product Link'?
+        <ExternalLink href={props.text}>See product</ExternalLink>:<p className={textClass}>{content}</p>;
+
   return text ? (
     <div className={css.sectionText}>
       {heading ? (
@@ -22,7 +26,7 @@ const SectionTextMaybe = props => {
           {heading}
         </Heading>
       ) : null}
-      <p className={textClass}>{content}</p>
+      {productLinkOrText}
     </div>
   ) : null;
 };
