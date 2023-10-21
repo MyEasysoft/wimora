@@ -48,7 +48,7 @@ export const PaypalAppPageComponent = props => {
 
   const pageDetails = (
     <div className={css.details}>
-        <Checkout />
+        
     </div>
   );
 
