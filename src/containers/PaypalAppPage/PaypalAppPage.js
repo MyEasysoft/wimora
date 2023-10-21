@@ -16,7 +16,7 @@ import {
 } from './PaypalAppPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './PaypalAppPage.module.css';
-import Checkout from '../../components/PaypalCom/Checkout';
+
 
 
 export const PaypalAppPageComponent = props => {
