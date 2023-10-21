@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CLIENT_ID } from '../../config/configPaypal'
+import { client_id } from '../../config/configPaypal'
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import css from './Checkout.module.css';
@@ -53,7 +53,7 @@ const Checkout = () => {
     },[success]);
 
     return (
-        <PayPalScriptProvider options={{ "client-id": CLIENT_ID }}>
+        <PayPalScriptProvider options={{ "client-id": client_id }}>
            
                 <div className="container">
                    
