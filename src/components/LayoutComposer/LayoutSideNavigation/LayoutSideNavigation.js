@@ -12,14 +12,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleDown, faContactBook, faDollarSign, faEnvelope, faHistory, faKey, faRemove, faTimeline } from '@fortawesome/free-solid-svg-icons';
 import NamedLink from '../../NamedLink/NamedLink';
 import { injectIntl } from 'react-intl';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { useLocation, withRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import Profile from '../../Profile/Profile';
+import { getMarketplaceEntities } from '../../../ducks/marketplaceData.duck';
 
 
 // Commonly used layout
 const LayoutSideNavigationCom = props => {
   const {
     currentUser,
+    user,
     className,
     rootClassName,
     containerClassName,
@@ -101,7 +103,21 @@ const LayoutSideNavigationCom = props => {
     setShow((show) => !show);
   }
 
-  const profile = currentUser.profileImage!==undefined && currentUser.profileImage!==null?<Profile user={currentUser} />:"";
+  const location = useLocation();
+  const path = location.pathname;
+
+  const isListingProfile = (path.indexOf('u')===1);
+
+
+  if(user !== null && user !== undefined){
+    user.attributes.profile.protectedData = user.attributes.profile.publicData;
+  }
+
+  const showStore = role === 'Seller';
+
+  const userProfileToShow = user && isListingProfile?user:currentUser;
+
+  const profile = userProfileToShow?.profileImage?<Profile user={userProfileToShow} showStore={showStore} />:"";
   
   
 
@@ -198,10 +214,19 @@ LayoutSideNavigationCom.propTypes = {
 const mapStateToProps = state => {
   
   const { currentUser } = state.user;
-
+  const {
+    userId,
+    userListingRefs,
+    reviews,
+  } = state.ProfilePage;
+  const userMatches = getMarketplaceEntities(state, [{ type: 'user', id: userId }]);
+  const user = userMatches.length === 1 ? userMatches[0] : null;
+  const listings = getMarketplaceEntities(state, userListingRefs);
   return {
-    
     currentUser,
+    user,
+    listings,
+    reviews,
     
   };
 };

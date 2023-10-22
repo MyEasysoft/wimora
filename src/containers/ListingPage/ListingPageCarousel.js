@@ -338,12 +338,7 @@ export const ListingPageComponent = props => {
                 : pickedElements;
             }, [])}
 
-            <SectionMapMaybe
-              geolocation={geolocation}
-              publicData={publicData}
-              listingId={currentListing.id}
-              mapsConfig={config.maps}
-            />
+           
             <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
             <SectionAuthorMaybe
               title={title}

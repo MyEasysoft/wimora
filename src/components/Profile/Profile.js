@@ -6,6 +6,7 @@ import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid
 import classNames from 'classnames';
 import NamedLink from '../NamedLink/NamedLink';
 import ExternalLink from '../ExternalLink/ExternalLink';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const Profile = props => {
@@ -13,9 +14,14 @@ const Profile = props => {
   const {user} = props;
   //if(user.profileImage === null || user.profileImage.attributes === null)return;
   const profileImageUrl = user.profileImage.attributes.variants["square-small"].url;
-  const {firstName, lastName,bio,protectedData} = user.attributes.profile;
+  const {firstName, lastName,bio,protectedData,displayName} = user.attributes.profile;
   const storeFront = user.attributes.profile.protectedData['store-front'];
-  //
+  const {showStore} = props;
+  //const storeFront = profileUser?.attributes?.profile?.publicData?.storeFront ;
+
+  const displayNames = firstName && lastName?firstName +" "+lastName:displayName;
+  
+ 
   return (
     <>
 
@@ -23,10 +29,13 @@ const Profile = props => {
           <div className={css.containerMain}>
               <div>
                       <img className={classNames(css.imgFluid,css.round)} src={profileImageUrl}/>
-                      <h3 className={css.magTop30}>{firstName} {lastName}</h3>
-                      <ExternalLink className={css.link} href={storeFront}>
-                          Visit my store
-                      </ExternalLink>
+                      <h3 className={css.magTop30}>{displayNames}</h3>
+                      {showStore?
+                        <ExternalLink className={css.link} href={storeFront}>
+                            Visit my store
+                        </ExternalLink>:""
+                      }
+                      
                       <p>{bio} </p>
               </div>
               
