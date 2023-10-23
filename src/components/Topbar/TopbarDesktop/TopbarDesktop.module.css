@@ -377,3 +377,22 @@
     }
   }
 }
+
+.findBtnContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.findBtnContainer button{
+  font-size: 14px;
+  font-weight: normal;
+  border-style: none;
+
+  &:hover{
+    border-bottom: solid;
+  }
+
+}

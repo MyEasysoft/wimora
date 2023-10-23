@@ -66,6 +66,9 @@ const getPageDataLoadingAPI = () => {
     SearchPage: {
       loadData: SearchPageLoader,
     },
+    SearchPageSeller: {
+      loadData: SearchPageLoader,
+    },
     StripePayoutPage: {
       loadData: StripePayoutPageLoader,
     },

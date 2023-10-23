@@ -20,7 +20,7 @@ import TopbarSearchForm from '../TopbarSearchForm/TopbarSearchForm';
 
 import css from './TopbarDesktop.module.css';
 import csss from './TopbarNav.module.css';
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const TopbarDesktop = props => {
   const {
@@ -43,10 +43,13 @@ const TopbarDesktop = props => {
     setMounted(true);
   }, []);
 
+  const history = useHistory();
+
   const marketplaceName = appConfig.marketplaceName;
   const authenticatedOnClientSide = mounted && isAuthenticated;
   const isAuthenticatedOrJustHydrated = isAuthenticated || !mounted;
   const isLandingPage =(currentPage===null||currentPage.includes("LandingPage"))?true:false;
+  const role = currentUser?.attributes?.profile?.protectedData?.role ;
 
   const classes = classNames(rootClassName || css.root, className);
 
@@ -151,13 +154,38 @@ const TopbarDesktop = props => {
   const location = useLocation();
   const path = location.pathname;
 
+  const listingText = role === "Seller"?"TopbarDesktop.createJob":"TopbarDesktop.createGig";
+
   const newListLink = (path==="/" || path==="/login" || path==="/account/seller-instruction" || path==="/signup" || path==="/s")?"":
     <NamedLink className={css.createListingLink} name="NewListingPage">
       <span className={css.createListing}>
-        <FormattedMessage id="TopbarDesktop.createListing" />
+        <FormattedMessage id={listingText} />
       </span>
     </NamedLink>
   ;
+
+  const findProduct = (event)=>{
+    event.preventDefault();
+    
+    history.push("/s?pub_role=Products")
+    
+  }
+
+  const findInfluencers = (event)=>{
+    event.preventDefault();
+    
+    history.push("/s?pub_role=Influencers")
+    
+  }
+
+  const findSellers = (event)=>{
+    event.preventDefault();
+    
+    history.push("/s?pub_role=Sellers")
+    
+  }
+
+ 
 
   return (
 
@@ -174,22 +202,19 @@ const TopbarDesktop = props => {
               alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
             />
               
-              <div>
-                <NamedLink className={css.createListingLink} name="SearchPage">
-                  <span className={css.createListing}>
-                    <FormattedMessage id="TopbarDesktop.findProducts" />
-                  </span>
-                </NamedLink>
-                <NamedLink className={css.createListingLink} name="SearchPage">
-                  <span className={css.createListing}>
-                    <FormattedMessage id="TopbarDesktop.findInfluencers" />
-                  </span>
-                </NamedLink>
-                <NamedLink className={css.createListingLink} name="SearchPage">
-                  <span className={css.createListing}>
-                    <FormattedMessage id="TopbarDesktop.findSellers" />
-                  </span>
-                </NamedLink>
+              <div className={css.findBtnContainer}>
+               
+                <button onClick={findProduct}>
+                 Find Product
+                </button>
+
+                <button onClick={findInfluencers}>
+                  Find Influencers
+                </button>
+
+                <button onClick={findSellers}>
+                  Find Sellers
+                </button>
               </div>
              
             </div>

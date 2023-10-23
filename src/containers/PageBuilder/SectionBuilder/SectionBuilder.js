@@ -16,6 +16,7 @@ import SectionFeatures from './SectionFeatures';
 import css from './SectionBuilder.module.css';
 import SectionFooter from './SectionFooter';
 import { H2 } from '../../../components';
+import SearchPage from '../../SearchPage/SearchPageWithMap';
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -72,6 +73,8 @@ const SectionBuilder = props => {
         const classes = classNames({ [css.darkTheme]: isDarkTheme });
 
         const listing = first?<H2 className={css.listing}>Listings will be loaded soon</H2>:"";
+
+       
         first = false;
         
 

@@ -128,6 +128,16 @@ const routeConfiguration = (layoutConfig) => {
       loadData: pageDataLoadingAPI.SearchPage.loadData,
     },
     {
+      path: '/sellers',
+      name: 'SearchPageSellers',
+      component: SearchPage,
+      params:{pub_role:"Sellers"},
+      loadData: (params, ...rest) =>
+      pageDataLoadingAPI.SearchPage.loadData({},{"?pub_role":"Sellers"},...rest),
+   
+    },
+
+    {
       path: '/l',
       name: 'ListingBasePage',
       component: RedirectToLandingPage,

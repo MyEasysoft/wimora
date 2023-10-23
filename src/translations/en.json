@@ -947,6 +947,8 @@
   "TopbarDesktop.accountSettingsLink": "Dashboard",
   "TopbarDesktop.dashboard": "Dashboard",
   "TopbarDesktop.createListing": "Post a new listing",
+  "TopbarDesktop.createJob": "Post new Job",
+  "TopbarDesktop.createGig": "Create new Gig",
   "TopbarDesktop.inbox": "Inbox",
   "TopbarDesktop.login": "Log in",
   "TopbarDesktop.logo": "{marketplaceName}",
@@ -1102,6 +1104,8 @@
   "UserNav.accountSettings": "Account settings",
   "UserNav.profileSettings": "Profile settings",
   "UserNav.yourListings": "Your listings",
+  "UserNav.yourGigs": "Your Gigs",
+  "UserNav.yourJobs": "Your Jobs",
   "UserNav.dashboard": "Dashboard",
 
 

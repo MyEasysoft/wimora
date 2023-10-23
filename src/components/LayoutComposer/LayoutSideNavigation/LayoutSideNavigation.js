@@ -118,8 +118,62 @@ const LayoutSideNavigationCom = props => {
   const userProfileToShow = user && isListingProfile?user:currentUser;
 
   const profile = userProfileToShow?.profileImage?<Profile user={userProfileToShow} showStore={showStore} />:"";
+
+  const influencerActions = <>
+   <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faKey}/>
+                          <NamedLink {...EarningsPage} className={css.accountSetting} >My Earnings</NamedLink>
+                        </button>
+
+                       
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faContactBook}/>
+                          <NamedLink {...ProjectsPage} className={css.accountSetting} >Gig Orders</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faHistory}/>
+                          <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faEnvelope}/>
+                          <NamedLink {...InboxBasePage} className={css.accountSetting} >Sent Messages</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faEnvelope}/>
+                          <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Sellers Messages</NamedLink>
+                        </button>
+
+                       
+  </>;
+
+  const sellerActions = <>
+        
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faContactBook}/>
+                          <NamedLink {...ProjectsPage} className={css.accountSetting} >My Jobs</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faEnvelope}/>
+                          <NamedLink {...InboxBasePage} className={css.accountSetting} >Sent Messages</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faEnvelope}/>
+                          <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Influencers Messages</NamedLink>
+                        </button>
+
+                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                          <FontAwesomeIcon icon={faDollarSign}/>
+                          <NamedLink {...PaypalAppPage} className={css.accountSetting} >Payments</NamedLink>
+                        </button>
+  </>
   
-  
+  const userAction = role === "Seller"?sellerActions:influencerActions;
 
   return (
     <LayoutComposer areas={layoutAreas} className={classes} {...rest}>
@@ -135,40 +189,9 @@ const LayoutSideNavigationCom = props => {
                     <div className={css.navMenu} onClick={hideMenu} >
                     <h3 className={classNames(css.role,css.dropDownmain)}>{role}</h3>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faKey}/>
-                          <NamedLink {...EarningsPage} className={css.accountSetting} >My Earnings</NamedLink>
-                        </button>
-
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faContactBook}/>
-                          <NamedLink {...ProjectsPage} className={css.accountSetting} >My Project</NamedLink>
-                        </button>
-
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faHistory}/>
-                          <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
-                        </button>
-
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faEnvelope}/>
-                          <NamedLink {...InboxBasePage} className={css.accountSetting} >Messages</NamedLink>
-                        </button>
-
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faEnvelope}/>
-                          <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Messages as customer</NamedLink>
-                        </button>
-
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faDollarSign}/>
-                          <NamedLink {...PaypalAppPage} className={css.accountSetting} >Payments</NamedLink>
-                        </button>
-                        
+                       {userAction}
                         
                     </div>
-                  
-                
               
 
               </aside>

@@ -29,12 +29,15 @@ const Profile = props => {
           <div className={css.containerMain}>
               <div>
                       <img className={classNames(css.imgFluid,css.round)} src={profileImageUrl}/>
-                      <h3 className={css.magTop30}>{displayNames}</h3>
-                      {showStore?
-                        <ExternalLink className={css.link} href={storeFront}>
-                            Visit my store
-                        </ExternalLink>:""
-                      }
+                      <div className={css.center}>
+                          <h3 className={css.magTop30}>{displayNames}</h3>
+                          {showStore?
+                            <ExternalLink className={css.link} href={storeFront}>
+                                Visit my store
+                            </ExternalLink>:""
+                          }
+                      </div>
+                      
                       
                       <p>{bio} </p>
               </div>
