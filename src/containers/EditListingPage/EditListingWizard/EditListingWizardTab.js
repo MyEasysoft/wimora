@@ -21,6 +21,9 @@ import EditListingPricingPanel from './EditListingPricingPanel/EditListingPricin
 import EditListingPricingAndStockPanel from './EditListingPricingAndStockPanel/EditListingPricingAndStockPanel';
 
 import css from './EditListingWizardTab.module.css';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { injectIntl } from 'react-intl';
 
 export const DETAILS = 'details';
 export const PRICING = 'pricing';
@@ -72,7 +75,7 @@ const redirectAfterDraftUpdate = (listingId, params, tab, marketplaceTabs, histo
   history.push(to);
 };
 
-const EditListingWizardTab = props => {
+const EditListingWizardTabCom = props => {
   const {
     tab,
     marketplaceTabs,
@@ -103,7 +106,10 @@ const EditListingWizardTab = props => {
     tabSubmitButtonText,
     config,
     routeConfiguration,
+    currentUser
   } = props;
+
+  const role = currentUser?.attributes?.profile?.protectedData?.role;
 
   const { type } = params;
   const isNewURI = type === LISTING_PAGE_PARAM_TYPE_NEW;
@@ -138,9 +144,15 @@ const EditListingWizardTab = props => {
       ? (tab, values) => onCreateListingDraft(values, config)
       : (tab, values) => onUpdateListing(tab, values, config);
 
+      
     const updateListingValues = isNewURI
       ? updateValues
       : { ...updateValues, id: currentListing.id };
+
+      if(tab === "details"){
+        updateListingValues.publicData.role = role+"s";
+      }
+      
 
     return onUpdateListingOrCreateListingDraft(tab, updateListingValues)
       .then(r => {
@@ -256,14 +268,14 @@ const EditListingWizardTab = props => {
   }
 };
 
-EditListingWizardTab.defaultProps = {
+EditListingWizardTabCom.defaultProps = {
   listing: null,
   updatedTab: null,
 };
 
 const { array, bool, func, object, oneOf, shape, string } = PropTypes;
 
-EditListingWizardTab.propTypes = {
+EditListingWizardTabCom.propTypes = {
   params: shape({
     id: string.isRequired,
     slug: string.isRequired,
@@ -310,5 +322,21 @@ EditListingWizardTab.propTypes = {
   config: object.isRequired,
   routeConfiguration: arrayOf(propTypes.route).isRequired,
 };
+
+
+const mapStateToProps = state => {
+  // Topbar needs user info.
+  const { currentUser } = state.user;
+  return {
+   
+    currentUser,
+   
+  };
+};
+
+const EditListingWizardTab = compose(
+  connect(mapStateToProps),
+  injectIntl
+)(EditListingWizardTabCom);
 
 export default EditListingWizardTab;
