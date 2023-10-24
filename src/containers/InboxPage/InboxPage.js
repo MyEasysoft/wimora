@@ -38,6 +38,7 @@ import {
   TimeRange,
   UserDisplayName,
   LayoutSideNavigation,
+  UserNav,
 } from '../../components';
 
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
@@ -298,12 +299,16 @@ export const InboxPageComponent = props => {
       <LayoutSideNavigation
         sideNavClassName={css.navigation}
         topbar={
-          <TopbarContainer
-            className={css.topbar}
-            mobileRootClassName={css.mobileTopbar}
-            desktopClassName={css.desktopTopbar}
-            currentPage="InboxPage"
-          />
+          <>
+            <TopbarContainer
+              className={css.topbar}
+              mobileRootClassName={css.mobileTopbar}
+              desktopClassName={css.desktopTopbar}
+              currentPage="InboxPage"
+            />
+            <UserNav currentPage="InboxPage" />
+          </>
+          
         }
         sideNav={
           <>

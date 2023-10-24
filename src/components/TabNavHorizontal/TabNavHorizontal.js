@@ -123,7 +123,6 @@ const TabNavHorizontal = props => {
                       <NamedLink {...DeleteAccountPage} className={css.accountSetting} >Delete Account</NamedLink>
                     </button>
                     
-                    
                 </div>
               }
 

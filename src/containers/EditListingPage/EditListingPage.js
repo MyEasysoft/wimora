@@ -25,7 +25,7 @@ import {
 } from '../../ducks/stripeConnectAccount.duck';
 
 // Import shared components
-import { NamedRedirect, Page } from '../../components';
+import { NamedRedirect, Page, UserNav } from '../../components';
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
 
 // Import modules from this directory
@@ -205,6 +205,7 @@ export const EditListingPageComponent = props => {
           desktopClassName={css.desktopTopbar}
           mobileClassName={css.mobileTopbar}
         />
+        <UserNav currentPage="EditListingPage" />
         <EditListingWizard
           id="EditListingWizard"
           className={css.wizard}

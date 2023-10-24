@@ -17,8 +17,11 @@ const renderForm = formRenderProps => {
   return (
     <Form id={formId} onSubmit={handleSubmit} className={classes}>
       <div className={css.submitButton}>
-        <PrimaryButton type="submit">
+        <PrimaryButton className={css.marginB} type="submit">
           <FormattedMessage id="InquiryWithoutPaymentForm.ctaButton" />
+        </PrimaryButton>
+        <PrimaryButton type="submit">
+          <FormattedMessage id="InquiryWithoutPaymentForm.sendOrder" />
         </PrimaryButton>
       </div>
     </Form>

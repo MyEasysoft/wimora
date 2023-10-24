@@ -393,6 +393,7 @@
   "InquiryForm.sendInquiryErrorNoProcess": "Oops, no transaction process attached to the listing. Please contact support",
   "InquiryForm.submitButtonText": "Send inquiry",
   "InquiryWithoutPaymentForm.ctaButton": "Send an inquiry",
+  "InquiryWithoutPaymentForm.sendOrder": "Order Now",
   "KeywordFilter.filterText": "Filter results by",
   "KeywordFilter.labelSelected": "\"{labelText}\"",
   "KeywordFilter.placeholder": "Enter a keyword…",
