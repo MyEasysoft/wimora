@@ -13,10 +13,14 @@ import SectionFeatures from './SectionFeatures';
 // - shared classes that are passed as defaultClasses
 // - dark theme overrides
 // TODO: alternatively, we could consider more in-place way of theming components
-import css from './SectionBuilder.module.css';
+import css from './SectionBuilder2.module.css';
 import SectionFooter from './SectionFooter';
 import { H2 } from '../../../components';
 import SearchPage from '../../SearchPage/SearchPageWithMap';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withViewport } from '../../../util/uiHelpers';
+import { injectIntl } from 'react-intl';
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -45,8 +49,8 @@ const defaultSectionComponents = {
 // Section builder //
 //////////////////////
 
-const SectionBuilder = props => {
-  const { sections, options ,showListing ,listings} = props;
+const SectionBuilder2Com = props => {
+  const { sections, options, listings } = props;
   const { sectionComponents = {}, isInsideContainer, ...otherOption } = options || {};
 
   // If there's no sections, we can't render the correct section component
@@ -60,8 +64,7 @@ const SectionBuilder = props => {
     const config = components[sectionType];
     return config?.component;
   };
-
-  console.log(listings+"lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+  const hasListings = listings.length > 0;
 
   let first = true;
   return (
@@ -73,9 +76,6 @@ const SectionBuilder = props => {
         // By default, this information is stored to customAppearance field
         const isDarkTheme = section?.appearance?.textColor === 'white';
         const classes = classNames({ [css.darkTheme]: isDarkTheme });
-
-        const listing = first?<H2 className={css.listing}>Listings will be loaded soon</H2>:"";
-
        
         first = false;
         
@@ -91,8 +91,7 @@ const SectionBuilder = props => {
                 options={otherOption}
                 {...section}
               />
-             
-             {showListing && first ? (
+             {hasListings && first ? (
                 <div className={listingsContainerClasses}>
                   <H4 as="h2" className={css.listingsTitle}>
                     <FormattedMessage id="ProfilePage.listingsTitle" values={{ count: listings.length }} />
@@ -106,7 +105,6 @@ const SectionBuilder = props => {
                   </ul>
                 </div>
               ) : null}
-
             </>
            
             
@@ -162,11 +160,43 @@ const customSections = shape({
   options: propTypeOptionForCustomSections.isRequired,
 });
 
-SectionBuilder.defaultProps = {
+SectionBuilder2.defaultProps = {
   sections: [],
   options: null,
 };
 
-SectionBuilder.propTypes = oneOf([defaultSections, customSections]).isRequired;
+SectionBuilder2.propTypes = oneOf([defaultSections, customSections]).isRequired;
 
-export default SectionBuilder;
+const mapStateToProps = state => {
+  const { currentUser } = state.user;
+  const {
+    userId,
+    userShowError,
+    queryListingsError,
+    userListingRefs,
+    reviews,
+    queryReviewsError,
+  } = state.ProfilePage;
+  const userMatches = getMarketplaceEntities(state, [{ type: 'user', id: userId }]);
+  const user = userMatches.length === 1 ? userMatches[0] : null;
+  const listings = getMarketplaceEntities(state, userListingRefs);
+  return {
+    scrollingDisabled: isScrollingDisabled(state),
+    currentUser,
+    user,
+    userShowError,
+    queryListingsError,
+    listings,
+    reviews,
+    queryReviewsError,
+  };
+};
+
+const SectionBuilder2 = compose(
+  connect(mapStateToProps),
+  withViewport,
+  injectIntl
+)(SectionBuilder2Com);
+
+
+export default SectionBuilder2;

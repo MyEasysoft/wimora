@@ -11,6 +11,13 @@ import StaticPage from './StaticPage.js';
 
 import css from './PageBuilder.module.css';
 import LandingPageMainComponent from '../../components/LandingPageMain/LandingPageMain.js';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withViewport } from '../../util/uiHelpers.js';
+import { injectIntl } from 'react-intl';
+import { getListingsById, getMarketplaceEntities } from '../../ducks/marketplaceData.duck.js';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min.js';
+import { manageDisableScrolling,isScrollingDisabled } from '../../ducks/ui.duck.js';
 
 const getMetadata = (meta, schemaType, fieldOptions) => {
   const { pageTitle, pageDescription, socialSharing } = meta;
@@ -82,7 +89,7 @@ const LoadingSpinner = () => {
  * @param {Object} props
  * @returns page component
  */
-const PageBuilder = props => {
+const PageBuilderCom = props => {
   const {
     pageAssetsData,
     inProgress,
@@ -90,6 +97,7 @@ const PageBuilder = props => {
     fallbackPage,
     schemaType,
     options,
+    listings,
     ...pageProps
   } = props;
 
@@ -108,6 +116,14 @@ const PageBuilder = props => {
     main
     footer
   `;
+
+  const location = useLocation();
+  const path = location.pathname;
+  const isLandingPage = (path==="/");
+  const hasListings = listings.length > 0;
+  const showListing = hasListings && isLandingPage;
+
+
   return (
     <StaticPage {...pageMetaProps} {...pageProps}>
       <LayoutComposer areas={layoutAreas} className={css.layout}>
@@ -123,7 +139,7 @@ const PageBuilder = props => {
                 {sections.length === 0 && inProgress ? (
                   <LoadingSpinner />
                 ) : (
-                  <SectionBuilder sections={sections} options={options} />
+                  <SectionBuilder sections={sections}  options={options} showListing={showListing} listings={listings}/>
                 )}
               </Main>
               <FooterContainer />
@@ -134,6 +150,41 @@ const PageBuilder = props => {
     </StaticPage>
   );
 };
+
+
+const mapStateToProps = state => {
+  const {
+    currentPageResultIds,
+    pagination,
+    searchInProgress,
+    searchListingsError,
+    searchParams,
+  } = state.SearchPage;
+  const listings = getMarketplaceEntities(state, currentPageResultIds);
+
+  return {
+    listings,
+    pagination,
+    scrollingDisabled: isScrollingDisabled(state),
+    searchInProgress,
+    searchListingsError,
+    searchParams,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  onManageDisableScrolling: (componentId, disableScrolling) =>
+    dispatch(manageDisableScrolling(componentId, disableScrolling)),
+});
+
+
+const PageBuilder = compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
+)(PageBuilderCom);
+
 
 export { LayoutComposer, StaticPage, SectionBuilder };
 

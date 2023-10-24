@@ -128,7 +128,7 @@ const LayoutSideNavigationCom = props => {
                        
                         <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
                           <FontAwesomeIcon icon={faContactBook}/>
-                          <NamedLink {...ProjectsPage} className={css.accountSetting} >Gig Orders</NamedLink>
+                          <NamedLink {...ProjectsPage} className={css.accountSetting} >My projects</NamedLink>
                         </button>
 
                         <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
