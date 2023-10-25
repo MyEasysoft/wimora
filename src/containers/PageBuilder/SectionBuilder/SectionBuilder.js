@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, bool, func, node, oneOf, shape, string } from 'prop-types';
+import { arrayOf, bool, func, node, object, oneOf, shape, string } from 'prop-types';
 import classNames from 'classnames';
 
 // Section components
@@ -15,8 +15,9 @@ import SectionFeatures from './SectionFeatures';
 // TODO: alternatively, we could consider more in-place way of theming components
 import css from './SectionBuilder.module.css';
 import SectionFooter from './SectionFooter';
-import { H2 } from '../../../components';
+import { H2, ListingCard } from '../../../components';
 import SearchPage from '../../SearchPage/SearchPageWithMap';
+import ListingCard2 from '../../../components/ListingCard/ListingCard2';
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -46,7 +47,7 @@ const defaultSectionComponents = {
 //////////////////////
 
 const SectionBuilder = props => {
-  const { sections, options ,showListing ,listings} = props;
+  const { sections, options ,listings} = props;
   const { sectionComponents = {}, isInsideContainer, ...otherOption } = options || {};
 
   // If there's no sections, we can't render the correct section component
@@ -61,7 +62,7 @@ const SectionBuilder = props => {
     return config?.component;
   };
 
-  console.log(listings+"lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+  //console.log(listings+"                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
   let first = true;
   return (
@@ -75,6 +76,7 @@ const SectionBuilder = props => {
         const classes = classNames({ [css.darkTheme]: isDarkTheme });
 
         const listing = first?<H2 className={css.listing}>Listings will be loaded soon</H2>:"";
+        //console.log(index+"                 dddddddddddddddddddddddddddddddddddddddddddddddddd");
 
        
         first = false;
@@ -92,20 +94,10 @@ const SectionBuilder = props => {
                 {...section}
               />
              
-             {showListing && first ? (
-                <div className={listingsContainerClasses}>
-                  <H4 as="h2" className={css.listingsTitle}>
-                    <FormattedMessage id="ProfilePage.listingsTitle" values={{ count: listings.length }} />
-                  </H4>
-                  <ul className={css.listings}>
-                    {listings.map(l => (
-                      <li className={css.listing} key={l.id.uuid}>
-                        <ListingCard listing={l} showAuthorInfo={false} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
+             {index === 0? (
+              
+                <ListingView listings={listings.data} images={listings.included} />
+              ) : ""}
 
             </>
            
@@ -120,6 +112,52 @@ const SectionBuilder = props => {
     </>
   );
 };
+
+const ListingView = props =>{
+  //listings[0].id.uuid
+  const{listings,images} = props;
+  const lists = listings;
+  console.log(listings+"      uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+  const listingDat = lists !== null && lists !== undefined  && lists.length>0?
+
+      <div className={css.mainContainer}>
+        <div className={classNames(css.container, css.marginB)}>  
+
+        
+        
+          <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={0} /></div>
+          <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={1} /></div>
+          <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={2}/></div>
+        
+          </div>
+
+          {/* {listings.map((key,index)=>{
+            console.log("key");
+            <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={index} /></div>
+            
+            })}
+        */}
+
+      </div>
+
+          
+
+    
+
+    
+  :"";
+   
+  return(
+    <div>     
+      <ul>
+       
+           {listingDat}
+         
+          
+      </ul>
+    </div>
+  );
+}
 
 const propTypeSection = shape({
   sectionId: string.isRequired,
@@ -160,11 +198,13 @@ const propTypeOptionForCustomSections = shape({
 const customSections = shape({
   sections: arrayOf(customSection),
   options: propTypeOptionForCustomSections.isRequired,
+  listings:object,
 });
 
 SectionBuilder.defaultProps = {
   sections: [],
   options: null,
+  listings:[]
 };
 
 SectionBuilder.propTypes = oneOf([defaultSections, customSections]).isRequired;

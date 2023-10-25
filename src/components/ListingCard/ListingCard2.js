@@ -27,11 +27,11 @@ const priceData = (price, currency, intl) => {
   } else if (price) {
     return {
       formattedPrice: intl.formatMessage(
-        { id: 'ListingCard.unsupportedPrice' },
+        { id: 'ListingCard2.unsupportedPrice' },
         { currency: price.currency }
       ),
       priceTitle: intl.formatMessage(
-        { id: 'ListingCard.unsupportedPriceTitle' },
+        { id: 'ListingCard2.unsupportedPriceTitle' },
         { currency: price.currency }
       ),
     };
@@ -60,42 +60,43 @@ const PriceMaybe = props => {
       </div>
       {isBookable ? (
         <div className={css.perUnit}>
-          <FormattedMessage id="ListingCard.perUnit" values={{ unitType: publicData?.unitType }} />
+          <FormattedMessage id="ListingCard2.perUnit" values={{ unitType: publicData?.unitType }} />
         </div>
       ) : null}
     </div>
   );
 };
 
-export const ListingCardComponent = props => {
+export const ListingCard2Component = props => {
   const config = useConfiguration();
   const {
     className,
     rootClassName,
     intl,
     listing,
-    renderSizes,
+    images,
+    index,
     setActiveListing,
     showAuthorInfo,
   } = props;
+
+
   const classes = classNames(rootClassName || css.root, className);
-  const currentListing = ensureListing(listing);
+  const currentListing = ensureListing(listing[index]);
   const id = currentListing?.id?.uuid;
   const { title = '', price, publicData } = currentListing?.attributes;
   const slug = createSlug(title);
-  const author = ensureUser(listing?.author);
+  const author = ensureUser(listing[index]?.author);
   const authorName = author?.attributes?.profile?.displayName;
-  const firstImage =
-    currentListing.images && currentListing.images.length > 0 ? currentListing.images[0] : null;
+  const firstImage = images && images.length > 0 ? images[0] : null;
 
+ 
   const {
     aspectWidth = 1,
     aspectHeight = 1,
     variantPrefix = 'listing-card',
   } = config.layout.listingImage;
-  const variants = firstImage
-    ? Object.keys(firstImage?.attributes?.variants).filter(k => k.startsWith(variantPrefix))
-    : [];
+  const variants = {0: "listing-card" ,1: "listing-card-2x"};
 
   const setActivePropsMaybe = setActiveListing
     ? {
@@ -104,21 +105,24 @@ export const ListingCardComponent = props => {
       }
     : null;
 
+   const renderSizes = "(max-width: 549px) 100vw, (max-width: 767px) 50vw, (max-width: 1439px) 26vw, (max-width: 1920px) 18vw, 14vw";
+
   return (
     <NamedLink className={classes} name="ListingPage" params={{ id, slug }}>
       <AspectRatioWrapper
         className={css.aspectRatioWrapper}
         width={aspectWidth}
         height={aspectHeight}
+       
         {...setActivePropsMaybe}
-      >
-        <LazyImage
-          rootClassName={css.rootForImage}
-          alt={title}
-          image={firstImage}
-          variants={variants}
-          sizes={renderSizes}
-        />
+      >{firstImage?
+        <img
+        src={images[index]?.attributes?.variants["listing-card"]?.url}
+        width={images[index]?.attributes?.variants["listing-card"]?.width}
+        height={images[index]?.attributes?.variants["listing-card"]?.height}
+      />:""
+      }
+       
       </AspectRatioWrapper>
       <div className={css.info}>
        
@@ -142,7 +146,7 @@ export const ListingCardComponent = props => {
   );
 };
 
-ListingCardComponent.defaultProps = {
+ListingCard2Component.defaultProps = {
   className: null,
   rootClassName: null,
   renderSizes: null,
@@ -150,7 +154,7 @@ ListingCardComponent.defaultProps = {
   showAuthorInfo: true,
 };
 
-ListingCardComponent.propTypes = {
+ListingCard2Component.propTypes = {
   className: string,
   rootClassName: string,
   intl: intlShape.isRequired,
@@ -163,4 +167,4 @@ ListingCardComponent.propTypes = {
   setActiveListing: func,
 };
 
-export default injectIntl(ListingCardComponent);
+export default injectIntl(ListingCard2Component);

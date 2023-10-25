@@ -264,3 +264,58 @@
   
   justify-content: center;
 }
+
+.container{
+ 
+  flex-direction: row;
+  justify-content: space-around;
+
+  @media (--viewportLarge) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+ 
+}
+
+.listItem{
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  width: 100%;
+  text-align: left;
+
+  @media (--viewportLarge) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    
+  }
+}
+
+.listItem div{
+  width: 100%;
+  
+}
+
+.listItem img{
+  width: 100%;
+ 
+}
+
+.mainContainer{
+  padding: 20px;
+  
+  @media (--viewportLarge) {
+    padding: 100px;
+    padding-bottom: 20px;
+  }
+}
+
+.marginB{
+  margin-bottom: 50px;
+}

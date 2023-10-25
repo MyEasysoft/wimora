@@ -1,8 +1,11 @@
+import { useDispatch } from 'react-redux';
 import { updatedEntities, denormalisedEntities } from '../util/data';
+
 
 // ================ Action types ================ //
 
 export const ADD_MARKETPLACE_ENTITIES = 'app/marketplaceData/ADD_MARKETPLACE_ENTITIES';
+export const ADD_MARKETPLACE_ENTITIES_LAND = 'app/marketplaceData/ADD_MARKETPLACE_ENTITIES_LAND';
 
 // ================ Reducer ================ //
 
@@ -20,11 +23,25 @@ const merge = (state, payload) => {
   };
 };
 
+const mergeLand = (state, payload) => {
+  const { sdkResponse, sanitizeConfig } = payload;
+  const apiResponse = sdkResponse.data;
+  const included = sdkResponse.included;
+  return {
+    ...state,
+    data: apiResponse,
+    images:included,
+  };
+};
+
 export default function marketplaceDataReducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
     case ADD_MARKETPLACE_ENTITIES:
       return merge(state, payload);
+
+    case ADD_MARKETPLACE_ENTITIES_LAND:
+      return mergeLand(state, payload);
 
     default:
       return state;
@@ -66,9 +83,15 @@ export const getMarketplaceEntities = (state, entityRefs) => {
   return denormalisedEntities(entities, entityRefs, throwIfNotFound);
 };
 
+
 // ================ Action creators ================ //
 
 export const addMarketplaceEntities = (sdkResponse, sanitizeConfig) => ({
   type: ADD_MARKETPLACE_ENTITIES,
   payload: { sdkResponse, sanitizeConfig },
+});
+
+export const addMarketplaceEntities2 = (sdkResponse) => ({
+  type: ADD_MARKETPLACE_ENTITIES_LAND,
+  payload: { sdkResponse },
 });

@@ -15,7 +15,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withViewport } from '../../util/uiHelpers.js';
 import { injectIntl } from 'react-intl';
-import { getListingsById, getMarketplaceEntities } from '../../ducks/marketplaceData.duck.js';
+
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min.js';
 import { manageDisableScrolling,isScrollingDisabled } from '../../ducks/ui.duck.js';
 
@@ -119,9 +119,9 @@ const PageBuilderCom = props => {
 
   const location = useLocation();
   const path = location.pathname;
-  const isLandingPage = (path==="/");
-  const hasListings = listings.length > 0;
-  const showListing = hasListings && isLandingPage;
+  //const isLandingPage = (path==="/");
+  //const hasListings = listings.data !== null && listings.data !== undefined;
+  //const showListing = hasListings && isLandingPage;
 
 
   return (
@@ -139,7 +139,7 @@ const PageBuilderCom = props => {
                 {sections.length === 0 && inProgress ? (
                   <LoadingSpinner />
                 ) : (
-                  <SectionBuilder sections={sections}  options={options} showListing={showListing} listings={listings}/>
+                  <SectionBuilder sections={sections}  options={options} listings={listings}/>
                 )}
               </Main>
               <FooterContainer />
@@ -160,8 +160,8 @@ const mapStateToProps = state => {
     searchListingsError,
     searchParams,
   } = state.SearchPage;
-  const listings = getMarketplaceEntities(state, currentPageResultIds);
-
+  const listings = state?.marketplaceData?.data;
+  
   return {
     listings,
     pagination,
