@@ -5,13 +5,17 @@ import { client_id } from '../../config/configPaypal';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import css from './Checkout.module.css';
 
-const Checkout = () => {
+const Checkout = (props) => {
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [orderID, setOrderID] = useState(false);
+    const {onContactUserPayPal,showPayPalButton} = props;
 
-    const handleSubmit = () =>{
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        
         setShow(!show);
     };
 
@@ -64,7 +68,7 @@ const Checkout = () => {
                         </div>
                         <div>
                            
-                            <button className={css.submitBtn} type="submit" onClick={handleSubmit}>
+                            <button className={css.submitBtn} type="submit" onClick={onContactUserPayPal}>
                                 Setup and Order Now
                             </button>
                         </div>
@@ -72,7 +76,7 @@ const Checkout = () => {
 
 
                     <br></br>
-                    {show ? (
+                    {showPayPalButton ? (
                         <PayPalButtons
                             style={{ layout: "vertical" }}
                             createOrder={createOrder}

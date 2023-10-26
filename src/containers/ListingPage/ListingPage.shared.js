@@ -103,6 +103,32 @@ export const handleContactUser = parameters => () => {
   }
 };
 
+
+export const handleContactUserPayPal = parameters => () => {
+  const {
+    history,
+    params,
+    currentUser,
+    callSetInitialValues,
+    location,
+    routes,
+    setInitialValues,
+    setshowPayPalButton,
+  } = parameters;
+
+  if (!currentUser) {
+    const state = { from: `${location.pathname}${location.search}${location.hash}` };
+
+    // We need to log in before showing the modal, but first we need to ensure
+    // that modal does open when user is redirected back to this listingpage
+    callSetInitialValues(setInitialValues, { inquiryModalOpenForListingId: params.id });
+
+    // signup and return back to listingPage.
+    history.push(createResourceLocatorString('SignupPage', routes, {}, {}), state);
+  } else {
+    setshowPayPalButton(true);
+  }
+};
 /**
  * Callback for the inquiry modal to submit aka create inquiry transaction on ListingPage.
  * Note: this is for booking and purchase processes. Inquiry process is handled through handleSubmit.

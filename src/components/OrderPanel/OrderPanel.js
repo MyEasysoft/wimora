@@ -138,6 +138,8 @@ const OrderPanel = props => {
     lineItemUnitType: lineItemUnitTypeMaybe,
     isOwnListing,
     onSubmit,
+    showPayPalButton,
+    onContactUserPayPal,
     title,
     titleDesktop,
     author,
@@ -150,6 +152,7 @@ const OrderPanel = props => {
     intl,
     onFetchTransactionLineItems,
     onContactUser,
+    
     lineItems,
     marketplaceCurrency,
     dayCountAvailableForBooking,
@@ -326,7 +329,7 @@ const OrderPanel = props => {
             fetchLineItemsError={fetchLineItemsError}
           />
         ) : showInquiryForm ? (
-          <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" onSubmit={onSubmit} />
+          <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" onSubmit={onSubmit} showPayPalButton={showPayPalButton} onContactUserPayPal={onContactUserPayPal} />
         ) : !isKnownProcess ? (
           <p className={css.errorSidebar}>
             <FormattedMessage id="OrderPanel.unknownTransactionProcess" />

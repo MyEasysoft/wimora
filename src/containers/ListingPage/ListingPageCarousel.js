@@ -60,6 +60,7 @@ import {
   priceData,
   listingImages,
   handleContactUser,
+  handleContactUserPayPal,
   handleSubmitInquiry,
   handleSubmit,
 } from './ListingPage.shared';
@@ -82,6 +83,8 @@ export const ListingPageComponent = props => {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(
     props.inquiryModalOpenForListingId === props.params.id
   );
+
+  const [showPayPalButton, setshowPayPalButton] = useState(false);
 
   const {
     isAuthenticated,
@@ -207,6 +210,14 @@ export const ListingPageComponent = props => {
     setInitialValues,
     setInquiryModalOpen,
   });
+  const onContactUserPayPal = handleContactUserPayPal({
+    ...commonParams,
+    currentUser,
+    callSetInitialValues,
+    location,
+    setInitialValues,
+    setshowPayPalButton,
+  })
   // Note: this is for inquiry state in booking and purchase processes. Inquiry process is handled through handleSubmit.
   const onSubmitInquiry = handleSubmitInquiry({
     ...commonParams,
@@ -231,6 +242,7 @@ export const ListingPageComponent = props => {
     }
   };
 
+  
   const facebookImages = listingImages(currentListing, 'facebook');
   const twitterImages = listingImages(currentListing, 'twitter');
   const schemaImages = listingImages(
@@ -360,6 +372,9 @@ export const ListingPageComponent = props => {
               listing={currentListing}
               isOwnListing={isOwnListing}
               onSubmit={handleOrderSubmit}
+              showPayPalButton = {showPayPalButton}
+              
+              onContactUserPayPal={onContactUserPayPal}
               authorLink={
                 <NamedLink
                   className={css.authorNameLink}

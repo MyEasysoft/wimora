@@ -12,7 +12,7 @@ import Checkout from '../../PaypalCom/Checkout';
 
 const renderForm = formRenderProps => {
   // FormRenderProps from final-form
-  const { formId, className, rootClassName, handleSubmit } = formRenderProps;
+  const { formId, className, rootClassName, handleSubmit,showPayPalButton,onSetShowPayPalButton } = formRenderProps;
   const classes = classNames(rootClassName || css.root, className);
 
   return (
@@ -22,11 +22,10 @@ const renderForm = formRenderProps => {
         <PrimaryButton className={css.marginB} type="submit">
           <FormattedMessage id="InquiryWithoutPaymentForm.ctaButton" />
         </PrimaryButton>
-        
-          
       </div>
     </Form>
-    <Checkout/>
+    
+    <Checkout onContactUserPayPal={formRenderProps.onContactUserPayPal} showPayPalButton={showPayPalButton}/>
     </>
     
   );
