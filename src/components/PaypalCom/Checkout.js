@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { client_id } from '../../config/configPaypal'
+import { client_id } from '../../config/configPaypal';
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import css from './Checkout.module.css';
