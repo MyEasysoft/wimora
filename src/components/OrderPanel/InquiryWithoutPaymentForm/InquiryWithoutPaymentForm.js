@@ -8,6 +8,7 @@ import { FormattedMessage, useIntl } from '../../../util/reactIntl';
 import { Form, PrimaryButton } from '../..';
 
 import css from './InquiryWithoutPaymentForm.module.css';
+import Checkout from '../../PaypalCom/Checkout';
 
 const renderForm = formRenderProps => {
   // FormRenderProps from final-form
@@ -15,16 +16,19 @@ const renderForm = formRenderProps => {
   const classes = classNames(rootClassName || css.root, className);
 
   return (
+    <>
     <Form id={formId} onSubmit={handleSubmit} className={classes}>
       <div className={css.submitButton}>
         <PrimaryButton className={css.marginB} type="submit">
           <FormattedMessage id="InquiryWithoutPaymentForm.ctaButton" />
         </PrimaryButton>
-        <PrimaryButton type="submit">
-          <FormattedMessage id="InquiryWithoutPaymentForm.sendOrder" />
-        </PrimaryButton>
+        
+          
       </div>
     </Form>
+    <Checkout/>
+    </>
+    
   );
 };
 
