@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { array, arrayOf, bool, func, shape, string, oneOf, object } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -85,6 +85,9 @@ export const ListingPageComponent = props => {
   );
 
   const [showPayPalButton, setshowPayPalButton] = useState(false);
+  const [showPaypalBtnCom, setShowPaypalBtnCom] = useState(false);
+
+   
 
   const {
     isAuthenticated,
@@ -116,6 +119,11 @@ export const ListingPageComponent = props => {
     routeConfiguration,
   } = props;
 
+  useEffect(()=>{
+    if(currentUser.attributes.profile.protectedData.role === "Seller"){
+      setShowPaypalBtnCom(true);
+    }
+  },[])
   // prop override makes testing a bit easier
   // TODO: improve this when updating test setup
   const listingConfig = listingConfigProp || config.listing;
@@ -373,6 +381,7 @@ export const ListingPageComponent = props => {
               isOwnListing={isOwnListing}
               onSubmit={handleOrderSubmit}
               showPayPalButton = {showPayPalButton}
+              showPaypalBtnCom={showPaypalBtnCom}
               
               onContactUserPayPal={onContactUserPayPal}
               authorLink={

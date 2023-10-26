@@ -140,6 +140,7 @@ const OrderPanel = props => {
     onSubmit,
     showPayPalButton,
     onContactUserPayPal,
+    showPaypalBtnCom,
     title,
     titleDesktop,
     author,
@@ -329,7 +330,7 @@ const OrderPanel = props => {
             fetchLineItemsError={fetchLineItemsError}
           />
         ) : showInquiryForm ? (
-          <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" onSubmit={onSubmit} showPayPalButton={showPayPalButton} onContactUserPayPal={onContactUserPayPal} />
+          <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" onSubmit={onSubmit} showPayPalButton={showPayPalButton} onContactUserPayPal={onContactUserPayPal} showPaypalBtnCom={showPaypalBtnCom} />
         ) : !isKnownProcess ? (
           <p className={css.errorSidebar}>
             <FormattedMessage id="OrderPanel.unknownTransactionProcess" />
