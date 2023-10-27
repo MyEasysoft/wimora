@@ -86,9 +86,10 @@ export const ListingPageComponent = props => {
 
   const [showPayPalButton, setshowPayPalButton] = useState(false);
   const [showPaypalBtnCom, setShowPaypalBtnCom] = useState(false);
-
-   
-
+  const [showPrice, setShowPrice] = useState("");
+  const [showTitle, setShowTitle] = useState("");
+  const [showCurrency, setShowCurrency] = useState("");
+  
   const {
     isAuthenticated,
     currentUser,
@@ -123,7 +124,8 @@ export const ListingPageComponent = props => {
     if(currentUser.attributes.profile.protectedData.role === "Seller"){
       setShowPaypalBtnCom(true);
     }
-  },[])
+  },[]);
+  
   // prop override makes testing a bit easier
   // TODO: improve this when updating test setup
   const listingConfig = listingConfigProp || config.listing;
@@ -185,6 +187,8 @@ export const ListingPageComponent = props => {
     metadata = {},
   } = currentListing.attributes;
 
+  
+
   const richTitle = (
     <span>
       {richText(title, {
@@ -210,6 +214,9 @@ export const ListingPageComponent = props => {
   const { formattedPrice } = priceData(price, config.currency, intl);
 
   const commonParams = { params, history, routes: routeConfiguration };
+
+  
+
   const onContactUser = handleContactUser({
     ...commonParams,
     currentUser,
@@ -281,6 +288,8 @@ export const ListingPageComponent = props => {
 
   const createFilterOptions = options => options.map(o => ({ key: `${o.option}`, label: o.label }));
 
+
+  
   return (
     <Page
       title={schemaTitle}
@@ -382,7 +391,7 @@ export const ListingPageComponent = props => {
               onSubmit={handleOrderSubmit}
               showPayPalButton = {showPayPalButton}
               showPaypalBtnCom={showPaypalBtnCom}
-              
+              setShowPrice={setShowPrice}
               onContactUserPayPal={onContactUserPayPal}
               authorLink={
                 <NamedLink

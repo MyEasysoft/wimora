@@ -160,14 +160,19 @@ const OrderPanel = props => {
     marketplaceName,
     fetchLineItemsInProgress,
     fetchLineItemsError,
+    showPrice ,
+    showCurrency,
+    showTitle
+    
   } = props;
 
   const publicData = listing?.attributes?.publicData || {};
   const { unitType, transactionProcessAlias = '' } = publicData || {};
   const processName = resolveLatestProcessName(transactionProcessAlias.split('/')[0]);
   const lineItemUnitType = lineItemUnitTypeMaybe || `line-item/${unitType}`;
-
+  
   const price = listing?.attributes?.price;
+  const listingTitle = listing.attributes.title;
   const isPaymentProcess = processName !== INQUIRY_PROCESS_NAME;
 
   const showPriceMissing = isPaymentProcess && !price;
@@ -330,7 +335,32 @@ const OrderPanel = props => {
             fetchLineItemsError={fetchLineItemsError}
           />
         ) : showInquiryForm ? (
-          <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" onSubmit={onSubmit} showPayPalButton={showPayPalButton} onContactUserPayPal={onContactUserPayPal} showPaypalBtnCom={showPaypalBtnCom} />
+          <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" 
+            onSubmit={onSubmit} 
+            showPayPalButton={showPayPalButton} 
+            onContactUserPayPal={onContactUserPayPal} 
+            showPaypalBtnCom={showPaypalBtnCom}
+            price={price}
+            listingTitle={listingTitle}
+            marketplaceCurrency={marketplaceCurrency}
+            dayCountAvailableForBooking={dayCountAvailableForBooking}
+            listingId={listing.id}
+            isOwnListing={isOwnListing}
+            monthlyTimeSlots={monthlyTimeSlots}
+            onFetchTimeSlots={onFetchTimeSlots}
+            startDatePlaceholder={intl.formatDate(TODAY, dateFormattingOptions)}
+            endDatePlaceholder={intl.formatDate(TODAY, dateFormattingOptions)}
+            timeZone={timeZone}
+            marketplaceName={marketplaceName}
+            onFetchTransactionLineItems={onFetchTransactionLineItems}
+            lineItems={lineItems}
+            fetchLineItemsInProgress={fetchLineItemsInProgress}
+            fetchLineItemsError={fetchLineItemsError} 
+            showPrice = {showPrice}
+            showCurrency={showCurrency}
+            showTitle={showTitle}
+          
+          />
         ) : !isKnownProcess ? (
           <p className={css.errorSidebar}>
             <FormattedMessage id="OrderPanel.unknownTransactionProcess" />

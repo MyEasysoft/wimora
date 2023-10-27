@@ -12,7 +12,24 @@ import Checkout from '../../PaypalCom/Checkout';
 
 const renderForm = formRenderProps => {
   // FormRenderProps from final-form
-  const { formId, className, rootClassName, handleSubmit,showPayPalButton,onSetShowPayPalButton,showPaypalBtnCom } = formRenderProps;
+  const { formId, 
+    className, 
+    rootClassName, 
+    handleSubmit,
+    showPayPalButton,
+    onSetShowPayPalButton,
+    showPaypalBtnCom ,
+    price,
+    lineItems,
+    marketplaceName,
+    listingId,
+    marketplaceCurrency,
+    listingTitle,
+    showPrice ,
+    showCurrency,
+    showTitle
+
+  } = formRenderProps;
   const classes = classNames(rootClassName || css.root, className);
 
   return (
@@ -25,7 +42,20 @@ const renderForm = formRenderProps => {
       </div>
     </Form>
     {showPaypalBtnCom?
-      <Checkout onContactUserPayPal={formRenderProps.onContactUserPayPal} showPayPalButton={showPayPalButton}/>:""
+      <Checkout 
+        onContactUserPayPal={formRenderProps.onContactUserPayPal} 
+        showPayPalButton={showPayPalButton}
+        price={price}
+        lineItems={lineItems}
+        marketplaceName={marketplaceName}
+        listingId={listingId}
+        marketplaceCurrency={marketplaceCurrency}
+        listingTitle={listingTitle}
+        showPrice = {showPrice}
+        showCurrency={showCurrency}
+        showTitle={showTitle}
+
+      />:""
     }
     
     </>
