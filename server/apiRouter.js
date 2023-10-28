@@ -22,6 +22,7 @@ const { authenticateFacebook, authenticateFacebookCallback } = require('./api/au
 const { authenticateGoogle, authenticateGoogleCallback } = require('./api/auth/google');
 const  updateProfileCallbacks = require('./api/update-profile');
 
+
 const router = express.Router();
 
 // ================ API router middleware: ================ //
@@ -82,5 +83,6 @@ router.get('/auth/google', authenticateGoogle);
 router.get('/auth/google/callback', authenticateGoogleCallback);
 
 router.post('/v1/api/current_user/update_profile', updateProfileCallbacks);
+
 
 module.exports = router;
