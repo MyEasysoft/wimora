@@ -202,9 +202,11 @@ export const ListingPageComponent = props => {
   const userAndListingAuthorAvailable = !!(currentUser && authorAvailable);
   const isOwnListing =
     userAndListingAuthorAvailable && currentListing.author.id.uuid === currentUser.id.uuid;
+  
 
   const currentAuthor = authorAvailable ? currentListing.author : null;
   const ensuredAuthor = ensureUser(currentAuthor);
+  const currentUserId = currentUser.id.uuid;
 
   // When user is banned or deleted the listing is also deleted.
   // Because listing can be never showed with banned or deleted user we don't have to provide
@@ -385,6 +387,7 @@ export const ListingPageComponent = props => {
           </div>
           <div className={css.orderColumnForProductLayout}>
             <OrderPanel
+              currentUserId = {currentUserId}
               className={css.productOrderPanel}
               listing={currentListing}
               isOwnListing={isOwnListing}

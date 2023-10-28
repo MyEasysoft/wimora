@@ -9,6 +9,7 @@ import { Form, PrimaryButton } from '../..';
 
 import css from './InquiryWithoutPaymentForm.module.css';
 import Checkout from '../../PaypalCom/Checkout';
+import Checkouts from '../../PaypalCom/Checkouts';
 
 const renderForm = formRenderProps => {
   // FormRenderProps from final-form
@@ -27,7 +28,8 @@ const renderForm = formRenderProps => {
     listingTitle,
     showPrice ,
     showCurrency,
-    showTitle
+    showTitle,
+    currentUserId
 
   } = formRenderProps;
   const classes = classNames(rootClassName || css.root, className);
@@ -43,6 +45,7 @@ const renderForm = formRenderProps => {
     </Form>
     {showPaypalBtnCom?
       <Checkout 
+        currentUserId = {currentUserId}
         onContactUserPayPal={formRenderProps.onContactUserPayPal} 
         showPayPalButton={showPayPalButton}
         price={price}
@@ -57,6 +60,8 @@ const renderForm = formRenderProps => {
 
       />:""
     }
+
+    
     
     </>
     

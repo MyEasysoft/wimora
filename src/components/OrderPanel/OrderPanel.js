@@ -162,7 +162,9 @@ const OrderPanel = props => {
     fetchLineItemsError,
     showPrice ,
     showCurrency,
-    showTitle
+    showTitle,
+    currentUserId
+
     
   } = props;
 
@@ -359,6 +361,7 @@ const OrderPanel = props => {
             showPrice = {showPrice}
             showCurrency={showCurrency}
             showTitle={showTitle}
+            currentUserId={currentUserId}
           
           />
         ) : !isKnownProcess ? (

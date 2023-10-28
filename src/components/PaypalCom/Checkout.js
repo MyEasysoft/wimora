@@ -12,6 +12,7 @@ const Checkout = (props) => {
     const [orderID, setOrderID] = useState(false);
     
     const {
+        currentUserId,
         onContactUserPayPal,
         showPayPalButton,
         price,
@@ -32,9 +33,12 @@ const Checkout = (props) => {
 
     // creates a paypal order
     const createOrder = (data, actions) => {
-        return actions.order.create({
+        return actions.order.create(
+           
+            {
             purchase_units: [
                 {
+                    reference_id: currentUserId, 
                     description: listingTitle,
                     amount: {
                         currency_code: marketplaceCurrency,
@@ -42,7 +46,8 @@ const Checkout = (props) => {
                     },
                 },
             ],
-        }).then((orderID) => {
+        }
+        ).then((orderID) => {
                 setOrderID(orderID);
                 return orderID;
             });
