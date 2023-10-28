@@ -86,7 +86,7 @@ const Checkout = (props) => {
                         <div>
                            
                             <button className={css.submitBtn} type="submit" onClick={onContactUserPayPal}>
-                                Setup and Order Now
+                                Setup and Order Now {currentUserId}
                             </button>
                         </div>
                     </div>
