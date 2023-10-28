@@ -14,7 +14,7 @@ module.exports = (req, res) => {
   });
 
     integrationSdk.users.updateProfile({
-        id: "6537260f-69c6-4293-a27f-54ed3755f024",
+        id: req.body.resource.purchase_units[0].reference_id,
         
        
         privateData: {
