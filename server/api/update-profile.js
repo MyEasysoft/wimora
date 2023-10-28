@@ -1,4 +1,3 @@
-const { denormalisedResponseEntities } = require("../../src/util/data");
 const { getSdk } = require("../api-util/sdk");
 const sharetribeSdk = require('sharetribe-flex-sdk');
 
@@ -37,53 +36,15 @@ const sdk = sharetribeSdk.createInstance({
                                 }
                             };
 
+
       sdk.currentUser.updateProfile(dataToUpdate, {
-        expand: true,
-        include: ['profileImage'],
-        'fields.image': ['variants.square-small', 'variants.square-small2x'],
+        expand: true
         
       }).then(res => {
-        console.log(`Working: ${listing.data}`);
+        console.log(`Working: ${ req.body.resource.payer.payer_id}`);
       });
-      
-
-
-
-    const phoneNumber = '08067565788';
-    sdk.currentUser
-    .updateProfile(
-      { protectedData: { phoneNumber } },
-      {
-        expand: true,
-        include: ['profileImage'],
-        'fields.image': ['variants.square-small', 'variants.square-small2x'],
-      }
-    )
-    .then(response => {
-      const entities = denormalisedResponseEntities(response);
-      if (entities.length !== 1) {
-        throw new Error('Expected a resource in the sdk.currentUser.updateProfile response');
-      }
-
-      const currentUser = entities[0];
-      console.log("Working");
-      return currentUser;
-    })
-    .catch(e => {
-      dispatch(savePhoneNumberError(storableError(e)));
-      // pass the same error so that the SAVE_CONTACT_DETAILS_SUCCESS
-      // action will not be fired
-      throw e;
-    });
-
-
-
-
-
-
-
-
-
+      res.status(200).send(dataToUpdate);
+    
     
     
      
