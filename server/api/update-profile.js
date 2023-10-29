@@ -13,9 +13,9 @@ module.exports = (req, res) => {
     clientSecret: process.env.SHARETRIBE_INTEGRATION_CLIENT_SECRET
   });
 
-  let refId = req.body.resource.purchase_units[0].reference_id;//Contains OwnerId and ListingId
+  let refId = req.body.resource.purchase_units[0].reference_id;//Contains buyerId and ListingId
   let dataArray = refId.split(" ");
-  const ownerId = dataArray[0];
+  const buyerId = dataArray[0];
   const listingId = dataArray[1];
 
   const listingDetails = {
@@ -26,7 +26,7 @@ module.exports = (req, res) => {
 
 
   //Get the exiting info for this user before updating
-  integrationSdk.users.show({id: ownerId}).then(res => {
+  integrationSdk.users.show({id: buyerId}).then(res => {
     const currentListing = res.data.attributes.profile.privateData.listingPaidFor;
     updateProfileData(currentListing);
   });
@@ -35,7 +35,7 @@ module.exports = (req, res) => {
   const updateProfileData = (currentListings)=>{
     const updatedListing = {currentListings,...listingDetails};
     integrationSdk.users.updateProfile({
-      id: ownerId,
+      id: buyerId,
 
       privateData: {
         discoveredServiceVia: null,
