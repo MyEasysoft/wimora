@@ -13,14 +13,20 @@ module.exports = (req, res) => {
     clientSecret: process.env.SHARETRIBE_INTEGRATION_CLIENT_SECRET
   });
 
+  let refId = req.body.resource.purchase_units[0].reference_id;//Contains OwnerId and ListingId
+  let dataArray = refId.split(" ");
+  const ownerId = dataArray[0];
+  const listingId = dataArray[1];
+
   const listingDetails = {
-    listingId:req.body.resource.purchase_units[0].listing_id,   //Id of the listing that is being paid for
+    listingId:listingId,   //Id of the listing that is being paid for
     amountPaid:req.body.resource.purchase_units[0].amount,      //Amount paid, this can be full payment or part payment
     datetimeOfPayment:req.body.resource.create_time             //The time the money was paid
   };
   
+  
     integrationSdk.users.updateProfile({
-        id: req.body.resource.purchase_units[0].reference_id,
+        id: ownerId,
         
        
         privateData: {
