@@ -18,7 +18,7 @@ module.exports = (req, res) => {
   const buyerId = dataArray[0];
   const listingId = dataArray[1];
 
-  console.log(`step1111:    ${listingId}`);
+  //console.log(`step1111:    ${listingId}`);
 
   const listingDetails = {
     listingId:listingId,   //Id of the listing that is being paid for
@@ -38,8 +38,10 @@ module.exports = (req, res) => {
   });
   
   const separateObject = obj => {
+
+    if(obj === undefined || obj === null)return[];
     const res = [];
-    const keys = Object.keys(obj);
+    const keys = Object?.keys(obj);
     keys.forEach(key => {
        res.push(
          obj[key]

@@ -174,7 +174,7 @@ const OrderPanel = props => {
   const lineItemUnitType = lineItemUnitTypeMaybe || `line-item/${unitType}`;
   
   const price = listing?.attributes?.price;
-  const listingTitle = listing.attributes.title;
+  const listingTitle = listing?.attributes?.title;
   const isPaymentProcess = processName !== INQUIRY_PROCESS_NAME;
 
   const showPriceMissing = isPaymentProcess && !price;
@@ -208,7 +208,7 @@ const OrderPanel = props => {
   // The listing resource has a relationship: `currentStock`,
   // which you should include when making API calls.
   const isPurchase = isPurchaseProcess(processName);
-  const currentStock = listing.currentStock?.attributes?.quantity;
+  const currentStock = listing?.currentStock?.attributes?.quantity;
   const isOutOfStock = isPurchase && lineItemUnitType === LINE_ITEM_ITEM && currentStock === 0;
 
   // Show form only when stock is fully loaded. This avoids "Out of stock" UI by
