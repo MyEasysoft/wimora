@@ -14,9 +14,9 @@ module.exports = (req, res) => {
   });
 
   const listingDetails = {
-    listingId:req.body.resource.purchase_units[0].listing_id,
-    amountPaid:req.body.resource.purchase_units[0].amount,
-    datetimeOfPayment:req.body.resource.create_time
+    listingId:req.body.resource.purchase_units[0].listing_id,   //Id of the listing that is being paid for
+    amountPaid:req.body.resource.purchase_units[0].amount,      //Amount paid, this can be full payment or part payment
+    datetimeOfPayment:req.body.resource.create_time             //The time the money was paid
   };
   
     integrationSdk.users.updateProfile({

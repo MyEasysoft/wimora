@@ -346,7 +346,7 @@ const OrderPanel = props => {
             listingTitle={listingTitle}
             marketplaceCurrency={marketplaceCurrency}
             dayCountAvailableForBooking={dayCountAvailableForBooking}
-            listingId={listing.id}
+            listingId={listing.id.uuid}
             isOwnListing={isOwnListing}
             monthlyTimeSlots={monthlyTimeSlots}
             onFetchTimeSlots={onFetchTimeSlots}
