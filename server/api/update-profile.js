@@ -18,6 +18,8 @@ module.exports = (req, res) => {
   const buyerId = dataArray[0];
   const listingId = dataArray[1];
 
+  console.log(`step1111:    ${listingId}`);
+
   const listingDetails = {
     listingId:listingId,   //Id of the listing that is being paid for
     amountPaid:req.body.resource.purchase_units[0].amount,      //Amount paid, this can be full payment or part payment
@@ -27,13 +29,31 @@ module.exports = (req, res) => {
 
   //Get the exiting info for this user before updating
   integrationSdk.users.show({id: buyerId}).then(res => {
-    const currentListing = res.data.attributes.profile.privateData.listingPaidFor;
+    const currentListing = res?.data.data.attributes.profile.privateData.listingPaidFor;
+    
+
+    
+   // console.log(`step2222222222222222222:    ${JSON.stringify(currentListing)}`);
     updateProfileData(currentListing);
   });
   
+  const separateObject = obj => {
+    const res = [];
+    const keys = Object.keys(obj);
+    keys.forEach(key => {
+       res.push(
+         obj[key]
+       );
+    });
+    return res;
+ };
 
   const updateProfileData = (currentListings)=>{
-    const updatedListing = {currentListings,...listingDetails};
+    const newCon = separateObject(currentListings);
+    newCon.push(listingDetails);
+  
+    const updatedListing = Object.assign({},newCon);
+    console.log(`step3333:    ${JSON.stringify(updatedListing)}`);
     integrationSdk.users.updateProfile({
       id: buyerId,
 
