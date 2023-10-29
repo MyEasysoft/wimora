@@ -39,6 +39,7 @@ const Checkout = (props) => {
             purchase_units: [
                 {
                     reference_id: currentUserId, 
+                    listing_id: listingId, 
                     description: listingTitle,
                     amount: {
                         currency_code: marketplaceCurrency,

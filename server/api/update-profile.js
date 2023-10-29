@@ -13,13 +13,20 @@ module.exports = (req, res) => {
     clientSecret: process.env.SHARETRIBE_INTEGRATION_CLIENT_SECRET
   });
 
+  const listingDetails = {
+    listingId:req.body.resource.purchase_units[0].listing_id,
+    amountPaid:req.body.resource.purchase_units[0].amount,
+    datetimeOfPayment:req.body.resource.create_time
+  };
+  
     integrationSdk.users.updateProfile({
         id: req.body.resource.purchase_units[0].reference_id,
         
        
         privateData: {
           discoveredServiceVia: null,
-          paypalMerchantId:req.body.resource.payer.payer_id
+          paypalMerchantId:req.body.resource.payer.payer_id,
+          listingPaidFor:listingDetails
 
         },
         metadata: {

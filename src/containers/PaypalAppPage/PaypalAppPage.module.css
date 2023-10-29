@@ -6,7 +6,7 @@
   }
 
   @media (--viewportLarge) {
-    margin-left: 5%;
+    
   }
 }
 
@@ -21,10 +21,10 @@
   margin-bottom: 19px;
 
   @media (--viewportMedium) {
-    margin-bottom: 47px;
+    margin-bottom: 30px;
   }
 }
 
 .details{
-  margin-bottom: 24px;
+  margin-left: 20px;
 }

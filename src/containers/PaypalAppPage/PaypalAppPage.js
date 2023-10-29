@@ -35,6 +35,8 @@ export const PaypalAppPageComponent = props => {
     intl,
   } = props;
 
+  const {paypalMerchantId} = currentUser?.attributes?.profile?.privateData;
+
   const handlePaypalApp = values => {
     return onSubmitPaypalApp(values).then(() => {
       onLogout();
@@ -48,7 +50,7 @@ export const PaypalAppPageComponent = props => {
 
   const pageDetails = (
     <div className={css.details}>
-        
+       <p>Paypal Merchant Id: {paypalMerchantId}</p> 
     </div>
   );
 
@@ -118,6 +120,7 @@ const mapStateToProps = state => {
     resetPasswordError,
   } = state.PaypalAppPage;
   const { currentUser } = state.user;
+  
   return {
     paypalAppError,
     paypalAppInProgress,
