@@ -35,9 +35,7 @@ export const PaypalAppPageComponent = props => {
     resetPasswordError,
     accountSales,
     scrollingDisabled,
-    intl,
-    getListing,
-    getUserById
+    intl
   } = props;
 
   if (currentUser === undefined)return;
@@ -61,9 +59,7 @@ export const PaypalAppPageComponent = props => {
        <p>Paypal Merchant Id: {paypalHeader}</p> 
        <ListingItemComponent 
             listingPaidFor={listingPaidFor}
-            
-            getListing={getListing}
-            getUserById={getUserById}
+        
 
           />
        
@@ -138,18 +134,6 @@ const mapStateToProps = state => {
     resetPasswordError,
   } = state.PaypalAppPage;
   const { currentUser } = state.user;
-
-  const getUserById = id => {
-    const ref = { id, type: 'user' };
-    const listings =  showUser(id);
-    return listings.length === 1 ? listings[0] : null;
-  };
-
-  const getListing = id => {
-    const ref = { id, type: 'listing' };
-    const listings = getMarketplaceEntities(state, [ref]);
-    return listings.length === 1 ? listings[0] : null;
-  };
   
   return {
     paypalAppError,
@@ -158,9 +142,8 @@ const mapStateToProps = state => {
     paypalApp,
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
-    resetPasswordError,
-    getListing,
-    getUserById
+    resetPasswordError
+    
   };
 };
 
