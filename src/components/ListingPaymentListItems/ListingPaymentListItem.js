@@ -21,9 +21,7 @@ function ListingItemComponent(props){
         } = props;
     const hasListingPiadFor = listingPaidFor !== undefined && listingPaidFor !== null;
     if(!hasListingPiadFor)return "";
-
-   
-
+    
   return (
    
            
@@ -51,8 +49,8 @@ function ListingItemComponent(props){
                            
                             <td>01-02-2023</td>
                             <td>01-03-2023</td>
-                            <td><img className={css.roundImg} src={listingPaidFor[key].authorPhoto}/>{listingPaidFor[key].authorName}</td>
-                            <td>${listingPaidFor[key].amountPaid.value}</td>
+                            <td><img className={css.roundImg} src={listingPaidFor[key].authorPhoto || listingPaidFor[key].buyerPhoto}/>{listingPaidFor[key]?.authorName || listingPaidFor[key]?.buyerName}</td>
+                            <td>${listingPaidFor[key]?.amountPaid?.value || listingPaidFor[key]?.amountReceived?.value}</td>
                             <td><img className={css.status} src={false?mark:cancel}/></td>
                             
                         </tr>

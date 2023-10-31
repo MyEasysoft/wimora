@@ -138,7 +138,7 @@ const LayoutSideNavigationCom = props => {
   const profile = isPaymentPage?"":profil;
 
   const influencerActions = <>
-                        <div onClick={handleShowEarningsAction}  className={classNames(css.dropDown,css.accountSetting)}>
+                        <div  className={classNames(css.dropDown,css.accountSetting)}>
                            
                             <FontAwesomeIcon icon={faDollar}/>
                             <NamedLink {...EarningsPage} className={css.accountSetting} >My Earnings</NamedLink>
@@ -159,7 +159,7 @@ const LayoutSideNavigationCom = props => {
                             
                         </div>
 
-                        <div onClick={handleShowProjectAction}  className={classNames(css.dropDown,css.accountSetting)}>
+                        <div  className={classNames(css.dropDown,css.accountSetting)}>
                            
                             <FontAwesomeIcon icon={faContactBook}/>
                             <NamedLink {...ProjectsPage} className={css.accountSetting} >My projects</NamedLink>
@@ -182,7 +182,7 @@ const LayoutSideNavigationCom = props => {
 
                       
 
-                        <div onClick={handleShowPropsalAction}  className={classNames(css.dropDown,css.accountSetting)}>
+                        <div  className={classNames(css.dropDown,css.accountSetting)}>
                           <FontAwesomeIcon icon={faHistory}/>
                           <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
                         

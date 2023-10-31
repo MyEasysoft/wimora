@@ -39,7 +39,8 @@ export const ProjectsPageComponent = props => {
     getUserById
   } = props;
 
-  if (currentUser === undefined)return;
+  if (currentUser === undefined || currentUser?.attributes?.profile?.privateData === undefined)return;
+
   const {paypalMerchantId,listingPaidFor} = currentUser?.attributes?.profile?.privateData;
   
 
