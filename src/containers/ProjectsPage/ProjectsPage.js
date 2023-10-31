@@ -36,6 +36,10 @@ export const ProjectsPageComponent = props => {
     intl,
   } = props;
 
+  if (currentUser === undefined)return;
+  const {paypalMerchantId,listingPaidFor} = currentUser?.attributes?.profile?.privateData;
+
+
   const handleProjects = values => {
     return onSubmitProjects(values).then(() => {
       onLogout();
@@ -65,7 +69,7 @@ export const ProjectsPageComponent = props => {
   const showTotalProfit = true;
 
   const pageDetails = (
-    <div className={css.details}>
+    
         <EarningsPageViewComponent
         
           totalTransactionLabel={totalTransactionLabel}
@@ -80,8 +84,10 @@ export const ProjectsPageComponent = props => {
           totalProfitLabel={totalProfitLabel}
           totalProfitValue={totalProfitValue}
           showTotalProfit={showTotalProfit}
+          listingPaidFor={listingPaidFor}
+          paypalMerchantId={paypalMerchantId}
         />
-    </div>
+   
   );
 
 

@@ -22,6 +22,7 @@ import {
   import BarChart2 from '../ChartViews/area charts/BarChart2';
 import LineChart from '../ChartViews/area charts/LineChart';
 import EarningsPage from '../../containers/EarningsPage/EarningsPage';
+import ListingItemComponent from '../ListingPaymentListItems/ListingPaymentListItem';
 
 function EarningsPageViewComponent(props){
 
@@ -38,7 +39,9 @@ function EarningsPageViewComponent(props){
       showTotalDeclined,
       totalProfitLabel,
       totalProfitValue,
-      showTotalProfit
+      showTotalProfit,
+      listingPaidFor,
+      paypalMerchantId
 
     } = props;
 
@@ -57,6 +60,20 @@ function EarningsPageViewComponent(props){
       name: 'EarningsPage',
       match: { url: '/' },
     };
+
+    const paypalHeader = paypalMerchantId !== undefined && paypalMerchantId !== null && paypalMerchantId !== ""?paypalMerchantId:
+    "You have not connect your account to Paypal yet";
+
+    const projectListings = (
+      <div className={css.details}>
+         <p>Paypal Merchant Id: {paypalHeader}</p> 
+         <ListingItemComponent 
+              listingPaidFor={listingPaidFor}
+             
+            />
+         
+      </div>
+    );
 
   return (
    
@@ -78,55 +95,14 @@ function EarningsPageViewComponent(props){
            
               
           </div> */}
+         
+         
+            {projectListings}
+          
+         
+
+
           <div className={css.cardRow}>
-              <div className={css.card1}>
-                  <div className={css.row3}>
-                    <h5 className={css.cardHeader}>{totalTransactionLabel}</h5>
-                    
-                  </div>
-                  <div className={css.row3}>
-                    <b className={css.amount}>{totalTransactionValue}</b>
-                  </div>
-              </div>
-
-              <div className={css.card1}>
-                  <div className={css.row3}>
-                    <h5 className={css.cardHeader}>{totalCompletedLabel}</h5>
-                   
-                  </div>
-                  <div className={css.row3}>
-                    
-                    <b className={css.amount}>{totaLCompletedValue}</b>
-                  </div>
-              </div>
-
-              <div className={css.card1}>
-                  <div className={css.row3}>
-                    <h5 className={css.cardHeader}>{totalDeclinedLabel}</h5>
-                   
-                  </div>
-                  <div className={css.row3}>
-                    
-                    <b className={css.amount}>{totalDeclinedValue}</b>
-                  </div>
-              </div>
-
-              <div className={css.card1}>
-                  <div className={css.row3}>
-                    <h5 className={css.cardHeader}>{totalProfitLabel}</h5>
-                   
-                  </div>
-                  <div className={css.row3}>
-                    
-                    <b className={css.amount}>{totalProfitValue}</b>
-                  </div>
-              </div>
-
-
-          </div>
-
-
-        <div className={css.cardRow}>
             
 
             <div className={css.cardNormal}>

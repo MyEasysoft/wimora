@@ -29,7 +29,8 @@ const renderForm = formRenderProps => {
     showPrice ,
     showCurrency,
     showTitle,
-    currentUserId
+    currentUserId,
+    authorId={authorId}
 
   } = formRenderProps;
   const classes = classNames(rootClassName || css.root, className);
@@ -57,6 +58,7 @@ const renderForm = formRenderProps => {
         showPrice = {showPrice}
         showCurrency={showCurrency}
         showTitle={showTitle}
+        authorId={authorId}
 
       />:""
     }

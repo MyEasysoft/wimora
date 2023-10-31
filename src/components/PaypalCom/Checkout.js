@@ -20,7 +20,8 @@ const Checkout = (props) => {
         marketplaceName,
         listingId,
         marketplaceCurrency,
-        listingTitle
+        listingTitle,
+        authorId
     } = props;
     const {amount} = price;
 
@@ -31,6 +32,8 @@ const Checkout = (props) => {
         setShow(!show);
     };
 
+    const dataReady = currentUserId !== undefined && authorId !== undefined && listingId !== undefined;
+
     // creates a paypal order
     const createOrder = (data, actions) => {
         return actions.order.create(
@@ -38,7 +41,7 @@ const Checkout = (props) => {
             {
             purchase_units: [
                 {
-                    reference_id: currentUserId+" "+listingId, 
+                    reference_id: currentUserId+" "+authorId+" "+listingId, 
                     description: listingTitle,
                     amount: {
                         currency_code: marketplaceCurrency,
@@ -57,7 +60,7 @@ const Checkout = (props) => {
     const onApprove = (data, actions) => {
         return actions.order.capture().then(function (details) {
             const { payer } = details;
-            console.log(payer +"zzzzzzzzzzzzzzzzzzzzzzz")
+           
             setSuccess(true);
         });
     };
@@ -70,7 +73,7 @@ const Checkout = (props) => {
     useEffect(() => {
         if (success) {
             alert("Payment successful!!");
-            console.log('Order successful . Your order id is--', orderID);
+           
         }
     },[success]);
 
@@ -93,7 +96,7 @@ const Checkout = (props) => {
 
 
                     <br></br>
-                    {showPayPalButton ? (
+                    {showPayPalButton && dataReady ? (
                         <PayPalButtons
                             style={{ layout: "vertical" }}
                             createOrder={createOrder}

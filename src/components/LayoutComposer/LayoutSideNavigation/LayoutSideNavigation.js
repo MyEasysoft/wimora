@@ -123,6 +123,7 @@ const LayoutSideNavigationCom = props => {
   const path = location.pathname;
 
   const isListingProfile = (path.indexOf('u')===1);
+  const isPaymentPage = (path ==="/payment" || path ==="/account/projects");
 
 
   if(user !== null && user !== undefined){
@@ -133,7 +134,8 @@ const LayoutSideNavigationCom = props => {
 
   const userProfileToShow = user && isListingProfile?user:currentUser;
 
-  const profile = userProfileToShow?.profileImage?<Profile user={userProfileToShow} showStore={showStore} />:"";
+  const profil = userProfileToShow?.profileImage?<Profile user={userProfileToShow} showStore={showStore} />:"";
+  const profile = isPaymentPage?"":profil;
 
   const influencerActions = <>
                         <div onClick={handleShowEarningsAction}  className={classNames(css.dropDown,css.accountSetting)}>

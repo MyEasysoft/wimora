@@ -495,3 +495,9 @@ margin-top: 80px;
   margin-left: 10px;
   text-decoration: none;
 }
+
+.details{
+  margin-left: 1.5%;
+    position: relative;
+    width: 97%;
+}

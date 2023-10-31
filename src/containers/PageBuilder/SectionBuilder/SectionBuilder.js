@@ -118,40 +118,44 @@ const ListingView = props =>{
   const{listings,images} = props;
   const lists = listings;
   console.log(listings+"      uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
-  const listingDat = lists !== null && lists !== undefined  && lists.length>0?
+  const listingDat = lists !== undefined && lists !== null  && lists.length>1?
 
       <div className={css.mainContainer}>
-        <div className={classNames(css.container, css.marginB)}>  
+        <div className={classNames(css.container, css.marginB)}> 
+             
+              <>
+              <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={0} /></div>
+              <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={1} /></div>
+              <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={2}/></div>
+              </>
+              
+           
+        </div>
+      </div>
+  :"";
 
-        
-        
+  const listingDat2 = lists !== undefined && lists !== null  && lists.length>5?
+
+  <div className={css.mainContainer}>
+    <div className={classNames(css.container, css.marginB)}> 
+         
+          <>
           <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={0} /></div>
           <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={1} /></div>
           <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={2}/></div>
-        
-          </div>
-
-          {/* {listings.map((key,index)=>{
-            console.log("key");
-            <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={index} /></div>
-            
-            })}
-        */}
-
-      </div>
-
+          </>
           
-
-    
-
-    
-  :"";
+        
+    </div>
+  </div>
+:"";
    
   return(
     <div>     
       <ul>
        
            {listingDat}
+           {listingDat2}
          
           
       </ul>

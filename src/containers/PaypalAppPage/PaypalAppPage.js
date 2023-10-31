@@ -16,11 +16,13 @@ import {
 } from './PaypalAppPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './PaypalAppPage.module.css';
+import ListingItemComponent from '../../components/ListingPaymentListItems/ListingPaymentListItem';
 
 
 
 export const PaypalAppPageComponent = props => {
   const {
+    
     paypalAppError,
     paypalAppInProgress,
     currentUser,
@@ -35,7 +37,8 @@ export const PaypalAppPageComponent = props => {
     intl,
   } = props;
 
-  const {paypalMerchantId} = currentUser?.attributes?.profile?.privateData;
+  if (currentUser === undefined)return;
+  const {paypalMerchantId,listingPaidFor} = currentUser?.attributes?.profile?.privateData;
 
   const handlePaypalApp = values => {
     return onSubmitPaypalApp(values).then(() => {
@@ -47,10 +50,17 @@ export const PaypalAppPageComponent = props => {
     return onChange();
   }, []);
 
+  const paypalHeader = paypalMerchantId !== undefined && paypalMerchantId !== null && paypalMerchantId !== ""?paypalMerchantId:
+    "You have not connect your account to Paypal yet";
 
   const pageDetails = (
     <div className={css.details}>
-       <p>Paypal Merchant Id: {paypalMerchantId}</p> 
+       <p>Paypal Merchant Id: {paypalHeader}</p> 
+       <ListingItemComponent 
+            listingPaidFor={listingPaidFor}
+           
+          />
+       
     </div>
   );
 
@@ -110,6 +120,10 @@ PaypalAppPageComponent.propTypes = {
   intl: intlShape.isRequired,
 };
 
+const getInfluencer = id=>{
+
+}
+
 const mapStateToProps = state => {
   // Topbar needs user info.
   const {
@@ -120,6 +134,18 @@ const mapStateToProps = state => {
     resetPasswordError,
   } = state.PaypalAppPage;
   const { currentUser } = state.user;
+
+  const getUser = id => {
+    const ref = { id, type: 'listing' };
+    const listings = getMarketplaceEntities(state, [ref]);
+    return listings.length === 1 ? listings[0] : null;
+  };
+
+  const getListing = id => {
+    const ref = { id, type: 'listing' };
+    const listings = getMarketplaceEntities(state, [ref]);
+    return listings.length === 1 ? listings[0] : null;
+  };
   
   return {
     paypalAppError,
@@ -129,6 +155,7 @@ const mapStateToProps = state => {
     scrollingDisabled: isScrollingDisabled(state),
     resetPasswordInProgress,
     resetPasswordError,
+    getListing,
   };
 };
 

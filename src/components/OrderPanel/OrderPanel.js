@@ -168,6 +168,8 @@ const OrderPanel = props => {
     
   } = props;
 
+
+  const authorId = author.id.uuid;
   const publicData = listing?.attributes?.publicData || {};
   const { unitType, transactionProcessAlias = '' } = publicData || {};
   const processName = resolveLatestProcessName(transactionProcessAlias.split('/')[0]);
@@ -362,6 +364,8 @@ const OrderPanel = props => {
             showCurrency={showCurrency}
             showTitle={showTitle}
             currentUserId={currentUserId}
+            authorId={authorId}
+
           
           />
         ) : !isKnownProcess ? (

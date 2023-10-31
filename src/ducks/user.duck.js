@@ -342,6 +342,8 @@ export const fetchCurrentUser = (params = null) => (dispatch, getState, sdk) => 
     }),
   };
 
+  
+
   return sdk.currentUser
     .show(parameters)
     .then(response => {
