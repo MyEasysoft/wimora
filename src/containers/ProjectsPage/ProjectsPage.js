@@ -34,10 +34,14 @@ export const ProjectsPageComponent = props => {
     accountDeleted,
     scrollingDisabled,
     intl,
+    getAuthorListing,
+    getListing,
+    getUserById
   } = props;
 
   if (currentUser === undefined)return;
   const {paypalMerchantId,listingPaidFor} = currentUser?.attributes?.profile?.privateData;
+  
 
 
   const handleProjects = values => {
@@ -86,6 +90,7 @@ export const ProjectsPageComponent = props => {
           showTotalProfit={showTotalProfit}
           listingPaidFor={listingPaidFor}
           paypalMerchantId={paypalMerchantId}
+          
         />
    
   );
@@ -148,6 +153,9 @@ ProjectsPageComponent.propTypes = {
 };
 
 const mapStateToProps = state => {
+
+ 
+  
   // Topbar needs user info.
   const {
     projectsError,
@@ -157,7 +165,28 @@ const mapStateToProps = state => {
     resetPasswordError,
   } = state.ProjectsPage;
   const { currentUser } = state.user;
+
+  const getListing = id => {
+    const ref = { id, type: 'listing' };
+    const listings = getMarketplaceEntities(state, [ref]);
+    return listings.length === 1 ? listings[0] : null;
+  };
+
+  const getAuthorListing = id => {
+    const ref = { id, type: 'ownListing' };
+    const listings = getMarketplaceEntities(state, [ref]);
+    return listings.length === 1 ? listings[0] : null;
+  };
+
+  const getUserById = (id)=>{
+    const userMatches = getMarketplaceEntities(state, [{ type: 'user', id: id }]);
+    const user = userMatches.length === 1 ? userMatches[0] : null;
+  }
+
   return {
+    getListing,
+    getAuthorListing,
+    getUserById,
     projectsError,
     projectsInProgress,
     currentUser,

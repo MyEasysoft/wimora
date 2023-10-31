@@ -319,3 +319,10 @@
 .marginB{
   margin-bottom: 50px;
 }
+
+.textCenter{
+  text-align: center;
+}
+.marginT{
+  margin-top: 50px;
+}

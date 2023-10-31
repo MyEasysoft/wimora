@@ -13,6 +13,7 @@ import {
   paypalApp,
   paypalAppClear,
   resetPassword,
+  showUser,
 } from './PaypalAppPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './PaypalAppPage.module.css';
@@ -35,6 +36,8 @@ export const PaypalAppPageComponent = props => {
     accountSales,
     scrollingDisabled,
     intl,
+    getListing,
+    getUserById
   } = props;
 
   if (currentUser === undefined)return;
@@ -58,7 +61,10 @@ export const PaypalAppPageComponent = props => {
        <p>Paypal Merchant Id: {paypalHeader}</p> 
        <ListingItemComponent 
             listingPaidFor={listingPaidFor}
-           
+            
+            getListing={getListing}
+            getUserById={getUserById}
+
           />
        
     </div>
@@ -120,9 +126,7 @@ PaypalAppPageComponent.propTypes = {
   intl: intlShape.isRequired,
 };
 
-const getInfluencer = id=>{
 
-}
 
 const mapStateToProps = state => {
   // Topbar needs user info.
@@ -135,9 +139,9 @@ const mapStateToProps = state => {
   } = state.PaypalAppPage;
   const { currentUser } = state.user;
 
-  const getUser = id => {
-    const ref = { id, type: 'listing' };
-    const listings = getMarketplaceEntities(state, [ref]);
+  const getUserById = id => {
+    const ref = { id, type: 'user' };
+    const listings =  showUser(id);
     return listings.length === 1 ? listings[0] : null;
   };
 
@@ -156,6 +160,7 @@ const mapStateToProps = state => {
     resetPasswordInProgress,
     resetPasswordError,
     getListing,
+    getUserById
   };
 };
 

@@ -21,6 +21,8 @@ export const RESET_PASSWORD_SUCCESS =
   'app/PAYPALAPPPage/RESET_PASSWORD_SUCCESS';
 export const RESET_PASSWORD_ERROR =
   'app/PAYPALAPPPage/RESET_PASSWORD_ERROR';
+  export const SHOW_USER_REQUEST =
+  'app/PAYPALAPPPage/SHOW_USER_REQUEST';
 
 // ================ Reducer ================ //
 
@@ -53,7 +55,8 @@ export default function reducer(state = initialState, action = {}) {
 
     case PAYPALAPP_CLEAR:
       return { ...initialState };
-
+    case SHOW_USER_REQUEST:
+        return { ...state, userShowError: null, userId: payload.userId };
     case RESET_PASSWORD_REQUEST:
       return {
         ...state,
@@ -97,6 +100,11 @@ export const resetPasswordError = e => ({
   payload: e,
 });
 
+export const showUserRequest = userId => ({
+  type: SHOW_USER_REQUEST,
+  payload: { userId },
+});
+
 // ================ Thunks ================ //
 
 export const paypalApp = params => (dispatch, getState, sdk) => {
@@ -122,4 +130,20 @@ export const resetPassword = email => (dispatch, getState, sdk) => {
     .request({ email })
     .then(() => dispatch(resetPasswordSuccess()))
     .catch(e => dispatch(resetPasswordError(storableError(e))));
+};
+
+export const showUser = userId => (dispatch, getState, sdk) => {
+  dispatch(showUserRequest(userId));
+  return sdk.users
+    .show({
+      id: userId,
+      include: ['profileImage'],
+      'fields.image': ['variants.square-small', 'variants.square-small2x'],
+    })
+    .then(response => {
+      dispatch(addMarketplaceEntities(response));
+      dispatch(showUserSuccess());
+      return response;
+    })
+    .catch(e => dispatch(showUserError(storableError(e))));
 };

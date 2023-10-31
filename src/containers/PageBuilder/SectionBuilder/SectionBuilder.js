@@ -95,8 +95,7 @@ const SectionBuilder = props => {
               />
              
              {index === 0? (
-              
-                <ListingView listings={listings.data} images={listings.included} />
+                <ListingView  listings={listings.data} images={listings.included} />
               ) : ""}
 
             </>
@@ -117,47 +116,34 @@ const ListingView = props =>{
   //listings[0].id.uuid
   const{listings,images} = props;
   const lists = listings;
-  console.log(listings+"      uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
-  const listingDat = lists !== undefined && lists !== null  && lists.length>1?
-
-      <div className={css.mainContainer}>
-        <div className={classNames(css.container, css.marginB)}> 
-             
-              <>
-              <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={0} /></div>
-              <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={1} /></div>
-              <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={2}/></div>
-              </>
-              
-           
-        </div>
-      </div>
-  :"";
-
-  const listingDat2 = lists !== undefined && lists !== null  && lists.length>5?
-
-  <div className={css.mainContainer}>
-    <div className={classNames(css.container, css.marginB)}> 
-         
-          <>
-          <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={0} /></div>
-          <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={1} /></div>
-          <div className={css.listItem}><ListingCard2  listing={lists} images={images} index={2}/></div>
-          </>
-          
-        
-    </div>
-  </div>
-:"";
+  
+  const hasListings = lists !== undefined;
    
   return(
     <div>     
       <ul>
-       
-           {listingDat}
-           {listingDat2}
+        <div className={classNames(css.textCenter,css.marginT) }><h2 >SELLERS</h2></div>
+        <div className={css.mainContainer}>
+                  <div className={classNames(css.container, css.marginB)}> 
+
+           {hasListings?
+               lists.map((list,index)=>{
+                if(index > 5)return "";
+      
+               return (
+                
+                    <div className={css.listItem}><ListingCard2  listing={list} images={images} index={index} /></div>
+                 
          
-          
+               )
+               
+               
+            })
+           :""
+           }
+         
+         </div>
+                </div>
       </ul>
     </div>
   );

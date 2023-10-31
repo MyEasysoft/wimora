@@ -42,6 +42,7 @@ function EarningsPageViewComponent(props){
       showTotalProfit,
       listingPaidFor,
       paypalMerchantId
+      
 
     } = props;
 

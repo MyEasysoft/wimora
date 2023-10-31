@@ -82,11 +82,11 @@ export const ListingCard2Component = props => {
 
 
   const classes = classNames(rootClassName || css.root, className);
-  const currentListing = ensureListing(listing[index]);
+  const currentListing = ensureListing(listing);
   const id = currentListing?.id?.uuid;
   const { title = '', price, publicData } = currentListing?.attributes;
   const slug = createSlug(title);
-  const author = ensureUser(listing[index]?.author);
+  const author = ensureUser(listing?.author);
   const authorName = author?.attributes?.profile?.displayName;
   const firstImage = images && images.length > 0 ? images[0] : null;
 

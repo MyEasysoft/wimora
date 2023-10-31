@@ -1,6 +1,8 @@
 
 
+const { cancel } = require('raf');
 const sharetribeIntegrationSdk = require('sharetribe-flex-integration-sdk');
+const { error } = require('../log');
 
 
 module.exports = (req, res) => {
@@ -15,17 +17,30 @@ module.exports = (req, res) => {
   });
 
   const sdkUtil = sharetribeIntegrationSdk.util;
+  let listExist = false;
 
   
   const separateObject = obj => {
+    if(listExist)return[];
+   
 
     if(obj === undefined || obj === null)return[];
     const res = [];
     const keys = Object?.keys(obj);
     keys.forEach(key => {
-       res.push(
-         obj[key]
-       );
+      
+      try{
+        
+          if(parseInt(obj[0]) !== undefined && obj[key].listingId === listingId){
+            listExist = true;
+            console.log(obj[key].listingId+"  ooooooooooooooooooooooooooooooooooooooooo    "+ listingId);
+          }
+          res.push(
+            obj[key]
+          );
+
+      }catch(error){}
+     
     });
     return res;
  };
@@ -37,46 +52,59 @@ module.exports = (req, res) => {
   const authorId = dataArray[1]
   const listingId = dataArray[2];
 
-  //Get Author profile info including profile image Id
-  integrationSdk.users.show({
-      id: authorId,
-      include: ['profileImage'],
-      'fields.image': ['variants.square-small', 'variants.square-small2x'],
-       // SDK provides a util function to construct image variant URL param strings
-  "imageVariant.my-variant": sdkUtil.objectQueryString({
-    w: 320,
-    h: 640,
-    fit: 'scale'
-  })
-    
-  }).then(res => {
-    const {firstName, lastName} = res?.data.data.attributes.profile;
-    const profileImage = res?.data.data.relationships.profileImage.data .id.uuid;
+  const parameters ={
+    id: authorId,
+    include: ['profileImage'],
+    'fields.image': [
+      'variants.square-small',
+      'variants.square-small2x',
+      'variants.square-xsmall',
+      'variants.square-xsmall2x',
+    ],
+    'imageVariant.square-xsmall': sdkUtil.objectQueryString({
+      w: 40,
+      h: 40,
+      fit: 'crop',
+    }),
+    'imageVariant.square-xsmall2x': sdkUtil.objectQueryString({
+      w: 80,
+      h: 80,
+      fit: 'crop',
+    }),
+  };
 
-    console.log("-----------------------------------------------------------------");
-    console.log(`00000000000000000000   :    ${JSON.stringify(res?.data.data)}`);
-    console.log("-----------------------------------------------------------------");
-   
+  //Get Author profile info including profile image Id
+  integrationSdk.users.show(
+      
+      parameters
+    
+  ).then(res => {
+    if(listExist)return;
+    const {firstName, lastName} = res?.data.data.attributes.profile;
+    const profileImage = res?.data.included[0].attributes.variants["square-small"].url;
+
     
     //Get the exiting info for this Buyer before updating
     integrationSdk.users.show({id: buyerId}).then(res => {
       const currentListing = res?.data.data.attributes.profile.privateData.listingPaidFor;
-      updateBuyerProfileData(currentListing,firstName,lastName);
+      updateBuyerProfileData(currentListing,firstName,lastName,profileImage);
     });
    
   })
 
   
-  const updateBuyerProfileData = (currentListings,firstName,lastName)=>{
+  const updateBuyerProfileData = (currentListings,firstName,lastName,profileImage)=>{
     const listingDetails = {
       listingId:listingId,   //Id of the listing that is being paid for
       amountReceived:req.body.resource.purchase_units[0].amount,      //Amount paid, this can be full payment or part payment
       datetimeOfPayment:req.body.resource.create_time,
       buyerName:firstName+" "+lastName,
-      buyerId:buyerId             
+      buyerId:buyerId,
+      buyerPhoto: profileImage            
     };
 
     const newCon = separateObject(currentListings);
+    if(listExist)return null;
     newCon.push(listingDetails);
   
     const updatedListing = Object.assign({},newCon);
@@ -109,46 +137,59 @@ module.exports = (req, res) => {
 
  //For Influencer
   //Get Buyer profile info including profile image Id
-  integrationSdk.users.show({
+  const parameter2 ={
     id: buyerId,
     include: ['profileImage'],
-    'fields.image': ['variants.square-small', 'variants.square-small2x'],
-     // SDK provides a util function to construct image variant URL param strings
-"imageVariant.my-variant": sdkUtil.objectQueryString({
-  w: 320,
-  h: 640,
-  fit: 'scale'
-})
-  
-}).then(res => {
+    'fields.image': [
+      'variants.square-small',
+      'variants.square-small2x',
+      'variants.square-xsmall',
+      'variants.square-xsmall2x',
+    ],
+    'imageVariant.square-xsmall': sdkUtil.objectQueryString({
+      w: 40,
+      h: 40,
+      fit: 'crop',
+    }),
+    'imageVariant.square-xsmall2x': sdkUtil.objectQueryString({
+      w: 80,
+      h: 80,
+      fit: 'crop',
+    }),
+  };
+  integrationSdk.users.show(parameter2)
+  .then(res => {
+  if(listExist)return;
   const {firstName, lastName} = res?.data.data.attributes.profile;
-  const profileImage = res?.data.data.relationships.profileImage.data .id.uuid;
+  const profileImage =  res?.data.included[0].attributes.variants["square-small"].url;
 
  
  
   //Update Influencer details
   integrationSdk.users.show({id: buyerId}).then(res => {
     const currentListing = res?.data.data.attributes.profile.privateData.listingPaidFor;
-    updateInfluencerProfileData(currentListing,firstName,lastName);
+    updateInfluencerProfileData(currentListing,firstName,lastName,profileImage);
   });
 
 })
 
 
-  const updateInfluencerProfileData = (currentListings,firstName,lastName)=>{
+  const updateInfluencerProfileData = (currentListings,firstName,lastName,profileImage)=>{
     const listingDetails = {
       listingId:listingId,   //Id of the listing that is being paid for
       amountPaid:req.body.resource.purchase_units[0].amount,      //Amount paid, this can be full payment or part payment
       datetimeOfPayment:req.body.resource.create_time,
       authorName:firstName+" "+lastName,
-      authorId:authorId             
+      authorId:authorId,
+      authorPhoto: profileImage                 
     };
 
     const newCon = separateObject(currentListings);
+    if(listExist)return;
     newCon.push(listingDetails);
   
     const updatedListing = Object.assign({},newCon);
-    console.log(`step3333:    ${JSON.stringify(updatedListing)}`);
+    //console.log(`step3333:    ${JSON.stringify(updatedListing)}`);
     integrationSdk.users.updateProfile({
       id: buyerId,
 

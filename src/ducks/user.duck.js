@@ -391,3 +391,74 @@ export const sendVerificationEmail = () => (dispatch, getState, sdk) => {
     .then(() => dispatch(sendVerificationEmailSuccess()))
     .catch(e => dispatch(sendVerificationEmailError(storableError(e))));
 };
+
+
+export const fetchUser = (id = null) => (dispatch, getState, sdk) => {
+  dispatch(currentUserShowRequest());
+  const { isAuthenticated } = getState().auth;
+
+  if (!isAuthenticated) {
+    // Make sure current user is null
+    dispatch(currentUserShowSuccess(null));
+    return Promise.resolve({});
+  }
+
+  const parameters = params || {
+    id:id,
+    include: ['profileImage', 'stripeAccount'],
+    'fields.image': [
+      'variants.square-small',
+      'variants.square-small2x',
+      'variants.square-xsmall',
+      'variants.square-xsmall2x',
+    ],
+    'imageVariant.square-xsmall': sdkUtil.objectQueryString({
+      w: 40,
+      h: 40,
+      fit: 'crop',
+    }),
+    'imageVariant.square-xsmall2x': sdkUtil.objectQueryString({
+      w: 80,
+      h: 80,
+      fit: 'crop',
+    }),
+  };
+
+  
+
+  return sdk.users
+    .show(parameters)
+    .then(response => {
+      const entities = denormalisedResponseEntities(response);
+      if (entities.length !== 1) {
+        throw new Error('Expected a resource in the sdk.currentUser.show response');
+      }
+      const currentUser = entities[0];
+
+      // Save stripeAccount to store.stripe.stripeAccount if it exists
+      if (currentUser.stripeAccount) {
+        dispatch(stripeAccountCreateSuccess(currentUser.stripeAccount));
+      }
+
+      // set current user id to the logger
+      log.setUserId(currentUser.id.uuid);
+      dispatch(currentUserShowSuccess(currentUser));
+      return currentUser;
+    })
+    .then(currentUser => {
+      dispatch(fetchCurrentUserHasListings());
+      dispatch(fetchCurrentUserNotifications());
+      if (!currentUser.attributes.emailVerified) {
+        dispatch(fetchCurrentUserHasOrders());
+      }
+
+      // Make sure auth info is up to date
+      dispatch(authInfo());
+    })
+    .catch(e => {
+      // Make sure auth info is up to date
+      dispatch(authInfo());
+      log.error(e, 'fetch-current-user-failed');
+      dispatch(currentUserShowError(storableError(e)));
+    });
+};

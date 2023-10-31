@@ -39,6 +39,7 @@ const Checkout = (props) => {
         return actions.order.create(
            
             {
+                intent: "CAPTURE",
             purchase_units: [
                 {
                     reference_id: currentUserId+" "+authorId+" "+listingId, 

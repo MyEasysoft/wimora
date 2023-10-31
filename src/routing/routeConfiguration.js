@@ -353,6 +353,7 @@ const routeConfiguration = (layoutConfig) => {
       name: 'PaypalAppPage',
       auth: false,
       component: PaypalAppPage,
+      
     },
     
 
