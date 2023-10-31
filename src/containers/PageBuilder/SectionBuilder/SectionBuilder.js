@@ -95,7 +95,10 @@ const SectionBuilder = props => {
               />
              
              {index === 0? (
+              <>
                 <ListingView  listings={listings.data} images={listings.included} />
+              </>
+                
               ) : ""}
 
             </>
@@ -118,9 +121,8 @@ const ListingView = props =>{
   const lists = listings;
   
   const hasListings = lists !== undefined;
-   
-  return(
-    <div>     
+   if(hasListings){
+    return <div>     
       <ul>
         <div className={classNames(css.textCenter,css.marginT) }><h2 >SELLERS</h2></div>
         <div className={css.mainContainer}>
@@ -143,9 +145,12 @@ const ListingView = props =>{
            }
          
          </div>
-                </div>
+        </div>
       </ul>
     </div>
+   }
+  return(
+    ""
   );
 }
 
