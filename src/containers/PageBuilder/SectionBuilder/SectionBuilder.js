@@ -124,7 +124,7 @@ const ListingView = props =>{
    if(hasListings){
     return <div>     
       <ul>
-        <div className={classNames(css.textCenter,css.marginT) }><h2 >SELLERS</h2></div>
+        <div className={classNames(css.textCenter,css.marginT) }><h2 >Our Developers</h2></div>
         <div className={css.mainContainer}>
                   <div className={classNames(css.container, css.marginB)}> 
 

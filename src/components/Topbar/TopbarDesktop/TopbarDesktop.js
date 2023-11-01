@@ -154,7 +154,7 @@ const TopbarDesktop = props => {
   const location = useLocation();
   const path = location.pathname;
 
-  const listingText = role === "Seller"?"TopbarDesktop.createJob":"TopbarDesktop.createGig";
+  const listingText = role === "User"?"TopbarDesktop.createJob":"TopbarDesktop.createGig";
 
   const newListLink = (path==="/" || path==="/login" || path==="/account/seller-instruction" || path==="/signup" || path==="/s")?"":
     <NamedLink className={css.createListingLink} name="NewListingPage">
@@ -181,7 +181,7 @@ const TopbarDesktop = props => {
   const findSellers = (event)=>{
     event.preventDefault();
     
-    history.push("/s?pub_role=Sellers")
+    history.push("/s?pub_role=User")
     
   }
 
@@ -204,16 +204,14 @@ const TopbarDesktop = props => {
               
               <div className={css.findBtnContainer}>
                
-                <button onClick={findProduct}>
-                 Find Product
-                </button>
+               
 
                 <button onClick={findInfluencers}>
-                  Find Influencers
+                  Find Developers
                 </button>
 
                 <button onClick={findSellers}>
-                  Find Sellers
+                  Find Jobs
                 </button>
               </div>
              

@@ -93,8 +93,8 @@ const TabNavCom = props => {
     '/account/subscription',
     '/account/gigs-tracking',
     '/account/income',
-    '/seller',
-    '/influencer',
+    '/user',
+    '/freelancer',
     '/account/contact-details',
     '/account/change-password',
     '/account/payments',
@@ -136,7 +136,7 @@ const TabNavCom = props => {
          if(tab.id==="ContactDetailsPageTab" || tab.id==="PasswordPageTab"){
          
         }
-        if(role==="Seller"){
+        if(role==="User"){
           console.log(tab.id);
           const included = routesToWatch.includes(path);
           const includedPage = sellerFunc.includes(tab.id);

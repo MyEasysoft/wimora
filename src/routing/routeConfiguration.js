@@ -130,9 +130,9 @@ const routeConfiguration = (layoutConfig) => {
       path: '/sellers',
       name: 'SearchPageSellers',
       component: SearchPage,
-      params:{pub_role:"Sellers"},
+      params:{pub_role:"User"},
       loadData: (params, ...rest) =>
-      pageDataLoadingAPI.SearchPage.loadData({},{"?pub_role":"Sellers"},...rest),
+      pageDataLoadingAPI.SearchPage.loadData({},{"?pub_role":"User"},...rest),
    
     },
 
@@ -336,7 +336,7 @@ const routeConfiguration = (layoutConfig) => {
 
 
     {
-      path: '/seller',
+      path: '/user',
       name: 'SellerPage',
       auth: false,
       component: SellerPage,

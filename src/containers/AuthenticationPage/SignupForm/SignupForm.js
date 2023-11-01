@@ -16,7 +16,7 @@ const SignupFormComponent = props => {
   const [show,setShow] = useState(true);
 
   const HandleChange = (event)=>{
-      if(event.target.value==="Seller"){
+      if(event.target.value==="User"){
           setShow(true);
       }else{
         setShow(false)
@@ -153,8 +153,8 @@ const SignupFormComponent = props => {
                 <FieldRadioButton
                   id='SignupForm.RoleSeller'
                   name="role"
-                  label="I am an Seller"
-                  value="Seller"
+                  label="I need Freelancer"
+                  value="User"
                   showAsRequired={showAsRequired}
                  
                 />
@@ -162,8 +162,8 @@ const SignupFormComponent = props => {
                 <FieldRadioButton
                   id='SignupForm.Influencer'
                   name="role"
-                  label="I am an Influencer"
-                  value="Influencer"
+                  label="I am a Freelancer"
+                  value="Freelancer"
                   showAsRequired={showAsRequired}
                   
                 />
@@ -183,29 +183,6 @@ const SignupFormComponent = props => {
                 })}
                 validate={passwordValidators}
               />
-  
-  
-              {show?
-               <FieldTextInput
-               className={css.password}
-               type="text"
-               id={formId ? `${formId}.storefront` : 'storefront'}
-               name="storeFront"
-               autoComplete="your-store-front"
-               label={intl.formatMessage({
-                 id: 'SignupForm.storefrontLabel',
-               })}
-               placeholder={intl.formatMessage({
-                 id: 'SignupForm.StoreFrontPlaceholder',
-               })}
-               validate={validators.required(
-                 intl.formatMessage({
-                   id: 'SignupForm.StoreFrontRequired',
-                 })
-               )}
-             />:""
-              
-            }
              
             </div>
   

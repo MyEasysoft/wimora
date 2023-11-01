@@ -166,7 +166,7 @@ const CustomExtendedDataFieldComponent = props => {
     
   ];
   return role === "Influencer" && !influencerFields.includes(key)? "":
-  role === "Seller" && (key==="Cost" || key==="Role")? "":
+  role === "User" && (key==="Cost" || key==="Role")? "":
   schemaType === SCHEMA_TYPE_ENUM && enumOptions
     ? renderFieldComponent(CustomFieldEnum, props)
     : schemaType === SCHEMA_TYPE_MULTI_ENUM && enumOptions

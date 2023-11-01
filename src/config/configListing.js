@@ -267,7 +267,7 @@ export const listingTypes = [
   // },
   {
     listingType: 'inquiry',
-    label: 'Free Shoppable Video',
+    label: 'Free Booking',
     transactionType: {
       process: 'default-inquiry',
       alias: 'default-inquiry/release-1',

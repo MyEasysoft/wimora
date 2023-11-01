@@ -239,7 +239,7 @@ const LayoutSideNavigationCom = props => {
                         </button>
   </>
   
-  const userAction = role === "Seller"?sellerActions:influencerActions;
+  const userAction = role === "User"?sellerActions:influencerActions;
 
   return (
     <LayoutComposer areas={layoutAreas} className={classes} {...rest}>

@@ -105,7 +105,7 @@
 .topbarDesktopLabel {
   composes: textSmall from global;
   display: inline-block;
-  margin: 28px 0;
+  margin: 35px 0;
   text-decoration: inherit;
 }
 
@@ -243,7 +243,6 @@
   transition: var(--transitionStyleButton);
 
   flex-shrink: 0;
-  height: 100%;
   padding: 0 12px 0 12px;
 
   color: var(--colorGrey700);
