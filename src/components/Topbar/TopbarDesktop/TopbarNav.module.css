@@ -1,7 +1,7 @@
 
 
   h1,h2,h3,h4{
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0px;
     margin: 0px;
     
@@ -16,6 +16,7 @@
     flex-direction: row;
     background: white;
     justify-content: space-between;
+    height: 60px;
   }
   .nav-icon{
   
@@ -28,16 +29,16 @@
     display: inline-flex;
     flex-direction: row;
     color: rgb(40, 40, 40);
-    padding-right: 20px;
+    padding-left: 14%;
     justify-content: space-between;
+    width: 100%;
     
   }
   nav a{
     text-decoration: none;
     color: rgb(40, 40, 40);
     padding: 25px 10px 25px 10px;
-    transition: width 2s;
-    font-size: 16px;
+    font-size: 12px;
     
 
   }
@@ -45,7 +46,6 @@
 
   nav a:hover{
     text-decoration: none;
-    font-size: 15px;
     transition: .2s;
   }
 
@@ -71,7 +71,7 @@
     width: 100%;
   }
   .logo{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     font-weight: bolder;
     color: rgb(4, 4, 4);
@@ -194,7 +194,7 @@
   }
 
   .search{
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -140,14 +140,15 @@
   composes: align;
   display: inline-block;
   padding: 8px 20px;
-  font-size: 15px;
-  background-color: var(--marketplaceColor);
-  border-radius: 4px;
+  font-size: 12px;
+  background-color: #9527fc;
+  border-radius: 20px;
   color: white;
   text-decoration: none;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
   font-weight: 500;
   margin-top: 24px;
+
 
   &:hover {
     text-decoration: none;
@@ -327,4 +328,18 @@
 }
 .marginT{
   margin-top: 50px;
+}
+
+.partners{
+  display: flex;
+  flex-direction: row;
+  padding: 10px 15%;
+  align-items: center;
+  background-color: rgb(237, 251, 251);
+}
+
+.partners img{
+  height: 20px;
+ margin: 20px;
+
 }

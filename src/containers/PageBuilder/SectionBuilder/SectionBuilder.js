@@ -18,6 +18,11 @@ import SectionFooter from './SectionFooter';
 import { H2, ListingCard } from '../../../components';
 import SearchPage from '../../SearchPage/SearchPageWithMap';
 import ListingCard2 from '../../../components/ListingCard/ListingCard2';
+import microsoft from '../../../assets/microsoft2.png';
+import ibm from '../../../assets/IBM-Logo.png';
+import CustomSectionComponent1 from '../../../components/CustomSection/CustomSection1';
+import CustomSectionComponent2 from '../../../components/CustomSection/CustomSection2';
+import CustomSectionComponent3 from '../../../components/CustomSection/CustomSection3';
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -85,7 +90,11 @@ const SectionBuilder = props => {
         if (Section) {
           return (
             <>
-              <Section
+             
+             
+             {index === 0? (
+              <>
+               <Section
                 key={`${section.sectionId}_${index}`}
                 className={classes}
                 defaultClasses={DEFAULT_CLASSES}
@@ -93,12 +102,31 @@ const SectionBuilder = props => {
                 options={otherOption}
                 {...section}
               />
-             
-             {index === 0? (
-              <>
-                <ListingView  listings={listings.data} images={listings.included} />
+              <Partners />
               </>
                 
+              ) : ""}
+
+              {index === 1? (
+                <CustomSectionComponent2
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
+              ) : ""}
+
+              {index === 2? (
+                <CustomSectionComponent3
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
               ) : ""}
 
             </>
@@ -151,6 +179,16 @@ const ListingView = props =>{
    }
   return(
     ""
+  );
+}
+
+const Partners = props =>{
+  return(
+    <div className={css.partners}>
+      Trusted by:
+      <img src={microsoft}/>
+      <img src={ibm}/>
+    </div>
   );
 }
 

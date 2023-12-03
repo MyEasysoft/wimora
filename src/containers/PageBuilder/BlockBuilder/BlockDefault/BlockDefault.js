@@ -52,10 +52,10 @@ const BlockDefault = props => {
       />
       {hasTextComponentFields ? (
         <div className={classNames(textClassName, css.text)}>
-          {subHeading}
+          
           <Field className={css.heroHeader} data={title} options={options} />
           <Field data={text} options={options} />
-          <Field data={callToAction} className={ctaButtonClass} options={options} />
+          <Field data={callToAction} className={classNames(ctaButtonClass,css.bookACall) } options={options} />
         </div>
       ) : null}
     </BlockContainer>

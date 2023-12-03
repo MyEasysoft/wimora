@@ -18,6 +18,8 @@
 
   @media (--viewportMedium) {
     padding: 64px 0;
+    height: fit-content;
+    width: fit-content;
   }
 }
 

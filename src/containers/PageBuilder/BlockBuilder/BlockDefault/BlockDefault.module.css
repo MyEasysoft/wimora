@@ -1,5 +1,5 @@
 .root .text {
-  background-color: transparent;
+ 
   padding: 0px;
   border-radius: 0px;
 }
@@ -8,17 +8,16 @@
   width: 100%;
   border-radius: 8px;
   margin-bottom: 0;
+  display: none;
 }
 
 
 .text {
-  width: 100%;
+  width: 90%;
   margin-top: 20px;
   text-align: left;
-  background-color: #4bc3ffcc;
   padding: 30px;
-  border-radius: 20px;
-  
+  margin-left: 30%;
 
   &:first-child {
     margin-top: 0;
@@ -32,7 +31,7 @@
   text-align: left;
   margin: 0px;
   padding: 0px;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .noStyle{
@@ -57,5 +56,10 @@
 }
 
 .heroHeader{
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+.bookACall{
+  padding: 20px;
+  background-color: aqua;
+  color: white;
 }

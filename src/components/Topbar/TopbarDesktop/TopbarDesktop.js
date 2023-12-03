@@ -203,25 +203,40 @@ const TopbarDesktop = props => {
             />
               
               <div className={css.findBtnContainer}>
-               
-               
+                <a onClick={findSellers}>
+                 About Us
+                </a>
 
-                <button onClick={findInfluencers}>
-                  Find Developers
-                </button>
+                <a onClick={findSellers}>
+                  Services
+                </a>
 
-                <button onClick={findSellers}>
-                  Find Jobs
-                </button>
+                <a onClick={findSellers}>
+                  Porfolio
+                </a>
+
+                <a onClick={findSellers}>
+                  Contact Us
+                </a>
               </div>
              
             </div>
            
             <div className={csss.search}>
-              <div className={csss.searchcontrol}>
-                 {search}
+
+              <div className={css.navBtns}>
+                <div className={css.findBtnContainer}>
+                  <button onClick={findInfluencers}>
+                    Hire top talents
+                  </button>
+
+                  <button onClick={findSellers}>
+                    Apply as a freelancer
+                  </button>
+                </div>
+                {loginLink}
               </div>
-              {loginLink}
+              
               {newListLink}
               {inboxLink}
               {profileMenu}
