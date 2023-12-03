@@ -10,6 +10,7 @@ import classNames from 'classnames';
 
 const CustomSectionComponent3 = props =>{
 
+    //
     const {sectionName,description,blocks,title} = props;
     const content0 = blocks[0];
     const content0Img = content0.media.image.attributes.variants.square400.url;
