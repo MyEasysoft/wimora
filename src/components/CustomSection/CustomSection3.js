@@ -66,7 +66,7 @@ const CustomSectionComponent3 = props =>{
                             <p className={css.desP}>{content1.text.content}</p>  
                         </div>
                     </div>
-                    <div className={css.row}>
+                    <div className={classNames(css.marginB100,css.row) }>
                         <div>
                             <img src={content2Img}/><br/>
                             <span className={css.subTitles}>{content2.title.content}</span><br/>
