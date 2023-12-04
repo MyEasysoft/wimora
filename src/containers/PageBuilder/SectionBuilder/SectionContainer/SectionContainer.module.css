@@ -8,8 +8,12 @@
   position: relative;
 
   &:nth-of-type(odd) {
-    background-color: var(--colorWhite);
+    background-color: hsl(216.3, 82.1%, 28.4%);
   }
+}
+
+.root a{
+  color: white;
 }
 
 .sectionContent {

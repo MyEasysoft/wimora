@@ -64,34 +64,46 @@ const SectionFooter = props => {
     <SectionContainer
       as="footer"
       id={sectionId}
-      className={className || css.root}
-      rootClassName={rootClassName}
+     
+     
       appearance={appearance}
       options={fieldOptions}
     >
-      <div className={css.footer}>
-        <div className={classNames(css.content, getContentCss(numberOfColumns))}>
-          <div>
-            <LinkedLogo rootClassName={css.logoLink} logoClassName={css.logoImage} />
-          </div>
-          <div className={css.sloganMobile}>
-            <Field data={slogan} className={css.slogan} />
-          </div>
-          <div className={css.detailsInfo}>
-            <div className={css.sloganDesktop}>
-              <Field data={slogan} className={css.slogan} />
-            </div>
-            {showSocialMediaLinks ? (
-              <div className={css.icons}>
-                <BlockBuilder blocks={linksWithBlockId} options={options} />
+      <div>
+        <div className={css.footerMain}>
+            <div className={classNames(css.content, getContentCss(numberOfColumns))}>
+              <div>
+                <LinkedLogo rootClassName={css.logoLink} logoClassName={css.logoImage} />
               </div>
-            ) : null}
-            <Field data={copyright} className={css.copyright} />
-          </div>
-          <div className={classNames(css.grid, getGridCss(numberOfColumns))}>
-            <BlockBuilder blocks={blocks} options={options} />
-          </div>
+              
+            
+              
+              <div className={classNames(css.grid, getGridCss(numberOfColumns))}>
+                <BlockBuilder blocks={blocks} options={options} />
+                
+              </div>
+              
+            </div>
+
+            <div>
+              <hr/>
+              <div className={css.footerSocial}>
+                {showSocialMediaLinks ? (
+                      <div className={css.icons}>
+                        <span className={css.marginR20}>Follow Us</span>
+                        <BlockBuilder blocks={linksWithBlockId} options={options} />
+                      
+                      </div>
+                    ) : null}
+
+                  <Field data={copyright} className={css.copyright} />
+              </div>
+            
+              
+            </div>
         </div>
+        
+       
       </div>
     </SectionContainer>
   );
