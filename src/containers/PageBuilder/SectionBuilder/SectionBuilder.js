@@ -8,6 +8,7 @@ import SectionCarousel from './SectionCarousel';
 import SectionColumns from './SectionColumns';
 import SectionFeatures from './SectionFeatures';
 
+
 // Styles
 // Note: these contain
 // - shared classes that are passed as defaultClasses
@@ -23,6 +24,8 @@ import ibm from '../../../assets/IBM-Logo.png';
 import CustomSectionComponent1 from '../../../components/CustomSection/CustomSection1';
 import CustomSectionComponent2 from '../../../components/CustomSection/CustomSection2';
 import CustomSectionComponent3 from '../../../components/CustomSection/CustomSection3';
+import CustomSectionComponent4 from '../../../components/CustomSection/CustomSection4';
+
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -129,9 +132,19 @@ const SectionBuilder = props => {
                 />
               ) : ""}
 
+              {index === 3? (
+                <CustomSectionComponent4
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
+              ) :""}
+
             </>
            
-            
           );
         } else {
           // If the section type is unknown, the app can't know what to render

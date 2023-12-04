@@ -1,58 +1,46 @@
 import React from 'react';
-import css from './CustomSection.module.css';
-import bag1 from '../../assets/bag1.jpg';
-import bag2 from '../../assets/bag2.jpg';
-import bag3 from '../../assets/bag3.jpg';
-import bag4 from '../../assets/bag4.jpg';
-import bag5 from '../../assets/bag4.jpg';
-import bag6 from '../../assets/bag3.jpg';
-import profileImg from '../../assets/bg.png';
-import s1 from '../../assets/new/Amazonboxes.PNG';
-import s2 from '../../assets/new/ShoppableVideos.JPG';
-import s3 from '../../assets/new/Pic5.JPG';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import css from './CustomSection4.module.css';
+import w1 from '../../assets/computerstudent.jpg';
 import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import Calendar from 'react-calendar'; 
+import 'react-calendar/dist/Calendar.css';
+import classNames from 'classnames';
 
-function CustomSectionComponent4(){
+const CustomSectionComponent4 = props =>{
 
-  return (
-    <>
-    <div className={css.container +' '+ css.textCenter+' '+ css.sectionBgOffWhite}>
-        <div className={css.containerMain}>
-           
-            <div className={css.col12 +" "+ css.magB2 +" "+ css.magT5}>
-                <h4 className={css.magB2 +" "+css.sectionTitle}>PRESS</h4>
-            </div>
-            <div className={css.row}>
-                <div className={css.col4 +" "+css.pad1 +" "+css.leftAlign}>
-                    <img className={css.imgFluid} src={s1}/>
-                    <p>
-                        <span className={css.textbold+" "+css.stretch+" "+css.padB1}>Sam Frank
-                        </span> <br/>New York, United States <br/><FontAwesomeIcon className={css.icon} icon={faMessage} />Enquire</p>
-                </div>
-                <div className={css.col4 +" "+css.pad1 +" "+css.leftAlign}>
-                    <img className={css.imgFluid} src={s2}/>
-                    <p>
-                        <span className={css.textbold+" "+css.stretch+" "+css.padB1}>Sam Frank
-                        </span> <br/>New York, United States <br/><FontAwesomeIcon className={css.icon} icon={faMessage} />Enquire</p>
-                </div>
-                <div className={css.col4 +" "+css.pad1 +" "+css.leftAlign}>
-                    <img className={css.imgFluid} src={s3}/>
-                    <p>
-                        <span className={css.textbold+" "+css.stretch+" "+css.padB1}>Sam Frank
-                        </span> <br/>New York, United States <br/><FontAwesomeIcon className={css.icon} icon={faMessage} />Enquire</p>
-                </div>
-            </div>
-           
-            <div className={css.col12 +" "+ css.magT6+" "+ css.magB4}>
-                <a className={css.linkBtn } href=''>Know More</a>
-            </div>
+    const {sectionName, description,blocks} = props;
+    const content = blocks[0].text.content;
+    const title = blocks[0].title;
 
+    
+  const hireTopTalent = (event)=>{
+    event.preventDefault();
+    history.push("/s?pub_role=Influencers");
+  }
+
+    return (
+        <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
+            <div className={css.containerMain}>
+                <div className={css.aboutContent}>
+                    <p>
+                        <span className={classNames(css.description,css.marginB50)}>{sectionName}</span>
+                    </p>
+                   
+                    <p>
+                        {description.content}<br/>
+                        <button className={css.roundBtn} onClick={hireTopTalent}>
+                            Hire top talents
+                        </button>
+                    </p>
+                </div>
+
+                <div className={css.calendarCon}>
+                    <Calendar/>
+                </div>
+            </div>
         </div>
-	</div>
-
-    </>
-  );
+    );
 };
+
 
 export default CustomSectionComponent4;
