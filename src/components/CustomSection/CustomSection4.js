@@ -3,7 +3,6 @@ import css from './CustomSection4.module.css';
 import w1 from '../../assets/computerstudent.jpg';
 import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import Calendar from 'react-calendar'; 
-import 'react-calendar/dist/Calendar.css';
 import classNames from 'classnames';
 
 const CustomSectionComponent4 = props =>{

@@ -494,18 +494,13 @@ margin-top: 80px;
 
 .calendarCon{
     box-shadow: 1px 1px 20px 1px rgb(206, 206, 206);
-    background-color: brown;
+    background-color: rgb(255, 255, 255);
     transform: rotate(20deg);
     border-radius: 20px;
     width: 300px;
+    color: rgb(146, 146, 146);
 }
 
-
-.react-calendar, .react-calendar *, .react-calendar ::before, .react-calendar ::after {
-    box-sizing: border-box;
-    border-radius: 20px;
-    
-}
 
 .roundBtn{
     padding: 5px 20px;
