@@ -33,9 +33,20 @@ h1,h2,h3,h4{
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 100px;
+  overflow: hidden;
+
 }
-  
+
+.containerCircle{
+
+    padding: 0px 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: hidden;
+  }
+
 
   .row{
 
@@ -327,15 +338,16 @@ margin-top: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  padding: 150px;
+  padding: 70px 20px;
 }
 .description{
-  font-weight: 400;
-  font-size: 40px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .aboutContent p{
   font-size: 12px;
+  text-align: center;
 }
 
 .noOfFreelancers{
@@ -442,8 +454,13 @@ margin-top: 80px;
     background-color: white;
 }
 
+
 .margin50{
     margin:50px;
+}
+
+.marginB50{
+    margin-bottom:250px;
 }
 
 .padding20{
@@ -456,6 +473,7 @@ margin-top: 80px;
 }
 .subTitlesProfession{
     font-size: 12px;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -477,5 +495,44 @@ margin-top: 80px;
 }
 
 .marginB100{
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
+    
+}
+
+.calendar{
+    border-style: none;
+}
+
+.calendarCon{
+    box-shadow: 1px 1px 20px 1px rgb(206, 206, 206);
+    background-color: rgb(255, 255, 255);
+    transform: rotate(20deg);
+    border-radius: 20px;
+    width: 300px;
+    color: rgb(146, 146, 146);
+}
+
+
+.roundBtn{
+    padding: 5px 20px;
+    border-radius: 20px;
+    background-color: blueviolet;
+    color: white;
+    margin-top: 20px;
+    border-style: none;
+}
+
+.circle{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(208, 208, 208);
+    padding: 10px;
+    border-width:2px;
+    margin: 0 auto;
 }

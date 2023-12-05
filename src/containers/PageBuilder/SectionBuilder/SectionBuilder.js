@@ -25,6 +25,8 @@ import CustomSectionComponent1 from '../../../components/CustomSection/CustomSec
 import CustomSectionComponent2 from '../../../components/CustomSection/CustomSection2';
 import CustomSectionComponent3 from '../../../components/CustomSection/CustomSection3';
 import CustomSectionComponent4 from '../../../components/CustomSection/CustomSection4';
+import CustomSectionComponent5 from '../../../components/CustomSection/CustomSection5';
+import CustomSectionComponent6 from '../../../components/CustomSection/CustomSection6';
 
 
 // These are shared classes.
@@ -134,6 +136,28 @@ const SectionBuilder = props => {
 
               {index === 3? (
                 <CustomSectionComponent4
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
+              ) :""}
+
+              {index === 4? (
+                <CustomSectionComponent5
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
+              ) :""}
+
+              {index === 5? (
+                <CustomSectionComponent6
                   key={`${section.sectionId}_${index}`}
                   className={classes}
                   defaultClasses={DEFAULT_CLASSES}
