@@ -1,5 +1,7 @@
 import React from 'react';
 import css from './CustomSection5.module.css';
+import { ArcherContainer, ArcherElement } from 'react-archer';
+
 
 const CustomSectionComponent5 = props =>{
 
@@ -17,44 +19,76 @@ const CustomSectionComponent5 = props =>{
    
     <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
 
-
-
        
         <div className={css.containerMain}>
             
-           
-            <div className={css.aboutContent}>
-                <div className={css.circle}>
-                    1
-                </div>
-                <p>
-                    <span className={css.description}>{title.content}</span><br/>
-                    {content}
-                </p>
-                    
-            </div>
+           <ArcherContainer strokeColor="#964be2">
+          
+                <div className={css.aboutContent}>
+                        <ArcherElement id="element1"
+                                 relations={[
+                                    {
+                                       targetId: "element2",
+                                       targetAnchor: "left",
+                                       sourceAnchor: "right",
+                                      
+                                   },
+                               ]}
+                            >
+                            <div className={css.circle}>
+                                1
+                            </div>
+                        </ArcherElement>
+                        
+                        <p>
+                            <span className={css.description}>{title.content}</span><br/>
+                            {content}
+                        </p>
+                            
+                    </div>
 
-            <div className={css.aboutContent}>
-                <div className={css.circle}>
-                    2
-                </div>
-                <p>
-                    <span className={css.description}>{title1.content}</span><br/>
-                    {content1}
-                </p>
-                    
-            </div>
+                    <div className={css.aboutContent}>
 
-            <div className={css.aboutContent}>
-                <div className={css.circle}>
-                    3
-                </div>
-                <p>
-                    <span className={css.description}>{title2.content}</span><br/>
-                    {content2}
-                </p>
-                    
-            </div>
+
+                        <ArcherElement id="element2"
+                                 relations={[
+                                    {
+                                       targetId: "element3",
+                                       targetAnchor: "left",
+                                       sourceAnchor: "right",
+                                      
+                                   },
+                               ]}
+                            >
+                            <div className={css.circle}>
+                                2
+                            </div>
+                        </ArcherElement>
+
+                        <p>
+                            <span className={css.description}>{title1.content}</span><br/>
+                            {content1}
+                        </p>
+                            
+                    </div>
+
+                    <div className={css.aboutContent}>
+
+                        <ArcherElement id="element3">
+                            <div className={css.circle}>
+                                3
+                            </div>
+                        </ArcherElement>
+                        
+                        <p>
+                            <span className={css.description}>{title2.content}</span><br/>
+                            {content2}
+                        </p>
+                            
+                    </div>
+
+           </ArcherContainer>
+            
                 
                    
            

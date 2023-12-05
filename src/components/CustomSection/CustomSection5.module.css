@@ -338,7 +338,10 @@ margin-top: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  padding: 70px 20px;
+  padding: 100px 20px;
+  position: relative;
+  float: left;
+  width: 33%;
 }
 .description{
   font-weight: 600;
@@ -531,8 +534,9 @@ margin-top: 80px;
     align-items: center;
     border-radius: 50%;
     border-style: solid;
-    border-color: rgb(208, 208, 208);
+    border-color: #964be2;
     padding: 10px;
     border-width:2px;
     margin: 0 auto;
+    color:#aa6bea;
 }
