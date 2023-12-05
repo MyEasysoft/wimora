@@ -338,6 +338,7 @@ margin-top: 80px;
     margin: 20px;
     margin: 0 auto;
     margin-bottom: 50px;
+    font-weight: 200;
 }
 .aboutContent{
   display: flex;
@@ -352,7 +353,7 @@ margin-top: 80px;
 }
 
 .aboutContent p{
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -487,7 +488,7 @@ margin-top: 80px;
 
 .yearOfExperience{
     color:blueviolet;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
 }
 
