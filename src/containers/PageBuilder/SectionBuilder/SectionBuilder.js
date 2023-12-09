@@ -21,12 +21,14 @@ import SearchPage from '../../SearchPage/SearchPageWithMap';
 import ListingCard2 from '../../../components/ListingCard/ListingCard2';
 import microsoft from '../../../assets/microsoft2.png';
 import ibm from '../../../assets/IBM-Logo.png';
-import CustomSectionComponent1 from '../../../components/CustomSection/CustomSection1';
+
 import CustomSectionComponent2 from '../../../components/CustomSection/CustomSection2';
 import CustomSectionComponent3 from '../../../components/CustomSection/CustomSection3';
 import CustomSectionComponent4 from '../../../components/CustomSection/CustomSection4';
 import CustomSectionComponent5 from '../../../components/CustomSection/CustomSection5';
 import CustomSectionComponent6 from '../../../components/CustomSection/CustomSection6';
+import CustomSectionComponent7 from '../../../components/CustomSection/CustomSection7';
+import CustomSectionComponent8 from '../../../components/CustomSection/CustomSection8';
 
 
 // These are shared classes.
@@ -158,6 +160,28 @@ const SectionBuilder = props => {
 
               {index === 5? (
                 <CustomSectionComponent6
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
+              ) :""}
+
+              {index === 6? (
+                <CustomSectionComponent7
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  {...section}
+                />
+              ) :""}
+
+              {index === 7? (
+                <CustomSectionComponent8
                   key={`${section.sectionId}_${index}`}
                   className={classes}
                   defaultClasses={DEFAULT_CLASSES}
