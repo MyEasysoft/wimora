@@ -122,7 +122,7 @@ export const ProjectsPageComponent = props => {
           <H3 as="h1" className={css.title}>
             <FormattedMessage id="ProjectsPage.heading" />
           </H3>
-          {pageDetails}
+        
         </div>
       </LayoutSideNavigation>
     </Page>

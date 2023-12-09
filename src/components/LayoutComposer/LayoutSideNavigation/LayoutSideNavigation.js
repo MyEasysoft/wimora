@@ -136,108 +136,97 @@ const LayoutSideNavigationCom = props => {
 
   const profil = userProfileToShow?.profileImage?<Profile user={userProfileToShow} showStore={showStore} />:"";
   const profile = isPaymentPage?"":profil;
-
   const influencerActions = <>
-                        <div  className={classNames(css.dropDown,css.accountSetting)}>
-                           
-                            <FontAwesomeIcon icon={faDollar}/>
-                            <NamedLink {...EarningsPage} className={css.accountSetting} >My Earnings</NamedLink>
-                          
-                          {
-                            showEarningsAction?<>
-                              <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                                <FontAwesomeIcon icon={faCircleDollarToSlot}/>
-                                <NamedLink {...EarningsPage} className={css.accountSetting} >Earnings</NamedLink>
-                              </button>
-                              <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                                <FontAwesomeIcon icon={faListSquares}/>
-                                <NamedLink {...EarningsPage} className={css.accountSetting} >Transaction History</NamedLink>
-                              </button>
-                            </>:""
-                          }
-                           
-                            
-                        </div>
+  <div  className={classNames(css.dropDown,css.accountSetting)}>
+     
+      <FontAwesomeIcon icon={faDollar}/>
+      <NamedLink {...EarningsPage} className={css.accountSetting} >My Earnings</NamedLink>
+    
+    {
+      showEarningsAction?<>
+        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+          <FontAwesomeIcon icon={faCircleDollarToSlot}/>
+          <NamedLink {...EarningsPage} className={css.accountSetting} >Earnings</NamedLink>
+        </button>
+        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+          <FontAwesomeIcon icon={faListSquares}/>
+          <NamedLink {...EarningsPage} className={css.accountSetting} >Transaction History</NamedLink>
+        </button>
+      </>:""
+    }
+     
+      
+  </div>
 
-                        <div  className={classNames(css.dropDown,css.accountSetting)}>
-                           
-                            <FontAwesomeIcon icon={faContactBook}/>
-                            <NamedLink {...ProjectsPage} className={css.accountSetting} >My projects</NamedLink>
-                          
-                          {
-                            showProjectAction?<>
-                              <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                                <FontAwesomeIcon icon={faNetworkWired}/>
-                                <NamedLink {...ProjectsPage} className={css.accountSetting} >Track Gig</NamedLink>
-                              </button>
-                              <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                                <FontAwesomeIcon icon={faProjectDiagram}/>
-                                <NamedLink {...ProjectsPage} className={css.accountSetting} >Projects</NamedLink>
-                              </button>
-                            </>:""
-                          }
-                        </div>
+  <div  className={classNames(css.dropDown,css.accountSetting)}>
+     
+      <FontAwesomeIcon icon={faContactBook}/>
+      <NamedLink {...ProjectsPage} className={css.accountSetting} >My projects</NamedLink>
+    
+    {
+      showProjectAction?<>
+        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+          <FontAwesomeIcon icon={faNetworkWired}/>
+          <NamedLink {...ProjectsPage} className={css.accountSetting} >Track Gig</NamedLink>
+        </button>
+        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+          <FontAwesomeIcon icon={faProjectDiagram}/>
+          <NamedLink {...ProjectsPage} className={css.accountSetting} >Projects</NamedLink>
+        </button>
+      </>:""
+    }
+  </div>
 
 
 
-                      
 
-                        <div  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faHistory}/>
-                          <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
-                        
-                          
-                          {
-                            showPropsalAction?<>
-                              <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                                <FontAwesomeIcon icon={faEnvelopeCircleCheck}/>
-                                <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Gig Proposal</NamedLink>
-                              </button>
-                              <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                                <FontAwesomeIcon icon={faEnvelopesBulk}/>
-                                <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
-                              </button>
-                            </>:""
-                          }
-                        
-                        </div>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faEnvelope}/>
-                          <NamedLink {...InboxBasePage} className={css.accountSetting} >Sent Messages</NamedLink>
-                        </button>
+  <div  className={classNames(css.dropDown,css.accountSetting)}>
+    <FontAwesomeIcon icon={faHistory}/>
+    <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
+  
+    
+    {
+      showPropsalAction?<>
+        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+          <FontAwesomeIcon icon={faEnvelopeCircleCheck}/>
+          <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Gig Proposal</NamedLink>
+        </button>
+        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+          <FontAwesomeIcon icon={faEnvelopesBulk}/>
+          <NamedLink {...PendingProposalsPage} className={css.accountSetting} >Pending Proposal</NamedLink>
+        </button>
+      </>:""
+    }
+  
+  </div>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faEnvelope}/>
-                          <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Sellers Messages</NamedLink>
-                        </button>
+  <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+    <FontAwesomeIcon icon={faEnvelope}/>
+    <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Messages</NamedLink>
+  </button>
 
-                       
-  </>;
+ 
+</>;
 
-  const sellerActions = <>
-        
+const sellerActions = <>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faContactBook}/>
-                          <NamedLink {...ProjectsPage} className={css.accountSetting} >My Jobs</NamedLink>
-                        </button>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faEnvelope}/>
-                          <NamedLink {...InboxBasePage} className={css.accountSetting} >Sent Messages</NamedLink>
-                        </button>
+  <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+    <FontAwesomeIcon icon={faContactBook}/>
+    <NamedLink {...ProjectsPage} className={css.accountSetting} >My Jobs</NamedLink>
+  </button>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faEnvelope}/>
-                          <NamedLink {...InboxAsCustomer} className={css.accountSetting} >Influencers Messages</NamedLink>
-                        </button>
+  <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+    <FontAwesomeIcon icon={faDollarSign}/>
+    <NamedLink {...PaypalAppPage} className={css.accountSetting} >Payments</NamedLink>
+  </button>
 
-                        <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
-                          <FontAwesomeIcon icon={faDollarSign}/>
-                          <NamedLink {...PaypalAppPage} className={css.accountSetting} >Payments</NamedLink>
-                        </button>
-  </>
+  <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+    <FontAwesomeIcon icon={faEnvelope}/>
+    <NamedLink {...InboxBasePage} className={css.accountSetting} >Messages</NamedLink>
+  </button>
+</>
   
   const userAction = role === "User"?sellerActions:influencerActions;
 

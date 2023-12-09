@@ -118,7 +118,7 @@ export const PendingProposalsPageComponent = props => {
           <H3 as="h1" className={css.title}>
             <FormattedMessage id="PendingProposalsPage.heading" />
           </H3>
-          {pageDetails}
+          
         </div>
       </LayoutSideNavigation>
     </Page>

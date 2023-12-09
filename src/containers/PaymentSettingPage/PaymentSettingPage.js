@@ -15,10 +15,11 @@ import {
   resetPassword,
 } from '../EarningsPage/EarningsPage.duck';
 import { logout } from '../../ducks/auth.duck';
-import css from './EarningsPage.module.css';
+import css from './PaymentSetting.module.css';
 import EarningsPageViewComponent from '../../components/EarningsPageView/EarningsPageView';
+import Checkouts from '../../components/PaypalCom/Checkouts';
 
-export const EarningsPageComponent = props => {
+export const PaymentSettingsComponent = props => {
   const {
     earningsError,
     earningsInProgress,
@@ -45,44 +46,7 @@ export const EarningsPageComponent = props => {
   }, []);
 
 
-  const totalTransactionLabel = 'TOTAL EARNINGS';
-  const totalTransactionValue = '$43,000';
-  const showTotalTransaction = true;
-
-  const totalCompletedLabel = 'TOTAL GIG';
-  const totaLCompletedValue = '23';
-  const showTotalCompleted = true;
-
-  const totalDeclinedLabel = 'TOTAL COMPLETED';
-  const totalDeclinedValue = '20';
-  const showTotalDeclined = true;
-
-  const totalProfitLabel = 'TOTAL PENDING';
-  const totalProfitValue = '3';
-  const showTotalProfit = true;
-
-  const pageDetails = (
-    <div className={css.details}>
-        <EarningsPageViewComponent
-        
-          totalTransactionLabel={totalTransactionLabel}
-          totalTransactionValue={totalTransactionValue}
-          showTotalTransaction={showTotalTransaction}
-          totalCompletedLabel={totalCompletedLabel}
-          totaLCompletedValue={totaLCompletedValue}
-          showTotalCompleted={showTotalCompleted}
-          totalDeclinedLabel={totalDeclinedLabel}
-          totalDeclinedValue={totalDeclinedValue}
-          showTotalDeclined={showTotalDeclined}
-          totalProfitLabel={totalProfitLabel}
-          totalProfitValue={totalProfitValue}
-          showTotalProfit={showTotalProfit}
-
-        />
-    </div>
-  );
-
-  const title = intl.formatMessage({ id: 'EarningsPage.title' });
+  const title = intl.formatMessage({ id: 'PaymentSettingPage.title' });
 
   return (
     <Page title={title} scrollingDisabled={scrollingDisabled}>
@@ -90,30 +54,30 @@ export const EarningsPageComponent = props => {
         topbar={
           <>
             <TopbarContainer
-              currentPage="EarningsPage"
+              currentPage="PaymentSettingPage"
               desktopClassName={css.desktopTopbar}
               mobileClassName={css.mobileTopbar}
             />
-            <UserNav currentPage="EarningsPage" />
+            <UserNav currentPage="PaymentSettingPage" />
           </>
         }
         sideNav={null}
         useAccountSettingsNav
-        currentPage="EarningsPage"
+        currentPage="PaymentSettingPage"
         footer={<FooterContainer />}
       >
         <div className={css.content}>
           <H3 as="h1" className={css.title}>
-            <FormattedMessage id="EarningsPage.heading" />
+            <FormattedMessage id="PaymentSettingPage.heading" />
           </H3>
-          
+          <Checkouts currentUser={currentUser} />
         </div>
       </LayoutSideNavigation>
     </Page>
   );
 };
 
-EarningsPageComponent.defaultProps = {
+PaymentSettingsComponent.defaultProps = {
   earningsError: null,
   currentUser: null,
   resetPasswordInProgress: false,
@@ -122,7 +86,7 @@ EarningsPageComponent.defaultProps = {
 
 const { bool, func } = PropTypes;
 
-EarningsPageComponent.propTypes = {
+PaymentSettingsComponent.propTypes = {
   earningsError: propTypes.error,
   earningsInProgress: bool.isRequired,
   currentUser: propTypes.currentUser,
@@ -165,9 +129,9 @@ const mapDispatchToProps = dispatch => ({
   onResetPassword: values => dispatch(resetPassword(values)),
 });
 
-const EarningsPage = compose(
+const PaymentSettingsPage = compose(
   connect(mapStateToProps, mapDispatchToProps),
   injectIntl
-)(EarningsPageComponent);
+)(PaymentSettingsComponent);
 
-export default EarningsPage;
+export default PaymentSettingsPage;

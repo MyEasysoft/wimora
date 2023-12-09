@@ -1224,8 +1224,15 @@
   "PaypalAppPage.heading": "Payment",
   "PaypalAppPage.title": "Payment",
   "PaypalAppPage.error": "Payment History cannot be view at the moment.",
-  "LayoutWrapperAccountSettingsSideNav.PaypalAppPageTabTitle": "Payment"
+  "LayoutWrapperAccountSettingsSideNav.PaypalAppPageTabTitle": "Payment",
 
+  
+  "PaymentSettingPage.details": "Setup Paypal Account",
+  "PaymentSettingPage.heading": "Setup Paypal Account",
+  "PaymentSettingPage.title": "Setup Paypal Account",
+  "PaymentSettingPage.error": "Error getting Paypal setup data",
+  "LayoutWrapperPaymentSettingSideNav.PaymentSettingTabTitle": "Setup Paypal Account"
+  
 
 
 

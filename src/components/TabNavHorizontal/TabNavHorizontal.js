@@ -74,6 +74,7 @@ const TabNavHorizontal = props => {
   const { className, rootClassName, tabRootClassName, tabs, skin } = props;
 
   
+  
   const PasswordChangePage = {
     name: 'PasswordChangePage',
     match: { url: '/' },
@@ -89,6 +90,12 @@ const TabNavHorizontal = props => {
     match: { url: '/' },
   };
 
+  const PaymentSettingPage = {
+    name: 'PaymentSettingPage',
+    match: { url: '/' },
+  };
+
+
   const[show,setShow] = useState(false);
   
 
@@ -102,6 +109,7 @@ const TabNavHorizontal = props => {
   const location = useLocation();
   const path = location.pathname;
 
+  
   const contactDetailsMenu = (path==="/" || path==="/login" || path==="/signup" || path.indexOf("u")===1)?"":
           <button onClick={hideMenu}  className={css.dropDown}>
               <span className={css.margR}>Account Settings</span>
@@ -121,6 +129,10 @@ const TabNavHorizontal = props => {
                     <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
                       <FontAwesomeIcon icon={faRemove}/>
                       <NamedLink {...DeleteAccountPage} className={css.accountSetting} >Delete Account</NamedLink>
+                    </button>
+                    <button onClick={hideMenu}  className={classNames(css.dropDown,css.accountSetting)}>
+                      <FontAwesomeIcon icon={faRemove}/>
+                      <NamedLink {...PaymentSettingPage} className={css.accountSetting} >Payment Setting</NamedLink>
                     </button>
                     
                 </div>

@@ -102,7 +102,7 @@ function EarningsPageViewComponent(props){
               
 
                 <div className={classNames(css.col4,css.pad1,css.plans)}>
-                   <BarChart2 className={css.pie} />
+                   
                 </div>
             </div>
 
@@ -110,7 +110,7 @@ function EarningsPageViewComponent(props){
 
             <div className={css.card2}>
                 <div className={classNames(css.col4,css.pad1,css.plans)}>
-                   <AreaChart className={css.pie} />
+                  
                 </div>
             </div>
 
