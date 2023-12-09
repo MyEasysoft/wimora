@@ -1,27 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import css from './CustomSection.module.css';
 import classNames from 'classnames';
-import s1 from '../../assets/new/Influencer1.PNG';
-import s2 from '../../assets/new/Influencer2.PNG';
-import s3 from '../../assets/new/Influencer3.PNG';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMessage, faHeart, faSignIn, faEnvelope, faBook, faGear, faKey} from '@fortawesome/free-solid-svg-icons';
-import {
-    Avatar,
-    InlineTextButton,
-    LinkedLogo,
-    Menu,
-    MenuLabel,
-    MenuContent,
-    MenuItem,
-    NamedLink,
-  } from '..';
-  
-  import {AreaChart} from '../ChartViews/area charts/AreaChart';
-  import BarChart from '../ChartViews/area charts/BarChart';
-  import BarChart2 from '../ChartViews/area charts/BarChart2';
-import LineChart from '../ChartViews/area charts/LineChart';
-import EarningsPage from '../../containers/EarningsPage/EarningsPage';
+import {AreaChart} from '../ChartViews/area charts/AreaChart';
+import BarChart2 from '../ChartViews/area charts/BarChart2';
 import ListingItemComponent from '../ListingPaymentListItems/ListingPaymentListItem';
 
 function EarningsPageViewComponent(props){
