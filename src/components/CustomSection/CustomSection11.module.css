@@ -18,18 +18,21 @@ h1,h2,h3,h4{
     position: relative;
     float: left;
     width: 100%;
-    padding: 7% 16%;
-    color: rgb(255, 255, 255);
-    font-weight: 800;
+    padding-top: 70px;
+    padding:15%;
+    color: rgb(53, 53, 53);
   }
 
 .containerMain{
   display: flex;
   align-items: center;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 20px;
-  text-align: center;
+
+ 
+
+
 }
 
 .containerCircle{
@@ -343,6 +346,11 @@ margin-top: 80px;
 .description{
   font-weight: 600;
   font-size: 16px;
+ 
+}
+
+h2{
+    text-align: left;
 }
 
 .aboutContent p{
@@ -610,6 +618,10 @@ hr{
   margin-top: 80px;
 }
 
+.marginB20{
+    margin-bottom: 50px;
+}
+
 .marginB100{
   margin-bottom: 50px;
   
@@ -628,14 +640,14 @@ hr{
   color: rgb(146, 146, 146);
 }
 
+
 .roundBtn{
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 20px;
   background-color: blueviolet;
   color: white;
   margin-top: 20px;
   border-style: none;
-  font-size: 12px;
 }
 
 .featureDev{
@@ -658,11 +670,11 @@ hr{
 }
 
 .col50{
-  display: flex;
+  
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 50px;
-  width: 80%;
+  width: 100%;
   
 }
 .col50 p{
@@ -710,6 +722,7 @@ hr{
     padding-top: 0px;
     padding-bottom: 0px;
     border-width: thin;
+    border-color: #e0dfdf;
 }
 
 .icon2{
@@ -760,4 +773,18 @@ hr{
 
 }
 
+.col{
+    text-align: left;
+}
 
+.rowTwo{
+    position: relative;
+    float: left;
+    width: 45%;
+    margin:0px 2.5%;
+}
+
+.textLeft{
+    text-align: left;
+    align-self: flex-start;
+}
