@@ -1,11 +1,11 @@
 const sharetribeIntegrationSdk = require('sharetribe-flex-integration-sdk');
 
-//This endpoint is used to send new Proposal Agreement from Influencer to Seller
+//This endpoint is used to send new Proposal Agreement from Freelancer to Seller
 module.exports = (req, res) => {
 
   const listingId = req.body.listingId;
   const sellerId = req.body.sellerId;
-  const influencerId = req.body.influencerId;
+  const freelancerId = req.body.freelancerId;
   const agreementAccepted = false;
   const agreementCancel = false;
   const showAgreement = true;
@@ -69,7 +69,7 @@ const integrationSdk = sharetribeIntegrationSdk.createInstance({
 
 //Update either a Buyer or Author Info
 const updateUser = (isSeller)=>{
-  const userId = isSeller?sellerId:influencerId;
+  const userId = isSeller?sellerId:freelancerId;
  const parameters ={
    id: userId,
    include: ['profileImage'],
@@ -118,9 +118,9 @@ const updateUser = (isSeller)=>{
   
    const listingDetails = !isSeller? {
      listingId:listingId,   //Id of the listing that is being paid for
-     seller:influencerId,
-     influencer:sellerId,
-     influencerName:firstName+" "+lastName,
+     seller:freelancerId,
+     freelancer:sellerId,
+     freelancerName:firstName+" "+lastName,
      profileImage:profileImage,
      listingPhoto:listingImage,
      deliveryDate:"",
@@ -137,8 +137,8 @@ const updateUser = (isSeller)=>{
      description:description,  
    }:{
      listingId:listingId,   //Id of the listing that is being paid for
-     seller:influencerId,
-     influencer:sellerId,
+     seller:freelancerId,
+     freelancer:sellerId,
      sellerName:firstName+" "+lastName,
      profileImage:profileImage,
      listingPhoto:listingImage,
@@ -168,7 +168,7 @@ const updateUser = (isSeller)=>{
    const updatedAgreement = Object.assign({},newCon);
 
    //compile user data
-   const id = isSeller? sellerId:influencerId;
+   const id = isSeller? sellerId:freelancerId;
   integrationSdk.users.updateProfile(
    {
      id: id,
@@ -287,7 +287,7 @@ const updateUserAgreement = async () => {
 
 
   updateUser(true);//IsSeller
-  updateUser(false);//IsInfluencer
+  updateUser(false);//IsFreelancer
 }
 
 updateUserAgreement();

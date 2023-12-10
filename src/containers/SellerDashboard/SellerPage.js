@@ -4,8 +4,8 @@ import css from './SellerPage.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMessage, faHeart, faSignIn, faEnvelope,faBox,faBoxOpen,faBasketShopping, faBook, faFaceSmile, faGear, faSignOut, faMaskFace} from '@fortawesome/free-solid-svg-icons'
 import logo from '../../assets/logo.png';
-import avatar from '../../assets/avatar.png';
-import profilePhoto from '../../assets/new/Influencer1.PNG';
+
+import profilePhoto from '../../assets/new/Freelancer1.PNG';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import classNames from 'classnames';
 
@@ -51,7 +51,7 @@ function SellerPageComponent(){
           </div>
           <div className={css.sideLinks}>
             <FontAwesomeIcon icon={faFaceSmile} className={css.icons} />
-            <Link to="">My Influencers</Link>
+            <Link to="">My Freelancers</Link>
           </div>
           <div className={css.sideLinks}>
             <FontAwesomeIcon icon={faBook} className={css.icons} />

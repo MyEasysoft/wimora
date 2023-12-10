@@ -21,11 +21,17 @@ const createUserWithIdp = require('./api/auth/createUserWithIdp');
 const { authenticateFacebook, authenticateFacebookCallback } = require('./api/auth/facebook');
 const { authenticateGoogle, authenticateGoogleCallback } = require('./api/auth/google');
 const  updateProfileCallbacks = require('./api/update-profile');
+const  updateProfileTransactionCallbacks = require('./api/update-profile-transaction');
+const  updateProfileTransactionAgreementCallbacks = require('./api/update_profile_transaction_agreement');
+const  updateProfileTransactionAgreementAcceptCallbacks = require('./api/update_profile_transaction_agreement_accept');
+const  updateProfileReviewCallbacks = require('./api/update_profile_review_seller');
+const  updateProfileReviewFreelancerCallbacks = require('./api/update-profile-review-freelancer');
+const  updateProfileSeenMsgCallbacks = require('./api/update_profile_record_seen_messages');
 
 
 const router = express.Router();
 
-// ================ API router middleware: ================ //
+// ================ API router middleware: ================= //
 
 // Parse Transit body first to a string
 router.use(
@@ -83,6 +89,11 @@ router.get('/auth/google', authenticateGoogle);
 router.get('/auth/google/callback', authenticateGoogleCallback);
 
 router.post('/v1/api/current_user/update_profile', updateProfileCallbacks);
-
+router.post('/v1/api/current_user/update_profile_transaction', updateProfileTransactionCallbacks);
+router.post('/v1/api/current_user/update_profile_transaction_agreement', updateProfileTransactionAgreementCallbacks);
+router.post('/v1/api/current_user/update_profile_transaction_agreement_accept', updateProfileTransactionAgreementAcceptCallbacks);
+router.post('/v1/api/current_user/update_profile_review_seller', updateProfileReviewCallbacks);
+router.post('/v1/api/current_user/update-profile-review-freelancer', updateProfileReviewFreelancerCallbacks);
+router.post('/v1/api/current_user/update_profile_record_seen_messages', updateProfileSeenMsgCallbacks);
 
 module.exports = router;

@@ -140,6 +140,7 @@ const OrderPanel = props => {
     onSubmit,
     showPayPalButton,
     onContactUserPayPal,
+    onRedirectToOrderPage,
     showPaypalBtnCom,
     title,
     titleDesktop,
@@ -324,7 +325,12 @@ const OrderPanel = props => {
           <ProductOrderForm
             formId="OrderPanelProductOrderForm"
             onSubmit={onSubmit}
+            showPayPalButton={showPayPalButton} 
+            onContactUserPayPal={onContactUserPayPal} 
+            onRedirectToOrderPage={onRedirectToOrderPage}
+            showPaypalBtnCom={showPaypalBtnCom}
             price={price}
+            listingTitle={listingTitle}
             marketplaceCurrency={marketplaceCurrency}
             currentStock={currentStock}
             pickupEnabled={pickupEnabled}
@@ -337,12 +343,18 @@ const OrderPanel = props => {
             lineItems={lineItems}
             fetchLineItemsInProgress={fetchLineItemsInProgress}
             fetchLineItemsError={fetchLineItemsError}
+            showPrice = {showPrice}
+            showCurrency={showCurrency}
+            showTitle={showTitle}
+            currentUserId={currentUserId}
+            authorId={authorId}
           />
         ) : showInquiryForm ? (
           <InquiryWithoutPaymentForm formId="OrderPanelInquiryForm" 
             onSubmit={onSubmit} 
             showPayPalButton={showPayPalButton} 
             onContactUserPayPal={onContactUserPayPal} 
+            onRedirectToOrderPage={onRedirectToOrderPage}
             showPaypalBtnCom={showPaypalBtnCom}
             price={price}
             listingTitle={listingTitle}

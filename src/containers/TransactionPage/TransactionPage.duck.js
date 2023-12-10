@@ -109,8 +109,7 @@ const mergeEntityArrays = (a, b) => {
 export default function transactionPageReducer(state = initialState, action = {}) {
   const { type, payload } = action;
 
-  console.log(payload+"oooooooooooooooooooooocccccccccccccccccccccooooooooooooooooooooooooooooooooooo");
-  console.log(type+"oooooooooooooooooooooooo1111111ooooooooooooooooooooooooooooooooooo");
+ 
   switch (type) {
     case SET_INITIAL_VALUES:
       return { ...initialState, ...payload };
@@ -545,6 +544,7 @@ export const fetchMoreMessages = (txId, config) => (dispatch, getState, sdk) => 
 
 export const sendMessage = (txId, message, config) => (dispatch, getState, sdk) => {
   dispatch(sendMessageRequest());
+  console.log("ooooooooooooooooooooooooooooooooooooooooooooooooo");
 
   return sdk.messages
     .send({ transactionId: txId, content: message })
@@ -639,6 +639,23 @@ export const sendReview = (tx, transitionOptionsInfo, params, config) => (
     : sendReviewAsFirst(tx?.id, reviewAsFirst, params, dispatch, sdk, config);
 };
 
+export const sendReviewNew = (tx, transitionOptionsInfo, params, config) => (
+  dispatch,
+  getState,
+  sdk
+) => {
+  //const { reviewAsFirst, reviewAsSecond, hasOtherPartyReviewedFirst } = transitionOptionsInfo;
+  const reviewAsFirst = true;
+  const reviewAsSecond = false;
+  const hasOtherPartyReviewedFirst = true;
+
+  dispatch(sendReviewRequest());
+
+  return hasOtherPartyReviewedFirst
+    ? sendReviewAsSecond(tx?.id, reviewAsSecond, params, dispatch, sdk, config)
+    : sendReviewAsFirst(tx?.id, reviewAsFirst, params, dispatch, sdk, config);
+};
+
 const isNonEmpty = value => {
   return typeof value === 'object' || Array.isArray(value) ? !isEmpty(value) : !!value;
 };
@@ -675,10 +692,14 @@ export const fetchTransactionLineItems = ({ orderData, listingId, isOwnListing }
 // loadData is a collection of async calls that need to be made
 // before page has all the info it needs to render itself
 export const loadData = (params, search, config) => (dispatch, getState) => {
+ 
   const txId = new UUID(params.id);
   const state = getState().TransactionPage;
   const txRef = state.transactionRef;
   const txRole = params.transactionRole;
+  const userId = getState().user.currentUser.id.uuid;
+
+  recordSeenMessages(txId.uuid,userId);
 
   // In case a transaction reference is found from a previous
   // data load -> clear the state. Otherwise keep the non-null
@@ -693,3 +714,92 @@ export const loadData = (params, search, config) => (dispatch, getState) => {
     dispatch(fetchNextTransitions(txId)),
   ]);
 };
+
+
+
+export const updateProfileTransactionAgreement = data => (dispatch, getState, sdk) => {
+  makeApiCall(data);
+};
+
+export const updateProfileTransactionAcceptAgreement = data => (dispatch, getState, sdk) => {
+  makeApiAcceptCall(data);
+};
+
+export const sendReviewsNew = data => (dispatch, getState, sdk) => {
+  console.log("Reviewing-------------------------------------------");
+  sendReviewsApi(data);
+};
+
+const  makeApiCall = async(data)=>{
+  const response =await fetch('/api/v1/api/current_user/update_profile_transaction_agreement', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res=>{
+    console.log(res);
+    return res;
+
+  }).catch(err=>{
+    console.log(err);
+  });
+}
+
+const  makeApiAcceptCall = async(data)=>{
+
+  const response =await fetch('/api/v1/api/current_user/update_profile_transaction_agreement_accept', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res=>{
+    console.log(res);
+    return res;
+
+  }).catch(err=>{
+    console.log(err);
+  });
+
+}
+
+
+const  sendReviewsApi = async(data)=>{
+  const response =await fetch('/api/v1/api/current_user/update_profile_review_seller', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res=>{
+    console.log(res);
+    return res;
+
+  }).catch(err=>{
+    console.log(err);
+  });
+}
+
+
+const  recordSeenMessages = async(id,userId)=>{
+
+  const param = {id:id,userId:userId};
+  const data = JSON.stringify(param);
+  console.log(param);
+  console.log(data);
+
+  const response =await fetch('/api/v1/api/current_user/update_profile_record_seen_messages', {
+    method: 'POST',
+    body:data,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res=>{
+    console.log(res);
+    return res;
+
+  }).catch(err=>{
+    console.log(err);
+  });
+}

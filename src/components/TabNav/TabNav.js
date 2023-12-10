@@ -74,7 +74,7 @@ const TabNavCom = props => {
 
 
   //List of route to check, to determine what side nav menu will be shown
-  //for either Influencer or Seller
+  //for either Freelancer or Seller
   const routesToWatch = [
     '/profile-settings',
     '/account/delete-profile',
@@ -93,7 +93,7 @@ const TabNavCom = props => {
     '/account/subscription',
     '/account/gigs-tracking',
     '/account/income',
-    '/user',
+    '/seller',
     '/freelancer',
     '/account/contact-details',
     '/account/change-password',
@@ -129,29 +129,9 @@ const TabNavCom = props => {
   
   return (
     <nav className={classes}>
-      <h3 className={css.header}>{role}</h3>
-      
       {tabs.map((tab, index) => {
-         let hide = "";
-         if(tab.id==="ContactDetailsPageTab" || tab.id==="PasswordPageTab"){
-         
-        }
-        if(role==="User"){
-          console.log(tab.id);
-          const included = routesToWatch.includes(path);
-          const includedPage = sellerFunc.includes(tab.id);
-         
-         
-          if(included){
-            if(!includedPage){
-              return;
-            }
-            
-          }
-        }
         const id = typeof tab.id === 'string' ? tab.id : `${index}`;
-        console.log(tab.id+"-----------------------------------------------------");
-        return <Tab key={id} id={id} className={classNames(tabClasses,hide)} iconsToUse={iconsUse[tab.id]} {...tab} />;
+        return <Tab key={id} id={id} className={tabClasses} {...tab} />;
       })}
     </nav>
   );

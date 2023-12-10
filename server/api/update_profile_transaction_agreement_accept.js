@@ -8,7 +8,7 @@ module.exports = (req, res) => {
 
   const listingId = req.body.listingId;
   const sellerId = req.body.sellerId;
-  const influencerId = req.body.influencerId;
+  const freelancerId = req.body.freelancerId;
   const agreementAccepted = req.body.agreementAccepted;
   const agreementCancel = req.body.agreementCancel;
   const showAgreement = req.body.showAgreement;
@@ -80,7 +80,7 @@ const integrationSdk = sharetribeIntegrationSdk.createInstance({
 
 //Update either a Buyer or Author Info
 const updateUser = (isSeller)=>{
-  let userId = isSeller?influencerId:sellerId;
+  let userId = isSeller?freelancerId:sellerId;
  const parameters ={
    id: userId,
    include: ['profileImage'],
@@ -123,7 +123,7 @@ const updateUser = (isSeller)=>{
    const updatedAgreement = Object.assign({},newCon);
 
    //compile user data
-   const id = isSeller? sellerId:influencerId;
+   const id = isSeller? sellerId:freelancerId;
    console.log("step6666666666666666666666666666666666666666666    ");
  integrationSdk.users.updateProfile(
    {

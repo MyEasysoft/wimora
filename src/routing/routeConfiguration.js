@@ -36,7 +36,7 @@ const StripePayoutPage = loadable(() => import(/* webpackChunkName: "StripePayou
 const TermsOfServicePage = loadable(() => import(/* webpackChunkName: "TermsOfServicePage" */ '../containers/TermsOfServicePage/TermsOfServicePage'));
 const TransactionPage = loadable(() => import(/* webpackChunkName: "TransactionPage" */ '../containers/TransactionPage/TransactionPage'));
 const SellerPage = loadable(() => import(/* webpackChunkName: "SellerPage" */ '../containers/SellerDashboard/SellerPage'));
-const InfluencerPage = loadable(() => import(/* webpackChunkName: "InfluencerPage" */ '../containers/InfluencerDashboard/InfluencerPage'));
+const FreelancerPage = loadable(() => import(/* webpackChunkName: "FreelancerPage" */ '../containers/FreelancerDashboard/FreelancerPage'));
 const SalesAccountPage = loadable(() => import(/* webpackChunkName: "SalesAccountPage" */ '../containers/SalesAccountPage/SalesAcountPage'));
 
 const DeleteAccountPage = loadable(() =>import(/* webpackChunkName: "DeleteAccountPage" */ '../containers/DeleteAccountPage/DeleteAccountPage'));
@@ -346,10 +346,10 @@ const routeConfiguration = (layoutConfig) => {
       component: SellerPage,
     },
     {
-      path: '/influencer',
-      name: 'InfluencerPage',
+      path: '/freelancer',
+      name: 'FreelancerPage',
       auth: false,
-      component: InfluencerPage,
+      component: FreelancerPage,
     },
 
     {

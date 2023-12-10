@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -13,14 +13,35 @@ import {
   projects,
   projectsClear,
   resetPassword,
+  sendReviewsNew,
 } from './ProjectsPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './ProjectsPage.module.css';
 import EarningsPageViewComponent from '../../components/EarningsPageView/EarningsPageView';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalculator } from '@fortawesome/free-solid-svg-icons';
+import { updateListingToReceived } from '../PaypalAppPage/PaypalAppPage.duck';
+import ListingItemComponent from '../../components/ListingPaymentListItems/ListingPaymentListItem';
+
 
 export const ProjectsPageComponent = props => {
+
+  const [showAgreementDialog, setShowAgreementDialog] = useState(false);
+  const [showCompletedIcon, setShowCompletedIcon] = useState(false);
+
+  const handleShowAgreeDialog = ()=>{
+    console.log("Clickedddddddddddddddddddddddddddddddddddd");
+    setShowAgreementDialog(!showAgreementDialog);
+  }
+
+  const handleAccept = ()=>{
+    setShowAgreementDialog(false);
+  }
+
+  const handleReject = ()=>{
+    setShowAgreementDialog(false);
+  }
+
   const {
     projectsError,
     projectsInProgress,
@@ -36,20 +57,22 @@ export const ProjectsPageComponent = props => {
     intl,
     getAuthorListing,
     getListing,
-    getUserById
+    getUserById,
+    onUpdateListingReceived,
+    onSendReview,
   } = props;
 
   if (currentUser === undefined || currentUser?.attributes?.profile?.privateData === undefined)return;
 
   const {paypalMerchantId,listingPaidFor} = currentUser?.attributes?.profile?.privateData;
   
-
-
   const handleProjects = values => {
     return onSubmitProjects(values).then(() => {
       onLogout();
     });
   };
+
+  
 
   useEffect(() => {
     return onChange();
@@ -72,29 +95,34 @@ export const ProjectsPageComponent = props => {
   const totalProfitLabel = 'TOTAL LOSS';
   const totalProfitValue = '$9,000';
   const showTotalProfit = true;
+  const showGraph = true;
+  const showMetrics = false;
+  const enableAcceptBtn = false;
 
-  const pageDetails = (
-    
-        <EarningsPageViewComponent
+  
+  const projectListings = (
+    <div className={css.details}>
         
-          totalTransactionLabel={totalTransactionLabel}
-          totalTransactionValue={totalTransactionValue}
-          showTotalTransaction={showTotalTransaction}
-          totalCompletedLabel={totalCompletedLabel}
-          totaLCompletedValue={totaLCompletedValue}
-          showTotalCompleted={showTotalCompleted}
-          totalDeclinedLabel={totalDeclinedLabel}
-          totalDeclinedValue={totalDeclinedValue}
-          showTotalDeclined={showTotalDeclined}
-          totalProfitLabel={totalProfitLabel}
-          totalProfitValue={totalProfitValue}
-          showTotalProfit={showTotalProfit}
-          listingPaidFor={listingPaidFor}
-          paypalMerchantId={paypalMerchantId}
-          
-        />
-   
+       <ListingItemComponent 
+            listingPaidFor={listingPaidFor}
+            handleShowAgreeDialog = {handleShowAgreeDialog} 
+            showCompletedIcon={showCompletedIcon}
+            onUpdateListingReceived={onUpdateListingReceived}
+            currentUser={currentUser}
+            enableAcceptBtn={enableAcceptBtn}
+            onSendReview={onSendReview}
+          />
+       
+    </div>
   );
+  const agreementDialog = showAgreementDialog? 
+        <div className={css.modal}>
+            <p>By clicking Accept button below, you agree that this project has been completed successfully.</p>
+          
+            <button onClick={handleAccept} class={css.acceptBtn}>Accept</button>
+            <button onClick={handleReject} class={css.rejectBtn}>Reject</button>
+        </div>:"";
+        
 
 
   const title = intl.formatMessage({ id: 'ProjectsPage.title' });
@@ -122,9 +150,11 @@ export const ProjectsPageComponent = props => {
           <H3 as="h1" className={css.title}>
             <FormattedMessage id="ProjectsPage.heading" />
           </H3>
-        
+         
+          {projectListings}
         </div>
       </LayoutSideNavigation>
+      
     </Page>
   );
 };
@@ -155,18 +185,6 @@ ProjectsPageComponent.propTypes = {
 
 const mapStateToProps = state => {
 
- 
-  
-  // Topbar needs user info.
-  const {
-    projectsError,
-    projectsInProgress,
-    accountDeleted,
-    resetPasswordInProgress,
-    resetPasswordError,
-  } = state.ProjectsPage;
-  const { currentUser } = state.user;
-
   const getListing = id => {
     const ref = { id, type: 'listing' };
     const listings = getMarketplaceEntities(state, [ref]);
@@ -183,7 +201,16 @@ const mapStateToProps = state => {
     const userMatches = getMarketplaceEntities(state, [{ type: 'user', id: id }]);
     const user = userMatches.length === 1 ? userMatches[0] : null;
   }
-
+  
+  // Topbar needs user info.
+  const {
+    projectsError,
+    projectsInProgress,
+    accountDeleted,
+    resetPasswordInProgress,
+    resetPasswordError,
+  } = state.ProjectsPage;
+  const { currentUser } = state.user;
   return {
     getListing,
     getAuthorListing,
@@ -203,6 +230,8 @@ const mapDispatchToProps = dispatch => ({
   onLogout: () => dispatch(logout()),
   onSubmitProjects: values => dispatch(projects(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
+  onUpdateListingReceived: values => dispatch(updateListingToReceived(values)),
+  onSendReview: values => dispatch(sendReviewsNew(values)),
 });
 
 const ProjectsPage = compose(

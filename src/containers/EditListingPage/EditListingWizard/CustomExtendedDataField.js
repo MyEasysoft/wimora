@@ -154,7 +154,7 @@ const CustomExtendedDataFieldComponent = props => {
   const { enumOptions = [], schemaType} = props?.fieldConfig || {};
   const key=props.fieldConfig["filterConfig"].label;
   const renderFieldComponent = (FieldComponent, props) => <FieldComponent {...props} intl={intl} />;
-  const influencerFields = [
+  const freelancerFields = [
     "Listing title",
     "Listing description",
     "Listing type",
@@ -165,8 +165,8 @@ const CustomExtendedDataFieldComponent = props => {
     "Cost",
     
   ];
-  return role === "Influencer" && !influencerFields.includes(key)? "":
-  role === "User" && (key==="Cost" || key==="Role")? "":
+  return role === "Freelancer" && !freelancerFields.includes(key)? "":
+  role === "Seller" && (key==="Cost" || key==="Role")? "":
   schemaType === SCHEMA_TYPE_ENUM && enumOptions
     ? renderFieldComponent(CustomFieldEnum, props)
     : schemaType === SCHEMA_TYPE_MULTI_ENUM && enumOptions

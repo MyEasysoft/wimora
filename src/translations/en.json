@@ -407,7 +407,6 @@
   "LimitedAccessBanner.message": "You are logged in as {firstName} {lastName}. You have limited rights for actions. You cannot initiate transactions, take actions in them or send messages on behalf of transacting parties.",
   "ListingCard.author": "{authorName}",
   "ListingCard.perUnit": "{unitType, select, day {per day} night {per night} hour {per hour} other {}}",
-  "ListingCard2.perUnit": "",
   "ListingCard.unsupportedPrice": "({currency})",
   "ListingCard.unsupportedPriceTitle": "Unsupported currency ({currency})",
   "ListingImageGallery.closeModal": "CLOSE",
@@ -605,7 +604,7 @@
   "ProductOrderForm.deliveryMethodLabel": "Delivery method",
   "ProductOrderForm.deliveryMethodRequired": "Delivery method is required.",
   "ProductOrderForm.finePrint": "You won't be charged yet.",
-  "ProductOrderForm.finePrintNoStock": "Unfortunately this listing is out of stock right now but you can {contactUserLink}.",
+  "ProductOrderForm.finePrintNoStock": "Unfortunately this listing is out of stock right now but you can {contactSellerLink}.",
   "ProductOrderForm.finePrintNoStockLinkText": "contact the listing author",
   "ProductOrderForm.noDeliveryMethodSet": "Provider hasn't enabled any delivery method.",
   "ProductOrderForm.pickupOption": "Pickup",
@@ -735,7 +734,7 @@
   "SignupForm.lastNamePlaceholder": "Doe",
   "SignupForm.lastNameRequired": "You need to add a last name.",
   "SignupForm.RoleFreelancer": "Freelancer",
-  "SignupForm.RoleUser": "User",
+  "SignupForm.RoleSeller": "Seller",
   "SignupForm.RoleCreator": "Creator",
   "SignupForm.Freelancer": "Freelancer",
   "SignupForm.StoreFront": "Store Front",
@@ -959,7 +958,7 @@
   "TopbarDesktop.signup": "Sign up",
   "TopbarDesktop.yourListingsLink": "Your listings",
   "TopbarDesktop.findFreelancers": "Find Freelancers",
-  "TopbarDesktop.findUsers": "Find Users",
+  "TopbarDesktop.findSellers": "Find Sellers",
   "TopbarDesktop.findProducts": "Find Products",
   
   "TopbarMobileMenu.accountSettingsLink": "Account settings",
@@ -1123,6 +1122,14 @@
   "EarningsPage.title": "Earnings",
   "EarningsPage.error": "Error getting Earnings data",
   "LayoutWrapperAccountSettingsSideNav.EarningsTabTitle": "Earnings",
+
+  
+  "PaymentSettingPage.details": "Setup Paypal Account",
+  "PaymentSettingPage.heading": "Setup Paypal Account",
+  "PaymentSettingPage.title": "Setup Paypal Account",
+  "PaymentSettingPage.error": "Error getting Paypal setup data",
+  "LayoutWrapperPaymentSettingSideNav.PaymentSettingTabTitle": "Setup Paypal Account",
+  
   
   "ProjectsPage.details": "My Projects and Progress",
   "ProjectsPage.heading": "Projects",
@@ -1224,15 +1231,8 @@
   "PaypalAppPage.heading": "Payment",
   "PaypalAppPage.title": "Payment",
   "PaypalAppPage.error": "Payment History cannot be view at the moment.",
-  "LayoutWrapperAccountSettingsSideNav.PaypalAppPageTabTitle": "Payment",
+  "LayoutWrapperAccountSettingsSideNav.PaypalAppPageTabTitle": "Payment"
 
-  
-  "PaymentSettingPage.details": "Setup Paypal Account",
-  "PaymentSettingPage.heading": "Setup Paypal Account",
-  "PaymentSettingPage.title": "Setup Paypal Account",
-  "PaymentSettingPage.error": "Error getting Paypal setup data",
-  "LayoutWrapperPaymentSettingSideNav.PaymentSettingTabTitle": "Setup Paypal Account"
-  
 
 
 

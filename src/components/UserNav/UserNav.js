@@ -21,7 +21,7 @@ const onSelect = (e)=>{
   
 }
 
-const manageListings = role === "User"? "UserNav.yourJobs":"UserNav.yourGigs";
+const manageListings = role === "Seller"? "UserNav.yourJobs":"UserNav.yourGigs";
 
   const tabs = [
 

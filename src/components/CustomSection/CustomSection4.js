@@ -12,7 +12,7 @@ const CustomSectionComponent4 = props =>{
     
   const hireTopTalent = (event)=>{
     event.preventDefault();
-    history.push("/s?pub_role=Influencers");
+    history.push("/s?pub_role=Freelancers");
   }
 
     return (

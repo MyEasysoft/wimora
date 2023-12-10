@@ -232,7 +232,7 @@ export const listingTypes = [
   //   transactionType: {
   //     process: 'influence-connect-instant-booking',
   //     alias: 'influence-connect-instant-booking/release-1',
-  //     unitType: 'day',
+  //     unitType: 'item',
   //   },
   // },
   // // Here are some examples for other listingTypes
@@ -247,36 +247,36 @@ export const listingTypes = [
   //   },
   // },
   // {
-  //   listingType: 'hourly-booking',
-  //   label: 'Hourly booking',
+  //   listingType: 'monthly-booking',
+  //   label: 'Shoppable Videos',
   //   transactionType: {
   //     process: 'default-booking',
   //     alias: 'default-booking/release-1',
-  //     unitType: 'hour',
+  //     unitType: 'day',
   //   },
   // },
   // {
   //   listingType: 'product-selling',
-  //   label: 'Sell bicycles',
+  //   label: 'Shoppable Videos',
   //   transactionType: {
   //     process: 'default-purchase',
   //     alias: 'default-purchase/release-1',
   //     unitType: 'item',
   //   },
-  //   stockType: 'multipleItems',
+  //   stockType: 'oneItems',
   // },
-  {
-    listingType: 'inquiry',
-    label: 'Free Booking',
-    transactionType: {
-      process: 'default-inquiry',
-      alias: 'default-inquiry/release-1',
-      unitType: 'inquiry',
-    },
-    defaultListingFields: {
-      price: true,
-    },
-  },
+  // {
+  //   listingType: 'inquiry',
+  //   label: 'Free Shoppable Video',
+  //   transactionType: {
+  //     process: 'default-inquiry',
+  //     alias: 'default-inquiry/release-1',
+  //     unitType: 'inquiry',
+  //   },
+  //   defaultListingFields: {
+  //     price: true,
+  //   },
+  // },
 ];
 
 // SearchPage can enforce listing query to only those listings with valid listingType

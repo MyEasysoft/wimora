@@ -27,6 +27,8 @@ import DiminishedActionButtonMaybe from './DiminishedActionButtonMaybe';
 import PanelHeading from './PanelHeading';
 
 import css from './TransactionPanel.module.css';
+import AgreementForm from '../../../components/AgreementForm/AgreementForm';
+import ReviewsCard from '../../../components/ReviewsCard/ReviewsCard';
 
 // Helper function to get display names for different roles
 const displayNames = (currentUser, provider, customer, intl) => {
@@ -89,7 +91,7 @@ export class TransactionPanelComponent extends Component {
 
   onMessageSubmit(values, form) {
     const message = values.message ? values.message.trim() : null;
-    const { transactionId, onSendMessage, config } = this.props;
+    const {transactionId, onSendMessage, config } = this.props;
 
     if (!message) {
       return;
@@ -141,6 +143,10 @@ export class TransactionPanelComponent extends Component {
       orderBreakdown,
       orderPanel,
       config,
+      onAgree,
+      onAccept,
+      onCancel,
+      agreements
     } = this.props;
 
     const isCustomer = transactionRole === 'customer';
@@ -151,6 +157,7 @@ export class TransactionPanelComponent extends Component {
     const isCustomerDeleted = !!customer?.attributes?.deleted;
     const isProviderBanned = !!provider?.attributes?.banned;
     const isProviderDeleted = !!provider?.attributes?.deleted;
+   
 
     const { authorDisplayName, customerDisplayName, otherUserDisplayNameString } = displayNames(
       currentUser,
@@ -345,6 +352,8 @@ export class TransactionPanelComponent extends Component {
                   orderBreakdown={orderBreakdown}
                   processName={stateData.processName}
                 />
+
+               
 
                 {stateData.showActionButtons ? (
                   <div className={css.desktopActionButtons}>{actionButtons}</div>

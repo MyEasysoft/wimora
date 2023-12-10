@@ -46,7 +46,7 @@
     border-top: none;
     margin: 50px;
     background-color: white;
-    overflow: hidden;
+    height: max-content;
   }
 
   @media (--viewportLargeWithPaddings) {

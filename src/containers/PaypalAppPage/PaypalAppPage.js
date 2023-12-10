@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -14,14 +14,17 @@ import {
   paypalAppClear,
   resetPassword,
   showUser,
+  updateListingToReceived,
 } from './PaypalAppPage.duck';
 import { logout } from '../../ducks/auth.duck';
 import css from './PaypalAppPage.module.css';
 import ListingItemComponent from '../../components/ListingPaymentListItems/ListingPaymentListItem';
+import { sendReviewsNew } from '../TransactionPage/TransactionPage.duck';
 
 
 
 export const PaypalAppPageComponent = props => {
+ 
   const {
     
     paypalAppError,
@@ -35,10 +38,13 @@ export const PaypalAppPageComponent = props => {
     resetPasswordError,
     accountSales,
     scrollingDisabled,
+    onUpdateListingReceived,
+    onSendReview,
+    
     intl
   } = props;
 
-  if (currentUser === undefined)return;
+  if (currentUser === undefined || currentUser === null || currentUser.attributes.profile.privateData === undefined)return;
   const {paypalMerchantId,listingPaidFor} = currentUser?.attributes?.profile?.privateData;
 
   const handlePaypalApp = values => {
@@ -46,6 +52,7 @@ export const PaypalAppPageComponent = props => {
       onLogout();
     });
   };
+  const enableAcceptBtn = true;
 
   useEffect(() => {
     return onChange();
@@ -59,12 +66,16 @@ export const PaypalAppPageComponent = props => {
        <p>Paypal Merchant Id: {paypalHeader}</p> 
        <ListingItemComponent 
             listingPaidFor={listingPaidFor}
-        
-
+            onUpdateListingReceived={onUpdateListingReceived}
+            currentUser={currentUser}
+            enableAcceptBtn={enableAcceptBtn}
+            onSendReview={onSendReview}
           />
        
     </div>
   );
+
+ 
 
 
   const title = intl.formatMessage({ id: 'PaypalAppPage.title' });
@@ -91,8 +102,10 @@ export const PaypalAppPageComponent = props => {
           <H3 as="h1" className={css.title}>
             <FormattedMessage id="PaypalAppPage.heading" />
           </H3>
+         
           {pageDetails}
         </div>
+       
       </LayoutSideNavigation>
     </Page>
   );
@@ -152,6 +165,8 @@ const mapDispatchToProps = dispatch => ({
   onLogout: () => dispatch(logout()),
   onSubmitPaypalApp: values => dispatch(paypalApp(values)),
   onResetPassword: values => dispatch(resetPassword(values)),
+  onUpdateListingReceived: values => dispatch(updateListingToReceived(values)),
+  onSendReview: values => dispatch(sendReviewsNew(values)),
 });
 
 const PaypalAppPage = compose(

@@ -10,27 +10,27 @@ import css from './Reviews.module.css';
 const Review = props => {
   const { review, intl } = props;
 
-  const date = review.attributes.createdAt;
+  const date = review.seller_reviewDate;
   const dateString = intl.formatDate(date, { month: 'long', year: 'numeric' });
 
   return (
     <div className={css.review}>
-      <Avatar className={css.avatar} user={review.author} />
+      <Avatar className={css.avatar} user={review.buyerId} />
       <div>
         <ReviewRating
-          rating={review.attributes.rating}
+          rating={review.seller_reviewRating}
           className={css.mobileReviewRating}
           reviewStarClassName={css.reviewRatingStar}
         />
-        <p className={css.reviewContent}>{review.attributes.content}</p>
+        <p className={css.reviewContent}>{review.seller_reviewContent}</p>
         <p className={css.reviewInfo}>
-          <UserDisplayName user={review.author} intl={intl} />
+          <UserDisplayName user={review.seller_displayName} intl={intl} />
           <span className={css.separator}>•</span>
           {dateString}
           <span className={css.desktopSeparator}>•</span>
           <span className={css.desktopReviewRatingWrapper}>
             <ReviewRating
-              rating={review.attributes.rating}
+              rating={review.seller_reviewRating}
               className={css.desktopReviewRating}
               reviewStarClassName={css.reviewRatingStar}
             />
@@ -52,10 +52,10 @@ const ReviewsComponent = props => {
 
   return (
     <ul className={classes}>
-      {reviews.map(r => {
+      {Object.keys(reviews).map((r,key) => {
         return (
-          <li key={`Review_${r.id.uuid}`} className={css.reviewItem}>
-            <Review review={r} intl={intl} />
+          <li key={`Review_${reviews[key].listingId}`} className={css.reviewItem}>
+            <Review review={reviews[key]} intl={intl} />
           </li>
         );
       })}

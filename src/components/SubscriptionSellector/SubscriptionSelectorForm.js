@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import css from './CustomSection.module.css';
 import classNames from 'classnames';
-import s1 from '../../assets/new/Influencer1.PNG';
-import s2 from '../../assets/new/Influencer2.PNG';
-import s3 from '../../assets/new/Influencer3.PNG';
+import s1 from '../../assets/new/Freelancer1.PNG';
+import s2 from '../../assets/new/Freelancer2.PNG';
+import s3 from '../../assets/new/Freelancer3.PNG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {

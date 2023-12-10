@@ -16,7 +16,7 @@ const SignupFormComponent = props => {
   const [show,setShow] = useState(true);
 
   const HandleChange = (event)=>{
-      if(event.target.value==="User"){
+      if(event.target.value==="Freelancer"){
           setShow(true);
       }else{
         setShow(false)
@@ -153,16 +153,16 @@ const SignupFormComponent = props => {
                 <FieldRadioButton
                   id='SignupForm.RoleSeller'
                   name="role"
-                  label="I need Freelancer"
-                  value="User"
+                  label="I am an Seller"
+                  value="Seller"
                   showAsRequired={showAsRequired}
                  
                 />
                 <div className={css.radio}></div>
                 <FieldRadioButton
-                  id='SignupForm.Influencer'
+                  id='SignupForm.Freelancer'
                   name="role"
-                  label="I am a Freelancer"
+                  label="I am an Freelancer"
                   value="Freelancer"
                   showAsRequired={showAsRequired}
                   
@@ -183,6 +183,29 @@ const SignupFormComponent = props => {
                 })}
                 validate={passwordValidators}
               />
+  
+  
+              {show?
+               <FieldTextInput
+               className={css.password}
+               type="text"
+               id={formId ? `${formId}.storefront` : 'storefront'}
+               name="storeFront"
+               autoComplete="your-store-front"
+               label={intl.formatMessage({
+                 id: 'SignupForm.storefrontLabel',
+               })}
+               placeholder={intl.formatMessage({
+                 id: 'SignupForm.StoreFrontPlaceholder',
+               })}
+               validate={validators.required(
+                 intl.formatMessage({
+                   id: 'SignupForm.StoreFrontRequired',
+                 })
+               )}
+             />:""
+              
+            }
              
             </div>
   

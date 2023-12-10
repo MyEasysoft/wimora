@@ -63,6 +63,7 @@ import {
   handleContactUserPayPal,
   handleSubmitInquiry,
   handleSubmit,
+  handleRediectToOrderPage,
 } from './ListingPage.shared';
 import ActionBarMaybe from './ActionBarMaybe';
 import SectionTextMaybe from './SectionTextMaybe';
@@ -101,7 +102,7 @@ export const ListingPageComponent = props => {
     location,
     scrollingDisabled,
     showListingError,
-    reviews,
+    
     fetchReviewsError,
     sendInquiryInProgress,
     sendInquiryError,
@@ -121,10 +122,14 @@ export const ListingPageComponent = props => {
   } = props;
 
   useEffect(()=>{
-    if(currentUser?.attributes?.profile?.protectedData?.role === "User"){
+    if(currentUser?.attributes?.profile?.protectedData?.role === "Seller"){
       setShowPaypalBtnCom(true);
     }
   },[]);
+
+  
+
+  console.log(process.env.client_id +"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
   
   // prop override makes testing a bit easier
   // TODO: improve this when updating test setup
@@ -136,6 +141,13 @@ export const ListingPageComponent = props => {
     isPendingApprovalVariant || isDraftVariant
       ? ensureOwnListing(getOwnListing(listingId))
       : ensureListing(getListing(listingId));
+
+
+  let reviews = null;
+      try{
+       reviews = currentListing.author.attributes.profile.publicData.review;
+      }catch(e){}
+  
 
   const listingSlug = rawParams.slug || createSlug(currentListing.attributes.title || '');
   const params = { slug: listingSlug, ...rawParams };
@@ -234,7 +246,17 @@ export const ListingPageComponent = props => {
     location,
     setInitialValues,
     setshowPayPalButton,
-  })
+  });
+
+  const onRedirectToOrderPage = handleRediectToOrderPage({
+    ...commonParams,
+    currentUser,
+    callSetInitialValues,
+    location,
+    setInitialValues,
+    setshowPayPalButton,
+  });
+
   // Note: this is for inquiry state in booking and purchase processes. Inquiry process is handled through handleSubmit.
   const onSubmitInquiry = handleSubmitInquiry({
     ...commonParams,
@@ -396,6 +418,7 @@ export const ListingPageComponent = props => {
               showPaypalBtnCom={showPaypalBtnCom}
               setShowPrice={setShowPrice}
               onContactUserPayPal={onContactUserPayPal}
+              onRedirectToOrderPage={onRedirectToOrderPage}
               authorLink={
                 <NamedLink
                   className={css.authorNameLink}

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMessage, faHeart, faSignIn, faEnvelope,faBox,faBoxOpen,faBasketShopping, faBook, faFaceSmile, faGear, faSignOut, faMaskFace, faCreditCard, faCancel} from '@fortawesome/free-solid-svg-icons'
 import logo from '../../assets/logodark.png';
 import avatar from '../../assets/avatar.png';
-import profilePhoto from '../../assets/new/Influencer1.PNG';
+import profilePhoto from '../../assets/new/Freelancer1.PNG';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import classNames from 'classnames';
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';

@@ -35,7 +35,7 @@ const BlockDefault = props => {
   } = props;
   const classes = classNames(rootClassName || css.root, className);
   const hasTextComponentFields = hasDataInFields([title, text, callToAction], options);
-  if(blockId==="influencer-1" || blockId==="influencer-2" || blockId==="influencer-3" || blockId==="press-1" || blockId==="press-2" || blockId==="press-3" || blockId==="project-desc"){
+  if(blockId==="freelancer-1" || blockId==="freelancer-2" || blockId==="freelancer-3" || blockId==="press-1" || blockId==="press-2" || blockId==="press-3" || blockId==="project-desc"){
     ctaButtonClass = css.noStyle;
   }
 

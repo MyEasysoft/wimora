@@ -9,7 +9,7 @@ module.exports = (req, res) => {
 
   const listingId = req.body.listingId;
   const sellerId = req.body.sellerId;
-  const influencerId = req.body.influencerId;
+  const freelancerId = req.body.freelancerId;
   const reviewContent = req.body.review;
   const reviewRating = req.body.rating;
   const reviewDate = new Date();
@@ -71,6 +71,6 @@ const separateObject = (obj,listingIdToUpdate,displayName) => {
   
  
   getUserListingPaidforAndUpdate(sellerId,req.body.listingId);
-  getUserListingPaidforAndUpdate(influencerId,req.body.listingId);
+  getUserListingPaidforAndUpdate(freelancerId,req.body.listingId);
   
 }

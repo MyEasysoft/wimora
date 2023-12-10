@@ -171,10 +171,10 @@ const TopbarDesktop = props => {
     
   }
 
-  const findInfluencers = (event)=>{
+  const findFreelancers = (event)=>{
     event.preventDefault();
     
-    history.push("/s?pub_role=Influencers")
+    history.push("/s?pub_role=Freelancers")
     
   }
 
@@ -226,7 +226,7 @@ const TopbarDesktop = props => {
 
               <div className={css.navBtns}>
                 <div className={css.findBtnContainer}>
-                  <button onClick={findInfluencers}>
+                  <button onClick={findFreelancers}>
                     Hire top talents
                   </button>
 
