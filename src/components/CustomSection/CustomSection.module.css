@@ -353,6 +353,22 @@ margin-top: 80px;
   text-align: center;
 }
 
+.noOfFreelancers_m{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(247, 239, 254, 0.607);
+  border-radius: 50%;
+  padding: 50px;
+  position: absolute;
+  top:-50px;
+  height: 250px;
+  width: 250px;
+  right: -100px;
+  text-align: center;
+}
+
 .freelancerCount{
   font-size: 70px;
   margin-bottom: 30px;
@@ -362,4 +378,41 @@ margin-top: 80px;
 .countDescription{
   font-size: 30px;
   color: blueviolet;
+}
+
+.desktop{
+  display: block;
+}
+
+.mobilec2{
+  display: none;
+  position: relative;
+  float: left;
+  padding: 50px;
+  width: 60%;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .mobilec2{
+    display: block;
+    width: 100%;
+  }
+  .desktop{
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .mobilec2{
+    display: block;
+    width: 65%;
+    padding: 40px;
+  }
+
+  .desktop{
+    display: none;
+  }
 }

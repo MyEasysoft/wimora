@@ -540,3 +540,90 @@ margin-top: 80px;
     margin: 0 auto;
     color:#aa6bea;
 }
+
+
+
+.desktop{
+  display: block;
+}
+
+.mobile{
+  display: none;
+  position: relative;
+  float: left;
+  padding: 50px;
+  width: 60%;
+}
+
+.mobile img{
+  width: 50px;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .mobile{
+    display: block;
+    width: 100%;
+  }
+  .desktop{
+    display: none;
+  }
+
+  .devCard2{
+    width: 75%;
+    text-align: left;
+    position: relative;
+    top: 0px;
+    background-color: white;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .mobile{
+    display: block;
+    width: 70%;
+    padding: 40px;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  
+.sectionTitle{
+  font-size: 40px;
+  width: 100%;
+  
+}
+.devCard2{
+ 
+  width: 100%;
+    text-align: left;
+    position: relative;
+    top: 0px;
+    background-color: white;
+    right: 0px;
+
+    
+}
+
+.devCard2 .profileImg{
+  width: 100%;
+  margin-top: 0px;
+}
+
+.aboutContent{
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 0px 70px 70px 0px;
+}
+
+
+
+}

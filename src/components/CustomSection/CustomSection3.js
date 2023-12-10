@@ -40,7 +40,7 @@ const CustomSectionComponent3 = props =>{
 
   return (
     <>
-    <div className={css.container +' '+ css.textCenter+' '+ css.sectionBgWhite}>
+    <div className={css.container +' '+ css.textCenter+' '+ css.sectionBgWhite+' '+ css.desktop}>
         <div className={css.containerMain}>
 
             <div className={css.contentCol1}>
@@ -141,6 +141,133 @@ const CustomSectionComponent3 = props =>{
             
         </div>
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div className={css.mobile}>
+                    <p className={css.sectionTitle}>
+                        {title.content}<br/>
+                        <span className={css.desP}>{description.content}</span><br/>
+                    </p> 
+
+                        <div>
+                            <img src={content0Img}/><br/>
+                            <span className={css.subTitles}>{content0.title.content}</span><br/>
+                            <p className={css.desP}>{content0.text.content}</p>  
+                        </div>
+                        <div>
+                            <img src={content1Img}/><br/>
+                            <span className={css.subTitles}>{content1.title.content}</span><br/>
+                            <p className={css.desP}>{content1.text.content}</p>  
+                        </div>
+                        <div>
+                            <img src={content2Img}/><br/>
+                            <span className={css.subTitles}>{content2.title.content}</span><br/>
+                            <p className={css.desP}>{content2.text.content}</p>  
+                        </div>
+                        <div>
+                            <img src={content3Img}/><br/>
+                            <span className={css.subTitles}>{content3.title.content}</span><br/>
+                            <p className={css.desP}>{content3.text.content}</p>  
+                        </div>
+
+
+
+                        
+
+                <div className={css.devCard2} >
+                    <img className={ classNames(css.roundEdge,css.profileImg)} src={content4Img}/>
+
+                    <div className={css.padding20}>
+                        <span className={classNames(css.subTitlesName) }>{dev1Name}</span><br/>
+                        
+                        <div className={classNames(css.subTitlesProfession) }>
+                            <img className={css.icon} src={s3}/>
+                            <span >{dev1Profession}</span><br/>
+                        </div>
+
+                        <p className={css.desP}>
+                            Year of experience<br/>
+                           <span className={css.yearOfExperience}>{content4.text.content}</span> 
+                        </p>  
+                    </div>
+                    
+
+                </div>
+
+
+                <div className={css.devCard2} >
+                    <img className={ classNames(css.roundEdge,css.profileImg)} src={content5Img}/>
+
+                    <div className={css.padding20}>
+                        <span className={classNames(css.subTitlesName) }>{dev1Name5}</span><br/>
+                        
+                        <div className={classNames(css.subTitlesProfession) }>
+                            <img className={css.icon} src={s3}/>
+                            <span >{dev1Profession5}</span><br/>
+                        </div>
+
+                        <p className={css.desP}>
+                            Year of experience<br/>
+                           <span className={css.yearOfExperience}>{content5.text.content}</span> 
+                        </p>  
+                    </div>
+                    
+
+                </div>
+
+                <div className={css.devCard2} >
+                    <img className={ classNames(css.roundEdge,css.profileImg)} src={content6Img}/>
+
+                    <div className={css.padding20}>
+                        <span className={classNames(css.subTitlesName) }>{dev1Name6}</span><br/>
+                        
+                        <div className={classNames(css.subTitlesProfession) }>
+                            <img className={css.icon} src={s3}/>
+                            <span >{dev1Profession6}</span><br/>
+                        </div>
+
+                        <p className={css.desP}>
+                            Year of experience<br/>
+                           <span className={css.yearOfExperience}>{content6.text.content}</span> 
+                        </p>  
+                    </div>
+                    
+
+                </div>
+           
+
+
+
+                        
+    </div>
 
     </>
   );

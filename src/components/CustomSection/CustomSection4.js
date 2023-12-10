@@ -16,26 +16,53 @@ const CustomSectionComponent4 = props =>{
   }
 
     return (
-        <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
-            <div className={css.containerMain}>
-                <div className={css.aboutContent}>
-                    <p>
-                        <span className={classNames(css.description,css.marginB50)}>{sectionName}</span>
-                    </p>
-                   
-                    <p>
-                        {description.content}<br/>
-                        <button className={css.roundBtn} onClick={hireTopTalent}>
-                            Hire top talents
-                        </button>
-                    </p>
-                </div>
 
-                <div className={css.calendarCon}>
-                    <Calendar/>
+        <>
+        
+            <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite+' '+ css.desktop}>
+                <div className={css.containerMain}>
+                    <div className={css.aboutContent}>
+                        <p>
+                            <span className={classNames(css.description,css.marginB50)}>{sectionName}</span>
+                        </p>
+                    
+                        <p>
+                            {description.content}<br/>
+                            <button className={css.roundBtn} onClick={hireTopTalent}>
+                                Hire top talents
+                            </button>
+                        </p>
+                    </div>
+
+                    <div className={css.calendarCon}>
+                        <Calendar/>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div className={css.mobile}>
+                     <div className={css.aboutContent}>
+                        <p>
+                            <span className={classNames(css.description,css.marginB50)}>{sectionName}</span>
+                        </p>
+                    
+                        <p>
+                            {description.content}<br/>
+                            <button className={css.roundBtn} onClick={hireTopTalent}>
+                                Hire top talents
+                            </button>
+                        </p>
+                    </div>
+
+                    <div className={css.calendarCon}>
+                        <Calendar/>
+                    </div>
+
+
+            </div>
+        
+        </>
+      
     );
 };
 

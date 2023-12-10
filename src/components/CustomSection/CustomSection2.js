@@ -14,7 +14,9 @@ const CustomSectionComponent2 = props =>{
 
   return (
    
-    <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
+    <>
+
+    <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite +' '+css.desktop}>
         <div className={css.containerMain}>
             
             <div className={css.col8 +" "+css.pad1 +" "+css.leftAlign}>
@@ -36,9 +38,27 @@ const CustomSectionComponent2 = props =>{
                    
            
         </div>
+
+       
         
 		
 	</div>
+    
+    <div className={css.mobilec2}>
+            <img className={css.imgFluid} src={w1}/>
+                   
+
+            <p>
+                    {sectionName} <br/>
+                    <span className={css.description}>{description.content}</span><br/>
+                    {content}
+            </p>
+
+        </div>
+    </>
+    
+
+    
 
    
   );
