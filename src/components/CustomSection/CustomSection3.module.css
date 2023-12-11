@@ -557,3 +557,42 @@ margin-top: 80px;
 
 
 }
+
+
+@media only screen and (max-width: 360px) {
+  .mobile{
+    display: block;
+    width: 95%;
+    padding: 40px;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  
+.sectionTitle{
+  font-size: 40px;
+  width: 100%;
+  
+}
+.devCard2{
+ 
+  width: 100%;
+    text-align: left;
+    position: relative;
+    top: 0px;
+    background-color: white;
+    right: 0px;
+
+    
+}
+
+.devCard2 .profileImg{
+  width: 100%;
+  margin-top: 0px;
+}
+
+
+
+}

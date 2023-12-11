@@ -901,3 +901,25 @@ hr{
 }
 
 
+
+@media only screen and (max-width: 360px) {
+  .mobile {
+    display: block;
+    width: 95%;
+    padding: 40px;
+}
+
+  .desktop{
+    display: none;
+  }
+
+  .imgFluid{
+    width: 100%;
+    height: auto;
+  }
+  .description {
+   
+    line-height: 43px;
+  }
+  
+}

@@ -227,7 +227,7 @@
   display: block;
 }
 
-.mobilec2{
+.mobile{
   display: none;
   position: relative;
   float: left;
@@ -238,7 +238,7 @@
 
 
 @media only screen and (max-width: 768px) {
-  .mobilec2{
+  .mobile{
     display: block;
     width: 100%;
   }
@@ -249,9 +249,9 @@
 
 
 @media only screen and (max-width: 412px) {
-  .mobilec2{
+  .mobile{
     display: block;
-    width: 80%;
+    width: 100%;
     padding: 40px;
   }
 

@@ -181,7 +181,7 @@ const TopbarDesktop = props => {
   const findSellers = (event)=>{
     event.preventDefault();
     
-    history.push("/s?pub_role=User")
+    history.push("/login")
     
   }
 
@@ -234,7 +234,7 @@ const TopbarDesktop = props => {
                     Apply as a freelancer
                   </button>
                 </div>
-                {loginLink}
+                
               </div>
               
               {newListLink}
