@@ -405,10 +405,10 @@ margin-top: 80px;
 }
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 412px) {
   .mobilec2{
     display: block;
-    width: 65%;
+    width: 100%;
     padding: 40px;
   }
 

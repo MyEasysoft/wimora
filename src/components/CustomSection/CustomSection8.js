@@ -30,92 +30,155 @@ const CustomSectionComponent8 = props =>{
     
 
   return (
-   
-    <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
 
-       
-        <div className={css.containerMain}>
+    <>
+        <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite+' '+ css.desktop}>
+            <div className={css.containerMain}>
 
-           <div className={css.imgDiv}>
-                 <img className={css.fullImg} src={content1Img}/>
-           </div>
-           
+            <div className={css.imgDiv}>
+                    <img className={css.fullImg} src={content1Img}/>
+            </div>
+            
 
-            <div>
-                <div className={classNames(css.col50,css.fontSmall)}>
+                <div>
+                    <div className={classNames(css.col50,css.fontSmall)}>
+                        
                     
-                
-                    <div>
-                        <h2 className={css.description}>
-                            {title.content}<br/>
-                        </h2>
-                    </div>
+                        <div>
+                            <h2 className={css.description}>
+                                {title.content}<br/>
+                            </h2>
+                        </div>
 
-                    <div className={css.row2}>
-                        <div className={css.row3}>
-                            <div >
-                                <img className={css.icon2} src={s3}/>
+                        <div className={css.row2}>
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content1Title}</span><br/>
+                                        <span>{content1Text}</span>
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <p className={css.fontSmall} >
-                                    <span className={css.subTitle2}>{content1Title}</span><br/>
-                                    <span>{content1Text}</span>
-                                </p>
+
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content2Title}</span><br/>
+                                        <span>{content2Text}</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <div className={css.row3}>
-                            <div >
-                                <img className={css.icon2} src={s3}/>
+                        
+                        <div className={css.row2}>
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content3Title}</span><br/>
+                                        <span>{content3Text}</span>
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <p className={css.fontSmall} >
-                                    <span className={css.subTitle2}>{content2Title}</span><br/>
-                                    <span>{content2Text}</span>
-                                </p>
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content4Title}</span><br/>
+                                        <span>{content4Text}</span>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
+                        </div>
                     
-                    <div className={css.row2}>
-                        <div className={css.row3}>
-                            <div >
-                                <img className={css.icon2} src={s3}/>
-                            </div>
-                            <div>
-                                <p className={css.fontSmall} >
-                                    <span className={css.subTitle2}>{content3Title}</span><br/>
-                                    <span>{content3Text}</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className={css.row3}>
-                            <div >
-                                <img className={css.icon2} src={s3}/>
-                            </div>
-                            <div>
-                                <p className={css.fontSmall} >
-                                    <span className={css.subTitle2}>{content4Title}</span><br/>
-                                    <span>{content4Text}</span>
-                                </p>
-                            </div>
-                        </div>
-
                     </div>
-                
                 </div>
             </div>
-           
 
-            
-
-            
-
-            
         </div>
-		
-	</div>
+
+        <div className={css.mobile}>
+        
+            <img className={css.fullImg} src={content1Img}/>
+
+            <div className={classNames(css.col50,css.fontSmall)}>
+                        
+                    
+                        <div>
+                            <h2 className={css.description}>
+                                {title.content}<br/>
+                            </h2>
+                        </div>
+
+                        
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content1Title}</span><br/>
+                                        <span>{content1Text}</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content2Title}</span><br/>
+                                        <span>{content2Text}</span>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content3Title}</span><br/>
+                                        <span>{content3Text}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={css.row3}>
+                                <div >
+                                    <img className={css.icon2} src={s3}/>
+                                </div>
+                                <div>
+                                    <p className={css.fontSmall} >
+                                        <span className={css.subTitle2}>{content4Title}</span><br/>
+                                        <span>{content4Text}</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                       
+                    
+                    </div>
+
+        </div>
+    </>
+   
+    
 
   );
 };

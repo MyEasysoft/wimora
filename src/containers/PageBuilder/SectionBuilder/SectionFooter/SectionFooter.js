@@ -69,8 +69,8 @@ const SectionFooter = props => {
       appearance={appearance}
       options={fieldOptions}
     >
-      <div>
-        <div className={css.footerMain}>
+        <div className={classNames(css.desktop)}>
+        <div className={classNames(css.footerMain)}>
             <div className={classNames(css.content, getContentCss(numberOfColumns))}>
               <div>
                 <LinkedLogo rootClassName={css.logoLink} logoClassName={css.logoImage} />
@@ -105,6 +105,29 @@ const SectionFooter = props => {
         
        
       </div>
+      <div className={classNames(css.mobile)}>
+              <div>
+                <LinkedLogo rootClassName={css.logoLink} logoClassName={css.logoImage} />
+              </div>
+
+              <div className={classNames( getGridCss(numberOfColumns))}>
+                <BlockBuilder blocks={blocks} options={options} />
+                
+              </div>
+
+              <div>
+                {showSocialMediaLinks ? (
+                      <div className={css.icons}>
+                        <span>Follow Us</span><br/>
+                        <BlockBuilder blocks={linksWithBlockId} options={options} />
+                      
+                      </div>
+                    ) : null}
+
+                  <Field data={copyright} className={css.copyright} />
+              </div>
+      </div>
+      
     </SectionContainer>
   );
 };

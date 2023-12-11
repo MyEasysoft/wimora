@@ -6,7 +6,6 @@ import classNames from 'classnames';
 const CustomSectionComponent7 = props =>{
 
     const {sectionName,description,blocks,title} = props;
-
     const content1 = blocks[0];
     const content1Title = content1.title.content;
     const content1Text = content1.text.content;
@@ -32,82 +31,118 @@ const CustomSectionComponent7 = props =>{
     const content4Years = contentArrayText[0];
     const content4Projects = contentArrayText[1];
 
-    
 
   return (
-   
-    <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
 
-       
-        <div className={css.containerMain}>
+    <>
+        <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite+' '+ css.desktop}>
 
-            <div className={classNames(css.col50,css.fontSmall)}>
-                
-               
-                <div>
-                    <h2 className={css.description}>
-                        {title.content}<br/>
-                    </h2>
-                </div>
+            <div className={css.containerMain}>
 
-                <div className={css.row3}>
-                    <div >
-                        <img className={css.icon2} src={s3}/>
-                    </div>
-                    <div>
-                        <p className={css.fontSmall} >
-                            <span className={css.subTitle2}>{content1Title}</span><br/>
-                            <span>{content1Text}</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div className={css.row3}>
-                    <div >
-                        <img className={css.icon2} src={s3}/>
-                    </div>
-                    <div>
-                        <p className={css.fontSmall} >
-                            <span className={css.subTitle2}>{content2Title}</span><br/>
-                            <span>{content2Text}</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div className={css.row3}>
-                    <div >
-                        <img className={css.icon2} src={s3}/>
-                    </div>
-                    <div>
-                        <p className={css.fontSmall} >
-                            <span className={css.subTitle2}>{content3Title}</span><br/>
-                            <span>{content3Text}</span>
-                        </p>
-                    </div>
-                </div>
+                <div className={classNames(css.col50,css.fontSmall)}>
                     
-               
-               
-              
-               
+                    <div>
+                        <h2 className={css.description}>
+                            {title.content}<br/>
+                        </h2>
+                    </div>
+
+                    <div className={css.row3}>
+                        <div >
+                            <img className={css.icon2} src={s3}/>
+                        </div>
+                        <div>
+                            <p className={css.fontSmall} >
+                                <span className={css.subTitle2}>{content1Title}</span><br/>
+                                <span>{content1Text}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={css.row3}>
+                        <div >
+                            <img className={css.icon2} src={s3}/>
+                        </div>
+                        <div>
+                            <p className={css.fontSmall} >
+                                <span className={css.subTitle2}>{content2Title}</span><br/>
+                                <span>{content2Text}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={css.row3}>
+                        <div >
+                            <img className={css.icon2} src={s3}/>
+                        </div>
+                        <div>
+                            <p className={css.fontSmall} >
+                                <span className={css.subTitle2}>{content3Title}</span><br/>
+                                <span>{content3Text}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={css.featureDev} >
+                        <img className={css.featuredPhoto} src={content4Img}/>
+
+                        <div className={css.padding20}>
+                            <div className={css.row2}>
+                                <span className={css.subTitlesName}>{dev1Name}</span><br/>
+                                
+                                <div className={css.subTitlesProfession }>
+                                    <img className={css.icon} src={s3}/>
+                                    <span >{dev1Profession}</span><br/>
+                                </div>
+                            </div>
+                            
+                            <div className={css.row2}>
+                                <p className={css.desP}>
+                                    Year of experience<br/>
+                                    <span className={css.yearOfExperience}>{content4Years}</span> 
+                                </p> 
+
+                                <p className={css.desP}>
+                                    Number of realized Projects<br/>
+                                    <span className={css.yearOfExperience}>{content4Projects}</span> 
+                                </p> 
+
+                            </div>
+                            
+
+                            <div>
+                                <button className={css.profBtn}>Adobe Illustrator</button>
+                                <button className={css.profBtn}>Sketch</button>
+                                <button className={css.profBtn}>Figma</button>
+                                <button className={css.profBtn}>JavaScript</button>
+                                <button className={css.profBtn}>PHP</button>
+                                <button className={css.profBtn}>Wordpress</button>
+                                <button className={css.profBtn}>React</button>
+                            </div>
+                        
+                        </div>
+
+                    </div>
             </div>
 
-            
+        </div>
 
-            <div className={css.featureDev} >
-                    <img className={css.featuredPhoto} src={content4Img}/>
 
-                    <div className={css.padding20}>
-                        <div className={css.row2}>
+        <div className={css.mobile}>
+
+                    <div className={css.featureDev} >
+                        <img className={css.featuredPhoto} src={content4Img}/>
+
+                        <div className={css.padding20}>
+                            
                             <span className={css.subTitlesName}>{dev1Name}</span><br/>
                             
                             <div className={css.subTitlesProfession }>
                                 <img className={css.icon} src={s3}/>
                                 <span >{dev1Profession}</span><br/>
                             </div>
-                        </div>
                         
-                        <div className={css.row2}>
                             <p className={css.desP}>
                                 Year of experience<br/>
                                 <span className={css.yearOfExperience}>{content4Years}</span> 
@@ -118,27 +153,72 @@ const CustomSectionComponent7 = props =>{
                                 <span className={css.yearOfExperience}>{content4Projects}</span> 
                             </p> 
 
-                        </div>
-                         
-
-                        <div>
-                            <button className={css.profBtn}>Adobe Illustrator</button>
-                            <button className={css.profBtn}>Sketch</button>
-                            <button className={css.profBtn}>Figma</button>
-                            <button className={css.profBtn}>JavaScript</button>
-                            <button className={css.profBtn}>PHP</button>
-                            <button className={css.profBtn}>Wordpress</button>
-                            <button className={css.profBtn}>React</button>
-                        </div>
+                            <div>
+                                <button className={css.profBtn}>Adobe Illustrator</button>
+                                <button className={css.profBtn}>Sketch</button>
+                                <button className={css.profBtn}>Figma</button>
+                                <button className={css.profBtn}>JavaScript</button>
+                                <button className={css.profBtn}>PHP</button>
+                                <button className={css.profBtn}>Wordpress</button>
+                                <button className={css.profBtn}>React</button>
+                            </div>
                         
+                        </div>
 
-                       
                     </div>
 
+
+                <div className={classNames(css.col50,css.fontSmall)}>
+                    
+                    <div>
+                        <h2 className={css.description}>
+                            {title.content}<br/>
+                        </h2>
+                    </div>
+
+                    <div className={css.row3}>
+                        <div >
+                            <img className={css.icon2} src={s3}/>
+                        </div>
+                        <div>
+                            <p className={css.fontSmall} >
+                                <span className={css.subTitle2}>{content1Title}</span><br/>
+                                <span>{content1Text}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={css.row3}>
+                        <div >
+                            <img className={css.icon2} src={s3}/>
+                        </div>
+                        <div>
+                            <p className={css.fontSmall} >
+                                <span className={css.subTitle2}>{content2Title}</span><br/>
+                                <span>{content2Text}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={css.row3}>
+                        <div >
+                            <img className={css.icon2} src={s3}/>
+                        </div>
+                        <div>
+                            <p className={css.fontSmall} >
+                                <span className={css.subTitle2}>{content3Title}</span><br/>
+                                <span>{content3Text}</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+
         </div>
-		
-	</div>
+    
+    </>
+   
+    
 
   );
 };

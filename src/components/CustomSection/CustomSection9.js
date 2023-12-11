@@ -47,124 +47,233 @@ const CustomSectionComponent9 = props =>{
 
   return (
    
-    <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
-
-       
-        <div className={css.containerMain}>
-
-           <div className={css.col}>
+    <>
                 
-                <img className={css.icon5} src={s1}/>
-                <div>
-                            <h2 className={css.description}>
-                                {title.content}<br/>
-                            </h2>
-                </div>
-           </div>
-                <div className={classNames(css.col50,css.fontSmall)}>
-                   
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content1Title}<br/>
-                                    <span>{content1Text}</span>
-                                </p>
-                            </div>
+        <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite +' '+ css.desktop}>
 
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content2Title}<br/>
-                                    <span>{content2Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-                    
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content3Title}<br/>
-                                    <span>{content3Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content4Title}<br/>
-                                    <span>{content4Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content1Title}<br/>
-                                    <span>{content1Text}</span>
-                                </p>
-                            </div>
-
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content2Title}<br/>
-                                    <span>{content2Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-                    
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content3Title}<br/>
-                                    <span>{content3Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content4Title}<br/>
-                                    <span>{content4Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-                        <div className={css.row4}>
-                            <div>
-                                <p >
-                                    {content4Title}<br/>
-                                    <span>{content4Text}</span>
-                                </p>
-                            </div>
-                            <FontAwesomeIcon icon={faPlus}/>
-                        </div>
-
-
-                   
                 
-                </div>
-            
+            <div className={css.containerMain}>
 
-            
+            <div className={css.col}>
+                    
+                    <img className={css.icon5} src={s1}/>
+                    <div>
+                                <h2 className={css.description}>
+                                    {title.content}<br/>
+                                </h2>
+                    </div>
+            </div>
+            <div className={classNames(css.col50,css.fontSmall)}>
+                    
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content1Title}<br/>
+                                        <span>{content1Text}</span>
+                                    </p>
+                                </div>
+
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content2Title}<br/>
+                                        <span>{content2Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+                        
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content3Title}<br/>
+                                        <span>{content3Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content4Title}<br/>
+                                        <span>{content4Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content1Title}<br/>
+                                        <span>{content1Text}</span>
+                                    </p>
+                                </div>
+
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content2Title}<br/>
+                                        <span>{content2Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+                        
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content3Title}<br/>
+                                        <span>{content3Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content4Title}<br/>
+                                        <span>{content4Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+                            <div className={css.row4}>
+                                <div>
+                                    <p >
+                                        {content4Title}<br/>
+                                        <span>{content4Text}</span>
+                                    </p>
+                                </div>
+                                <FontAwesomeIcon icon={faPlus}/>
+                            </div>
+
+            </div>
+                
+
+                
+            </div>
+
         </div>
-		
-	</div>
+
+        <div className={css.mobile}>
+            <div className={css.col}>
+                    
+                    <img className={css.icon5} src={s1}/>
+                    <div>
+                                <h2 className={css.description}>
+                                    {title.content}<br/>
+                                </h2>
+                    </div>
+            </div>
+            <div className={classNames(css.col50,css.fontSmall)}>
+                    
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content1Title}<br/>
+                                <span>{content1Text}</span>
+                            </p>
+                        </div>
+
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content2Title}<br/>
+                                <span>{content2Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+                
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content3Title}<br/>
+                                <span>{content3Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content4Title}<br/>
+                                <span>{content4Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content1Title}<br/>
+                                <span>{content1Text}</span>
+                            </p>
+                        </div>
+
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content2Title}<br/>
+                                <span>{content2Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+                
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content3Title}<br/>
+                                <span>{content3Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content4Title}<br/>
+                                <span>{content4Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+                    <div className={css.row4}>
+                        <div>
+                            <p >
+                                {content4Title}<br/>
+                                <span>{content4Text}</span>
+                            </p>
+                        </div>
+                        <FontAwesomeIcon icon={faPlus}/>
+                    </div>
+
+            </div>
+        </div>
+    
+    </>
+   
 
   );
 };

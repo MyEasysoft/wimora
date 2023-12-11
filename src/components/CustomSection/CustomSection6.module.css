@@ -611,10 +611,10 @@ hr{
 }
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 412px) {
   .mobile{
     display: block;
-    width: 70%;
+    width: 100%;
     padding: 40px;
     background-color: blueviolet;
   }
@@ -626,12 +626,12 @@ hr{
   
 .sectionTitle{
   font-size: 40px;
-  width: 90%;
+  width: 80%;
   
 }
 .devCard{
  
-  width: 80%;
+  width: 100%;
     text-align: left;
     position: relative;
     top: 0px;
@@ -653,7 +653,5 @@ hr{
   width: 100%;
   padding: 0px 70px 70px 0px;
 }
-
-
 
 }

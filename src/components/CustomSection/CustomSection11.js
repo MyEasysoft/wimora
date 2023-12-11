@@ -28,28 +28,42 @@ const CustomSectionComponent11 = props =>{
     });
 
   return (
-   
-    <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite}>
 
-       
-        <div className={css.containerMain}>
+    <>
+        
+        <div className={css.container +' '+ css.textCenter +' '+ css.sectionBgWhite +' '+ css.desktop}>
+            <div className={css.containerMain}>
 
-           <div className={css.col}>
-              
-                <div className={css.textLeft}>
-                            <h2 className={classNames(css.description,css.marginB20)  }>
-                                {title.content}<br/>
-                            </h2>
-                </div>
-           </div>
-            <div className={classNames(css.col50,css.fontSmall)}>
+            <div className={css.col}>
                 
-                {list}
-                    
+                    <div className={css.textLeft}>
+                                <h2 className={classNames(css.description,css.marginB20)  }>
+                                    {title.content}<br/>
+                                </h2>
+                    </div>
             </div>
+                <div className={classNames(css.col50,css.fontSmall)}>
+                    
+                    {list}
+                        
+                </div>
+            </div>
+
         </div>
-		
-	</div>
+
+        <div className={css.mobile}>
+                <h2 className={classNames(css.description,css.marginB20)  }>
+                    {title.content}<br/>
+                </h2>
+
+                  {list}
+                        
+               
+        </div>
+    
+    </>
+   
+   
 
   );
 };

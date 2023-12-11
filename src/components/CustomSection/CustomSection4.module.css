@@ -123,12 +123,18 @@ h1,h2,h3,h4{
     margin-bottom: 40px;
 }
 .magB5{
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
+
+
 
 .magT6{
 margin-top: 60px;
 }
+
+.magT3{
+  margin-top: 60px;
+  }
 .magT8{
 margin-top: 80px;
 }
@@ -553,10 +559,10 @@ margin-top: 80px;
 }
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 412px) {
   .mobile{
     display: block;
-    width: 70%;
+    width: 100%;
     padding: 40px;
   }
 
@@ -588,7 +594,7 @@ margin-top: 80px;
 }
 
 .aboutContent{
-  padding: 0px 70px 70px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 

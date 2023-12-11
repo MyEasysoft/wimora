@@ -54,7 +54,7 @@ const CustomSectionComponent4 = props =>{
                         </p>
                     </div>
 
-                    <div className={css.calendarCon}>
+                    <div className={classNames(css.calendarCon,css.magT3)}>
                         <Calendar/>
                     </div>
 

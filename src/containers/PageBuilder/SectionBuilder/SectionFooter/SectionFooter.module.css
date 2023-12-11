@@ -222,3 +222,50 @@
   list-style-type: none;
 }
 
+
+.desktop{
+  display: block;
+}
+
+.mobilec2{
+  display: none;
+  position: relative;
+  float: left;
+  padding: 50px;
+  width: 60%;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .mobilec2{
+    display: block;
+    width: 100%;
+  }
+  .desktop{
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 412px) {
+  .mobilec2{
+    display: block;
+    width: 80%;
+    padding: 40px;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  .icons{
+    margin-left: 10%;
+  }
+
+  .copyright{
+  margin-top: 24px;
+  margin-left: 10%;
+  color: white;
+  }
+}
