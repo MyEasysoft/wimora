@@ -809,6 +809,36 @@ hr{
   margin-bottom: 10px;
 }
 
+.toptalent{
+  display: block;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  padding: 4%;
+  font-size: 24px;
+ font-weight: bold;
+  
+}
+
+
+.toptalent button{
+  font-size: 16px;
+  border-radius: 30px;
+  padding: 20px 50px;
+  margin-left: 20px;
+  border-style: none;
+  background-color: var(--marketplaceColor);
+  font-weight: normal;
+  color: white;
+  &:hover{
+    border-style: solid;
+    border-width: thick;
+    background-color: white;
+    color:var(--marketplaceColor);
+    padding: 15px 45px;
+  }
+}
+
 
 
 @media only screen and (max-width: 768px) {

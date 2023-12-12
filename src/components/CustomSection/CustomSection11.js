@@ -5,8 +5,11 @@ import s1 from '../../assets/icons/icon6.PNG';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CustomSectionComponent11 = props =>{
+
+    const history = useHistory();
 
     const {sectionName,description,blocks,title} = props;
 
@@ -26,6 +29,14 @@ const CustomSectionComponent11 = props =>{
                 
         ) 
     });
+
+    
+  const findFreelancers = (event)=>{
+    event.preventDefault();
+    
+    history.push("/s?pub_role=Freelancers")
+    
+  }
 
   return (
 
@@ -47,6 +58,13 @@ const CustomSectionComponent11 = props =>{
                     {list}
                         
                 </div>
+
+                
+            </div>
+
+            <div className={css.toptalent}>
+                    Top talent is in high demand.
+                    <button onClick={findFreelancers}>Start Hiring</button>
             </div>
 
         </div>
@@ -57,6 +75,11 @@ const CustomSectionComponent11 = props =>{
                 </h2>
 
                   {list}
+
+                  <div className={css.toptalent}>
+                    Top talent is in high demand.
+                    <button onClick={findFreelancers}>Start Hiring</button>
+                </div>
                         
                
         </div>
