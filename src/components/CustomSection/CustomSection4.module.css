@@ -342,7 +342,7 @@ margin-top: 80px;
 }
 
 .aboutContent p{
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .noOfFreelancers{
@@ -373,7 +373,7 @@ margin-top: 80px;
 }
 
 .desP{
-    font-size: 12px;
+    font-size: 16px;
 }
 .contentCol1{
     display: flex;
@@ -467,7 +467,7 @@ margin-top: 80px;
     font-weight: 600;
 }
 .subTitlesProfession{
-    font-size: 12px;
+    font-size: 16px;
     
     display: flex;
     flex-direction: row;

@@ -345,7 +345,7 @@ margin-top: 80px;
 }
 
 .aboutContent p{
-  font-size: 10px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -377,7 +377,7 @@ margin-top: 80px;
 }
 
 .desP{
-    font-size: 12px;
+    font-size: 16px;
 }
 .contentCol1{
     display: flex;
@@ -468,7 +468,7 @@ margin-top: 80px;
     font-weight: 600;
 }
 .subTitlesProfession{
-    font-size: 12px;
+    font-size: 16px;
     
     display: flex;
     flex-direction: row;
@@ -481,7 +481,7 @@ margin-top: 80px;
 
 .yearOfExperience{
     color:blueviolet;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -587,7 +587,7 @@ hr{
   font-weight: 600;
 }
 .subTitlesProfession{
-  font-size: 12px;
+  font-size: 16px;
   
   display: flex;
   flex-direction: row;
@@ -666,7 +666,7 @@ hr{
 }
 .col50 p{
     margin: 0px;
-    font-size: 12px;
+    font-size: 16px;
 }
 .col50 h2{
   text-align: left;
@@ -690,7 +690,7 @@ hr{
 }
 
 .fontSmall{
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .row3{
@@ -741,7 +741,7 @@ hr{
   padding: 3px 10px;
   border-radius: 20px;
   border-style: none;
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 600;
   margin-top: 10px;
   margin-right: 10px;

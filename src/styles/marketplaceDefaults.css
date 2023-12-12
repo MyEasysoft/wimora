@@ -65,6 +65,7 @@
   --fontWeightBold: 700;
   --fontWeightHeavy: 800;
   --fontWeightBlack: 900;
+  --fontSizeP1:16px;
 
   --fontWeightHighlightEmail: var(--fontWeightBold);
 
@@ -314,7 +315,7 @@ h5 {
 
 h6 {
   font-weight: var(--fontWeightBold);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
   /* x * 6px */
@@ -677,7 +678,7 @@ textarea {
 
 .h6 {
   font-weight: var(--fontWeightBold);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
   /* x * 6px */
@@ -762,7 +763,7 @@ textarea {
 }
 
 .textSmall {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 18px;
   font-weight: var(--fontWeightMedium);
   letter-spacing: -0.1px;
@@ -813,12 +814,12 @@ textarea {
 
 .marketplaceMessageDateFontStyles {
   font-weight: var(--fontWeightRegular);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 18px;
 
   @media (--viewportMedium) {
     font-weight: var(--fontWeightMedium);
-    font-size: 12px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -1424,7 +1425,7 @@ textarea {
 .marketplaceModalCloseText {
   /* Font */
   font-weight: var(--fontWeightBold);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 18px;
   text-transform: uppercase;
 

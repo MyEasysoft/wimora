@@ -51,7 +51,7 @@
 }
 .initialsSmall {
   /* Exception and unique font-size for the small avatar */
-  font-size: 11px;
+  font-size: 16px;
   font-weight: var(--fontWeightBold);
 }
 

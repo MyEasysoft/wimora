@@ -16,7 +16,7 @@ h1,h2,h3,h4{
    flex-direction: row;
    background: white;
    justify-content: space-between;
-   height: 60px;
+   height: 90px;
  }
  .nav-icon{
  
@@ -38,7 +38,7 @@ h1,h2,h3,h4{
    text-decoration: none;
    color: rgb(40, 40, 40);
    padding: 25px 10px 25px 10px;
-   font-size: 12px;
+   font-size: 16px;
    
 
  }

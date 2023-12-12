@@ -28,7 +28,7 @@
   max-width: 188px;
   object-fit: contain;
   object-position: center;
-  margin-top: 5px;
+  margin-top: 20px;
   @media (--viewportMedium) {
    
   }

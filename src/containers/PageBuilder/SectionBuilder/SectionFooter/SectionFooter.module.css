@@ -33,7 +33,7 @@
 }
 
 .content a{
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .grid {
@@ -83,7 +83,7 @@
 
 .copyright {
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 16px;
   color: var(--colorGrey500);
   margin-top: 24px;
