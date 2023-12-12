@@ -19,12 +19,9 @@
 .sectionContent {
   padding: 32px 0;
   position: relative;
-
-  @media (--viewportMedium) {
-    padding: 64px 0;
-    height: fit-content;
-    width: fit-content;
-  }
+  width: 70%;
+  margin: 0px 15%;
+  
 }
 
 .backgroundImageWrapper {

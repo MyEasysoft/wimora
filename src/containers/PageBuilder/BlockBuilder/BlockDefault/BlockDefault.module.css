@@ -16,9 +16,11 @@
   width: 90%;
   margin-top: 20px;
   text-align: left;
-  padding: 30px;
-  margin-left: 30%;
-
+  padding:  150px 0px;
+  padding: 150px 35% 150px 0px;
+  position: relative;
+  left: -20%;
+  
   &:first-child {
     margin-top: 0;
   }
@@ -68,15 +70,39 @@
 
 
 @media only screen and (max-width: 768px) {
-  
+  .text{
+    left: -100px;
+    padding: 50px 0px;
+  }
+  .text h1{
+    font-size: 30px;
+  }
 }
 
+
+@media only screen and (max-width: 430px) {
+
+  .text{
+    left: 0px;
+    padding: 0px;
+  }
+  .text h1{
+    font-size: 30px;
+  }
+  
+
+}
 
 @media only screen and (max-width: 412px) {
 
   .text{
-    margin-left: 0px;
+    left: 0px;
+    padding: 0px;
   }
+  .text h1{
+    font-size: 30px;
+  }
+  
 
 }
 
@@ -84,8 +110,20 @@
 @media only screen and (max-width: 360px) {
 
 .text{
-  margin-left: 0px;
+  left: 0px;
+  padding: 0px;
+  
 }
+
+.text h1{
+  font-size: 30px;
+}
+
+
+
+
+
+
 
 }
 

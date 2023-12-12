@@ -412,20 +412,18 @@ margin-top: 80px;
 .devCard{
     box-shadow: 1px 1px 20px 1px rgb(224, 224, 224);
     border-radius: 20px;
-    width: 15%;
     text-align: left;
-    position: absolute;
-    right: 200px;
-    top:150px;
+    position: relative;
+    right: 180px;
+    top:-250px;
     background-color: white;
 }
 
 .devCard2{
     box-shadow: 1px 1px 20px 1px rgb(224, 224, 224);
     border-radius: 20px;
-    width: 15%;
     text-align: left;
-    position: absolute;
+    position: relative;
     right: 400px;
     top:0px;
     background-color: white;
@@ -434,11 +432,10 @@ margin-top: 80px;
 .devCard3{
     box-shadow: 1px 1px 20px 1px rgb(224, 224, 224);
     border-radius: 20px;
-    width: 15%;
     text-align: left;
-    position: absolute;
+    position: relative;
     right: 450px;
-    top:430px;
+    top:-410px;
     background-color: white;
 }
 
@@ -483,6 +480,7 @@ margin-top: 80px;
 
 .desktop{
   display: block;
+  padding: 50px 8%;
 }
 
 .mobile{
@@ -498,6 +496,15 @@ margin-top: 80px;
   height: auto;
   margin-top: 30px;
   margin-bottom: 10px;
+}
+
+.developers{
+  width: 255px;
+  height: fit-content;
+  position: absolute;
+  right: 5%;
+  top: 0%;
+  padding: 50px 0px;
 }
 
 
@@ -516,7 +523,16 @@ margin-top: 80px;
     position: relative;
     top: 0px;
     background-color: white;
+    margin: 0 auto;
+    right: 0px;
   }
+
+  
+.devCard2 .profileImg{
+  width: 100%;
+  margin-top: 0px;
+}
+
 }
 
 

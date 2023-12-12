@@ -761,6 +761,51 @@ hr{
     top: 0px;
     background-color: white;
   }
+
+  
+.devCard .profileImg{
+  width: 100%;
+  margin-top: 0px;
+  border-radius: 50%;
+}
+
+.aboutContent{
+  position: relative;
+  float: left;
+  width: 100%;
+  padding: 0px 70px 70px 0px;
+}
+
+.featureDev{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(241, 227, 255);
+  border-radius: 20px;
+  text-align: left;
+  width: 100%;
+  padding: 50px 10px;
+  gap: 20px 0px;
+ }
+
+ 
+.featureDev .featuredPhoto{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+ }
+
+ 
+.mobile img{
+  margin-top: 0px;
+}
+
+.fontSmall {
+  margin-top: 0px;
+}
+
+
+
 }
 
 

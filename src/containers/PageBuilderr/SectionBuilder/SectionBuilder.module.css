@@ -137,12 +137,11 @@
 }
 
 .ctaButton {
-  composes: align;
   display: inline-block;
-  padding: 8px 20px;
-  font-size: 15px;
-  background-color: var(--marketplaceColor);
-  border-radius: 4px;
+  padding: 12px 40px;
+  font-size: 16px;
+  background-color: #8F29FB;
+  border-radius: 20px;
   color: white;
   text-decoration: none;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);

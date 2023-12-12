@@ -70,39 +70,39 @@ const SectionFooter = props => {
       options={fieldOptions}
     >
         <div className={classNames(css.desktop)}>
-        <div className={classNames(css.footerMain)}>
-            <div className={classNames(css.content, getContentCss(numberOfColumns))}>
-              <div>
-                <LinkedLogo rootClassName={css.logoLink} logoClassName={css.logoImage} />
-              </div>
+          <div className={classNames(css.footerMain)}>
+              <div className={classNames(css.content, getContentCss(numberOfColumns))}>
+                <div>
+                  <LinkedLogo rootClassName={css.logoLink} logoClassName={css.logoImage} />
+                </div>
+                
               
-            
-              
-              <div className={classNames(css.grid, getGridCss(numberOfColumns))}>
-                <BlockBuilder blocks={blocks} options={options} />
+                
+                <div className={classNames(css.grid, getGridCss(numberOfColumns))}>
+                  <BlockBuilder blocks={blocks} options={options} />
+                  
+                </div>
                 
               </div>
+
+              <div>
+                <hr/>
+                <div className={css.footerSocial}>
+                  {showSocialMediaLinks ? (
+                        <div className={css.icons}>
+                          <span className={css.marginR20}>Follow Us</span>
+                          <BlockBuilder blocks={linksWithBlockId} options={options} />
+                        
+                        </div>
+                      ) : null}
+
+                    <Field data={copyright} className={css.copyright} />
+                </div>
               
-            </div>
-
-            <div>
-              <hr/>
-              <div className={css.footerSocial}>
-                {showSocialMediaLinks ? (
-                      <div className={css.icons}>
-                        <span className={css.marginR20}>Follow Us</span>
-                        <BlockBuilder blocks={linksWithBlockId} options={options} />
-                      
-                      </div>
-                    ) : null}
-
-                  <Field data={copyright} className={css.copyright} />
+                
               </div>
-            
-              
-            </div>
-        </div>
-        
+          </div>
+          
        
       </div>
       <div className={classNames(css.mobile)}>

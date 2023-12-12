@@ -2,6 +2,7 @@ import React from 'react';
 import css from './CustomSection3.module.css';
 import s3 from '../../assets/icons/icon5.PNG';
 import classNames from 'classnames';
+import ScreenResolutionDetector from '../../containers/ScreenDetector/ScreenResolutionDetector';
 
 const CustomSectionComponent3 = props =>{
 
@@ -36,10 +37,13 @@ const CustomSectionComponent3 = props =>{
     const contentArray6 = content6.title.content.split("&");
     const dev1Name6 = contentArray6[0];
     const dev1Profession6 = contentArray6[1];
+
+   
     
 
   return (
     <>
+
     <div className={css.container +' '+ css.textCenter+' '+ css.sectionBgWhite+' '+ css.desktop}>
         <div className={css.containerMain}>
 

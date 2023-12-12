@@ -51,6 +51,7 @@ import routeConfiguration from './routing/routeConfiguration';
 // App it self
 import { ClientApp, renderApp } from './app';
 
+
 const render = (store, shouldHydrate) => {
   // If the server already loaded the auth information, render the app
   // immediately. Otherwise wait for the flag to be loaded and render
