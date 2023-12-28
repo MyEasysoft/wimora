@@ -265,18 +265,18 @@ export const listingTypes = [
   //   },
   //   stockType: 'oneItems',
   // },
-  // {
-  //   listingType: 'inquiry',
-  //   label: 'Free Shoppable Video',
-  //   transactionType: {
-  //     process: 'default-inquiry',
-  //     alias: 'default-inquiry/release-1',
-  //     unitType: 'inquiry',
-  //   },
-  //   defaultListingFields: {
-  //     price: true,
-  //   },
-  // },
+  {
+    listingType: 'inquiry',
+    label: 'Normal Booking',
+    transactionType: {
+      process: 'default-inquiry',
+      alias: 'default-inquiry/release-1',
+      unitType: 'inquiry',
+    },
+    defaultListingFields: {
+      price: true,
+    },
+  },
 ];
 
 // SearchPage can enforce listing query to only those listings with valid listingType

@@ -176,6 +176,15 @@
  * NOTE: components use CSS Modules for styles.
  */
 
+ 
+ @font-face {
+  font-family: "HurmeGeometricSans1";
+  src: local("HurmeGeometricSans1"),
+    url("../../public/fonts/HurmeGeometricSans/HurmeGeometricSans1.otf") format("truetype");
+  
+  }
+  
+
 body {
   font-family: 'HurmeGeometricSans1';
 

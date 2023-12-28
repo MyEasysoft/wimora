@@ -154,9 +154,9 @@ const TopbarDesktop = props => {
   const location = useLocation();
   const path = location.pathname;
 
-  const listingText = role === "User"?"TopbarDesktop.createJob":"TopbarDesktop.createGig";
+  const listingText = "TopbarDesktop.createJob";
 
-  const newListLink = (path==="/" || path==="/login" || path==="/account/seller-instruction" || path==="/signup" || path==="/s")?"":
+  const newListLink = (path==="/" || path==="/login" || path==="/account/seller-instruction" || path==="/signup" || path==="/s" || role === "Freelancer")?"":
     <NamedLink className={css.createListingLink} name="NewListingPage">
       <span className={css.createListing}>
         <FormattedMessage id={listingText} />
@@ -203,21 +203,7 @@ const TopbarDesktop = props => {
             />
               
               <div className={css.findBtnContainer}>
-                <a onClick={findSellers}>
-                 About Us
-                </a>
-
-                <a onClick={findSellers}>
-                  Services
-                </a>
-
-                <a onClick={findSellers}>
-                  Porfolio
-                </a>
-
-                <a onClick={findSellers}>
-                  Contact Us
-                </a>
+               
               </div>
              
             </div>
@@ -233,6 +219,7 @@ const TopbarDesktop = props => {
                   <button onClick={findSellers}>
                     Apply as a freelancer
                   </button>
+                  {loginLink}
                 </div>
                 
               </div>

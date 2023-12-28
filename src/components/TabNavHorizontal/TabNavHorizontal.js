@@ -90,8 +90,8 @@ const TabNavHorizontal = props => {
   };
 
   const PaymentSettingPage = {
-    name: 'PaymentSettingPage',
-    match: { url: '/' },
+    name: 'PaymentMethodsPage',
+    match: { url: 'account/payment-methods' },
   };
 
   const[show,setShow] = useState(false);

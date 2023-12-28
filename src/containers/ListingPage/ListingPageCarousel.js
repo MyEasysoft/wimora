@@ -122,6 +122,7 @@ export const ListingPageComponent = props => {
   } = props;
 
   useEffect(()=>{
+    console.log("---------------------------------------------------------------");
     if(currentUser?.attributes?.profile?.protectedData?.role === "Seller"){
       setShowPaypalBtnCom(true);
     }
